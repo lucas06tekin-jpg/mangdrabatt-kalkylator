@@ -93,12 +93,18 @@ mellan varje anrop och en tydlig kontakt-UA).
 
 ### Referensdomar som hittades (kategori A)
 
-6 av upp till 10 eftersökta referensdomar hittades och kunde verifieras oberoende:
-NJA 2008 s. 359, NJA 2016 s. 1143, RH 2015:26, RH 2006:49, NJA 2019 s. 951 och
-NJA 2025:67. De två sistnämnda är gränsdragningsmål (ringa stöld/stöld-tröskeln) snarare
-än exempel på flerfaldighetsbedömning, vilket framgår tydligt i appens UI. Ytterligare
-fall nämndes i sekundärkällor (en Lawline-artikel) men kunde inte verifieras oberoende
-och togs medvetet inte med – se kommentarerna i `seedSources.js`.
+8 av upp till 10 eftersökta referensdomar hittades och kunde verifieras oberoende:
+NJA 2008 s. 359, NJA 2016 s. 1143, RH 2015:26, RH 2006:49, NJA 2019 s. 951,
+NJA 2025:67, RH 2021:17 och NJA 2024:2. Fyra av dem (NJA 2019 s. 951, NJA 2025:67,
+RH 2021:17 och NJA 2024:2) är gränsdragningsmål eller enstaka brott snarare än exempel
+på flerfaldighetsbedömning, vilket framgår tydligt i appens UI. RH 2021:17 är trots det
+medvetet med eftersom det är det enda verifierbara avgörandet om inbrottsstöld. En
+riktad sökning efter (a) ett flerfaldighetsavgörande om ringa stöld och (b) ett
+avgörande som tillämpar den nya kombinationsstraffregeln i 26 kap. 2 § BrB (i kraft
+sedan 1 aug 2026) gav inga verifierbara träffar – inget hittat än så länge, snarare än
+gissat eller hittepå. Ytterligare fall nämndes i sekundärkällor (Lawline-artiklar) men
+kunde inte verifieras oberoende och togs medvetet inte med – se kommentarerna i
+`seedSources.js`.
 
 ## Modellen (frontend, redigerbar)
 

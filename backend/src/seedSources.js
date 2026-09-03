@@ -110,6 +110,44 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_pressmeddelande",
     autoUppdateras: true,
   },
+  {
+    id: "RH 2021:17",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2021:17",
+    domstol: "Hovrätten för Västra Sverige (mål B 4725-21, 2021-09-07)",
+    brott_sammanfattning:
+      "Enstaka brott, INTE ett flerfaldighetsexempel - men det enda verifierbara avgörandet " +
+      "om inbrottsstöld: en kvinna utgav sig falskt för att vara vikarierande " +
+      "hälsocentralspersonal, tog sig in på ett äldreboende och stal sex oskrapade lotter " +
+      "(värda 180 kr) från en rullstolsburen boende.",
+    straffvarde_text:
+      "Hovrätten satte ned tingsrättens straff från 1 år 6 månader till 1 år 3 månaders " +
+      "fängelse, med hänsyn till bl.a. offrets utsatta situation.",
+    brottstyper: ["inbrottsstold"],
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 2024:2",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url: "https://www.domstol.se/nyheter/2024/01/stold-i-bostad-bedoms-inte-som-grov/",
+    domstol: "Högsta domstolen (mål B 7974-22, 2024-01-04) - även refererad som NJA 2024 s. 12",
+    brott_sammanfattning:
+      "Gränsdragningsmål (\"Pianobäraren\"), INTE ett flerfaldighetsexempel: en man som " +
+      "hjälpte till att bära in ett piano hos en säljare tog tillfället att stjäla en " +
+      "plånbok (ca 800 kr, bankkort, körkort) ur en jacka i hallen medan säljare och köpare " +
+      "förhandlade i ett angränsande rum.",
+    straffvarde_text:
+      "HD klargjorde att kvalifikationsgrunden \"omedelbar närhet\" för grov stöld kräver " +
+      "att saken fysiskt befinner sig nära offret vid tillgreppet, och att en enskild " +
+      "kvalifikationsgrund inte automatiskt medför att brottet ska bedömas som grovt - en " +
+      "helhetsbedömning krävs. Gärningen bedömdes som stöld (ej grovt); påföljd 5 månaders " +
+      "fängelse. OBS: endast domstol.se:s pressmeddelande har lästs här, inte hela HD-domens " +
+      "fulltext.",
+    brottstyper: ["stold", "grov_stold"],
+    verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
