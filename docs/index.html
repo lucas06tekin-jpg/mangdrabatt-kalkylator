@@ -14,12 +14,10 @@
 </header>
 
 <div class="disclaimer" role="note">
-  <strong>Obs – uppskattningsverktyg, inte en förutsägelse.</strong>
-  Detta verktyg tillämpar en förenklad, icke lagfäst modell för att illustrera asperationsprincipen.
-  Det är inget facit och ersätter inte juridisk bedömning i det enskilda fallet. Referensdomar nedan är
-  exempel för jämförelse – inte prejudikat som garanterar ett visst utfall. Förklarande källor är
-  pedagogiska sammanfattningar, inte juridisk rådgivning. Maskinellt hämtad information kan innehålla
-  fel eller vara inaktuell – verifiera alltid mot originalkällan via länkarna nedan.
+  <strong>Uppskattningsverktyg, inte en förutsägelse.</strong>
+  Modellen är förenklad och inte lagfäst – den ersätter inte en bedömning av det enskilda fallet.
+  Referensdomarna är jämförelseexempel, inte prejudikat som garanterar ett utfall. Maskinellt hämtad
+  information kan innehålla fel eller vara inaktuell – verifiera mot originalkällan.
 </div>
 
 <main class="layout">
@@ -49,9 +47,8 @@
   </section>
 
   <section class="panel panel-model" aria-labelledby="model-heading">
-    <h2 id="model-heading">2. Justerbar modell (asperationsprincipen, förenklad)</h2>
-    <p class="panel-note">Vikterna nedan är en förenklad illustration – inte en lagfäst formel.
-      Justera fritt för att se hur känsligt resultatet är för antaganden.</p>
+    <h2 id="model-heading">2. Modell (förenklad asperation)</h2>
+    <p class="panel-note">Vikterna är en förenklad illustration, inte en lagfäst formel – justera fritt.</p>
 
     <div class="model-controls">
       <label for="golv-procent">Golv per brott (lägst vikt, %)</label>
@@ -66,7 +63,7 @@
     <div class="resultat" id="resultat"></div>
   </section>
 
-  <section class="panel panel-refs" aria-labelledby="refs-heading">
+  <section class="panel panel-refs panel-full" aria-labelledby="refs-heading">
     <h2 id="refs-heading">3. Referensdomar <span class="badge badge-a">Kategori A</span></h2>
     <p class="panel-note">Faktiska avgöranden för sifferjämförelse – inte facit. Källa och
       verifieringsstatus anges för varje post.</p>
@@ -74,18 +71,15 @@
     <ul id="refs-lista" class="refs-lista"></ul>
   </section>
 
-  <section class="panel panel-explain" aria-labelledby="explain-heading">
-    <h2 id="explain-heading">Om asperationsprincipen <span class="badge badge-b">Kategori B – förklarande</span></h2>
-    <p class="panel-note">Pedagogiska sammanfattningar, egenformulerade utifrån förklarande källor
-      (t.ex. Lawline). Inte en primärkälla för straffvärden och inte juridisk rådgivning.</p>
-    <div id="forklaring-lista" class="forklaring-lista"></div>
-  </section>
-
 </main>
 
 <footer class="footer">
-  <p>Körs lokalt. Ingen inloggning. Inga uppgifter lämnar din dator förutom hämtning av
-     referensdata från backend på samma maskin.</p>
+  <details class="bakgrund-details">
+    <summary>Bakgrundskällor (Lawline) <span class="badge badge-b">Kategori B</span></summary>
+    <p class="panel-note">Sekundära källor, inte primärkälla för straffvärden.</p>
+    <div id="forklaring-lista" class="forklaring-lista"></div>
+  </details>
+  <p>Ingen inloggning. All beräkning sker i webbläsaren.</p>
 </footer>
 
 <script src="app.js"></script>

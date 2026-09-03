@@ -73,7 +73,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
-.panel-refs, .panel-explain { grid-column: span 1; }
+.panel-full { grid-column: 1 / -1; }
 
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; }
@@ -287,11 +287,34 @@ body {
 .forklaring-item p { margin: 0 0 0.4rem; font-size: 0.85rem; }
 
 .footer {
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
   font-size: 0.78rem;
   color: var(--ink-soft);
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem;
 }
+
+.bakgrund-details {
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  background: var(--paper-card);
+}
+.bakgrund-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--navy-800);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bakgrund-details[open] summary { margin-bottom: 0.6rem; }
+.bakgrund-details .panel-note { margin: 0.4rem 0; }
 
 .tom-lista { color: var(--ink-soft); font-size: 0.85rem; font-style: italic; }
 
