@@ -1,0 +1,18 @@
+{
+  "name": "mangdrabatt-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "refresh-cache": "node src/scraper.js",
+    "export-static": "node src/exportStatic.js",
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

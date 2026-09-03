@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mängdrabatt-kalkylator – stöldbrott</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <h1>Mängdrabatt-kalkylator <span class="topbar-sub">för flerfaldig stöldbrottslighet</span></h1>
+  </div>
+</header>
+
+<div class="disclaimer" role="note">
+  <strong>Obs – uppskattningsverktyg, inte en förutsägelse.</strong>
+  Detta verktyg tillämpar en förenklad, icke lagfäst modell för att illustrera asperationsprincipen.
+  Det är inget facit och ersätter inte juridisk bedömning i det enskilda fallet. Referensdomar nedan är
+  exempel för jämförelse – inte prejudikat som garanterar ett visst utfall. Förklarande källor är
+  pedagogiska sammanfattningar, inte juridisk rådgivning. Maskinellt hämtad information kan innehålla
+  fel eller vara inaktuell – verifiera alltid mot originalkällan via länkarna nedan.
+</div>
+
+<main class="layout">
+
+  <section class="panel panel-input" aria-labelledby="input-heading">
+    <h2 id="input-heading">1. Lägg till brott</h2>
+
+    <form id="brott-form" class="brott-form">
+      <div class="field">
+        <label for="brottstyp">Brottstyp</label>
+        <select id="brottstyp" required></select>
+      </div>
+      <div class="field">
+        <label for="straffvarde">Straffvärde (månader)</label>
+        <input type="number" id="straffvarde" min="0" step="0.5" required>
+        <span class="field-hint" id="skala-hint"></span>
+      </div>
+      <button type="submit" class="btn-primary">Lägg till brott</button>
+    </form>
+
+    <ul class="brott-lista" id="brott-lista" aria-live="polite"></ul>
+
+    <div class="fasta-fakta">
+      <h3>Fasta juridiska fakta – straffskalor</h3>
+      <dl id="straffskalor-lista" class="straffskalor-lista"></dl>
+    </div>
+  </section>
+
+  <section class="panel panel-model" aria-labelledby="model-heading">
+    <h2 id="model-heading">2. Justerbar modell (asperationsprincipen, förenklad)</h2>
+    <p class="panel-note">Vikterna nedan är en förenklad illustration – inte en lagfäst formel.
+      Justera fritt för att se hur känsligt resultatet är för antaganden.</p>
+
+    <div class="model-controls">
+      <label for="golv-procent">Golv per brott (lägst vikt, %)</label>
+      <input type="number" id="golv-procent" min="1" max="50" value="3" step="0.5">
+    </div>
+
+    <div id="vikt-lista" class="vikt-lista" aria-label="Vikter per brottsordning"></div>
+
+    <h3>Straff-trappan</h3>
+    <div id="trappa" class="trappa" role="img" aria-label="Stapeldiagram över viktat straffvärde per brott"></div>
+
+    <div class="resultat" id="resultat"></div>
+  </section>
+
+  <section class="panel panel-refs" aria-labelledby="refs-heading">
+    <h2 id="refs-heading">3. Referensdomar <span class="badge badge-a">Kategori A</span></h2>
+    <p class="panel-note">Faktiska avgöranden för sifferjämförelse – inte facit. Källa och
+      verifieringsstatus anges för varje post.</p>
+    <div id="refs-status" class="refs-status"></div>
+    <ul id="refs-lista" class="refs-lista"></ul>
+  </section>
+
+  <section class="panel panel-explain" aria-labelledby="explain-heading">
+    <h2 id="explain-heading">Om asperationsprincipen <span class="badge badge-b">Kategori B – förklarande</span></h2>
+    <p class="panel-note">Pedagogiska sammanfattningar, egenformulerade utifrån förklarande källor
+      (t.ex. Lawline). Inte en primärkälla för straffvärden och inte juridisk rådgivning.</p>
+    <div id="forklaring-lista" class="forklaring-lista"></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Körs lokalt. Ingen inloggning. Inga uppgifter lämnar din dator förutom hämtning av
+     referensdata från backend på samma maskin.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
