@@ -106,9 +106,15 @@ efter (a) ett flerfaldighetsavgörande om enbart ringa stöld, (b) ett avgörand
 tillämpar den nya kombinationsstraffregeln i 26 kap. 2 § BrB (i kraft sedan 1 aug 2026)
 och (c) en renodlad multi-count "stöld"-dom utan komplicerande sidobrott gav inga
 tillräckligt starka/verifierbara träffar – inget hittat än så länge, snarare än gissat
-eller hittepå. Ytterligare fall nämndes i sekundärkällor (Lawline-artiklar) men kunde
-inte verifieras oberoende och togs medvetet inte med – se kommentarerna i
-`seedSources.js`.
+eller hittepå. En efterföljande riktad sökning efter fler grov stöld-avgöranden hittade
+Falu tingsrätts dom i mål B 574-25 (juni 2026, en organiserad, regionöverskridande
+härva för stöld av crossmotorcyklar/terränghjulingar - en annorlunda och färsk
+brottsbild jämfört med de befintliga grov stöld-fallen) men den togs medvetet INTE med:
+tingsrättsavgöranden publiceras inte i fulltext på samma sätt som hovrätts-/HD-referat
+(bara ett pressmeddelande kunde verifieras) och saknar den vägledande, prejudicerande
+tyngd som övriga nio referensdomar har. Ytterligare fall nämndes i sekundärkällor
+(Lawline-artiklar) men kunde inte verifieras oberoende och togs medvetet inte med – se
+kommentarerna i `seedSources.js`.
 
 Referensdomspanelen i appen sorterar om sig live efter vilka brottstyper som fyllts i
 kalkylatorn: domar vars `brottstyper` överlappar med de ifyllda rankas överst, med extra
