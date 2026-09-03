@@ -31,7 +31,10 @@ export function exportStatic() {
     )
   );
 
-  const referensdomar = fetchAll("referensdomar");
+  const referensdomar = fetchAll("referensdomar").map((r) => ({
+    ...r,
+    brottstyper: JSON.parse(r.brottstyper || "[]"),
+  }));
   fs.writeFileSync(
     path.join(OUT_DIR, "referensdomar.json"),
     JSON.stringify({ referensdomar, antal: referensdomar.length }, null, 2)

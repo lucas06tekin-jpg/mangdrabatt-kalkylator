@@ -24,6 +24,7 @@ export const REFERENSDOMAR = [
       "Sammantaget straffvärde motsvarande drygt ett års fängelse. Påföljden bestämdes dock " +
       "till skyddstillsyn med samhällstjänst 180 timmar, med hänsyn till bl.a. frivilligt " +
       "erkännande och skadestånd.",
+    brottstyper: ["grov_stold", "stold"],
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -39,6 +40,7 @@ export const REFERENSDOMAR = [
       "Påföljd: fängelse 2 år 3 månader. HD prövade om de upprepade stölderna skulle " +
       "rubriceras som grov stöld och fann att ordinarie stöld var korrekt rubricering trots " +
       "det systematiska tillvägagångssättet.",
+    brottstyper: ["stold"],
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -56,6 +58,7 @@ export const REFERENSDOMAR = [
       "hovrätten satte påföljden till fängelse 1 år 4 månader (tingsrättens 3 år sänktes). " +
       "Domen betonar att asperationsprincipen ska ges tydligt genomslag vid upprepad, " +
       "likartad brottslighet – sannolikt den mest direkt relevanta domen för denna kalkylator.",
+    brottstyper: ["grov_stold"],
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -70,6 +73,7 @@ export const REFERENSDOMAR = [
     straffvarde_text:
       "Sammantaget straffvärde bedömt till drygt ett år. Tingsrätten dömde till 10 månaders " +
       "fängelse; hovrätten skärpte till 13 månader med hänsyn till tidigare belastning.",
+    brottstyper: ["stold", "grov_stold"],
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -85,6 +89,7 @@ export const REFERENSDOMAR = [
     straffvarde_text:
       "Gränsvärdet 1 250 kr gällde fram till att det höjdes genom NJA 2025:67 (se nedan). " +
       "Relevant för att klassificera varje enskilt brott innan mängdrabatt beräknas.",
+    brottstyper: ["ringa_stold", "stold"],
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -101,6 +106,7 @@ export const REFERENSDOMAR = [
     straffvarde_text:
       "Gränsvärdet 1 500 kr är aktuell gällande rätt (2026). OBS: endast domstol.se:s " +
       "pressmeddelande har lästs här, inte hela HD-domens fulltext.",
+    brottstyper: ["ringa_stold", "stold"],
     verifieringsstatus: "manuell_pressmeddelande",
     autoUppdateras: true,
   },

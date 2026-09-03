@@ -5,6 +5,7 @@ const state = {
   brott: [], // { instId, typId, manader }
   golvProcent: 3,
   vikter: [], // procent per rangordning, editerbar
+  referensdomar: [], // laddas en gång, sorteras om vid varje omräkning
 };
 
 let nextInstId = 1;
@@ -161,6 +162,7 @@ function rakenOmOchRendera() {
   const res = berakna();
   renderTrappa(res);
   renderResultat(res);
+  renderReferensdomar();
 }
 
 function renderBrottLista() {
@@ -282,35 +284,58 @@ function renderResultat(res) {
 
 async function laddaReferensdomar() {
   const statusEl = document.getElementById('refs-status');
-  const ul = document.getElementById('refs-lista');
   try {
     const data = await hamtaJson('data/referensdomar.json');
-    const rader = data.referensdomar || [];
-    statusEl.textContent = rader.length > 0
-      ? `${rader.length} referensdom(ar) hittade och sparade i cachen (av upp till 10 eftersökta).`
+    state.referensdomar = data.referensdomar || [];
+    statusEl.textContent = state.referensdomar.length > 0
+      ? `${state.referensdomar.length} referensdom(ar) hittade och sparade i cachen (av upp till 10 eftersökta).`
       : 'Inga referensdomar har hittats och verifierats ännu. Sök manuellt via länkarna i den förklarande sektionen tills vidare.';
-    ul.innerHTML = '';
-    for (const r of rader) {
-      const li = document.createElement('li');
-      if (!r.tillganglig) li.classList.add('otillganglig');
-      const verifText = {
-        manuell_fulltext: 'Manuellt verifierad (fulltext läst)',
-        manuell_pressmeddelande: 'Manuellt verifierad (pressmeddelande)',
-      }[r.verifieringsstatus] || 'Maskinellt tolkad';
-      const verifClass = r.verifieringsstatus.startsWith('manuell') ? 'verif-manuell' : 'verif-maskin';
-      li.innerHTML = `
-        <div class="ref-id">${r.id}
-          <span class="verif-badge ${verifClass}">${verifText}</span>
-          ${!r.tillganglig ? '<span class="otillganglig-tagg"> · källan ej nåbar just nu</span>' : ''}
-        </div>
-        <div class="ref-meta">${r.domstol || ''} · Källa: ${r.kalla}</div>
-        <p class="ref-sammanfattning">${r.brott_sammanfattning}${r.straffvarde_text ? ' — ' + r.straffvarde_text : ''}</p>
-        <a class="ref-link" href="${r.kalla_url}" target="_blank" rel="noopener">Läs originalkällan ↗</a>
-      `;
-      ul.appendChild(li);
-    }
+    renderReferensdomar();
   } catch (e) {
     statusEl.textContent = 'Kunde inte hämta referensdomar från backend.';
+  }
+}
+
+function relevansPoang(ref, valdaTyper) {
+  const brottstyper = ref.brottstyper || [];
+  if (brottstyper.length === 0 || valdaTyper.size === 0) return 0;
+  const matchade = brottstyper.filter((t) => valdaTyper.has(t));
+  if (matchade.length === 0) return 0;
+  // Fler matchande typer väger tyngst; en dom där ALLA dess brottstyper matchar
+  // (t.ex. en renodlad grov stöld-dom när bara grov stöld är ifyllt) rankas före
+  // en dom som bara delvis matchar.
+  return matchade.length + matchade.length / brottstyper.length;
+}
+
+function renderReferensdomar() {
+  const ul = document.getElementById('refs-lista');
+  ul.innerHTML = '';
+  if (state.referensdomar.length === 0) return;
+
+  const valdaTyper = new Set(state.brott.map((b) => b.typId));
+  const rader = state.referensdomar
+    .map((r, ursprungsindex) => ({ r, ursprungsindex, poang: relevansPoang(r, valdaTyper) }))
+    .sort((a, b) => b.poang - a.poang || a.ursprungsindex - b.ursprungsindex);
+
+  for (const { r, poang } of rader) {
+    const li = document.createElement('li');
+    if (!r.tillganglig) li.classList.add('otillganglig');
+    const verifText = {
+      manuell_fulltext: 'Manuellt verifierad (fulltext läst)',
+      manuell_pressmeddelande: 'Manuellt verifierad (pressmeddelande)',
+    }[r.verifieringsstatus] || 'Maskinellt tolkad';
+    const verifClass = r.verifieringsstatus.startsWith('manuell') ? 'verif-manuell' : 'verif-maskin';
+    li.innerHTML = `
+      <div class="ref-id">${r.id}
+        <span class="verif-badge ${verifClass}">${verifText}</span>
+        ${poang > 0 ? '<span class="verif-badge verif-relevant">Relevant för dina brott</span>' : ''}
+        ${!r.tillganglig ? '<span class="otillganglig-tagg"> · källan ej nåbar just nu</span>' : ''}
+      </div>
+      <div class="ref-meta">${r.domstol || ''} · Källa: ${r.kalla}</div>
+      <p class="ref-sammanfattning">${r.brott_sammanfattning}${r.straffvarde_text ? ' — ' + r.straffvarde_text : ''}</p>
+      <a class="ref-link" href="${r.kalla_url}" target="_blank" rel="noopener">Läs originalkällan ↗</a>
+    `;
+    ul.appendChild(li);
   }
 }
 

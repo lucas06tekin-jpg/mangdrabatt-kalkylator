@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS referensdomar (
     domstol TEXT,
     brott_sammanfattning TEXT NOT NULL,
     straffvarde_text TEXT,
+    brottstyper TEXT NOT NULL DEFAULT '[]',
     verifieringsstatus TEXT NOT NULL,
     senast_kontrollerad TEXT,
     tillganglig INTEGER NOT NULL DEFAULT 1
@@ -54,12 +55,13 @@ export function upsertReferensdom(row) {
   db.prepare(
     `INSERT INTO referensdomar
        (id, kalla, kalla_url, domstol, brott_sammanfattning, straffvarde_text,
-        verifieringsstatus, senast_kontrollerad, tillganglig)
+        brottstyper, verifieringsstatus, senast_kontrollerad, tillganglig)
      VALUES (@id, @kalla, @kalla_url, @domstol, @brott_sammanfattning, @straffvarde_text,
-             @verifieringsstatus, @senast_kontrollerad, @tillganglig)
+             @brottstyper, @verifieringsstatus, @senast_kontrollerad, @tillganglig)
      ON CONFLICT(id) DO UPDATE SET
        kalla=excluded.kalla, kalla_url=excluded.kalla_url, domstol=excluded.domstol,
        brott_sammanfattning=excluded.brott_sammanfattning, straffvarde_text=excluded.straffvarde_text,
+       brottstyper=excluded.brottstyper,
        verifieringsstatus=excluded.verifieringsstatus, senast_kontrollerad=excluded.senast_kontrollerad,
        tillganglig=excluded.tillganglig`
   ).run(row);

@@ -275,6 +275,7 @@ body {
 }
 .verif-manuell { background: #e1f0e6; color: var(--ok); }
 .verif-maskin { background: #f3e7c9; color: #6b5416; }
+.verif-relevant { background: var(--navy-900); color: #f7f5f0; }
 .otillganglig { opacity: 0.55; }
 .otillganglig-tagg { color: var(--danger); font-weight: 700; font-size: 0.75rem; }
 

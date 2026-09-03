@@ -163,6 +163,7 @@ export async function uppdateraCache() {
       domstol: post.domstol,
       brott_sammanfattning: post.brott_sammanfattning,
       straffvarde_text: post.straffvarde_text,
+      brottstyper: JSON.stringify(post.brottstyper || []),
       verifieringsstatus: post.verifieringsstatus,
       senast_kontrollerad: now,
       tillganglig: tillganglig ? 1 : 0,
