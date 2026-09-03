@@ -105,9 +105,12 @@ och togs medvetet inte med – se kommentarerna i `seedSources.js`.
 - **Ren kumulation**: summan av alla inmatade straffvärden.
 - **Halveringsmodell**: brott 1 = 100 %, brott 2 = 50 %, brott 3 = 25 % osv., med ett
   redigerbart golv per brott (default 3 %). Vikterna kan justeras fritt i appen.
-- **Tak/golv enligt 26 kap. 2 § BrB**: golvet är det strängaste minimistraffet bland de
-  ingående brotten; taket är det svåraste maximistraffet plus ett tillägg (1/2/4 år
-  beroende på hur strängt det svåraste straffet är), men aldrig mer än summan av
-  maximistraffen och aldrig mer än 18 år.
+- **Tak/golv enligt 26 kap. 2 § BrB**, i lydelsen efter SFS 2026:1318 (prop. 2025/26:218),
+  i kraft sedan den 1 augusti 2026: taket är det svåraste maximistraffet bland de ingående
+  brotten, dubblerat, men aldrig mer än summan av maximistraffen och aldrig mer än 18 år.
+  Golvet är det allmänna golvet på 1 månad enligt 26 kap. 1 § BrB – den äldre regeln om att
+  straffet inte fick underskrida det strängaste minimistraffet bland brotten avskaffades i
+  samma reform. (Innan denna kontroll byggdes verifierades lagtexten mot den promulgerade
+  SFS-texten, inte bara mot allmän kunskap om äldre rätt – se `backend/src/straffskalor.js`.)
 - **Mängdrabatt**: skillnaden mellan ren kumulation och det tak/golv-justerade resultatet,
   i månader och procent.

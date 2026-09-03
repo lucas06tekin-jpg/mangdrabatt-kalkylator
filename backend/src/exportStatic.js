@@ -9,7 +9,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { getDb, fetchAll } from "./db.js";
-import { STRAFFSKALOR, TAK_ALLMANT_MANADER } from "./straffskalor.js";
+import { STRAFFSKALOR, TAK_ALLMANT_MANADER, ALLMANT_GOLV_MANADER } from "./straffskalor.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.join(__dirname, "..", "..", "docs", "data");
@@ -20,7 +20,15 @@ export function exportStatic() {
 
   fs.writeFileSync(
     path.join(OUT_DIR, "straffskalor.json"),
-    JSON.stringify({ straffskalor: STRAFFSKALOR, tak_allmant_manader: TAK_ALLMANT_MANADER }, null, 2)
+    JSON.stringify(
+      {
+        straffskalor: STRAFFSKALOR,
+        tak_allmant_manader: TAK_ALLMANT_MANADER,
+        allmant_golv_manader: ALLMANT_GOLV_MANADER,
+      },
+      null,
+      2
+    )
   );
 
   const referensdomar = fetchAll("referensdomar");

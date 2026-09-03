@@ -1,6 +1,7 @@
 const state = {
   straffskalor: [],
   takAllmantManader: 216,
+  allmantGolvManader: 1,
   brott: [], // { instId, typId, manader }
   golvProcent: 3,
   vikter: [], // procent per rangordning, editerbar
@@ -29,6 +30,7 @@ async function init() {
   const skalorResp = await hamtaJson('data/straffskalor.json');
   state.straffskalor = skalorResp.straffskalor;
   state.takAllmantManader = skalorResp.tak_allmant_manader;
+  state.allmantGolvManader = skalorResp.allmant_golv_manader;
 
   renderStraffskalorFakta();
   fyllBrottstypDropdown();
@@ -122,17 +124,19 @@ function berakna() {
   const renKumulation = sorterade.reduce((sum, b) => sum + b.manader, 0);
   const halveringssumma = viktade.reduce((sum, b) => sum + b.viktatVarde, 0);
 
-  let golvManader = 0;
+  let golvManader = state.allmantGolvManader;
   let takManader = state.takAllmantManader;
   let svarasteTyp = null;
 
   if (sorterade.length > 0) {
     const typerMedd = sorterade.map((b) => skalaFor(b.typId));
-    golvManader = Math.max(...typerMedd.map((s) => s.min_manader));
     svarasteTyp = typerMedd.reduce((max, s) => (s.max_manader > max.max_manader ? s : max), typerMedd[0]);
     const summaMax = typerMedd.reduce((sum, s) => sum + s.max_manader, 0);
-    const tillagg = svarasteTyp.max_manader < 48 ? 12 : svarasteTyp.max_manader < 96 ? 24 : 48;
-    takManader = Math.min(summaMax, svarasteTyp.max_manader + tillagg, state.takAllmantManader);
+    // 26 kap. 2 § BrB, lydelse efter SFS 2026:1318 (i kraft 1 aug 2026): taket är det
+    // högsta maximistraffet bland brotten, dubblerat - men aldrig mer än summan av
+    // maximistraffen eller 18 år. Den äldre stegvisa tilläggsregeln (+1/+2/+4 år) och
+    // den äldre golvregeln (strängaste minimistraffet) är avskaffade i samma reform.
+    takManader = Math.min(summaMax, svarasteTyp.max_manader * 2, state.takAllmantManader);
   }
 
   const justeratResultat = sorterade.length > 0
@@ -259,8 +263,9 @@ function renderResultat(res) {
       <span class="varde">${formatManader(res.halveringssumma)}</span>
     </div>
     <div class="resultat-rad warn">
-      <span class="label">c) Tak/golv enligt 26 kap. 2 § BrB — golv ${formatManader(res.golvManader)},
-        tak ${formatManader(res.takManader)} (svåraste brott: ${res.svarasteTyp ? res.svarasteTyp.namn : '–'})</span>
+      <span class="label">c) Tak enligt 26 kap. 2 § BrB (dubblerat maxstraff, dock högst summan av
+        maxstraffen/18 år) — tak ${formatManader(res.takManader)}, golv ${formatManader(res.golvManader)}
+        (svåraste brott: ${res.svarasteTyp ? res.svarasteTyp.namn : '–'})</span>
       <span class="varde">${formatManader(res.justeratResultat)}</span>
     </div>
     <div class="resultat-rad highlight">
@@ -268,8 +273,8 @@ function renderResultat(res) {
       <span class="varde">${formatManader(res.mangdrabattManader)} (${res.mangdrabattProcent.toFixed(1)}%)</span>
     </div>
     <p class="resultat-not">Justerat resultat = halveringsmodellens summa, begränsat till intervallet [golv, tak].
-      Modellen är en pedagogisk förenkling — den exakta straffmätningen görs alltid av domstolen utifrån samtliga
-      omständigheter i det enskilda fallet.</p>
+      Förenklad modell — den faktiska straffmätningen görs av domstolen utifrån samtliga omständigheter i
+      det enskilda fallet.</p>
   `;
 }
 

@@ -49,14 +49,21 @@ export const STRAFFSKALOR = [
   },
 ];
 
-// 26 kap. 2 § BrB — gemensamt straff vid flerfaldig brottslighet.
-// Golv: det strängaste av minimistraffen för de ingående brotten.
-// Tak: det svåraste maximistraffet + tillägg, men aldrig mer än summan av maximistraffen
-// och aldrig mer än 18 år (216 månader) fängelse på viss tid (26 kap. 1 § BrB).
+// 26 kap. 2 § BrB — gemensamt straff vid flerfaldig brottslighet, i lydelsen efter
+// SFS 2026:1318 (prop. 2025/26:218), i kraft sedan den 1 augusti 2026. Verifierad mot
+// den promulgerade lagtexten 2026-09-03.
+//
+// Tak: det högsta maximistraffet bland de ingående brotten får dubbleras, men aldrig
+// överstiga summan av maximistraffen för brotten och aldrig 18 år (216 månader).
+// Den äldre tilläggsmodellen (+1/+2/+4 år beroende på hur strängt det svåraste straffet
+// var) är avskaffad och ersatt av denna enkla dubbleringsregel.
+//
+// Golv: den tidigare regeln om att straffet inte fick underskrida det strängaste av
+// minimistraffen bland brotten togs bort i samma reform. Kvar är bara det allmänna
+// golvet i 26 kap. 1 § BrB - fängelse på viss tid får inte understiga en månad.
 export const TAK_ALLMANT_MANADER = 216; // 18 år
+export const ALLMANT_GOLV_MANADER = 1; // 26 kap. 1 § BrB
 
-export function tillaggManader(svarasteMaxManader) {
-  if (svarasteMaxManader < 48) return 12; // kortare än 4 år
-  if (svarasteMaxManader < 96) return 24; // 4 år men kortare än 8 år
-  return 48; // 8 år eller längre
+export function takManader(summaMaxManader, svarasteMaxManader) {
+  return Math.min(summaMaxManader, svarasteMaxManader * 2, TAK_ALLMANT_MANADER);
 }
