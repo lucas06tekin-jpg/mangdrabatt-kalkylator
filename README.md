@@ -8,6 +8,8 @@ disclaimern i appen.
 
 ## Publicerad sajt
 
+**Live:** https://lucas06tekin-jpg.github.io/mangdrabatt-kalkylator/
+
 Appen är byggd som en **statisk sajt** i `docs/` så att den kan publiceras gratis via
 GitHub Pages – se "Publicera på GitHub Pages" nedan. Ingen server behövs för att visa
 appen för någon annan; all beräkning sker i webbläsaren.
