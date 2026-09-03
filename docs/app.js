@@ -303,8 +303,10 @@ function relevansPoang(ref, valdaTyper) {
   if (matchade.length === 0) return 0;
   // Fler matchande typer väger tyngst; en dom där ALLA dess brottstyper matchar
   // (t.ex. en renodlad grov stöld-dom när bara grov stöld är ifyllt) rankas före
-  // en dom som bara delvis matchar.
-  return matchade.length + matchade.length / brottstyper.length;
+  // en dom som bara delvis matchar. Ett litet tillägg ser till att faktiska
+  // flerfaldighetsexempel (verkliga avgöranden om flera brott) rankas före
+  // gränsdragningsmål/enstaka brott med samma brottstypsträff.
+  return matchade.length + matchade.length / brottstyper.length + (ref.flerfaldighetsexempel ? 0.4 : 0);
 }
 
 function renderReferensdomar() {

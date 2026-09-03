@@ -11,8 +11,9 @@
         "grov_stold",
         "stold"
       ],
+      "flerfaldighetsexempel": 1,
       "verifieringsstatus": "manuell_fulltext",
-      "senast_kontrollerad": "2026-09-03T19:18:25.566Z",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
       "tillganglig": 1
     },
     {
@@ -25,8 +26,9 @@
       "brottstyper": [
         "stold"
       ],
+      "flerfaldighetsexempel": 1,
       "verifieringsstatus": "manuell_fulltext",
-      "senast_kontrollerad": "2026-09-03T19:18:25.566Z",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
       "tillganglig": 1
     },
     {
@@ -39,8 +41,9 @@
       "brottstyper": [
         "grov_stold"
       ],
+      "flerfaldighetsexempel": 1,
       "verifieringsstatus": "manuell_fulltext",
-      "senast_kontrollerad": "2026-09-03T19:18:25.566Z",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
       "tillganglig": 1
     },
     {
@@ -54,8 +57,9 @@
         "stold",
         "grov_stold"
       ],
+      "flerfaldighetsexempel": 1,
       "verifieringsstatus": "manuell_fulltext",
-      "senast_kontrollerad": "2026-09-03T19:18:25.566Z",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
       "tillganglig": 1
     },
     {
@@ -69,8 +73,9 @@
         "ringa_stold",
         "stold"
       ],
+      "flerfaldighetsexempel": 0,
       "verifieringsstatus": "manuell_fulltext",
-      "senast_kontrollerad": "2026-09-03T19:18:25.566Z",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
       "tillganglig": 1
     },
     {
@@ -84,8 +89,9 @@
         "ringa_stold",
         "stold"
       ],
+      "flerfaldighetsexempel": 0,
       "verifieringsstatus": "manuell_pressmeddelande",
-      "senast_kontrollerad": "2026-09-03T19:18:25.566Z",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
       "tillganglig": 1
     },
     {
@@ -98,8 +104,9 @@
       "brottstyper": [
         "inbrottsstold"
       ],
+      "flerfaldighetsexempel": 0,
       "verifieringsstatus": "manuell_fulltext",
-      "senast_kontrollerad": "2026-09-03T19:18:25.566Z",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
       "tillganglig": 1
     },
     {
@@ -113,10 +120,27 @@
         "stold",
         "grov_stold"
       ],
+      "flerfaldighetsexempel": 0,
       "verifieringsstatus": "manuell_pressmeddelande",
-      "senast_kontrollerad": "2026-09-03T19:18:25.566Z",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
+      "tillganglig": 1
+    },
+    {
+      "id": "NJA 2006 s. 524",
+      "kalla": "lagen.nu",
+      "kalla_url": "https://lagen.nu/dom/nja/2006s524",
+      "domstol": "Högsta domstolen (mål B 391-06, 2006-09-13)",
+      "brott_sammanfattning": "Två ungdomar (17 och 15 år) snattade/stal under en eftermiddag i flera butiker i ett köpcentrum i Lund - den ena i 8 butiker (ca 3 840 kr sammanlagt), den andra i 5 butiker (ca 2 759 kr) plus ett håleribrott. I en butik vardera hade larmbrickor avlägsnats och värdet var högre - dessa två tillfällen bedömdes som stöld, medan övriga tillfällen (19-598 kr styck) bedömdes som ringa stöld (domen använder den äldre beteckningen \"snatteri\" - samma brott, 8 kap. 2 § BrB, före 2017 års namnbyte), trots att de ingick i samma \"snatteritur\".",
+      "straffvarde_text": "HD avvisade uttryckligen åklagarens argument att spreens sammanlagda värde skulle styra rubriceringen av varje enskild gärning, satte straffvärdet per stöldbrott till ca en månads fängelse (räknat som vuxen) och fastställde den gemensamma påföljden om 100 dagsböter. Det mest citerade avgörandet om hur en butikstursspree med både ringa stöld och stöld ska hanteras vid gemensam straffmätning - åberopat i minst åtta senare avgöranden och två regeringspropositioner.",
+      "brottstyper": [
+        "ringa_stold",
+        "stold"
+      ],
+      "flerfaldighetsexempel": 1,
+      "verifieringsstatus": "manuell_fulltext",
+      "senast_kontrollerad": "2026-09-03T19:44:53.010Z",
       "tillganglig": 1
     }
   ],
-  "antal": 8
+  "antal": 9
 }

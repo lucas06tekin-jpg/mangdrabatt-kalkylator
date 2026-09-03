@@ -93,18 +93,27 @@ mellan varje anrop och en tydlig kontakt-UA).
 
 ### Referensdomar som hittades (kategori A)
 
-8 av upp till 10 eftersökta referensdomar hittades och kunde verifieras oberoende:
+9 av upp till 10 eftersökta referensdomar hittades och kunde verifieras oberoende:
 NJA 2008 s. 359, NJA 2016 s. 1143, RH 2015:26, RH 2006:49, NJA 2019 s. 951,
-NJA 2025:67, RH 2021:17 och NJA 2024:2. Fyra av dem (NJA 2019 s. 951, NJA 2025:67,
-RH 2021:17 och NJA 2024:2) är gränsdragningsmål eller enstaka brott snarare än exempel
-på flerfaldighetsbedömning, vilket framgår tydligt i appens UI. RH 2021:17 är trots det
-medvetet med eftersom det är det enda verifierbara avgörandet om inbrottsstöld. En
-riktad sökning efter (a) ett flerfaldighetsavgörande om ringa stöld och (b) ett
-avgörande som tillämpar den nya kombinationsstraffregeln i 26 kap. 2 § BrB (i kraft
-sedan 1 aug 2026) gav inga verifierbara träffar – inget hittat än så länge, snarare än
-gissat eller hittepå. Ytterligare fall nämndes i sekundärkällor (Lawline-artiklar) men
-kunde inte verifieras oberoende och togs medvetet inte med – se kommentarerna i
+NJA 2025:67, RH 2021:17, NJA 2024:2 och NJA 2006 s. 524. Fyra av dem (NJA 2019 s. 951,
+NJA 2025:67, RH 2021:17 och NJA 2024:2) är gränsdragningsmål eller enstaka brott snarare
+än exempel på flerfaldighetsbedömning - varje referensdom har ett `flerfaldighetsexempel`-
+fält i `seedSources.js` som styr detta, och det används för att rangordna listan (se
+nedan). RH 2021:17 är trots det medvetet med eftersom det är det enda verifierbara
+avgörandet om inbrottsstöld. NJA 2006 s. 524 är den ledande domen om hur en "snatteritur"
+med både ringa stöld och stöld ska hanteras vid gemensam straffmätning. En riktad sökning
+efter (a) ett flerfaldighetsavgörande om enbart ringa stöld, (b) ett avgörande som
+tillämpar den nya kombinationsstraffregeln i 26 kap. 2 § BrB (i kraft sedan 1 aug 2026)
+och (c) en renodlad multi-count "stöld"-dom utan komplicerande sidobrott gav inga
+tillräckligt starka/verifierbara träffar – inget hittat än så länge, snarare än gissat
+eller hittepå. Ytterligare fall nämndes i sekundärkällor (Lawline-artiklar) men kunde
+inte verifieras oberoende och togs medvetet inte med – se kommentarerna i
 `seedSources.js`.
+
+Referensdomspanelen i appen sorterar om sig live efter vilka brottstyper som fyllts i
+kalkylatorn: domar vars `brottstyper` överlappar med de ifyllda rankas överst, med extra
+vikt för domar som faktiskt är flerfaldighetsexempel (inte bara gränsdragningsmål) - se
+`relevansPoang()` i `docs/app.js`.
 
 ## Modellen (frontend, redigerbar)
 

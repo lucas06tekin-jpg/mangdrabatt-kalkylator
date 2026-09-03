@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS referensdomar (
     brott_sammanfattning TEXT NOT NULL,
     straffvarde_text TEXT,
     brottstyper TEXT NOT NULL DEFAULT '[]',
+    flerfaldighetsexempel INTEGER NOT NULL DEFAULT 0,
     verifieringsstatus TEXT NOT NULL,
     senast_kontrollerad TEXT,
     tillganglig INTEGER NOT NULL DEFAULT 1
@@ -55,13 +56,13 @@ export function upsertReferensdom(row) {
   db.prepare(
     `INSERT INTO referensdomar
        (id, kalla, kalla_url, domstol, brott_sammanfattning, straffvarde_text,
-        brottstyper, verifieringsstatus, senast_kontrollerad, tillganglig)
+        brottstyper, flerfaldighetsexempel, verifieringsstatus, senast_kontrollerad, tillganglig)
      VALUES (@id, @kalla, @kalla_url, @domstol, @brott_sammanfattning, @straffvarde_text,
-             @brottstyper, @verifieringsstatus, @senast_kontrollerad, @tillganglig)
+             @brottstyper, @flerfaldighetsexempel, @verifieringsstatus, @senast_kontrollerad, @tillganglig)
      ON CONFLICT(id) DO UPDATE SET
        kalla=excluded.kalla, kalla_url=excluded.kalla_url, domstol=excluded.domstol,
        brott_sammanfattning=excluded.brott_sammanfattning, straffvarde_text=excluded.straffvarde_text,
-       brottstyper=excluded.brottstyper,
+       brottstyper=excluded.brottstyper, flerfaldighetsexempel=excluded.flerfaldighetsexempel,
        verifieringsstatus=excluded.verifieringsstatus, senast_kontrollerad=excluded.senast_kontrollerad,
        tillganglig=excluded.tillganglig`
   ).run(row);

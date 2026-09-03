@@ -25,6 +25,7 @@ export const REFERENSDOMAR = [
       "till skyddstillsyn med samhällstjänst 180 timmar, med hänsyn till bl.a. frivilligt " +
       "erkännande och skadestånd.",
     brottstyper: ["grov_stold", "stold"],
+    flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -41,6 +42,7 @@ export const REFERENSDOMAR = [
       "rubriceras som grov stöld och fann att ordinarie stöld var korrekt rubricering trots " +
       "det systematiska tillvägagångssättet.",
     brottstyper: ["stold"],
+    flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -59,6 +61,7 @@ export const REFERENSDOMAR = [
       "Domen betonar att asperationsprincipen ska ges tydligt genomslag vid upprepad, " +
       "likartad brottslighet – sannolikt den mest direkt relevanta domen för denna kalkylator.",
     brottstyper: ["grov_stold"],
+    flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -74,6 +77,7 @@ export const REFERENSDOMAR = [
       "Sammantaget straffvärde bedömt till drygt ett år. Tingsrätten dömde till 10 månaders " +
       "fängelse; hovrätten skärpte till 13 månader med hänsyn till tidigare belastning.",
     brottstyper: ["stold", "grov_stold"],
+    flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -90,6 +94,7 @@ export const REFERENSDOMAR = [
       "Gränsvärdet 1 250 kr gällde fram till att det höjdes genom NJA 2025:67 (se nedan). " +
       "Relevant för att klassificera varje enskilt brott innan mängdrabatt beräknas.",
     brottstyper: ["ringa_stold", "stold"],
+    flerfaldighetsexempel: false,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -107,6 +112,7 @@ export const REFERENSDOMAR = [
       "Gränsvärdet 1 500 kr är aktuell gällande rätt (2026). OBS: endast domstol.se:s " +
       "pressmeddelande har lästs här, inte hela HD-domens fulltext.",
     brottstyper: ["ringa_stold", "stold"],
+    flerfaldighetsexempel: false,
     verifieringsstatus: "manuell_pressmeddelande",
     autoUppdateras: true,
   },
@@ -124,6 +130,7 @@ export const REFERENSDOMAR = [
       "Hovrätten satte ned tingsrättens straff från 1 år 6 månader till 1 år 3 månaders " +
       "fängelse, med hänsyn till bl.a. offrets utsatta situation.",
     brottstyper: ["inbrottsstold"],
+    flerfaldighetsexempel: false,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -145,7 +152,33 @@ export const REFERENSDOMAR = [
       "fängelse. OBS: endast domstol.se:s pressmeddelande har lästs här, inte hela HD-domens " +
       "fulltext.",
     brottstyper: ["stold", "grov_stold"],
+    flerfaldighetsexempel: false,
     verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 2006 s. 524",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2006s524",
+    domstol: "Högsta domstolen (mål B 391-06, 2006-09-13)",
+    brott_sammanfattning:
+      "Två ungdomar (17 och 15 år) snattade/stal under en eftermiddag i flera butiker i ett " +
+      "köpcentrum i Lund - den ena i 8 butiker (ca 3 840 kr sammanlagt), den andra i 5 " +
+      "butiker (ca 2 759 kr) plus ett håleribrott. I en butik vardera hade larmbrickor " +
+      "avlägsnats och värdet var högre - dessa två tillfällen bedömdes som stöld, medan " +
+      "övriga tillfällen (19-598 kr styck) bedömdes som ringa stöld (domen använder den " +
+      "äldre beteckningen \"snatteri\" - samma brott, 8 kap. 2 § BrB, före 2017 års " +
+      "namnbyte), trots att de ingick i samma \"snatteritur\".",
+    straffvarde_text:
+      "HD avvisade uttryckligen åklagarens argument att spreens sammanlagda värde skulle " +
+      "styra rubriceringen av varje enskild gärning, satte straffvärdet per stöldbrott till " +
+      "ca en månads fängelse (räknat som vuxen) och fastställde den gemensamma påföljden om " +
+      "100 dagsböter. Det mest citerade avgörandet om hur en butikstursspree med både ringa " +
+      "stöld och stöld ska hanteras vid gemensam straffmätning - åberopat i minst åtta " +
+      "senare avgöranden och två regeringspropositioner.",
+    brottstyper: ["ringa_stold", "stold"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
 ];
