@@ -9,7 +9,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { berakna, relevansPoang, sorteradeBrott, skalaFor } from "../../docs/calc.js";
+import { berakna, avrundaMangdrabatt, relevansPoang, sorteradeBrott, skalaFor } from "../../docs/calc.js";
 
 const STRAFFSKALOR = [
   { id: "ringa_stold", namn: "Ringa stöld", paragraf: "8 kap. 2 § BrB", min_manader: 0, max_manader: 6 },
@@ -85,6 +85,28 @@ test("berakna: inga brott ger nollresultat", () => {
   assert.equal(res.renKumulation, 0);
   assert.equal(res.justeratResultat, 0);
   assert.equal(res.svarasteTyp, null);
+});
+
+test("avrundaMangdrabatt: mängdrabatten stämmer med a) minus c) räknat på de avrundade talen", () => {
+  // Regressionstest: två ringa stöld på 3 och 1,5 månader ger halveringssumma 3,75, som
+  // visas avrundat som "3,8". Räknar man 4,5 - 3,8 för hand ska man få samma svar som
+  // appen visar för mängdrabatten - inte 4,5 - 3,75 = 0,75 (som råkar avrunda till samma
+  // "0,8" här, men inte alltid gör det).
+  const res = avrundaMangdrabatt(4.5, 3.75);
+  assert.equal(res.renKumulationAvrundad, 4.5);
+  assert.equal(res.justeratResultatAvrundat, 3.8);
+  assert.equal(res.mangdrabattManader, 0.7); // 4.5 - 3.8, INTE 4.5 - 3.75 (=0.75 → hade blivit 0.8)
+});
+
+test("avrundaMangdrabatt: procenten räknas på samma avrundade tal som månaderna", () => {
+  const res = avrundaMangdrabatt(4.5, 3.75);
+  assert.ok(Math.abs(res.mangdrabattProcent - (0.7 / 4.5) * 100) < 1e-9);
+});
+
+test("avrundaMangdrabatt: ingen brott/nollresultat ger 0 % utan att dela med noll", () => {
+  const res = avrundaMangdrabatt(0, 0);
+  assert.equal(res.mangdrabattManader, 0);
+  assert.equal(res.mangdrabattProcent, 0);
 });
 
 test("relevansPoang: inga valda brottstyper ger alltid 0", () => {

@@ -1,4 +1,4 @@
-import { formatManader, skalaFor, sorteradeBrott, berakna, relevansPoang } from './calc.js';
+import { formatManader, skalaFor, sorteradeBrott, berakna, avrundaMangdrabatt, relevansPoang } from './calc.js';
 
 const STORAGE_KEY = 'mangdrabatt-kalkylator:v1';
 
@@ -257,6 +257,9 @@ function renderResultat(res) {
     container.innerHTML = '<p class="tom-lista">Lägg till minst ett brott för att se resultat.</p>';
     return;
   }
+  // Mängdrabatten (d) räknas ut från samma avrundade tal som visas för a) och c), så att
+  // "a minus c" alltid stämmer med d) för den som kontrollräknar - se avrundaMangdrabatt().
+  const { mangdrabattManader, mangdrabattProcent } = avrundaMangdrabatt(res.renKumulation, res.justeratResultat);
   container.innerHTML = `
     <div class="resultat-rad">
       <span class="label">a) Ren kumulation (summa av alla straffvärden)</span>
@@ -274,11 +277,12 @@ function renderResultat(res) {
     </div>
     <div class="resultat-rad highlight">
       <span class="label">d) Mängdrabatt (ren kumulation → justerat resultat)</span>
-      <span class="varde">${formatManader(res.mangdrabattManader)} (${res.mangdrabattProcent.toFixed(1)}%)</span>
+      <span class="varde">${formatManader(mangdrabattManader)} (${mangdrabattProcent.toFixed(1)}%)</span>
     </div>
     <p class="resultat-not">Justerat resultat = halveringsmodellens summa, begränsat till intervallet [golv, tak].
-      Förenklad modell — den faktiska straffmätningen görs av domstolen utifrån samtliga omständigheter i
-      det enskilda fallet.</p>
+      Mängdrabatten (d) är a) minus c) räknat på de avrundade talen ovan, så att siffrorna går ihop
+      vid kontrollräkning. Förenklad modell — den faktiska straffmätningen görs av domstolen utifrån
+      samtliga omständigheter i det enskilda fallet.</p>
   `;
 }
 

@@ -55,6 +55,22 @@ export function berakna({ brott, vikter, golvProcent, straffskalor, takAllmantMa
   };
 }
 
+// Mängdrabatten i resultatpanelen visas som "a) minus c)" (ren kumulation minus det
+// tak/golv-justerade resultatet). Om den siffran räknas ut från de OAVRUNDADE värdena
+// stämmer den inte alltid överens med vad man får om man själv drar av de AVRUNDADE
+// talen som faktiskt visas för a) och c) - t.ex. kan 4,5 (a) och 3,8 (c, avrundat från
+// 3,75) se ut att ge 0,7 i mängdrabatt för den som räknar efter, trots att den exakta
+// modellen ger 0,75 → avrundat 0,8. Den här funktionen räknar därför ut mängdrabatten
+// från samma avrundade tal som visas, så att siffrorna alltid går ihop för den som
+// kontrollräknar.
+export function avrundaMangdrabatt(renKumulation, justeratResultat) {
+  const renKumulationAvrundad = Math.round(renKumulation * 10) / 10;
+  const justeratResultatAvrundat = Math.round(justeratResultat * 10) / 10;
+  const mangdrabattManader = Math.round((renKumulationAvrundad - justeratResultatAvrundat) * 10) / 10;
+  const mangdrabattProcent = renKumulationAvrundad > 0 ? (mangdrabattManader / renKumulationAvrundad) * 100 : 0;
+  return { renKumulationAvrundad, justeratResultatAvrundat, mangdrabattManader, mangdrabattProcent };
+}
+
 export function relevansPoang(ref, valdaTyper) {
   const brottstyper = ref.brottstyper || [];
   if (brottstyper.length === 0 || valdaTyper.size === 0) return 0;
