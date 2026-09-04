@@ -181,6 +181,29 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "RH 1998:101",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/1998:101",
+    domstol: "Hovrätten över Skåne och Blekinge (mål B 712/97, 1998-02-16)",
+    brott_sammanfattning:
+      "5 fullbordade och 1 försök till stöld under en \"stöldrajd\" i ett köpcentrum i Malmö " +
+      "- gärningsmannen tog varor från sex butiker under några timmar (bl.a. Åhléns, " +
+      "Intersport, Hennes & Mauritz, samt ett försök där en larmbricka avlägsnats innan han " +
+      "greps), sammanlagt värde över 8 000 kr. Flera enskilda tillgrepp låg under den " +
+      "dåvarande värdegränsen för stöld, men hovrätten rubricerade ändå samtliga som stöld " +
+      "(inte ringa stöld/snatteri) på grund av det systematiska, planerade tillvägagångssättet.",
+    straffvarde_text:
+      "OBS: äldre avgörande (1998) utan fängelsestraff att jämföra siffermässigt - påföljden " +
+      "blev villkorlig dom och 80 dagsböter, ingen fängelsemånader-siffra. Tas med som en " +
+      "renodlad flerfaldig \"stöld\"-dom utan komplicerande sidobrott, och som exempel på hur " +
+      "ett systematiskt tillvägagångssätt kan motivera stöld-rubricering (i stället för ringa " +
+      "stöld) av flera lågvärdestillgrepp - inte för sifferjämförelse av straffvärde.",
+    brottstyper: ["stold"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [

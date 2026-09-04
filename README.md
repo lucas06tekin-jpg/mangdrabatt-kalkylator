@@ -126,20 +126,24 @@ mellan varje anrop och en tydlig kontakt-UA).
 
 ### Referensdomar som hittades (kategori A)
 
-9 av upp till 10 eftersökta referensdomar hittades och kunde verifieras oberoende:
+10 av 10 eftersökta referensdomar hittades och kunde verifieras oberoende:
 NJA 2008 s. 359, NJA 2016 s. 1143, RH 2015:26, RH 2006:49, NJA 2019 s. 951,
-NJA 2025:67, RH 2021:17, NJA 2024:2 och NJA 2006 s. 524. Fyra av dem (NJA 2019 s. 951,
-NJA 2025:67, RH 2021:17 och NJA 2024:2) är gränsdragningsmål eller enstaka brott snarare
-än exempel på flerfaldighetsbedömning - varje referensdom har ett `flerfaldighetsexempel`-
-fält i `seedSources.js` som styr detta, och det används för att rangordna listan (se
-nedan). RH 2021:17 är trots det medvetet med eftersom det är det enda verifierbara
-avgörandet om inbrottsstöld. NJA 2006 s. 524 är den ledande domen om hur en "snatteritur"
-med både ringa stöld och stöld ska hanteras vid gemensam straffmätning. En riktad sökning
-efter (a) ett flerfaldighetsavgörande om enbart ringa stöld, (b) ett avgörande som
-tillämpar den nya kombinationsstraffregeln i 26 kap. 2 § BrB (i kraft sedan 1 aug 2026)
-och (c) en renodlad multi-count "stöld"-dom utan komplicerande sidobrott gav inga
-tillräckligt starka/verifierbara träffar – inget hittat än så länge, snarare än gissat
-eller hittepå. En efterföljande riktad sökning efter fler grov stöld-avgöranden hittade
+NJA 2025:67, RH 2021:17, NJA 2024:2, NJA 2006 s. 524 och RH 1998:101. Fyra av dem
+(NJA 2019 s. 951, NJA 2025:67, RH 2021:17 och NJA 2024:2) är gränsdragningsmål eller
+enstaka brott snarare än exempel på flerfaldighetsbedömning - varje referensdom har ett
+`flerfaldighetsexempel`-fält i `seedSources.js` som styr detta, och det används för att
+rangordna listan (se nedan). RH 2021:17 är trots det medvetet med eftersom det är det
+enda verifierbara avgörandet om inbrottsstöld. NJA 2006 s. 524 är den ledande domen om
+hur en "snatteritur" med både ringa stöld och stöld ska hanteras vid gemensam
+straffmätning. RH 1998:101 fyller luckan för en renodlad flerfaldig "stöld"-dom utan
+komplicerande sidobrott (en "stöldrajd" i ett köpcentrum) - men är från 1998 och gav en
+icke-fängelsepåföljd (villkorlig dom + dagsböter), så den saknar en fängelsemånader-siffra
+att jämföra mot; medtagen ändå för sitt renodlade brottsmönster, tydligt flaggad i sin
+sammanfattning. En riktad sökning efter (a) ett flerfaldighetsavgörande om enbart ringa
+stöld, (b) ett avgörande som tillämpar den nya kombinationsstraffregeln i 26 kap. 2 § BrB
+(i kraft sedan 1 aug 2026) och (c) en multi-count inbrottsstöld-dom gav inga tillräckligt
+starka/verifierbara träffar – inget hittat än så länge, snarare än gissat eller hittepå.
+En tidigare riktad sökning efter fler grov stöld-avgöranden hittade
 Falu tingsrätts dom i mål B 574-25 (juni 2026, en organiserad, regionöverskridande
 härva för stöld av crossmotorcyklar/terränghjulingar - en annorlunda och färsk
 brottsbild jämfört med de befintliga grov stöld-fallen) men den togs medvetet INTE med:
