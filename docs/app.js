@@ -260,6 +260,13 @@ function renderResultat(res) {
   // Mängdrabatten (d) räknas ut från samma avrundade tal som visas för a) och c), så att
   // "a minus c" alltid stämmer med d) för den som kontrollräknar - se avrundaMangdrabatt().
   const { mangdrabattManader, mangdrabattProcent } = avrundaMangdrabatt(res.renKumulation, res.justeratResultat);
+  const golvNotis = mangdrabattManader < 0
+    ? `<p class="resultat-notis-golv"><strong>Observera:</strong> mängdrabatten är negativ eftersom golvet
+        (${formatManader(res.golvManader)}, 26 kap. 1 § BrB) höjer det justerade resultatet över den
+        ursprungliga straffvärdessumman. Det inträffar bara vid ovanligt låga, manuellt inställda vikter
+        för ett enstaka lågt straffvärde – inte en straffskärpning i sig, bara golvets nedre gräns som
+        slår igenom.</p>`
+    : '';
   container.innerHTML = `
     <div class="resultat-rad">
       <span class="label">a) Ren kumulation (summa av alla straffvärden)</span>
@@ -279,6 +286,7 @@ function renderResultat(res) {
       <span class="label">d) Mängdrabatt (ren kumulation → justerat resultat)</span>
       <span class="varde">${formatManader(mangdrabattManader)} (${mangdrabattProcent.toFixed(1)}%)</span>
     </div>
+    ${golvNotis}
     <p class="resultat-not">Justerat resultat = halveringsmodellens summa, begränsat till intervallet [golv, tak].
       Mängdrabatten (d) är a) minus c) räknat på de avrundade talen ovan, så att siffrorna går ihop
       vid kontrollräkning. Förenklad modell — den faktiska straffmätningen görs av domstolen utifrån
