@@ -359,8 +359,12 @@ async function laddaForklaringar() {
     for (const f of rader) {
       const div = document.createElement('div');
       div.className = 'forklaring-item';
+      if (!f.tillganglig) div.classList.add('otillganglig');
+      const granskningTagg = f.granskningsdjup === 'snippet'
+        ? '<span class="verif-badge verif-maskin">Endast sökmotorutdrag, ej öppnad</span>'
+        : '<span class="verif-badge verif-manuell">Fulltext läst</span>';
       div.innerHTML = `
-        <h4>${f.titel}</h4>
+        <h4>${f.titel} ${granskningTagg}${!f.tillganglig ? '<span class="otillganglig-tagg"> · källan ej nåbar just nu</span>' : ''}</h4>
         <p>${f.sammanfattning}</p>
         <a class="ref-link" href="${f.kalla_url}" target="_blank" rel="noopener">${f.kalla} ↗</a>
       `;

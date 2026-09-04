@@ -181,28 +181,41 @@ export async function uppdateraCache() {
     if (!tillganglig) resultat.otillgangliga.push({ id: post.id, meddelande });
   }
 
-  // Lawline-källor: aldrig automatisk hämtning (robots.txt nekar ClaudeBot). Sparas som de
-  // manuellt granskade och tidsstämplas bara vid seedning, inte vid varje körning.
+  // Förklarande källor: domäner i MANUELL_ENDAST_DOMANER (lawline.se) kontrolleras ALDRIG
+  // automatiskt - robots.txt-spärren där betyder "vi väljer att inte fråga", inte "sidan är
+  // nere", så de ska inte märkas otillgängliga bara för att vi avstår från att fråga.
+  // Övriga domäner (t.ex. svjt.se, aklagare.se) får en riktig nåbarhetskontroll.
   for (const post of FORKLARANDE_KALLOR) {
+    const manuellEndast = MANUELL_ENDAST_DOMANER.includes(new URL(post.kalla_url).hostname);
+    let tillganglig = true;
+    let meddelande = "manuellt granskad - hämtas aldrig automatiskt (robots.txt nekar ClaudeBot)";
+    let robotsTillater = 0;
+    if (!manuellEndast) {
+      ({ tillganglig, meddelande } = await kontrolleraUrl(post.kalla_url));
+      robotsTillater = tillganglig ? 1 : 0;
+      await sleep(FORDROJNING_MS);
+    }
     upsertForklarandeKalla({
       id: post.id,
       kalla: post.kalla,
       titel: post.titel,
       kalla_url: post.kalla_url,
       sammanfattning: post.sammanfattning,
+      granskningsdjup: post.granskningsdjup || "fulltext",
       senast_kontrollerad: now,
-      tillganglig: 1,
-      auto_uppdateras: 0,
+      tillganglig: tillganglig ? 1 : 0,
+      auto_uppdateras: manuellEndast ? 0 : 1,
     });
     upsertKallstatus({
       kalla: post.kalla,
       kategori: "forklarande",
-      robots_tillater: 0,
+      robots_tillater: robotsTillater,
       senast_forsokt: now,
-      status: "manuellt granskad (ej auto-uppdaterad)",
-      meddelande: "lawline.se robots.txt nekar ClaudeBot - hämtas aldrig automatiskt",
+      status: manuellEndast ? "manuellt granskad (ej auto-uppdaterad)" : (tillganglig ? "tillgänglig" : "otillgänglig"),
+      meddelande,
     });
     resultat.forklarandeKallor += 1;
+    if (!manuellEndast && !tillganglig) resultat.otillgangliga.push({ id: post.id, meddelande });
   }
 
   return resultat;

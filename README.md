@@ -89,8 +89,36 @@ korta, egenformulerade sammanfattningarna som redan finns i seed-listan.
 appen visade det sig att `lawline.se/robots.txt` uttryckligen nekar `ClaudeBot` (även om
 `User-agent: *` annars tillåter allt). Scraper.js har därför en hårdkodad spärr som
 aldrig hämtar från lawline.se automatiskt, oavsett vilken User-Agent-sträng den själv
-skickar. De fyra Lawline-artiklarna i appen är istället manuellt granskade en gång
-(2026-09-03) och måste verifieras på nytt av en människa om de behöver uppdateras.
+skickar - och en lawline.se-post märks aldrig "otillgänglig" bara för att den inte
+kontrolleras (det vore att blanda ihop "vi frågar inte" med "sidan är nere"). Fyra av de
+nio Lawline-posterna är manuellt granskade i sin helhet (2026-09-03); fem tillkom senare
+via sökmotorutdrag utan att sidan öppnats (lawline.se går inte att fritt fram och tillbaka
+till för verifiering på samma sätt) - dessa är tydligt märkta "Endast sökmotorutdrag, ej
+öppnad" i UI:t, till skillnad från "Fulltext läst" för övriga källor. Två artiklar i
+Svensk Juristtidning (Jareborg 1999, Sunnqvist 2011) och en nyhet från Åklagarmyndigheten
+om värdegränsen för ringa stöld är fulltextlästa och auto-uppdateras precis som
+referensdomarna, eftersom svjt.se och aklagare.se båda tillåter allmän automatiserad
+hämtning enligt sina robots.txt-filer (verifierat 2026-09-04).
+
+### Kommande reform - läs innan du litar för mycket på halveringsmodellen
+
+Riksdagen godkände den 13 augusti 2026 en ny påföljdsreform (prop. 2025/26:297, bet.
+2025/26:JuU48) som avskaffar mängdrabatt/asperationsprincipen i nuvarande form och
+ersätter den med en modell där varje brotts fulla straffvärde räknas samman och en
+proportionalitetsjustering görs i ett sista steg - en helt annan mekanik än denna
+kalkylators halveringsmodell. Lagen är **antagen men ännu inte i kraft**: regeringen
+bestämmer själv ikraftträdandedatum, uttryckligen kopplat till Kriminalvårdens kapacitet
+att ta emot fler intagna. Detta visas som en notis i appens "Fasta juridiska fakta"-panel.
+Två artiklar av Nils Jareborg (SvJT 1999 s. 264) och Martin Sunnqvist (SvJT 2011 s. 495)
+ger djupare, icke-numerisk bakgrund till varför asperationsprincipen ser ut som den gör
+och varför en exakt matematisk formel (som denna kalkylators halveringsmodell) aldrig
+har varit den rättsligt vedertagna metoden - se `backend/src/seedSources.js`.
+
+**Viktig lärdom från denna research:** en första sökning misstolkade omröstningsresultatet
+för prop. 2025/26:297 (en AI-genererad sökresultatsammanfattning påstod felaktigt att
+riksdagen avslagit förslaget). Detta motbevisades genom att direkt läsa riksdagens egen
+ärendesida och betänkandet - en påminnelse om att alltid verifiera mot primärkällan när
+en sekundär sammanfattning gör ett påstående som skulle vara viktigt om det stämde.
 
 `lagen.nu` och `domstol.se`, som båda är öppna för automatiserad hämtning enligt sina
 robots.txt-filer, kontrolleras om vid varje cacheuppdatering (med 2 sekunders fördröjning

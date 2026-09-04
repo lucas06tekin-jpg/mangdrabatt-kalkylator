@@ -195,6 +195,7 @@ export const FORKLARANDE_KALLOR = [
       "straffvärde läggs samman med en avtagande andel av de övriga brottens straffvärden " +
       "(t.ex. ungefär hälften av det näst allvarligaste, en fjärdedel av det tredje) – i " +
       "stället för att brottens straffvärden summeras rakt av.",
+    granskningsdjup: "fulltext",
   },
   {
     id: "lawline-15245",
@@ -205,6 +206,7 @@ export const FORKLARANDE_KALLOR = [
       "Går igenom hur en domstol resonerar vid straffmätning för flera samtidigt lagförda " +
       "brott av olika slag, med ett räkneexempel som visar hur det gemensamma straffet hålls " +
       "inom taket och golvet i 26 kap. 2 § BrB.",
+    granskningsdjup: "fulltext",
   },
   {
     id: "lawline-ringa-stold-flertal",
@@ -215,6 +217,7 @@ export const FORKLARANDE_KALLOR = [
       "Beskriver att upprepade fall av ringa stöld vid olika tillfällen bedöms som separata " +
       "brott – inte som ett enda sammanslaget värde – och att de därefter straffmäts " +
       "gemensamt enligt reglerna för flerfaldig brottslighet.",
+    granskningsdjup: "fulltext",
   },
   {
     id: "lawline-butikstold-pafoljd",
@@ -227,5 +230,110 @@ export const FORKLARANDE_KALLOR = [
       "951 återfinns bland referensdomarna ovan (oberoende bekräftat). Den nämner även äldre " +
       "avgöranden (t.ex. NJA 1972 s. 253, RH 2007:49) som INTE har verifierats oberoende och " +
       "därför medvetet inte tagits med som referensdomar i kategori A.",
+    granskningsdjup: "fulltext",
+  },
+
+  // Nedanstående fem är hittade via sökmotorsnutt (Google-liknande utdrag), INTE öppnade
+  // och lästa i sin helhet - lawline.se/robots.txt nekar ClaudeBot, se scraper.js. Märkta
+  // granskningsdjup: "snippet" i UI:t, till skillnad från fulltext-lästa poster ovan.
+  {
+    id: "lawline-vad-ar-mangdrabatt",
+    kalla: "Lawline",
+    titel: "Vad är mängdrabatt vid straff?",
+    kalla_url: "https://lawline.se/answers/vad-ar-mangdrabatt-vid-straff",
+    sammanfattning:
+      "Enligt sökmotorutdraget: definierar mängdrabatt/asperationsprincipen - vid flera " +
+      "samtidigt lagförda brott bestäms ett gemensamt straff i stället för att brottens " +
+      "straffvärden läggs samman rakt av, med motiveringen att långa strafftider inte anses " +
+      "minska återfallsrisken proportionerligt.",
+    granskningsdjup: "snippet",
+  },
+  {
+    id: "lawline-var-regleras-mangdreduktionen",
+    kalla: "Lawline",
+    titel: "Var regleras den straffrättsliga mängdreduktionen?",
+    kalla_url: "https://lawline.se/answers/var-regleras-den-straffrattsliga-mangdreduktionen",
+    sammanfattning:
+      "Enligt sökmotorutdraget: pekar ut var i lagen mängdreduktionen regleras (26 kap. 2 § " +
+      "BrB) - en hänvisningskälla snarare än en fördjupad förklaring.",
+    granskningsdjup: "snippet",
+  },
+  {
+    id: "lawline-ringa-stold-500kr",
+    kalla: "Lawline",
+    titel: "Vad blir domen för flera olika fall av ringa stöld avseende ett värde om totalt 500 kronor?",
+    kalla_url:
+      "https://lawline.se/answers/vad-blir-domen-for-flera-olika-fall-av-ringa-stold-avseende-ett-varde-om-totalt-500-kronor",
+    sammanfattning:
+      "Enligt sökmotorutdraget: ett konkret räkneexempel med flera fall av ringa stöld som " +
+      "tillsammans uppgår till ca 500 kr - ett lågvärdesscenario nära kalkylatorns egna " +
+      "typexempel.",
+    granskningsdjup: "snippet",
+  },
+  {
+    id: "lawline-vad-raknas-som-grov-stold",
+    kalla: "Lawline",
+    titel: "Vad räknas som grov stöld?",
+    kalla_url: "https://lawline.se/answers/vad-raknas-som-grov-stold",
+    sammanfattning:
+      "Enligt sökmotorutdraget: går igenom vilka omständigheter (t.ex. tillgreppets värde " +
+      "eller tillvägagångssätt) som gör att en stöld bedöms som grov - bakgrund till " +
+      "klassificeringssteget som föregår mängdrabattberäkningen.",
+    granskningsdjup: "snippet",
+  },
+  {
+    id: "lawline-straff-inbrottsstold",
+    kalla: "Lawline",
+    titel: "Vad kan jag få för straff för inbrottsstöld?",
+    kalla_url: "https://lawline.se/answers/vad-kan-jag-fa-for-straff-for-inbrottsstold",
+    sammanfattning:
+      "Enligt sökmotorutdraget: beskriver straffskalan och de omständigheter som beaktas vid " +
+      "straffvärdesbedömning för inbrottsstöld (8 kap. 4 a § BrB) - den enda brottstyp i " +
+      "kalkylatorn som tidigare helt saknade en förklarande Lawline-källa.",
+    granskningsdjup: "snippet",
+  },
+
+  // Två artiklar i Svensk Juristtidning - fulltextlästa (svjt.se tillåter allmän hämtning).
+  {
+    id: "svjt-jareborg-1999",
+    kalla: "Svensk Juristtidning",
+    titel: "Straffmätning vid flerfaldig brottslighet",
+    kalla_url: "https://svjt.se/svjt/1999/264",
+    sammanfattning:
+      "Artikel av professor Nils Jareborg (SvJT 1999 s. 264) om den rättspolitiska grunden " +
+      "för asperationsprincipen, med exemplet att två brott värda en månad vardera normalt " +
+      "ger två månaders gemensamt straff - inte fyra. Jareborg avfärdar tidigare försök att " +
+      "formalisera mängdrabatten som en exakt matematisk formel och förespråkar i stället en " +
+      "normativ, skönsmässig bedömning - en påminnelse om att kalkylatorns halveringsmodell " +
+      "är en pedagogisk förenkling, inte en återgivning av domstolarnas faktiska metod.",
+    granskningsdjup: "fulltext",
+  },
+  {
+    id: "svjt-sunnqvist-2011",
+    kalla: "Svensk Juristtidning",
+    titel: "Sammanläggning av flera systematiskt begångna brott till ett grovt brott",
+    kalla_url: "https://svjt.se/svjt/2011/495",
+    sammanfattning:
+      "Artikel av Martin Sunnqvist (SvJT 2011 s. 495) om hur flera systematiskt begångna, " +
+      "lindrigare stölder historiskt och rättsligt kan behandlas som ett sammanhållet grovt " +
+      "brott i stället för att varje tillfälle bedöms för sig - relevant för hur brott bör " +
+      "klassificeras innan mängdrabatt över huvud taget blir aktuellt att räkna ut.",
+    granskningsdjup: "fulltext",
+  },
+
+  // Åklagarmyndighetens egen nyhet - fulltextläst (aklagare.se tillåter allmän hämtning).
+  {
+    id: "aklagarmyndigheten-vardegrans",
+    kalla: "Åklagarmyndigheten",
+    titel: "Höjd värdegräns för ringa stöld",
+    kalla_url:
+      "https://www.aklagare.se/for-media/aktuellt-pa-aklagarmyndigheten/2025/oktober/nu-galler-hojd-vardegrans-for-ringa-stold/",
+    sammanfattning:
+      "Åklagarmyndighetens egen nyhet om att värdegränsen mellan ringa stöld och stöld " +
+      "höjdes från 1 250 kr till 1 500 kr från den 30 oktober 2025, till följd av HD:s " +
+      "avgörande i mål B 712-25 (NJA 2025:67, som redan finns bland referensdomarna). " +
+      "Bekräftar även justerade gränser för åtalsunderlåtelse (90 kr för vuxna, 30 kr för " +
+      "unga).",
+    granskningsdjup: "fulltext",
   },
 ];

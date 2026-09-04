@@ -276,6 +276,17 @@ body {
 }
 .resultat-notis-golv strong { color: #5c4a15; }
 
+.notis-kommande-reform {
+  margin: 0.6rem 0 0;
+  padding: 0.6rem 0.8rem;
+  background: #fbf3df;
+  border-left: 4px solid var(--gold-500);
+  border-radius: var(--radius);
+  font-size: 0.78rem;
+  color: #4a3d1a;
+}
+.notis-kommande-reform strong { color: #5c4a15; }
+
 .refs-status { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 0.75rem; }
 .refs-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.7rem; }
 .refs-lista li {
