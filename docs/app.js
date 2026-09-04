@@ -1,3 +1,7 @@
+import { formatManader, skalaFor, sorteradeBrott, berakna, relevansPoang } from './calc.js';
+
+const STORAGE_KEY = 'mangdrabatt-kalkylator:v1';
+
 const state = {
   straffskalor: [],
   takAllmantManader: 216,
@@ -16,18 +20,38 @@ async function hamtaJson(url) {
   return resp.json();
 }
 
-function formatManader(m) {
-  const rounded = Math.round(m * 10) / 10;
-  return `${rounded} mån`;
+// ---- Lokal lagring (så inmatade brott överlever en sidladdning) ----
+
+function sparaState() {
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ brott: state.brott, golvProcent: state.golvProcent, vikter: state.vikter, nextInstId })
+    );
+  } catch (e) {
+    // localStorage kan vara blockerat (privat läge m.m.) - inte kritiskt, hoppa bara över.
+  }
 }
 
-function skalaFor(typId) {
-  return state.straffskalor.find((s) => s.id === typId);
+function laddaSparadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const sparat = JSON.parse(raw);
+    if (Array.isArray(sparat.brott)) state.brott = sparat.brott;
+    if (typeof sparat.golvProcent === 'number') state.golvProcent = sparat.golvProcent;
+    if (Array.isArray(sparat.vikter)) state.vikter = sparat.vikter;
+    if (typeof sparat.nextInstId === 'number') nextInstId = sparat.nextInstId;
+  } catch (e) {
+    // Korrupt eller otillgänglig sparad data - fortsätt med tomt state.
+  }
 }
 
 // ---- Init ----
 
 async function init() {
+  laddaSparadState();
+
   const skalorResp = await hamtaJson('data/straffskalor.json');
   state.straffskalor = skalorResp.straffskalor;
   state.takAllmantManader = skalorResp.tak_allmant_manader;
@@ -37,10 +61,14 @@ async function init() {
   fyllBrottstypDropdown();
   bindForm();
 
-  document.getElementById('golv-procent').addEventListener('input', (e) => {
+  const golvInput = document.getElementById('golv-procent');
+  golvInput.value = state.golvProcent;
+  golvInput.addEventListener('input', (e) => {
     state.golvProcent = Math.max(0.5, Number(e.target.value) || 0);
     rakenOmOchRendera();
   });
+
+  document.getElementById('rensa-brott').addEventListener('click', rensaAllaBrott);
 
   laddaReferensdomar();
   laddaForklaringar();
@@ -55,7 +83,13 @@ function renderStraffskalorFakta() {
     const dt = document.createElement('dt');
     dt.textContent = `${s.namn} (${s.paragraf})`;
     const dd = document.createElement('dd');
-    dd.textContent = s.skala_text;
+    dd.innerHTML = `
+      ${s.skala_text}
+      <details class="lagtext-details">
+        <summary>Visa lagtext</summary>
+        <p>${s.lagtext}</p>
+      </details>
+    `;
     dl.appendChild(dt);
     dl.appendChild(dd);
   }
@@ -76,7 +110,7 @@ function fyllBrottstypDropdown() {
 
 function uppdateraSkalaHint() {
   const typId = document.getElementById('brottstyp').value;
-  const skala = skalaFor(typId);
+  const skala = skalaFor(state.straffskalor, typId);
   const hint = document.getElementById('skala-hint');
   const input = document.getElementById('straffvarde');
   if (skala) {
@@ -91,7 +125,7 @@ function bindForm() {
   document.getElementById('brott-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const typId = document.getElementById('brottstyp').value;
-    const skala = skalaFor(typId);
+    const skala = skalaFor(state.straffskalor, typId);
     const input = document.getElementById('straffvarde');
     let manader = Number(input.value);
     if (Number.isNaN(manader)) return;
@@ -107,59 +141,26 @@ function taBortBrott(instId) {
   rakenOmOchRendera();
 }
 
-// ---- Beräkning ----
-
-function sorteradeBrott() {
-  return [...state.brott].sort((a, b) => b.manader - a.manader);
-}
-
-function berakna() {
-  const sorterade = sorteradeBrott();
-  const golv = state.golvProcent / 100;
-
-  const viktade = sorterade.map((b, i) => {
-    const vikt = i < state.vikter.length ? state.vikter[i] / 100 : Math.max(golv, Math.pow(0.5, i));
-    return { ...b, vikt, viktatVarde: b.manader * vikt };
-  });
-
-  const renKumulation = sorterade.reduce((sum, b) => sum + b.manader, 0);
-  const halveringssumma = viktade.reduce((sum, b) => sum + b.viktatVarde, 0);
-
-  let golvManader = state.allmantGolvManader;
-  let takManader = state.takAllmantManader;
-  let svarasteTyp = null;
-
-  if (sorterade.length > 0) {
-    const typerMedd = sorterade.map((b) => skalaFor(b.typId));
-    svarasteTyp = typerMedd.reduce((max, s) => (s.max_manader > max.max_manader ? s : max), typerMedd[0]);
-    const summaMax = typerMedd.reduce((sum, s) => sum + s.max_manader, 0);
-    // 26 kap. 2 § BrB, lydelse efter SFS 2026:1318 (i kraft 1 aug 2026): taket är det
-    // högsta maximistraffet bland brotten, dubblerat - men aldrig mer än summan av
-    // maximistraffen eller 18 år. Den äldre stegvisa tilläggsregeln (+1/+2/+4 år) och
-    // den äldre golvregeln (strängaste minimistraffet) är avskaffade i samma reform.
-    takManader = Math.min(summaMax, svarasteTyp.max_manader * 2, state.takAllmantManader);
-  }
-
-  const justeratResultat = sorterade.length > 0
-    ? Math.min(takManader, Math.max(golvManader, halveringssumma))
-    : 0;
-
-  const mangdrabattManader = renKumulation - justeratResultat;
-  const mangdrabattProcent = renKumulation > 0 ? (mangdrabattManader / renKumulation) * 100 : 0;
-
-  return {
-    sorterade, viktade, renKumulation, halveringssumma,
-    golvManader, takManader, svarasteTyp, justeratResultat,
-    mangdrabattManader, mangdrabattProcent,
-  };
+function rensaAllaBrott() {
+  state.brott = [];
+  state.vikter = [];
+  rakenOmOchRendera();
 }
 
 // ---- Rendering ----
 
 function rakenOmOchRendera() {
+  sparaState();
   renderBrottLista();
   renderVikter();
-  const res = berakna();
+  const res = berakna({
+    brott: state.brott,
+    vikter: state.vikter,
+    golvProcent: state.golvProcent,
+    straffskalor: state.straffskalor,
+    takAllmantManader: state.takAllmantManader,
+    allmantGolvManader: state.allmantGolvManader,
+  });
   renderTrappa(res);
   renderResultat(res);
   renderReferensdomar();
@@ -168,7 +169,8 @@ function rakenOmOchRendera() {
 function renderBrottLista() {
   const ul = document.getElementById('brott-lista');
   ul.innerHTML = '';
-  const sorterade = sorteradeBrott();
+  const sorterade = sorteradeBrott(state.brott);
+  document.getElementById('rensa-brott').hidden = sorterade.length === 0;
   if (sorterade.length === 0) {
     const li = document.createElement('li');
     li.className = 'brott-tom';
@@ -177,7 +179,7 @@ function renderBrottLista() {
     return;
   }
   sorterade.forEach((b, i) => {
-    const skala = skalaFor(b.typId);
+    const skala = skalaFor(state.straffskalor, b.typId);
     const li = document.createElement('li');
     li.innerHTML = `
       <span><span class="brott-rank">${i + 1}</span>
@@ -235,7 +237,7 @@ function renderTrappa(res) {
   }
   const maxVarde = Math.max(...res.viktade.map((b) => b.manader), 1);
   res.viktade.forEach((b, i) => {
-    const skala = skalaFor(b.typId);
+    const skala = skalaFor(state.straffskalor, b.typId);
     const stapel = document.createElement('div');
     stapel.className = 'trappa-stapel';
     const hojdProcentUrsprung = (b.manader / maxVarde) * 100;
@@ -296,19 +298,6 @@ async function laddaReferensdomar() {
   }
 }
 
-function relevansPoang(ref, valdaTyper) {
-  const brottstyper = ref.brottstyper || [];
-  if (brottstyper.length === 0 || valdaTyper.size === 0) return 0;
-  const matchade = brottstyper.filter((t) => valdaTyper.has(t));
-  if (matchade.length === 0) return 0;
-  // Fler matchande typer väger tyngst; en dom där ALLA dess brottstyper matchar
-  // (t.ex. en renodlad grov stöld-dom när bara grov stöld är ifyllt) rankas före
-  // en dom som bara delvis matchar. Ett litet tillägg ser till att faktiska
-  // flerfaldighetsexempel (verkliga avgöranden om flera brott) rankas före
-  // gränsdragningsmål/enstaka brott med samma brottstypsträff.
-  return matchade.length + matchade.length / brottstyper.length + (ref.flerfaldighetsexempel ? 0.4 : 0);
-}
-
 function renderReferensdomar() {
   const ul = document.getElementById('refs-lista');
   ul.innerHTML = '';
@@ -327,9 +316,13 @@ function renderReferensdomar() {
       manuell_pressmeddelande: 'Manuellt verifierad (pressmeddelande)',
     }[r.verifieringsstatus] || 'Maskinellt tolkad';
     const verifClass = r.verifieringsstatus.startsWith('manuell') ? 'verif-manuell' : 'verif-maskin';
+    const flerfaldighetTagg = r.flerfaldighetsexempel
+      ? '<span class="verif-badge tagg-flerfaldighet">Flerfaldighetsexempel</span>'
+      : '<span class="verif-badge tagg-gransdragning">Gränsdragning/enstaka brott</span>';
     li.innerHTML = `
       <div class="ref-id">${r.id}
         <span class="verif-badge ${verifClass}">${verifText}</span>
+        ${flerfaldighetTagg}
         ${poang > 0 ? '<span class="verif-badge verif-relevant">Relevant för dina brott</span>' : ''}
         ${!r.tillganglig ? '<span class="otillganglig-tagg"> · källan ej nåbar just nu</span>' : ''}
       </div>
@@ -367,3 +360,7 @@ async function laddaForklaringar() {
 }
 
 init();
+
+// Litet felsökningsfönster för manuell testning i webbläsarkonsolen - type="module" gör att
+// dessa symboler annars inte skulle vara nåbara utanför modulen.
+window.__debug = { state, rakenOmOchRendera };

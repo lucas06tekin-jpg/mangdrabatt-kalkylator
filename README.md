@@ -33,17 +33,22 @@ har inget eget byggsteg, den serverar bara det som ligger i `docs/`.
 
 ## Arkitektur
 
-- **`docs/`** – hela den publicerade sajten: `index.html`, `style.css`, `app.js` och
-  `data/*.json` (straffskalor, referensdomar, förklarande källor). Ren HTML/CSS/JS, ingen
-  byggprocess krävs för att visa den. Detta är mappen GitHub Pages pekas mot.
+- **`docs/`** – hela den publicerade sajten: `index.html`, `style.css`, `app.js`,
+  `calc.js` och `data/*.json` (straffskalor, referensdomar, förklarande källor). `calc.js`
+  innehåller all ren beräkningslogik (inga DOM-anrop) så att den kan testas fristående;
+  `app.js` importerar den och sköter formuläret/renderingen. Ren HTML/CSS/JS via ES-moduler,
+  ingen byggprocess krävs för att visa sajten. Detta är mappen GitHub Pages pekas mot.
 - **`backend/`** – ett Node-byggverktyg, inte en produktionsserver:
   - `src/straffskalor.js` – de fyra hårdkodade straffskalorna.
   - `src/scraper.js` – kontrollerar (respekterar robots.txt) att de manuellt verifierade
     käll-URL:erna i `seedSources.js` fortfarande svarar, och uppdaterar `cache.db`.
   - `src/exportStatic.js` / `build.js` – skriver cachens innehåll till `docs/data/*.json`.
   - `server.js` – enkel statisk förhandsgranskningsserver för `docs/` under utveckling.
+  - `test/calc.test.js` – Node-tester mot `docs/calc.js` (körs med `npm test`).
 - **`backend/cache.db`** (SQLite, Node:s inbyggda `node:sqlite`, gitignorad) – mellanlager
   mellan scraper och export; källan för `docs/data/*.json`.
+- **`.github/workflows/refresh-cache.yml`** – schemalagd GitHub Action som testar och
+  uppdaterar källcachen automatiskt (se "Automatisk källkontroll" nedan).
 
 ## Publicera på GitHub Pages
 
@@ -119,7 +124,8 @@ kommentarerna i `seedSources.js`.
 Referensdomspanelen i appen sorterar om sig live efter vilka brottstyper som fyllts i
 kalkylatorn: domar vars `brottstyper` överlappar med de ifyllda rankas överst, med extra
 vikt för domar som faktiskt är flerfaldighetsexempel (inte bara gränsdragningsmål) - se
-`relevansPoang()` i `docs/app.js`.
+`relevansPoang()` i `docs/calc.js`. Varje post i listan visar också en tydlig
+"Flerfaldighetsexempel"- eller "Gränsdragning/enstaka brott"-tagg.
 
 ## Modellen (frontend, redigerbar)
 
@@ -135,3 +141,33 @@ vikt för domar som faktiskt är flerfaldighetsexempel (inte bara gränsdragning
   SFS-texten, inte bara mot allmän kunskap om äldre rätt – se `backend/src/straffskalor.js`.)
 - **Mängdrabatt**: skillnaden mellan ren kumulation och det tak/golv-justerade resultatet,
   i månader och procent.
+
+## Övriga UI-funktioner
+
+- **Inmatningen sparas lokalt** (`localStorage`, i din egen webbläsare - lämnar aldrig
+  datorn) så att tillagda brott, golv och vikter finns kvar om sidan laddas om av misstag.
+  "Rensa alla brott"-knappen nollställer både vyn och det sparade läget.
+- **Lagtext** för varje straffskala kan fällas ut ("Visa lagtext") under "Fasta juridiska
+  fakta", för den som vill se den fullständiga paragraftexten utan att lämna sidan.
+
+## Testa
+
+```bash
+cd backend
+npm test
+```
+
+Kör Node:s inbyggda testrunner mot `docs/calc.js` - den rena beräkningslogiken (halverings-
+modellen, tak/golv enligt 26 kap. 2 § BrB, relevansrankningen av referensdomar) utan någon
+webbläsare inblandad. Testerna innehåller bl.a. ett regressionstest för det ursprungliga
+felet där gränsdragningsmål rankades lika högt som faktiska flerfaldighetsexempel.
+
+## Automatisk källkontroll
+
+`.github/workflows/refresh-cache.yml` kör `npm test` + `npm run build` i backend/ varje
+måndag (och kan triggas manuellt via GitHub-fliken "Actions" → "Uppdatera källcache" →
+"Run workflow"). Om något ändrats i `docs/data/*.json` (t.ex. att en källa blivit
+otillgänglig) committas och pushas det automatiskt, med tester som en gate innan det
+sker. Detta uppdaterar bara tillgänglighetsstatusen på redan verifierade källor - att
+lägga till nya referensdomar kräver fortsatt manuell research och en redigering av
+`backend/src/seedSources.js`.

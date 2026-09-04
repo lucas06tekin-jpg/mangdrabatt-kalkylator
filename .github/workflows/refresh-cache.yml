@@ -1,0 +1,43 @@
+name: Uppdatera källcache
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # varje måndag 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Installera beroenden
+        working-directory: backend
+        run: npm ci
+
+      - name: Kör tester
+        working-directory: backend
+        run: npm test
+
+      - name: Kontrollera källor och exportera docs/data/*.json
+        working-directory: backend
+        run: npm run build
+
+      - name: Committa och pusha om något ändrats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          if git diff --cached --quiet; then
+            echo "Inga ändringar i docs/data - inget att pusha."
+          else
+            git commit -m "Automatisk källcacheuppdatering"
+            git push
+          fi
