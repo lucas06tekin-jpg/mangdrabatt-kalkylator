@@ -9,7 +9,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { berakna, avrundaMangdrabatt, relevansPoang, sorteradeBrott, skalaFor } from "../../docs/calc.js";
+import { berakna, avrundaMangdrabatt, relevansPoang, analyseraTackning, sorteradeBrott, skalaFor } from "../../docs/calc.js";
 
 const STRAFFSKALOR = [
   { id: "ringa_stold", namn: "Ringa stöld", paragraf: "8 kap. 2 § BrB", min_manader: 0, max_manader: 6 },
@@ -176,4 +176,39 @@ test("sorteradeBrott: sorterar brotten fallande efter straffvärde", () => {
 test("skalaFor: hittar rätt straffskala via id, annars undefined", () => {
   assert.equal(skalaFor(STRAFFSKALOR, "grov_stold").namn, "Grov stöld");
   assert.equal(skalaFor(STRAFFSKALOR, "okand_typ"), undefined);
+});
+
+test("analyseraTackning: räknar flerfaldighetsexempel och gränsdragningsmål separat per brottstyp", () => {
+  const referensdomar = [
+    { brottstyper: ["stold", "grov_stold"], flerfaldighetsexempel: true },
+    { brottstyper: ["stold"], flerfaldighetsexempel: false },
+    { brottstyper: ["grov_stold"], flerfaldighetsexempel: true },
+  ];
+  const rader = analyseraTackning(referensdomar, STRAFFSKALOR);
+
+  const stold = rader.find((r) => r.id === "stold");
+  assert.equal(stold.totalt, 2);
+  assert.equal(stold.flerfaldighet, 1);
+  assert.equal(stold.gransdragning, 1);
+
+  const grovStold = rader.find((r) => r.id === "grov_stold");
+  assert.equal(grovStold.totalt, 2);
+  assert.equal(grovStold.flerfaldighet, 2);
+  assert.equal(grovStold.gransdragning, 0);
+});
+
+test("analyseraTackning: en straffskala utan någon referensdom visas ändå, med nollor (så luckan syns)", () => {
+  const rader = analyseraTackning([], STRAFFSKALOR);
+  assert.equal(rader.length, STRAFFSKALOR.length);
+  for (const rad of rader) {
+    assert.equal(rad.totalt, 0);
+    assert.equal(rad.flerfaldighet, 0);
+    assert.equal(rad.gransdragning, 0);
+  }
+});
+
+test("analyseraTackning: brottstyper-id:n som saknas i straffskalorna ignoreras tyst (inte appens jobb att kasta fel här)", () => {
+  const referensdomar = [{ brottstyper: ["okand_typ"], flerfaldighetsexempel: true }];
+  const rader = analyseraTackning(referensdomar, STRAFFSKALOR);
+  assert.equal(rader.every((r) => r.totalt === 0), true);
 });

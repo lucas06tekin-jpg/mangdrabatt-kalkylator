@@ -223,6 +223,23 @@ Blocket, en båtdelshärva) nämndes i nyhetsartiklar men kunde INTE verifieras 
 mål-nummer eller domstolsnamn gick att hitta för att spåra upp den faktiska domen, så de
 togs inte med.
 
+### Källtäckning - hitta luckor i referensdomarna systematiskt
+
+I stället för att upptäcka källuckor av en slump (som när RH 1993:201:s dolda häleribrott
+hittades av misstag) finns nu `analyseraTackning()` i `docs/calc.js`: den räknar, per
+straffskala, hur många referensdomar som täcker den och hur många av dem som faktiskt är
+flerfaldighetsexempel (inte bara gränsdragningsmål). Två ställen i appen använder den:
+
+- Ett hopfällt "Källtäckning per brottstyp"-avsnitt i sidfoten, med varje brottstyp och en
+  markering (gul bakgrund) för de som saknar flerfaldighetsexempel helt.
+- En notis ovanför referensdomslistan som visas live om de brott du fyllt i inte matchar
+  någon referensdom alls.
+
+Vid lanseringen (2026-09-06) syns fyra tydliga luckor: **ringa bedrägeri**,
+**häleriförseelse** och **grovt häleri** saknar referensdomar helt, och **inbrottsstöld**
+har bara ett gränsdragningsmål (RH 2021:17) men inget flerfaldighetsexempel. Dessa är
+naturliga kandidater för nästa forskningsomgång.
+
 ## Modellen (frontend, redigerbar)
 
 - **Ren kumulation**: summan av alla inmatade straffvärden.

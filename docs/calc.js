@@ -71,6 +71,27 @@ export function avrundaMangdrabatt(renKumulation, justeratResultat) {
   return { renKumulationAvrundad, justeratResultatAvrundat, mangdrabattManader, mangdrabattProcent };
 }
 
+// Räknar, per straffskala, hur många referensdomar (kategori A) som täcker den - och hur
+// många av dem som faktiskt är flerfaldighetsexempel snarare än gränsdragningsmål/enstaka
+// brott. Används för att synliggöra var det saknas prejudikat, i stället för att bara
+// upptäcka luckor av en slump när någon råkar leta efter en viss brottstyp.
+export function analyseraTackning(referensdomar, straffskalor) {
+  const perTyp = new Map();
+  for (const s of straffskalor) {
+    perTyp.set(s.id, { id: s.id, namn: s.namn, familj: s.familj, totalt: 0, flerfaldighet: 0, gransdragning: 0 });
+  }
+  for (const dom of referensdomar) {
+    for (const typId of dom.brottstyper || []) {
+      const rad = perTyp.get(typId);
+      if (!rad) continue; // okänt id - fångas separat av dataintegritetstesterna
+      rad.totalt += 1;
+      if (dom.flerfaldighetsexempel) rad.flerfaldighet += 1;
+      else rad.gransdragning += 1;
+    }
+  }
+  return [...perTyp.values()];
+}
+
 export function relevansPoang(ref, valdaTyper) {
   const brottstyper = ref.brottstyper || [];
   if (brottstyper.length === 0 || valdaTyper.size === 0) return 0;

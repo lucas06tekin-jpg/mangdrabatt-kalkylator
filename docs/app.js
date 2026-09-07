@@ -1,4 +1,4 @@
-import { formatManader, skalaFor, sorteradeBrott, berakna, avrundaMangdrabatt, relevansPoang } from './calc.js';
+import { formatManader, skalaFor, sorteradeBrott, berakna, avrundaMangdrabatt, relevansPoang, analyseraTackning } from './calc.js';
 
 const STORAGE_KEY = 'mangdrabatt-kalkylator:v1';
 
@@ -312,21 +312,53 @@ async function laddaReferensdomar() {
     statusEl.textContent = state.referensdomar.length > 0
       ? `${state.referensdomar.length} referensdom(ar) hittade och sparade i cachen (av upp till 10 eftersökta).`
       : 'Inga referensdomar har hittats och verifierats ännu. Sök manuellt via länkarna i den förklarande sektionen tills vidare.';
+    renderTackning();
     renderReferensdomar();
   } catch (e) {
     statusEl.textContent = 'Kunde inte hämta referensdomar från backend.';
   }
 }
 
+function renderTackning() {
+  const container = document.getElementById('tackning-lista');
+  if (!container) return;
+  const rader = analyseraTackning(state.referensdomar, state.straffskalor);
+  container.innerHTML = rader.map((r) => {
+    const brist = r.flerfaldighet === 0;
+    const detaljer = r.totalt === 0
+      ? 'inga referensdomar ännu'
+      : `${r.flerfaldighet} flerfaldighetsexempel${r.gransdragning > 0 ? `, ${r.gransdragning} gränsdragningsmål` : ''}`;
+    return `
+      <div class="tackning-rad${brist ? ' tackning-brist' : ''}">
+        <span class="tackning-namn">${r.namn}</span>
+        <span class="tackning-siffror">${detaljer}</span>
+      </div>
+    `;
+  }).join('');
+}
+
 function renderReferensdomar() {
   const ul = document.getElementById('refs-lista');
+  const bristNotis = document.getElementById('refs-brist-notis');
   ul.innerHTML = '';
-  if (state.referensdomar.length === 0) return;
+  if (state.referensdomar.length === 0) {
+    bristNotis.hidden = true;
+    return;
+  }
 
   const valdaTyper = new Set(state.brott.map((b) => b.typId));
   const rader = state.referensdomar
     .map((r, ursprungsindex) => ({ r, ursprungsindex, poang: relevansPoang(r, valdaTyper) }))
     .sort((a, b) => b.poang - a.poang || a.ursprungsindex - b.ursprungsindex);
+
+  const maxPoang = rader.reduce((max, rad) => Math.max(max, rad.poang), 0);
+  if (valdaTyper.size > 0 && maxPoang === 0) {
+    bristNotis.hidden = false;
+    bristNotis.innerHTML = '<strong>Inga referensdomar täcker dina tillagda brottstyper ännu.</strong> ' +
+      'Listan nedan visar samtliga referensdomar i ursprunglig ordning som jämförelsematerial.';
+  } else {
+    bristNotis.hidden = true;
+  }
 
   for (const { r, poang } of rader) {
     const li = document.createElement('li');

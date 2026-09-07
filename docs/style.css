@@ -347,6 +347,21 @@ body {
 .bakgrund-details[open] summary { margin-bottom: 0.6rem; }
 .bakgrund-details .panel-note { margin: 0.4rem 0; }
 
+.tackning-lista { display: flex; flex-direction: column; gap: 0.35rem; }
+.tackning-rad {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius);
+  background: var(--paper);
+  font-size: 0.8rem;
+}
+.tackning-namn { font-weight: 600; color: var(--navy-900); }
+.tackning-siffror { color: var(--ink-soft); text-align: right; }
+.tackning-brist { background: #fbf3df; }
+.tackning-brist .tackning-siffror { color: #6b5416; font-weight: 600; }
+
 .tom-lista { color: var(--ink-soft); font-size: 0.85rem; font-style: italic; }
 
 @media (max-width: 560px) {
