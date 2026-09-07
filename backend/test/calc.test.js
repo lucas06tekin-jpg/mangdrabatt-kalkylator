@@ -16,6 +16,9 @@ const STRAFFSKALOR = [
   { id: "stold", namn: "Stöld", paragraf: "8 kap. 1 § BrB", min_manader: 0, max_manader: 24 },
   { id: "grov_stold", namn: "Grov stöld", paragraf: "8 kap. 4 § BrB", min_manader: 12, max_manader: 72 },
   { id: "inbrottsstold", namn: "Inbrottsstöld", paragraf: "8 kap. 4 a § BrB", min_manader: 12, max_manader: 72 },
+  { id: "ringa_bedrageri", namn: "Ringa bedrägeri", paragraf: "9 kap. 2 § BrB", min_manader: 0, max_manader: 6 },
+  { id: "bedrageri", namn: "Bedrägeri", paragraf: "9 kap. 1 § BrB", min_manader: 0, max_manader: 24 },
+  { id: "grovt_bedrageri", namn: "Grovt bedrägeri", paragraf: "9 kap. 3 § BrB", min_manader: 12, max_manader: 72 },
 ];
 const TAK_ALLMANT = 216;
 const GOLV_ALLMANT = 1;
@@ -57,6 +60,29 @@ test("berakna: tre brott med fallande halveringsvikter (grov stöld 36, stöld 1
   assert.equal(res.justeratResultat, 41.75);
   assert.equal(res.mangdrabattManader, 7.25);
   assert.ok(Math.abs(res.mangdrabattProcent - (7.25 / 49) * 100) < 1e-9);
+});
+
+test("berakna: blandad stöld + bedrägeri (verifierat på riktigt i webbläsaren, grovt bedrägeri 30 + bedrägeri 8 + stöld 5)", () => {
+  const res = berakning({
+    brott: [brott("grovt_bedrageri", 30, 1), brott("bedrageri", 8, 2), brott("stold", 5, 3)],
+  });
+  assert.equal(res.renKumulation, 43);
+  assert.equal(res.halveringssumma, 35.25);
+  assert.equal(res.svarasteTyp.id, "grovt_bedrageri");
+  assert.equal(res.takManader, 120); // min(summa maxstraff 72+24+24=120, 2×72=144, 216)
+  assert.equal(res.justeratResultat, 35.25);
+  const { mangdrabattManader } = avrundaMangdrabatt(res.renKumulation, res.justeratResultat);
+  assert.equal(mangdrabattManader, 7.7); // matchar "7,7 mån" som visades i webbläsaren
+});
+
+test("berakna: vid lika maxstraff mellan brottsfamiljer avgör högst faktiskt straffvärde vem som är 'svåraste'", () => {
+  // grov_stold och grovt_bedrageri har samma maxstraff (72 mån) - grov_stold ska vinna
+  // här eftersom dess faktiska straffvärde (20) är högre än grovt_bedrageris (15), inte
+  // för att den råkar stå tidigare i listan.
+  const res = berakning({
+    brott: [brott("grovt_bedrageri", 15, 1), brott("grov_stold", 20, 2)],
+  });
+  assert.equal(res.svarasteTyp.id, "grov_stold");
 });
 
 test("berakna: taket enligt 26 kap. 2 § BrB (dubblerat maxstraff) klipper resultatet", () => {

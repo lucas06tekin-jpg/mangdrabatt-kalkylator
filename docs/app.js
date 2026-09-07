@@ -98,11 +98,19 @@ function renderStraffskalorFakta() {
 function fyllBrottstypDropdown() {
   const sel = document.getElementById('brottstyp');
   sel.innerHTML = '';
+  const grupper = new Map(); // brottsfamilj -> <optgroup>, i den ordning familjerna först syns
   for (const s of state.straffskalor) {
+    const familj = s.familj || 'Övrigt';
+    if (!grupper.has(familj)) {
+      const group = document.createElement('optgroup');
+      group.label = familj;
+      grupper.set(familj, group);
+      sel.appendChild(group);
+    }
     const opt = document.createElement('option');
     opt.value = s.id;
     opt.textContent = s.namn;
-    sel.appendChild(opt);
+    grupper.get(familj).appendChild(opt);
   }
   sel.addEventListener('change', uppdateraSkalaHint);
   uppdateraSkalaHint();

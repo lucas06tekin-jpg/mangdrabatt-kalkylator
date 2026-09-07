@@ -40,7 +40,8 @@ har inget eget byggsteg, den serverar bara det som ligger i `docs/`.
   `app.js` importerar den och sköter formuläret/renderingen. Ren HTML/CSS/JS via ES-moduler,
   ingen byggprocess krävs för att visa sajten. Detta är mappen GitHub Pages pekas mot.
 - **`backend/`** – ett Node-byggverktyg, inte en produktionsserver:
-  - `src/straffskalor.js` – de fyra hårdkodade straffskalorna.
+  - `src/straffskalor.js` – de hårdkodade straffskalorna, en per brottstyp, grupperade per
+    brottsfamilj (`familj`-fältet) som styr grupperingen i appens brottstyp-dropdown.
   - `src/robots.js` – ren robots.txt-parsning och åtkomstbeslut (inga nätverksanrop),
     utbruten just för att kunna testas fristående - se `test/robots.test.js`.
   - `src/scraper.js` – kontrollerar (respekterar robots.txt via `robots.js`) att de manuellt
@@ -52,6 +53,11 @@ har inget eget byggsteg, den serverar bara det som ligger i `docs/`.
     riktiga robots.txt-filerna för lawline.se, domstol.se och lagen.nu som lästes av under
     research. Innehåller ett regressionstest för just upptäckten att lawline.se nekar
     "ClaudeBot" trots att `User-agent: *` annars tillåter allt.
+  - `test/seedSources.test.js` – dataintegritetstester: att varje `brottstyper`-id i en
+    referensdom faktiskt finns i `straffskalor.js`, att inga id:n dubbleras, att varje
+    straffskala har ett `familj`-fält. Skriven efter en genomgång inför utökningen till
+    bedrägeri, för att fånga felstavningar/dubbletter automatiskt när fler brottstyper
+    läggs till - annars upptäcks de bara om man råkar leta efter dem för hand.
 - **`backend/cache.db`** (SQLite, Node:s inbyggda `node:sqlite`, gitignorad) – mellanlager
   mellan scraper och export; källan för `docs/data/*.json`.
 - **`.github/workflows/refresh-cache.yml`** – schemalagd GitHub Action som testar och

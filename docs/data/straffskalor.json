@@ -3,6 +3,7 @@
     {
       "id": "ringa_stold",
       "namn": "Ringa stöld",
+      "familj": "Stöld",
       "paragraf": "8 kap. 2 § BrB",
       "lagtext": "Är brott som avses i 1 § med hänsyn till det tillgripnas värde och övriga omständigheter vid brottet att anse som ringa, döms för ringa stöld till böter eller fängelse i högst sex månader.",
       "min_manader": 0,
@@ -12,6 +13,7 @@
     {
       "id": "stold",
       "namn": "Stöld",
+      "familj": "Stöld",
       "paragraf": "8 kap. 1 § BrB",
       "lagtext": "Den som olovligen tager vad annan tillhör med uppsåt att tillägna sig det, dömes, om tillgreppet innebär skada, för stöld till fängelse i högst två år.",
       "min_manader": 0,
@@ -21,6 +23,7 @@
     {
       "id": "grov_stold",
       "namn": "Grov stöld",
+      "familj": "Stöld",
       "paragraf": "8 kap. 4 § BrB",
       "lagtext": "Är brott som avses i 1 § att anse som grovt, döms för grov stöld till fängelse i lägst ett och högst sex år.",
       "min_manader": 12,
@@ -30,6 +33,7 @@
     {
       "id": "inbrottsstold",
       "namn": "Inbrottsstöld",
+      "familj": "Stöld",
       "paragraf": "8 kap. 4 a § BrB",
       "lagtext": "Om brott som avses i 1 § har skett efter intrång i bostad eller annat liknande boende, döms för inbrottsstöld till fängelse i lägst ett och högst sex år.",
       "min_manader": 12,
@@ -39,6 +43,7 @@
     {
       "id": "ringa_bedrageri",
       "namn": "Ringa bedrägeri",
+      "familj": "Bedrägeri",
       "paragraf": "9 kap. 2 § BrB",
       "lagtext": "Är brott som avses i 1 § med hänsyn till skadans omfattning och övriga omständigheter vid brottet att anse som ringa, döms för ringa bedrägeri till böter eller fängelse i högst sex månader.",
       "min_manader": 0,
@@ -48,6 +53,7 @@
     {
       "id": "bedrageri",
       "namn": "Bedrägeri",
+      "familj": "Bedrägeri",
       "paragraf": "9 kap. 1 § BrB",
       "lagtext": "Den som medelst vilseledande förmår någon till handling eller underlåtenhet, som innebär vinning för gärningsmannen och skada för den vilseledde eller någon i vars ställe denne är, dömes för bedrägeri till fängelse i högst två år.",
       "min_manader": 0,
@@ -57,6 +63,7 @@
     {
       "id": "grovt_bedrageri",
       "namn": "Grovt bedrägeri",
+      "familj": "Bedrägeri",
       "paragraf": "9 kap. 3 § BrB",
       "lagtext": "Är brott som avses i 1 § att anse som grovt, döms för grovt bedrägeri till fängelse i lägst ett och högst sex år.",
       "min_manader": 12,

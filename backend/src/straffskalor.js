@@ -7,6 +7,7 @@ export const STRAFFSKALOR = [
   {
     id: "ringa_stold",
     namn: "Ringa stöld",
+    familj: "Stöld",
     paragraf: "8 kap. 2 § BrB",
     lagtext:
       "Är brott som avses i 1 § med hänsyn till det tillgripnas värde och övriga " +
@@ -19,6 +20,7 @@ export const STRAFFSKALOR = [
   {
     id: "stold",
     namn: "Stöld",
+    familj: "Stöld",
     paragraf: "8 kap. 1 § BrB",
     lagtext:
       "Den som olovligen tager vad annan tillhör med uppsåt att tillägna sig det, " +
@@ -30,6 +32,7 @@ export const STRAFFSKALOR = [
   {
     id: "grov_stold",
     namn: "Grov stöld",
+    familj: "Stöld",
     paragraf: "8 kap. 4 § BrB",
     lagtext:
       "Är brott som avses i 1 § att anse som grovt, döms för grov stöld till " +
@@ -41,6 +44,7 @@ export const STRAFFSKALOR = [
   {
     id: "inbrottsstold",
     namn: "Inbrottsstöld",
+    familj: "Stöld",
     paragraf: "8 kap. 4 a § BrB",
     lagtext:
       "Om brott som avses i 1 § har skett efter intrång i bostad eller annat " +
@@ -52,6 +56,7 @@ export const STRAFFSKALOR = [
   {
     id: "ringa_bedrageri",
     namn: "Ringa bedrägeri",
+    familj: "Bedrägeri",
     paragraf: "9 kap. 2 § BrB",
     lagtext:
       "Är brott som avses i 1 § med hänsyn till skadans omfattning och övriga " +
@@ -64,6 +69,7 @@ export const STRAFFSKALOR = [
   {
     id: "bedrageri",
     namn: "Bedrägeri",
+    familj: "Bedrägeri",
     paragraf: "9 kap. 1 § BrB",
     lagtext:
       "Den som medelst vilseledande förmår någon till handling eller underlåtenhet, " +
@@ -76,6 +82,7 @@ export const STRAFFSKALOR = [
   {
     id: "grovt_bedrageri",
     namn: "Grovt bedrägeri",
+    familj: "Bedrägeri",
     paragraf: "9 kap. 3 § BrB",
     lagtext:
       "Är brott som avses i 1 § att anse som grovt, döms för grovt bedrägeri till " +
