@@ -241,7 +241,7 @@ export const REFERENSDOMAR = [
       "OBS: äldre avgörande (1993). Påföljden blev fängelse 1 år, och den villkorliga " +
       "frigivningen förverkades till 4 månader. Exempel på hur bedrägeri och grovt bedrägeri " +
       "blandas med annan förmögenhetsbrottslighet (häleri, förskingring) i en och samma dom.",
-    brottstyper: ["bedrageri", "grovt_bedrageri"],
+    brottstyper: ["bedrageri", "grovt_bedrageri", "haleri"],
     flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
@@ -263,6 +263,31 @@ export const REFERENSDOMAR = [
     brottstyper: ["grovt_bedrageri"],
     flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 2021:25",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2021:25",
+    domstol: "Göta hovrätt (mål B 864-21, 2021-04-29)",
+    brott_sammanfattning:
+      "Stöldgods från K.K. anträffades av polis vid fyra separata tillfällen/platser " +
+      "(lägenheter) under oktober-november 2020, en del av godset spårat till samma " +
+      "förbrott. Tingsrätten (Kalmar) dömde för tre fall av grovt häleri, ett fall av " +
+      "häleri och en stöld. Hovrätten prövade brottsenhetsfrågan - hur många separata " +
+      "häleribrott det blir när gods dyker upp vid flera tillfällen/platser - och fann " +
+      "att varje nytt mottagande normalt utgör ett eget häleribrott (med hänvisning till " +
+      "NJA 2018 s. 378 och NJA 2019 s. 747 om brottsenhet, och NJA 2013 s. 654 om " +
+      "värdegränsen för grovt häleri).",
+    straffvarde_text:
+      "Hovrätten satte ned samtliga fyra häleriräkningar till ordinarie häleri (ej " +
+      "styrkt värde/andra försvårande omständigheter för grovt), men beaktade det " +
+      "systematiska mönstret inom den ordinarie gradens bedömning. Slutresultat: 4 fall " +
+      "av häleri + 1 stöld, gemensamt straffvärde fängelse 10 månader. Påföljden blev " +
+      "dock skyddstillsyn med föreskrift om missbruksvård, inte fängelse.",
+    brottstyper: ["haleri", "stold"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
 ];

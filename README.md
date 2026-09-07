@@ -1,8 +1,8 @@
-# Mängdrabatt-kalkylator för stöld- och bedrägeribrott
+# Mängdrabatt-kalkylator för förmögenhetsbrott
 
 Ett lokalt körande verktyg som uppskattar det samlade straffvärdet vid flerfaldig
-stöld- och bedrägeribrottslighet enligt en förenklad, icke lagfäst modell av
-asperationsprincipen.
+förmögenhetsbrottslighet (för närvarande stöld, bedrägeri och häleri) enligt en
+förenklad, icke lagfäst modell av asperationsprincipen.
 
 **Detta är ett uppskattningsverktyg, inte en förutsägelse av domstolens utfall.** Se
 disclaimern i appen.
@@ -195,6 +195,33 @@ Tre ytterligare, sakligt intressanta fall (organiserade åldringsbedrägerier me
 inbrottsstöld-koppling, en investeringsbedrägeri-härva, en föreningskapningshärva - alla
 2025-2026) hittades men togs medvetet INTE med: samtliga är tingsrättsavgöranden utan
 publicerad fulltextdom, samma skäl som uteslöt Falu tingsrätts mopedhärva för grov stöld.
+
+### Utökning till häleri
+
+Appen täcker sedan 2026-09-06 även häleribrott, återigen tre nivåer: **häleriförseelse**
+(9 kap. 7 § BrB, 0-6 mån), **häleri** (9 kap. 6 § BrB, 0-24 mån) och **grovt häleri**
+(9 kap. 6 § tredje stycket BrB, 12-72 mån - höjt golv från SFS 2026:1318, samma reform
+som höjde golvet för grov stöld och grovt bedrägeri). Titeln bytte samtidigt namn till den
+vedertagna juridiska samlingsbeteckningen "förmögenhetsbrott" i stället för att räkna upp
+varje brottsnamn för sig - skalar bättre när fler brottsfamiljer läggs till.
+
+En ny referensdom tillkom:
+
+- **RH 2021:25** - Göta hovrätt, ett genuint flerfaldighetsfall: stöldgods anträffat hos
+  en man vid fyra separata tillfällen/platser, ursprungligen dömt som tre fall av grovt
+  häleri + ett häleri + en stöld i tingsrätten. Hovrätten prövade brottsenhetsfrågan
+  (hur många separata häleribrott det blir när gods dyker upp vid flera tillfällen) och
+  satte ned samtliga häleriräkningar till ordinarie grad. Slutresultat: 4 fall häleri +
+  1 stöld, gemensamt straffvärde fängelse 10 månader.
+
+Även **RH 1993:201** (redan i databasen för bedrägeri) omtaggades med `haleri`, eftersom
+en av dess tio åtalspunkter uttryckligen är ett häleribrott - upptäckt vid en genomgång
+inför häleriutökningen, inte av research-agenten som letade efter nya fall.
+
+Flera lovande fall (en "hälericentral" för elcyklar, häleriverksamhet med byggverktyg via
+Blocket, en båtdelshärva) nämndes i nyhetsartiklar men kunde INTE verifieras - inget
+mål-nummer eller domstolsnamn gick att hitta för att spåra upp den faktiska domen, så de
+togs inte med.
 
 ## Modellen (frontend, redigerbar)
 

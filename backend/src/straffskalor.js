@@ -1,7 +1,8 @@
-// Hårdkodade straffskalor för stöld- och bedrägeribrott enligt 8 och 9 kap. brottsbalken
-// (BrB), aktuell lydelse. Källa: Brottsbalken (1962:700), verifierad mot Sveriges riksdags
-// författningstext (stöld 2026-09-03, bedrägeri 2026-09-05) samt den promulgerade texten i
-// SFS 2026:1318 för grov stöld och grovt bedrägeri (båda ändrade av samma reform).
+// Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri) enligt 8 och
+// 9 kap. brottsbalken (BrB), aktuell lydelse. Källa: Brottsbalken (1962:700), verifierad
+// mot Sveriges riksdags författningstext (stöld 2026-09-03, bedrägeri 2026-09-05, häleri
+// 2026-09-06) samt den promulgerade texten i SFS 2026:1318 för grov stöld, grovt bedrägeri
+// och grovt häleri (alla tre ändrade av samma reform).
 
 export const STRAFFSKALOR = [
   {
@@ -87,6 +88,45 @@ export const STRAFFSKALOR = [
     lagtext:
       "Är brott som avses i 1 § att anse som grovt, döms för grovt bedrägeri till " +
       "fängelse i lägst ett och högst sex år.",
+    min_manader: 12,
+    max_manader: 72,
+    skala_text: "Fängelse i lägst 1 år och högst 6 år",
+  },
+  {
+    id: "haleriforseelse",
+    namn: "Häleriförseelse",
+    familj: "Häleri",
+    paragraf: "9 kap. 7 § BrB",
+    lagtext:
+      "Om brott som avses i 6 eller 6 a § är ringa, döms för häleriförseelse till " +
+      "böter eller fängelse i högst sex månader.",
+    min_manader: 0,
+    max_manader: 6,
+    skala_text: "Böter eller fängelse i högst 6 månader",
+  },
+  {
+    id: "haleri",
+    namn: "Häleri",
+    familj: "Häleri",
+    paragraf: "9 kap. 6 § BrB",
+    lagtext:
+      "Den som 1. på ett sätt som är ägnat att försvåra ett återställande tar " +
+      "befattning med något som är frånhänt annan genom brott, 2. bereder sig " +
+      "otillbörlig vinning av annans brottsliga förvärv, eller 3. genom krav, " +
+      "överlåtelse eller på annat liknande sätt hävdar genom brott tillkommen fordran " +
+      "döms för häleri till fängelse i högst två år.",
+    min_manader: 0,
+    max_manader: 24,
+    skala_text: "Fängelse i högst 2 år",
+  },
+  {
+    id: "grovt_haleri",
+    namn: "Grovt häleri",
+    familj: "Häleri",
+    paragraf: "9 kap. 6 § BrB",
+    lagtext:
+      "Är brott som avses i första eller andra stycket grovt, döms för grovt häleri " +
+      "till fängelse i lägst ett och högst sex år.",
     min_manader: 12,
     max_manader: 72,
     skala_text: "Fängelse i lägst 1 år och högst 6 år",
