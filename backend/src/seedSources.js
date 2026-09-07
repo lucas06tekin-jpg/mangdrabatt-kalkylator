@@ -36,12 +36,14 @@ export const REFERENSDOMAR = [
     domstol: "Högsta domstolen (mål B 3380-16)",
     brott_sammanfattning:
       "24 fall av stöld (systematisk stöld av handbagage från tågresenärer), 26 fall av " +
-      "bedrägeri med stulet bankkort (ca 265 800 kr) samt narkotikainnehav.",
+      "bedrägeri med stulet bankkort (ca 265 800 kr, åtalat enligt 9 kap. 1 § andra " +
+      "stycket BrB - ordinarie bedrägeri, ej grovt) samt narkotikainnehav.",
     straffvarde_text:
       "Påföljd: fängelse 2 år 3 månader. HD prövade om de upprepade stölderna skulle " +
       "rubriceras som grov stöld och fann att ordinarie stöld var korrekt rubricering trots " +
-      "det systematiska tillvägagångssättet.",
-    brottstyper: ["stold"],
+      "det systematiska tillvägagångssättet. Bedrägerirubriceringen (ordinarie, ej grovt) " +
+      "var inte tvistig i målet.",
+    brottstyper: ["stold", "bedrageri"],
     flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
@@ -202,6 +204,65 @@ export const REFERENSDOMAR = [
     brottstyper: ["stold"],
     flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 2021 s. 970",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2021s970",
+    domstol: "Högsta domstolen",
+    brott_sammanfattning:
+      "13 åtalade fall av grovt bedrägeri medelst urkundsförfalskning, begångna 2009-2014. " +
+      "Tingsrätten friade helt; hovrätten dömde för 11 av de 13 fallen (2 hade preskriberats).",
+    straffvarde_text:
+      "Hovrätten satte det gemensamma straffvärdet för de 11 fallen till fängelse 2 år, men " +
+      "påföljden blev villkorlig dom och 200 dagsböter med hänsyn till den mycket långa tid " +
+      "som förflutit och den tilltalades allvarliga sjukdom. HD:s egen prövning gällde en " +
+      "processfråga (rättegång i den tilltalades utevaro via sjukhustelefon), inte själva " +
+      "straffmätningen. OBS: straffvärdet 2 år avser den äldre straffskalan för grovt " +
+      "bedrägeri (lägre golv än dagens 1 år, som gäller sedan SFS 2026:1318).",
+    brottstyper: ["grovt_bedrageri"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 1993:201",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/1993:201",
+    domstol: "Svea hovrätt (mål B 2736-93, 1993-11-19)",
+    brott_sammanfattning:
+      "En villkorligt frigiven man begick under en dryg månad 1993 en serie förmögenhetsbrott: " +
+      "4 fall av bedrägeri/urkundsförfalskning (falska hyreskontrakt, bedrägligt kort-/" +
+      "checkanvändande, ca 31 300 kr), 2 fall av grovt bedrägeri medelst urkundsförfalskning " +
+      "(bl.a. hyra av telefon och bil för ca 15 000 kr), försök till bedrägeri, häleri, " +
+      "förskingring samt olaga knivinnehav - 10 åtalspunkter totalt.",
+    straffvarde_text:
+      "OBS: äldre avgörande (1993). Påföljden blev fängelse 1 år, och den villkorliga " +
+      "frigivningen förverkades till 4 månader. Exempel på hur bedrägeri och grovt bedrägeri " +
+      "blandas med annan förmögenhetsbrottslighet (häleri, förskingring) i en och samma dom.",
+    brottstyper: ["bedrageri", "grovt_bedrageri"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "Svea hovrätt B 8808-25",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url: "https://www.domstol.se/nyheter/2025/10/langa-fangelsestraff-for-aldringsbedragerier/",
+    domstol: "Svea hovrätt (mål B 8808-25, 2025-10)",
+    brott_sammanfattning:
+      "Telefon-/sms-bedrägerier mot äldre (\"vishing\") - falska sms om påstådda beställningar " +
+      "fick offren att ringa upp och luras att föra över pengar eller ge fjärråtkomst till sin " +
+      "dator. Omkring 70 brottstillfällen sammanlagt, tre tilltalade; en av dem dömdes för ett " +
+      "fullbordat bedrägeri, ett försök samt medhjälp till grovt bedrägeri i nio fall.",
+    straffvarde_text:
+      "Påföljder: fängelse 5 år 3 månader, 4 år 10 månader respektive 1 år 10 månader för de " +
+      "tre tilltalade. OBS: endast domstol.se:s pressmeddelande har lästs här, inte hela " +
+      "hovrättsdomens fulltext.",
+    brottstyper: ["grovt_bedrageri"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_pressmeddelande",
     autoUppdateras: true,
   },
 ];

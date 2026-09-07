@@ -1,5 +1,7 @@
-// Hårdkodade straffskalor för stöldbrott enligt 8 kap. brottsbalken (BrB), aktuell lydelse.
-// Källa: Brottsbalken (1962:700), verifierad mot Sveriges riksdags författningstext 2026-09-03.
+// Hårdkodade straffskalor för stöld- och bedrägeribrott enligt 8 och 9 kap. brottsbalken
+// (BrB), aktuell lydelse. Källa: Brottsbalken (1962:700), verifierad mot Sveriges riksdags
+// författningstext (stöld 2026-09-03, bedrägeri 2026-09-05) samt den promulgerade texten i
+// SFS 2026:1318 för grov stöld och grovt bedrägeri (båda ändrade av samma reform).
 
 export const STRAFFSKALOR = [
   {
@@ -43,6 +45,41 @@ export const STRAFFSKALOR = [
     lagtext:
       "Om brott som avses i 1 § har skett efter intrång i bostad eller annat " +
       "liknande boende, döms för inbrottsstöld till fängelse i lägst ett och högst sex år.",
+    min_manader: 12,
+    max_manader: 72,
+    skala_text: "Fängelse i lägst 1 år och högst 6 år",
+  },
+  {
+    id: "ringa_bedrageri",
+    namn: "Ringa bedrägeri",
+    paragraf: "9 kap. 2 § BrB",
+    lagtext:
+      "Är brott som avses i 1 § med hänsyn till skadans omfattning och övriga " +
+      "omständigheter vid brottet att anse som ringa, döms för ringa bedrägeri till " +
+      "böter eller fängelse i högst sex månader.",
+    min_manader: 0,
+    max_manader: 6,
+    skala_text: "Böter eller fängelse i högst 6 månader",
+  },
+  {
+    id: "bedrageri",
+    namn: "Bedrägeri",
+    paragraf: "9 kap. 1 § BrB",
+    lagtext:
+      "Den som medelst vilseledande förmår någon till handling eller underlåtenhet, " +
+      "som innebär vinning för gärningsmannen och skada för den vilseledde eller någon " +
+      "i vars ställe denne är, dömes för bedrägeri till fängelse i högst två år.",
+    min_manader: 0,
+    max_manader: 24,
+    skala_text: "Fängelse i högst 2 år",
+  },
+  {
+    id: "grovt_bedrageri",
+    namn: "Grovt bedrägeri",
+    paragraf: "9 kap. 3 § BrB",
+    lagtext:
+      "Är brott som avses i 1 § att anse som grovt, döms för grovt bedrägeri till " +
+      "fängelse i lägst ett och högst sex år.",
     min_manader: 12,
     max_manader: 72,
     skala_text: "Fängelse i lägst 1 år och högst 6 år",

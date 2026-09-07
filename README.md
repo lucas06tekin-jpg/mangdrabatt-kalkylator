@@ -1,7 +1,8 @@
-# Mängdrabatt-kalkylator för stöldbrott
+# Mängdrabatt-kalkylator för stöld- och bedrägeribrott
 
 Ett lokalt körande verktyg som uppskattar det samlade straffvärdet vid flerfaldig
-stöldbrottslighet enligt en förenklad, icke lagfäst modell av asperationsprincipen.
+stöld- och bedrägeribrottslighet enligt en förenklad, icke lagfäst modell av
+asperationsprincipen.
 
 **Detta är ett uppskattningsverktyg, inte en förutsägelse av domstolens utfall.** Se
 disclaimern i appen.
@@ -164,6 +165,30 @@ kalkylatorn: domar vars `brottstyper` överlappar med de ifyllda rankas överst,
 vikt för domar som faktiskt är flerfaldighetsexempel (inte bara gränsdragningsmål) - se
 `relevansPoang()` i `docs/calc.js`. Varje post i listan visar också en tydlig
 "Flerfaldighetsexempel"- eller "Gränsdragning/enstaka brott"-tagg.
+
+### Utökning till bedrägeri
+
+Appen täcker sedan 2026-09-05 även bedrägeribrott, med samma tre nivåer som stöld:
+**ringa bedrägeri** (9 kap. 2 § BrB, 0-6 mån), **bedrägeri** (9 kap. 1 § BrB, 0-24 mån)
+och **grovt bedrägeri** (9 kap. 3 § BrB, 12-72 mån - höjt golv från och med SFS 2026:1318,
+samma reform som höjde golvet för grov stöld). Tre nya referensdomar tillkom:
+
+- **NJA 2021 s. 970** - HD, 11 fall av grovt bedrägeri medelst urkundsförfalskning,
+  gemensamt straffvärde satt till 2 år (obs: enligt den äldre, lägre straffskalan för
+  grovt bedrägeri som gällde innan 2026 års reform).
+- **RH 1993:201** - Svea hovrätt, en blandad förmögenhetsbrottsserie (bedrägeri, grovt
+  bedrägeri, häleri, förskingring) - äldre avgörande (1993) men fulltextverifierat.
+- **Svea hovrätt B 8808-25** - telefon-/sms-bedrägerier mot äldre ("vishing"), ca 70
+  brottstillfällen, verifierat via domstol.se:s pressmeddelande.
+
+Även **NJA 2016 s. 1143** (redan i databasen för stöld) omtaggades med `bedrageri`,
+eftersom dess 26 bedrägerifall bekräftat åtalades och dömdes enligt 9 kap. 1 § BrB
+(ordinarie bedrägeri, inte grovt - obestritt i målet).
+
+Tre ytterligare, sakligt intressanta fall (organiserade åldringsbedrägerier med
+inbrottsstöld-koppling, en investeringsbedrägeri-härva, en föreningskapningshärva - alla
+2025-2026) hittades men togs medvetet INTE med: samtliga är tingsrättsavgöranden utan
+publicerad fulltextdom, samma skäl som uteslöt Falu tingsrätts mopedhärva för grov stöld.
 
 ## Modellen (frontend, redigerbar)
 
