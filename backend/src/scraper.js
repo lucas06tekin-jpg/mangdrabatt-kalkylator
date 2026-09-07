@@ -18,6 +18,7 @@ import {
   upsertKallstatus,
 } from "./db.js";
 import { REFERENSDOMAR, FORKLARANDE_KALLOR } from "./seedSources.js";
+import { parseRobots, beslutaOmAtkomst } from "./robots.js";
 
 const USER_AGENT =
   "MangdrabattKalkylator/1.0 (kontakt: lucas06.tekin@gmail.com; enbart cache-uppdatering)";
@@ -26,66 +27,14 @@ const FORDROJNING_MS = 2000;
 // Domäner vi aldrig hämtar automatiskt ifrån, oavsett vad robots.txt råkar säga för vår
 // egen User-Agent-sträng - just nu bara lawline.se, som uttryckligen nekar ClaudeBot.
 const MANUELL_ENDAST_DOMANER = ["lawline.se", "www.lawline.se"];
+// Namngivna AI-crawlers vi respekterar en uttrycklig nekan från, oavsett vår egen UA.
+const NAMNGIVNA_AI_AGENTER = ["claudebot", "gptbot", "ccbot"];
+const EGEN_UA_NAMN = "mangdrabattkalkylator/1.0";
 
 const robotsCache = new Map();
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function parseRobots(text) {
-  // robots.txt-parser: en User-agent-rad som följer direkt efter en annan User-agent-rad
-  // hör till samma block (delar regler); en User-agent-rad som följer efter en
-  // Disallow/Allow-rad startar ett nytt block.
-  const blocks = [];
-  let current = null;
-  let blockHasRules = false;
-  for (const rawLine of text.split("\n")) {
-    const line = rawLine.split("#")[0].trim();
-    if (!line) continue;
-    const idx = line.indexOf(":");
-    if (idx === -1) continue;
-    const key = line.slice(0, idx).trim().toLowerCase();
-    const value = line.slice(idx + 1).trim();
-    if (key === "user-agent") {
-      if (!current || blockHasRules) {
-        current = { agents: [], rules: [] };
-        blocks.push(current);
-        blockHasRules = false;
-      }
-      current.agents.push(value.toLowerCase());
-    } else if ((key === "disallow" || key === "allow") && current) {
-      current.rules.push({ path: value, allow: key === "allow" });
-      blockHasRules = true;
-    }
-  }
-  const byAgent = {};
-  for (const block of blocks) {
-    for (const agent of block.agents) {
-      if (!byAgent[agent]) byAgent[agent] = { rules: [] };
-      byAgent[agent].rules.push(...block.rules);
-    }
-  }
-  return byAgent;
-}
-
-function pathAllowed(groups, uaName, urlPath) {
-  const group = groups[uaName.toLowerCase()];
-  if (!group) return null; // ingen regel för denna agent
-  let best = null; // längsta matchande regel vinner
-  for (const rule of group.rules) {
-    if (rule.path === "") {
-      // Disallow: (tomt) betyder tillåt allt
-      if (!rule.allow && best === null) best = { allow: true, len: 0 };
-      continue;
-    }
-    if (urlPath.startsWith(rule.path)) {
-      if (!best || rule.path.length > best.len) {
-        best = { allow: rule.allow, len: rule.path.length };
-      }
-    }
-  }
-  return best ? best.allow : null;
 }
 
 async function robotsTillaterFetch(url) {
@@ -104,17 +53,10 @@ async function robotsTillaterFetch(url) {
   const groups = robotsCache.get(origin);
   if (groups === null) return false;
 
-  // Kontrollera dels namngivna AI-crawlers (om sajten uttryckligen nekar dem bör vi
-  // respektera det oavsett vår egen User-Agent), dels vår egen deklarerade UA, dels "*".
-  for (const namngiven of ["claudebot", "gptbot", "ccbot"]) {
-    const beslut = pathAllowed(groups, namngiven, parsed.pathname);
-    if (beslut === false) return false;
-  }
-  const egenBeslut = pathAllowed(groups, "mangdrabattkalkylator/1.0", parsed.pathname);
-  if (egenBeslut !== null) return egenBeslut;
-  const wildcardBeslut = pathAllowed(groups, "*", parsed.pathname);
-  if (wildcardBeslut !== null) return wildcardBeslut;
-  return true; // ingen regel alls hittades
+  return beslutaOmAtkomst(groups, parsed.pathname, {
+    namngivnaAgenter: NAMNGIVNA_AI_AGENTER,
+    egenUA: EGEN_UA_NAMN,
+  });
 }
 
 async function fetchMedTimeout(url, options = {}) {
