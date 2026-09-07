@@ -235,10 +235,25 @@ flerfaldighetsexempel (inte bara gränsdragningsmål). Två ställen i appen anv
 - En notis ovanför referensdomslistan som visas live om de brott du fyllt i inte matchar
   någon referensdom alls.
 
-Vid lanseringen (2026-09-06) syns fyra tydliga luckor: **ringa bedrägeri**,
-**häleriförseelse** och **grovt häleri** saknar referensdomar helt, och **inbrottsstöld**
-har bara ett gränsdragningsmål (RH 2021:17) men inget flerfaldighetsexempel. Dessa är
-naturliga kandidater för nästa forskningsomgång.
+Vid lanseringen (2026-09-06) syntes fyra tydliga luckor: ringa bedrägeri, häleriförseelse
+och grovt häleri saknade referensdomar helt, och inbrottsstöld hade bara ett
+gränsdragningsmål men inget flerfaldighetsexempel. En riktad forskningsomgång mot dessa
+fyra gav:
+
+- **Grovt häleri - löst.** Två verifierade flerfaldighetsexempel tillkom: **RH 1995:249**
+  (Svea hovrätt - fyra stulna Volvobilar exporterade via Arlanda, fyra räknade fall av
+  grovt häleri, fängelse 1 år 6 månader) och **RH 1993:130** (Hovrätten för Västra
+  Sverige - yrkesmässig häleriverksamhet med stulna datorer/skrivare under två år,
+  600 000-750 000 kr).
+- **Ringa bedrägeri, häleriförseelse och inbrottsstöld - bekräftat äkta strukturella
+  luckor, inte sökmissar.** En uttömmande sökning mot domstol.se:s fullständiga
+  referatdatabas (exakt frastext, samtliga träffar genomgångna) gav: noll träffar alls
+  för "ringa bedrägeri" i något publicerat HD-/hovrättsavgörande någonsin; samtliga 28
+  träffar för "häleriförseelse" granskade och uteslutna (inget flerfaldighets- eller
+  blandat fall); RH 2021:17 bekräftat fortfarande det enda inbrottsstöld-avgörandet i
+  hela databasen. Dessa brottstyper är sannolikt för lindriga för att generera publicerad
+  överrättspraxis - en riktig gräns för vad öppna källor kan ge, inte ett hål att fylla
+  med bättre sökning.
 
 ## Modellen (frontend, redigerbar)
 

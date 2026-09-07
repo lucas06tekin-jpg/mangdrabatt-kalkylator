@@ -290,6 +290,46 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "RH 1995:249",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/1995:249",
+    domstol: "Svea hovrätt (mål B 625-95, 1995-04-26)",
+    brott_sammanfattning:
+      "En estnisk medborgare dömd för fyra fall av grovt häleri - fyra stulna Volvo-bilar " +
+      "(vardera värda ca 200 000-325 000 kr) omhändertagna dagar efter respektive stöld och " +
+      "utförda via Arlanda mellan mitten av 1994 och tidigt 1995. En organiserad " +
+      "exporthärva för stulna bilar, med fyra tydligt räknade brottstillfällen.",
+    straffvarde_text:
+      "Påföljd: fängelse 1 år 6 månader samt utvisning med tio års återreseförbud. " +
+      "OBS: äldre avgörande (1995) - referatets huvudfråga rör utvisningsbedömningen, " +
+      "men den underliggande fällande domen är genuint fyra räknade fall av grovt häleri.",
+    brottstyper: ["grovt_haleri"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 1993:130",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/1993:130",
+    domstol: "Hovrätten för Västra Sverige (mål B 197-93, 1993-11-12)",
+    brott_sammanfattning:
+      "Dömd för grovt häleri \"av stor omfattning\" - upprepat förvärvande av stulna " +
+      "datorer och laserskrivare under en tvåårsperiod (maj 1989-maj 1991), sammanlagt " +
+      "värde 600 000-750 000 kr, med en egen vinning på ca 150 000 kr. En systematisk, " +
+      "yrkesmässig häleriverksamhet bedömd som ett sammanhållet grovt brott.",
+    straffvarde_text:
+      "OBS: äldre avgörande (1993). Tingsrätten dömde till skyddstillsyn och " +
+      "samhällstjänst; hovrätten fann brottet allvarligt nog för skyddstillsyn i " +
+      "förening med fängelse men lät den ursprungliga påföljden bestå eftersom " +
+      "samhällstjänsten redan fullgjorts. Ingen ren fängelsemånader-siffra att jämföra " +
+      "mot, men ett tydligt exempel på yrkesmässig häleriverksamhet som grovt brott.",
+    brottstyper: ["grovt_haleri"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
