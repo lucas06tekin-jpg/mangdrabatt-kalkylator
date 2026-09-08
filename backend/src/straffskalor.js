@@ -1,11 +1,13 @@
-// Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri, rån) enligt 8
-// och 9 kap. brottsbalken (BrB), aktuell lydelse. Källa: Brottsbalken (1962:700), verifierad
-// mot Sveriges riksdags författningstext (stöld 2026-09-03, bedrägeri 2026-09-05, häleri
-// 2026-09-06, rån 2026-09-08) samt den promulgerade texten i SFS 2026:1318 för grov stöld,
-// grovt bedrägeri och grovt häleri (alla tre ändrade av samma reform). Grovt råns
-// minimistraff (5 år) höjdes redan 2017-07-01 av en tidigare reform (prop. 2016/17:108) -
-// inte av SFS 2026:1318 - och korsverifierat mot NJA 2025:12 ("Jackan"), som citerar 8 kap.
-// 5 § fjärde stycket ordagrant.
+// Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri, rån,
+// förskingring) enligt 8, 9 och 10 kap. brottsbalken (BrB), aktuell lydelse. Källa:
+// Brottsbalken (1962:700), verifierad mot Sveriges riksdags författningstext (stöld
+// 2026-09-03, bedrägeri 2026-09-05, häleri 2026-09-06, rån 2026-09-08, förskingring
+// 2026-09-08) samt den promulgerade texten i SFS 2026:1318 för grov stöld, grovt
+// bedrägeri, grovt häleri och grov förskingring (alla fyra fick sitt minimistraff höjt
+// från 6 månader till 1 år av samma reform). Grovt råns minimistraff (5 år) höjdes redan
+// 2017-07-01 av en tidigare reform (prop. 2016/17:108) - inte av SFS 2026:1318 - och
+// korsverifierat mot NJA 2025:12 ("Jackan"), som citerar 8 kap. 5 § fjärde stycket
+// ordagrant.
 
 export const STRAFFSKALOR = [
   {
@@ -164,6 +166,51 @@ export const STRAFFSKALOR = [
     min_manader: 60,
     max_manader: 120,
     skala_text: "Fängelse i lägst 5 år och högst 10 år",
+  },
+  {
+    id: "forskingring",
+    namn: "Förskingring",
+    familj: "Förskingring",
+    paragraf: "10 kap. 1 § BrB",
+    lagtext:
+      "Den som på grund av avtal, allmän eller enskild tjänst eller dylik ställning fått " +
+      "egendom i besittning för annan med skyldighet att utgiva egendomen eller redovisa " +
+      "för denna, genom att tillägna sig egendomen eller annorledes åsidosätter vad han " +
+      "har att iakttaga för att kunna fullgöra sin skyldighet, dömes, om gärningen " +
+      "innebär vinning för honom och skada för den berättigade, för förskingring till " +
+      "fängelse i högst två år.",
+    min_manader: 0,
+    max_manader: 24,
+    skala_text: "Fängelse i högst 2 år",
+  },
+  {
+    // Traditionellt/i doktrinen ofta kallad "undandräkt" - men lagtextens (och
+    // riksdagen.se:s konsoliderade författningstexts) egen rubrik för 10 kap. 2 § är
+    // "Ringa förskingring", vilket är namnet som används här för konsekvens med övriga
+    // "ringa X"-brottstyper (ringa stöld, ringa bedrägeri).
+    id: "ringa_forskingring",
+    namn: "Ringa förskingring",
+    familj: "Förskingring",
+    paragraf: "10 kap. 2 § BrB",
+    lagtext:
+      "Är brott som avses i 1 § med hänsyn till det förskingrades värde och övriga " +
+      "omständigheter vid brottet att anse som ringa, döms för ringa förskingring till " +
+      "böter eller fängelse i högst sex månader.",
+    min_manader: 0,
+    max_manader: 6,
+    skala_text: "Böter eller fängelse i högst 6 månader",
+  },
+  {
+    id: "grov_forskingring",
+    namn: "Grov förskingring",
+    familj: "Förskingring",
+    paragraf: "10 kap. 3 § BrB",
+    lagtext:
+      "Om brott som avses i 1 § är att anse som grovt, döms för grov förskingring till " +
+      "fängelse i lägst ett och högst sex år.",
+    min_manader: 12,
+    max_manader: 72,
+    skala_text: "Fängelse i lägst 1 år och högst 6 år",
   },
 ];
 

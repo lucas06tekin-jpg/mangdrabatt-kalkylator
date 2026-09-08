@@ -390,6 +390,49 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_pressmeddelande",
     autoUppdateras: true,
   },
+  {
+    // Båda förskingringsfallen nedan är GRÄNSDRAGNINGSMÅL om brottsenhet (är upprepad
+    // förskingring från samma huvudman ETT sammanhållet brott eller flera separata brott
+    // som ska läggas samman via 26 kap. 2 §?), inte flerfaldighetsexempel i vanlig mening.
+    // HD/hovrätten behandlade i båda fallen den systematiska förskingringen som ETT brott -
+    // strukturellt annorlunda än stöld/bedrägeri/häleri/rån, där upprepade tillfällen
+    // normalt räknas och läggs samman som separata brott. Värt att känna till för den som
+    // matar in flera förskingringstillfällen i den här kalkylatorn.
+    id: "NJA 1992 s. 470",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/1992s470",
+    domstol: "Högsta domstolen (mål B 1092-92, 1992-07-10)",
+    brott_sammanfattning:
+      "Grov förskingring, satt i system under perioden september 1986 till 17 december " +
+      "1990 (missbruk av tjänsteställning). HD behandlade de upprepade förskingringarna " +
+      "som ETT sammanhållet brott (brottsenhet), inte som flera separata brott.",
+    straffvarde_text:
+      "Förskingrat belopp: 200 000 kr enligt domstolarna (åklagaren yrkade 231 268 kr). " +
+      "Tingsrätt och hovrätt: fängelse 10 månader. HD: villkorlig dom, med hänsyn till " +
+      "att skadeståndet reglerats.",
+    brottstyper: ["grov_forskingring"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 1996:42",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/1996:42",
+    domstol: "Hovrätten för Västra Sverige (mål B 1273-95, 1996-04-30)",
+    brott_sammanfattning:
+      "Grov förskingring vid 351 tillfällen under perioden 1989-1994, som kassaförvaltare. " +
+      "Liksom NJA 1992 s. 470 behandlat som ETT sammanhållet, systematiskt grovt brott - " +
+      "inte 351 separata brott som läggs samman via asperationsprincipen.",
+    straffvarde_text:
+      "Åklagaren yrkade 620 856 kr; minst 400 000 kr ansågs styrkt. Tingsrätten: " +
+      "villkorlig dom utan böter. Hovrätten: fängelse 10 månader, med hänsyn till att den " +
+      "tilltalade förlorat sitt arbete.",
+    brottstyper: ["grov_forskingring"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
@@ -697,5 +740,21 @@ export const FORKLARANDE_KALLOR = [
       "flerfaldiga rånbrott.",
     brottstyper: ["ran", "grovt_ran"],
     granskningsdjup: "fulltext",
+  },
+  {
+    // Hittad via sökmotorutdrag - INTE öppnad och läst i sin helhet, samma
+    // lawline.se/robots.txt-spärr som för övriga Lawline-poster ovan.
+    id: "lawline-vad-ar-straffet-for-forskingring",
+    kalla: "Lawline",
+    titel: "Vad är straffet för förskingring?",
+    kalla_url: "https://lawline.se/answers/vad-ar-straffet-for-forskingring-1",
+    sammanfattning:
+      "Enligt sökmotorutdraget: går igenom alla tre graderna - förskingring (10 kap. 1 §, " +
+      "högst 2 år), ringa förskingring/undandräkt (10 kap. 2 §, böter eller högst 6 " +
+      "månader) och grov förskingring (10 kap. 3 §, dåvarande skala lägst 6 månader " +
+      "högst 6 år). OBS: minimistraffet för grov förskingring har sedan höjts till 1 år " +
+      "av SFS 2026:1318 - artikeln återger den äldre skalan.",
+    brottstyper: ["forskingring", "ringa_forskingring", "grov_forskingring"],
+    granskningsdjup: "snippet",
   },
 ];

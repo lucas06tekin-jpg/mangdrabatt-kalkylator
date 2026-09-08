@@ -267,6 +267,28 @@ grovt rån av doktrin: **Prop. 2016/17:108** ("Straffskalorna för vissa allvarl
 våldsbrott") - förarbetet till minimistraffhöjningen, som också förklarar varför rån av
 normalgraden medvetet lämnades oförändrat.
 
+### Utökning till förskingring
+
+Appen täcker sedan 2026-09-08 även förskingring, tre nivåer: **förskingring** (10 kap.
+1 § BrB, 0-24 mån), **ringa förskingring** (10 kap. 2 § BrB, 0-6 mån - traditionellt/i
+doktrinen ofta kallad "undandräkt", men lagtextens egen rubrik är "ringa förskingring")
+och **grov förskingring** (10 kap. 3 § BrB, 12-72 mån - golvet höjt från 6 månader till
+1 år av SFS 2026:1318, samma reform som höjde golvet för grov stöld, grovt bedrägeri och
+grovt häleri).
+
+**En strukturellt viktig upptäckt vid denna research:** de två referensdomar som hittades
+för grov förskingring - **NJA 1992 s. 470** (systematisk förskingring september 1986 till
+december 1990, minst 200 000 kr) och **RH 1996:42** (351 tillfällen under 1989-1994, minst
+400 000 kr) - behandlades BÅDA av domstolen som **ETT sammanhållet brott (brottsenhet)**,
+inte som flera separata brott som läggs samman via 26 kap. 2 §. Det är alltså inte bara det
+att flerfaldighetsexempel saknas av en slump - upprepad förskingring från samma huvudman
+tycks i praxis ofta bedömas som ett enda, fortlöpande brott snarare än flerfaldig
+brottslighet i den mening den här kalkylatorn räknar på. Värt att ha i huvudet om du matar
+in flera förskingringstillfällen: verklighetens domstolar kanske inte skulle se dem som
+separata brott alls. Förskingring och ringa förskingring saknar egna referensdomar men
+täcks av en Lawline-artikel (sökmotorutdrag, ej fulltextläst) som går igenom alla tre
+graderna.
+
 ### Källtäckning - hitta luckor i referensdomarna systematiskt
 
 I stället för att upptäcka källuckor av en slump (som när RH 1993:201:s dolda häleribrott
