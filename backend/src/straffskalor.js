@@ -1,8 +1,11 @@
-// Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri) enligt 8 och
-// 9 kap. brottsbalken (BrB), aktuell lydelse. Källa: Brottsbalken (1962:700), verifierad
+// Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri, rån) enligt 8
+// och 9 kap. brottsbalken (BrB), aktuell lydelse. Källa: Brottsbalken (1962:700), verifierad
 // mot Sveriges riksdags författningstext (stöld 2026-09-03, bedrägeri 2026-09-05, häleri
-// 2026-09-06) samt den promulgerade texten i SFS 2026:1318 för grov stöld, grovt bedrägeri
-// och grovt häleri (alla tre ändrade av samma reform).
+// 2026-09-06, rån 2026-09-08) samt den promulgerade texten i SFS 2026:1318 för grov stöld,
+// grovt bedrägeri och grovt häleri (alla tre ändrade av samma reform). Grovt råns
+// minimistraff (5 år) höjdes redan 2017-07-01 av en tidigare reform (prop. 2016/17:108) -
+// inte av SFS 2026:1318 - och korsverifierat mot NJA 2025:12 ("Jackan"), som citerar 8 kap.
+// 5 § fjärde stycket ordagrant.
 
 export const STRAFFSKALOR = [
   {
@@ -130,6 +133,37 @@ export const STRAFFSKALOR = [
     min_manader: 12,
     max_manader: 72,
     skala_text: "Fängelse i lägst 1 år och högst 6 år",
+  },
+  {
+    id: "ran",
+    namn: "Rån",
+    familj: "Rån",
+    paragraf: "8 kap. 5 § BrB",
+    lagtext:
+      "Den som med våld på person eller med hot som innebär eller för den hotade " +
+      "framstår som trängande fara begår stöld, döms för rån till fängelse i lägst ett " +
+      "år och sex månader och högst sex år. Är gärningen med hänsyn till våldet, hotet " +
+      "eller omständigheterna i övrigt av mindre allvarlig art, döms dock inte för rån " +
+      "utan för annat brott som gärningen innefattar (8 kap. 5 § fjärde stycket).",
+    min_manader: 18,
+    max_manader: 72,
+    skala_text: "Fängelse i lägst 1 år 6 månader och högst 6 år",
+  },
+  {
+    id: "grovt_ran",
+    namn: "Grovt rån",
+    familj: "Rån",
+    paragraf: "8 kap. 6 § BrB",
+    lagtext:
+      "Är brott som avses i 5 § grovt, döms för grovt rån till fängelse i lägst fem och " +
+      "högst tio år. Vid bedömningen av om brottet är grovt ska det särskilt beaktas om " +
+      "våldet varit livsfarligt, om gärningsmannen tillfogat svår kroppsskada eller " +
+      "allvarlig sjukdom eller annars visat synnerlig råhet eller på ett hänsynslöst " +
+      "sätt utnyttjat den rånades skyddslösa eller utsatta ställning, eller om gärningen " +
+      "varit av särskilt farlig art.",
+    min_manader: 60,
+    max_manader: 120,
+    skala_text: "Fängelse i lägst 5 år och högst 10 år",
   },
 ];
 

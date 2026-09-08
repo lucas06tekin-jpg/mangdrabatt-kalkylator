@@ -230,6 +230,43 @@ Blocket, en båtdelshärva) nämndes i nyhetsartiklar men kunde INTE verifieras 
 mål-nummer eller domstolsnamn gick att hitta för att spåra upp den faktiska domen, så de
 togs inte med.
 
+### Utökning till rån
+
+Appen täcker sedan 2026-09-08 även rån, två nivåer: **rån** (8 kap. 5 § BrB, 18-72 mån)
+och **grovt rån** (8 kap. 6 § BrB, 60-120 mån). Till skillnad från de tre tidigare
+brottsfamiljerna innehåller rånparagrafen ett eget gränsdragningsstycke (8 kap. 5 §
+fjärde stycket): är gärningen "av mindre allvarlig art" döms inte för rån utan för annat
+brott (t.ex. grov stöld) - direkt illustrerat av **NJA 2025:12** ("Jackan") nedan. Grovt
+råns minimistraff höjdes från 4 till 5 år 2017-07-01 (prop. 2016/17:108); rån av
+normalgraden lämnades då uttryckligen oförändrat - se doktrinkällan nedan.
+
+Tre nya referensdomar tillkom:
+
+- **NJA 1994 s. 732** - Högsta domstolen underkände hovrättens grova rubricering (attrapper
+  användes, inget fysiskt våld) och fastslog att en tillräckligt kraftfull reaktion kan
+  beslutas inom straffskalan för rån av normalgraden. Två tilltalade, vardera dömda för
+  TVÅ fall av rån - ett genuint flerfaldighetsexempel, om än från 1994 (innan 2017 års
+  minimistraffhöjning för grovt rån, som inte är relevant här eftersom fallet stannade
+  vid normalgraden).
+- **RH 2006:31** - Svea hovrätt fördubblade tingsrättens straff till fängelse 6 år för
+  rån vid 13 tillfällen, försök till rån vid 2 tillfällen och häleri - systematiska
+  väpnade rån mot ensamarbetande butikspersonal. Ett av de tydligaste
+  flerfaldighetsexemplen i hela databasen (13 räknade brottstillfällen).
+- **NJA 2025:12** ("Jackan") - gränsdragningsmål, inte flerfaldighet: en 18-åring hotade
+  en 14-åring för en jacka. HD tillämpade 8 kap. 5 § fjärde stycket och omklassificerade
+  gärningen till grov stöld eftersom den var "av mindre allvarlig art" (inget våld,
+  verbalt hot). Viktig varning-exempel: uppfyller de formella rånrekvisiten men blir ändå
+  inte rån.
+
+**Grovt rån hade efter denna sökning fortfarande noll referensdomar** - varje genuint
+grovt rån-fall som hittades var antingen ett gränsdragningsmål mot en helt annan
+rättsmekanism (34 kap. 2 § BrB om nyupptäckt brott/EU-rambeslut, t.ex. NJA 2022 s. 227 och
+NJA 2009 s. 485 - avsiktligt INTE medtagna eftersom de skulle vilseleda om vilken paragraf
+som faktiskt tillämpas) eller för svårverifierade för att fulltextläsas. I stället täcks
+grovt rån av doktrin: **Prop. 2016/17:108** ("Straffskalorna för vissa allvarliga
+våldsbrott") - förarbetet till minimistraffhöjningen, som också förklarar varför rån av
+normalgraden medvetet lämnades oförändrat.
+
 ### Källtäckning - hitta luckor i referensdomarna systematiskt
 
 I stället för att upptäcka källuckor av en slump (som när RH 1993:201:s dolda häleribrott
@@ -313,7 +350,9 @@ varsin riktad källa, verifierad genom att läsa riksdagen.se:s egen dokumenttex
 `backend/test/seedSources.test.js` har nu ett test som slår fast detta som en permanent
 garanti, inte bara ett ögonblicksläge: "Varje straffskala har minst en referensdom ELLER
 förklarande källa med matchande brottstyp" - failar automatiskt om någon framtida
-brottstyp läggs till utan att någon knyter minst en källa till den.
+brottstyp läggs till utan att någon knyter minst en källa till den. Garantin höll direkt
+när rån och grovt rån lades till samma dag (se "Utökning till rån" ovan) - testet
+tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
 
 ## Modellen (frontend, redigerbar)
 

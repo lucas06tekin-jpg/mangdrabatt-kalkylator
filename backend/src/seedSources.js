@@ -330,6 +330,66 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "NJA 1994 s. 732",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/1994s732",
+    domstol: "Högsta domstolen (mål B 4446-94, 1994-12-22)",
+    brott_sammanfattning:
+      "Två tilltalade, vardera dömda för TVÅ fall av rån (bankrån) samt tillgrepp av " +
+      "fortskaffningsmedel. HD underkände hovrättens grova rubricering - eftersom " +
+      "attrapper användes och inget fysiskt våld förekom - och fastslog att en " +
+      "tillräckligt kraftfull reaktion kan beslutas inom straffskalan för normalgraden " +
+      "av rån, utan att gå upp i grovt rån.",
+    straffvarde_text:
+      "R.A.: fängelse 6 år (sänkt från tingsrättens 10 år). M.L.: fängelse 4 år. Ett " +
+      "genuint flerfaldighetsexempel - två räknade rånbrott per tilltalad - men OBS: " +
+      "1994 års avgörande, innan grovt råns minimistraff höjdes från 4 till 5 år " +
+      "(prop. 2016/17:108, i kraft 2017-07-01). Citerat för sitt flerfaldighetsresonemang " +
+      "kring rån av normalgraden, inte som facit för dagens exakta straffnivå.",
+    brottstyper: ["ran"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 2006:31",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2006:31",
+    domstol: "Svea hovrätt (från Stockholms tingsrätt)",
+    brott_sammanfattning:
+      "Rån vid 13 tillfällen, försök till rån vid 2 tillfällen, och häleri - systematiska " +
+      "väpnade rån mot ensamarbetande butikspersonal under en kort period. Ett tydligt " +
+      "räknat flerfaldighetsexempel med många brottstillfällen av samma brottstyp.",
+    straffvarde_text:
+      "Tingsrätten (2005-09-09): fängelse 3 år. Hovrätten (2005-11-04) fördubblade till " +
+      "fängelse 6 år, med hänvisning till systematiken, vapen-/knivhot mot utsatta " +
+      "ensamarbetande målsägande och den tilltalades återfall under prövotid.",
+    brottstyper: ["ran", "haleri"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 2025:12",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url:
+      "https://www.domstol.se/nyheter/2025/03/ett-fall-av-ran-har-ansetts-vara-av-mindre-allvarlig-art/",
+    domstol: "Högsta domstolen (mål B 5428-24, 2025-03-13) - kallat \"Jackan\"",
+    brott_sammanfattning:
+      "Gränsdragningsmål, INTE ett flerfaldighetsexempel: en 18-åring hotade en " +
+      "14-åring för att få hans jacka. HD tillämpade 8 kap. 5 § fjärde stycket BrB - " +
+      "gärningen var, trots att den formellt uppfyllde rånrekvisiten, \"av mindre " +
+      "allvarlig art\" (inget våld, verbalt hot utan tillhygge) och omklassificerades " +
+      "därför till grov stöld i stället för rån.",
+    straffvarde_text:
+      "Straffvärde bedömt till fängelse 10 månader, reducerat till 6 månader för " +
+      "ungdom. Påföljd: skyddstillsyn med 140 timmars samhällstjänst.",
+    brottstyper: ["ran", "grov_stold"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
@@ -617,6 +677,25 @@ export const FORKLARANDE_KALLOR = [
       "förebild i grov fridskränkning) - vilket gör den till den mest direkt relevanta " +
       "doktrinkällan för just mängdrabatt vid häleri i hela kalkylatorn.",
     brottstyper: ["haleri", "grovt_haleri"],
+    granskningsdjup: "fulltext",
+  },
+  {
+    id: "prop-2016-17-108-grovt-ran",
+    kalla: "Regeringen",
+    titel: "Straffskalorna för vissa allvarliga våldsbrott (Prop. 2016/17:108)",
+    kalla_url:
+      "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/straffskalorna-for-vissa-allvarliga-valdsbrott_H403108/html/",
+    sammanfattning:
+      "Propositionen höjde minimistraffet för grovt rån (8 kap. 6 § BrB) från fängelse " +
+      "fyra år till fängelse fem år, i kraft sedan 2017-07-01. Samtidigt övervägdes och " +
+      "avvisades uttryckligen en motsvarande höjning för rån av normalgraden (8 kap. 5 §): " +
+      "\"Minimistraffet för rån bör därför lämnas oförändrat\", eftersom normalgradens rån " +
+      "omfattar handlande av avsevärt mer skiftande karaktär än grovt rån och därför " +
+      "behöver en vidare straffskala för nyanserad bedömning. Direkt förarbete till " +
+      "gradindelningen mellan rån och grovt rån, vilket är avgörande för vilken " +
+      "straffskala (och därmed vilket tak enligt 26 kap. 2 § BrB) som blir relevant vid " +
+      "flerfaldiga rånbrott.",
+    brottstyper: ["ran", "grovt_ran"],
     granskningsdjup: "fulltext",
   },
 ];
