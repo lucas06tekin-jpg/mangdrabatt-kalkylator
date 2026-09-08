@@ -267,27 +267,18 @@ grovt rån av doktrin: **Prop. 2016/17:108** ("Straffskalorna för vissa allvarl
 våldsbrott") - förarbetet till minimistraffhöjningen, som också förklarar varför rån av
 normalgraden medvetet lämnades oförändrat.
 
-### Utökning till förskingring
+### Förskingring - tillagd och sedan borttagen (2026-09-08)
 
-Appen täcker sedan 2026-09-08 även förskingring, tre nivåer: **förskingring** (10 kap.
-1 § BrB, 0-24 mån), **ringa förskingring** (10 kap. 2 § BrB, 0-6 mån - traditionellt/i
-doktrinen ofta kallad "undandräkt", men lagtextens egen rubrik är "ringa förskingring")
-och **grov förskingring** (10 kap. 3 § BrB, 12-72 mån - golvet höjt från 6 månader till
-1 år av SFS 2026:1318, samma reform som höjde golvet för grov stöld, grovt bedrägeri och
-grovt häleri).
-
-**En strukturellt viktig upptäckt vid denna research:** de två referensdomar som hittades
-för grov förskingring - **NJA 1992 s. 470** (systematisk förskingring september 1986 till
-december 1990, minst 200 000 kr) och **RH 1996:42** (351 tillfällen under 1989-1994, minst
-400 000 kr) - behandlades BÅDA av domstolen som **ETT sammanhållet brott (brottsenhet)**,
-inte som flera separata brott som läggs samman via 26 kap. 2 §. Det är alltså inte bara det
-att flerfaldighetsexempel saknas av en slump - upprepad förskingring från samma huvudman
-tycks i praxis ofta bedömas som ett enda, fortlöpande brott snarare än flerfaldig
-brottslighet i den mening den här kalkylatorn räknar på. Värt att ha i huvudet om du matar
-in flera förskingringstillfällen: verklighetens domstolar kanske inte skulle se dem som
-separata brott alls. Förskingring och ringa förskingring saknar egna referensdomar men
-täcks av en Lawline-artikel (sökmotorutdrag, ej fulltextläst) som går igenom alla tre
-graderna.
+Förskingring/ringa förskingring/grov förskingring lades till 2026-09-08 men togs bort
+samma dag efter en genomgång av vilka brott som faktiskt passar en
+mängdrabatt-kalkylator. Anledningen är strukturell, inte att researchen var dålig: de två
+referensdomar som hittades för grov förskingring - **NJA 1992 s. 470** (systematisk
+förskingring september 1986-december 1990, minst 200 000 kr) och **RH 1996:42**
+(351 tillfällen under 1989-1994, minst 400 000 kr) - visade BÅDA att domstolarna
+behandlar upprepad förskingring från samma huvudman som **ETT sammanhållet brott
+(brottsenhet)**, inte som flera separata brott som läggs samman via 26 kap. 2 §.
+Mängdrabatt-mekanismen som hela den här kalkylatorn bygger på blir alltså sällan aktuell
+för just detta brott i praktiken - ett dåligt konceptuellt fit, inte bara en tunn källa.
 
 ### Utökning till utpressning
 
@@ -297,8 +288,8 @@ Appen täcker sedan 2026-09-08 även utpressning, tre nivåer: **ringa utpressni
 2023-07-01 av SFS 2023:257 (prop. 2022/23:53, "Skärpta straff för brott i kriminella
 nätverk") - utpressning från högst 2 till högst 3 år, grov utpressning från 1-6 år till
 2-8 år. Notera att detta INTE är samma reform som SFS 2026:1318 (som höjde golven för
-grov stöld/grovt bedrägeri/grovt häleri/grov förskingring) - ännu en påminnelse om att
-varje brottstyps ändringshistorik måste verifieras för sig, inte antas följa samma mönster.
+grov stöld/grovt bedrägeri/grovt häleri) - ännu en påminnelse om att varje brottstyps
+ändringshistorik måste verifieras för sig, inte antas följa samma mönster.
 
 Två nya referensdomar:
 
@@ -319,7 +310,7 @@ grad (ingen ringa-nivå finns i lagen för någon av dem):
 
 - **Ocker** (9 kap. 5 § BrB, 0-24 mån) och **grovt ocker** (samma paragraf, 12-72 mån -
   golvet höjt 6 mån → 1 år av SFS 2026:1318, samma reform som grov stöld/grovt
-  bedrägeri/grovt häleri/grov förskingring).
+  bedrägeri/grovt häleri).
 - **Olovligt förfogande** (10 kap. 4 § första stycket BrB, 0-12 mån) och **grovt olovligt
   förfogande** (andra stycket, 6-48 mån). Grovgraden är en HELT NY brottsrubricering,
   införd 2017-07-01 av SFS 2017:442 - samma proposition (2016/17:131) som redan fanns i
@@ -351,33 +342,17 @@ faktiskt tillämpades - samma typ av "fel mekanism"-misstag som uteslöts för r
 utpressning ovan). Båda täcks av Prop. 2016/17:131/SFS 2017:442 som doktrinkälla i
 stället.
 
-### Utökning till tillgrepp av fortskaffningsmedel
+### Tillgrepp av fortskaffningsmedel - tillagd och sedan borttagen (2026-09-08)
 
-Appen täcker sedan 2026-09-08 även tillgrepp av fortskaffningsmedel ("biltillgrepp utan
-tillägnelseuppsåt", dvs. att olovligen låna någon annans motorfordon utan avsikt att
-behålla det - skiljer sig från stöld just genom avsaknaden av tillägnelseuppsåt). Ovanligt
-strukturellt: alla tre graderna sitter i SAMMA paragraf (8 kap. 7 § BrB, olika stycken) i
-stället för separata paragrafer som i övriga brottsfamiljer: **ringa** (andra stycket,
-0-6 mån), **normalgrad** (första stycket, 0-24 mån) och **grovt** (tredje stycket,
-6-48 mån). Grovgradens golv är INTE höjt av SFS 2026:1318 - verifierat genom riktad
-sökning att ingen sådan höjning skett, till skillnad från de sex "grovt X"-brotten som
-fick sitt golv höjt 6 månader → 1 år av den reformen.
-
-Ingen flerfaldighetsdom hittades vid denna sökning - brottet verkar oftare förekomma vid
+Tillgrepp av fortskaffningsmedel (alla tre graderna) lades till 2026-09-08 men togs
+bort samma dag, av samma anledning som förskingring ovan: ingen flerfaldighetsdom
+hittades trots flera riktade sökningar. Brottet verkade i stället oftare förekomma vid
 ETT tillfälle i kombination med andra brott (rattfylleri, olovlig körning, stöldförsök)
-snarare än upprepat i samma mål, till skillnad från t.ex. rån eller trolöshet mot
-huvudman. I stället gav sökningen två högkvalitativa HD-avgöranden om gradindelningen,
-ett för vardera gränsen:
-
-- **NJA 2021 s. 1102** ("Mopedtillgreppet i Västervik") - gränsdragningsmål mellan ringa
-  och normalgrad. En 15-åring lånade en olåst moped och körde ca 200 meter. HD ändrade
-  tingsrättens och hovrättens bedömning (normalgrad) till RINGA brott, och slog fast att
-  en helhetsbedömning krävs där brukandets omfattning, skaderisk, fordonets värde och om
-  gärningen var impulsiv eller planerad alla vägs in.
-- **NJA 1984 s. 751** - gränsdragningsmål mellan normalgrad och grovt brott. HD
-  underkände hovrättens grova rubricering och fastslog att enbart det faktum att
-  tillgreppet skedde genom inbrott inte i sig gör brottet grovt - minimistraffets nivå
-  (6 månader) förutsätter gärningar med "betydande straffvärde".
+snarare än upprepat i samma mål - de två HD-avgöranden som hittades (NJA 2021 s. 1102
+och NJA 1984 s. 751) var båda gränsdragningsmål om gradindelning, inte
+flerfaldighetsexempel. Svagare bevisning än förskingrings brottsenhets-fynd (ingen
+uttrycklig doktrin mot flerfaldighet, bara frånvaro av träffar), men samma riktning:
+mängdrabatt-mekanismen verkar sällan bli den centrala frågan för detta brott.
 
 ### Utökning bortom förmögenhetsbrott: misshandel, olaga hot, narkotikabrott
 

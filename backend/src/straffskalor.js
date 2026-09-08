@@ -1,26 +1,30 @@
 // Hårdkodade straffskalor. Ursprungligen bara förmögenhetsbrott (stöld, bedrägeri,
-// häleri, rån, förskingring, utpressning, ocker, olovligt förfogande, trolöshet mot
-// huvudman, tillgrepp av fortskaffningsmedel - 8, 9 och 10 kap. BrB), men utökad
-// 2026-09-08 med tre brottsfamiljer utanför förmögenhetsbrottskategorin (misshandel,
-// olaga hot, narkotikabrott) på uttrycklig begäran - appens NAMN och inramning förblir
-// "förmögenhetsbrottslighet"-fokuserat, men brottstypslistan är inte längre begränsad
-// till den kategorin. Källa: Brottsbalken (1962:700) och, för narkotikabrott,
-// narkotikastrafflagen (1968:64) - båda verifierade mot Sveriges riksdags
-// författningstext.
+// häleri, rån, utpressning, ocker, olovligt förfogande, trolöshet mot huvudman - 8, 9
+// och 10 kap. BrB), men utökad 2026-09-08 med tre brottsfamiljer utanför
+// förmögenhetsbrottskategorin (misshandel, olaga hot, narkotikabrott) på uttrycklig
+// begäran - appens NAMN och inramning förblir "förmögenhetsbrottslighet"-fokuserat, men
+// brottstypslistan är inte längre begränsad till den kategorin. Källa: Brottsbalken
+// (1962:700) och, för narkotikabrott, narkotikastrafflagen (1968:64) - båda verifierade
+// mot Sveriges riksdags författningstext.
+//
+// Förskingring och tillgrepp av fortskaffningsmedel lades till 2026-09-08 men togs bort
+// samma dag efter en genomgång av vilka brott som faktiskt passar en
+// mängdrabatt-kalkylator: forskningen visade att upprepad förskingring i praxis
+// genomgående behandlas som ETT sammanhållet brott (brottsenhet) snarare än flerfaldig
+// brottslighet (NJA 1992 s. 470, RH 1996:42), och att tillgrepp av fortskaffningsmedel
+// oftast förekommer vid ett enda tillfälle i kombination med andra brott snarare än
+// upprepat - se README:s git-historik för detaljer om researchen bakom borttagningen.
 //
 // Reformhistorik (viktigt att inte anta att alla "grovt X"-golv kommer från samma
 // reform): SFS 2026:1318 höjde minimistraffet från 6 månader till 1 år för grov stöld,
-// grovt bedrägeri, grovt häleri, grov förskingring, grovt ocker och grov trolöshet mot
-// huvudman (sex brott, samma reform). Grovt råns minimistraff (5 år) höjdes i stället
-// 2017-07-01 (prop. 2016/17:108). Grov utpressning (2-8 år) höjdes 2023-07-01 av SFS
-// 2023:257 (prop. 2022/23:53) - SAMMA reform höjde även grovt olaga hot (4 kap. 5 §
-// andra stycket) och narkotikabrotts försäljningsgolv (6 månader, SFS 2023:258, samma
-// proposition). Grovt olovligt förfogande som eget gradindelat brott infördes
-// 2017-07-01 av SFS 2017:442 (prop. 2016/17:131, samma som skärpte grovt bedrägeri).
-// Grovt tillgrepp av fortskaffningsmedels golv (6 månader) är INTE höjt av SFS
-// 2026:1318 - verifierat via sökning att ingen sådan höjning skett. Rån
-// korsverifierat mot NJA 2025:12 ("Jackan"), som citerar 8 kap. 5 § fjärde stycket
-// ordagrant.
+// grovt bedrägeri, grovt häleri, grovt ocker och grov trolöshet mot huvudman (samma
+// reform). Grovt råns minimistraff (5 år) höjdes i stället 2017-07-01 (prop. 2016/17:108). Grov
+// utpressning (2-8 år) höjdes 2023-07-01 av SFS 2023:257 (prop. 2022/23:53) - SAMMA
+// reform höjde även grovt olaga hot (4 kap. 5 § andra stycket) och narkotikabrotts
+// försäljningsgolv (6 månader, SFS 2023:258, samma proposition). Grovt olovligt
+// förfogande som eget gradindelat brott infördes 2017-07-01 av SFS 2017:442 (prop.
+// 2016/17:131, samma som skärpte grovt bedrägeri). Rån korsverifierat mot NJA 2025:12
+// ("Jackan"), som citerar 8 kap. 5 § fjärde stycket ordagrant.
 
 export const STRAFFSKALOR = [
   {
@@ -181,51 +185,6 @@ export const STRAFFSKALOR = [
     skala_text: "Fängelse i lägst 5 år och högst 10 år",
   },
   {
-    id: "forskingring",
-    namn: "Förskingring",
-    familj: "Förskingring",
-    paragraf: "10 kap. 1 § BrB",
-    lagtext:
-      "Den som på grund av avtal, allmän eller enskild tjänst eller dylik ställning fått " +
-      "egendom i besittning för annan med skyldighet att utgiva egendomen eller redovisa " +
-      "för denna, genom att tillägna sig egendomen eller annorledes åsidosätter vad han " +
-      "har att iakttaga för att kunna fullgöra sin skyldighet, dömes, om gärningen " +
-      "innebär vinning för honom och skada för den berättigade, för förskingring till " +
-      "fängelse i högst två år.",
-    min_manader: 0,
-    max_manader: 24,
-    skala_text: "Fängelse i högst 2 år",
-  },
-  {
-    // Traditionellt/i doktrinen ofta kallad "undandräkt" - men lagtextens (och
-    // riksdagen.se:s konsoliderade författningstexts) egen rubrik för 10 kap. 2 § är
-    // "Ringa förskingring", vilket är namnet som används här för konsekvens med övriga
-    // "ringa X"-brottstyper (ringa stöld, ringa bedrägeri).
-    id: "ringa_forskingring",
-    namn: "Ringa förskingring",
-    familj: "Förskingring",
-    paragraf: "10 kap. 2 § BrB",
-    lagtext:
-      "Är brott som avses i 1 § med hänsyn till det förskingrades värde och övriga " +
-      "omständigheter vid brottet att anse som ringa, döms för ringa förskingring till " +
-      "böter eller fängelse i högst sex månader.",
-    min_manader: 0,
-    max_manader: 6,
-    skala_text: "Böter eller fängelse i högst 6 månader",
-  },
-  {
-    id: "grov_forskingring",
-    namn: "Grov förskingring",
-    familj: "Förskingring",
-    paragraf: "10 kap. 3 § BrB",
-    lagtext:
-      "Om brott som avses i 1 § är att anse som grovt, döms för grov förskingring till " +
-      "fängelse i lägst ett och högst sex år.",
-    min_manader: 12,
-    max_manader: 72,
-    skala_text: "Fängelse i lägst 1 år och högst 6 år",
-  },
-  {
     id: "ringa_utpressning",
     namn: "Ringa utpressning",
     familj: "Utpressning",
@@ -345,46 +304,6 @@ export const STRAFFSKALOR = [
     min_manader: 12,
     max_manader: 72,
     skala_text: "Fängelse i lägst 1 år och högst 6 år",
-  },
-  {
-    id: "ringa_tillgrepp_av_fortskaffningsmedel",
-    namn: "Ringa tillgrepp av fortskaffningsmedel",
-    familj: "Tillgrepp av fortskaffningsmedel",
-    paragraf: "8 kap. 7 § andra stycket BrB",
-    lagtext:
-      "Om brottet är ringa, döms till böter eller fängelse i högst sex månader.",
-    min_manader: 0,
-    max_manader: 6,
-    skala_text: "Böter eller fängelse i högst 6 månader",
-  },
-  {
-    id: "tillgrepp_av_fortskaffningsmedel",
-    namn: "Tillgrepp av fortskaffningsmedel",
-    familj: "Tillgrepp av fortskaffningsmedel",
-    paragraf: "8 kap. 7 § första stycket BrB",
-    lagtext:
-      "Den som olovligen tar och brukar ett motorfordon eller annat motordrivet " +
-      "fortskaffningsmedel som tillhör någon annan döms, om gärningen inte är belagd med " +
-      "straff enligt 1, 2 eller 4-6 §§, för tillgrepp av fortskaffningsmedel till " +
-      "fängelse i högst två år.",
-    min_manader: 0,
-    max_manader: 24,
-    skala_text: "Fängelse i högst 2 år",
-  },
-  {
-    id: "grovt_tillgrepp_av_fortskaffningsmedel",
-    namn: "Grovt tillgrepp av fortskaffningsmedel",
-    familj: "Tillgrepp av fortskaffningsmedel",
-    paragraf: "8 kap. 7 § tredje stycket BrB",
-    lagtext:
-      "Är brottet grovt, döms för grovt tillgrepp av fortskaffningsmedel till fängelse i " +
-      "lägst sex månader och högst fyra år. Vid bedömningen av om brottet är grovt ska " +
-      "det särskilt beaktas om gärningen har innefattat våld eller hot om brottslig " +
-      "gärning eller annars varit av särskilt farlig eller hänsynslös art, avsett " +
-      "betydande värde eller inneburit synnerligen kännbar skada.",
-    min_manader: 6,
-    max_manader: 48,
-    skala_text: "Fängelse i lägst 6 månader och högst 4 år",
   },
   {
     id: "ringa_misshandel",

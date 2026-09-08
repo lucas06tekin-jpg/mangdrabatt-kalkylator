@@ -391,49 +391,6 @@ export const REFERENSDOMAR = [
     autoUppdateras: true,
   },
   {
-    // Båda förskingringsfallen nedan är GRÄNSDRAGNINGSMÅL om brottsenhet (är upprepad
-    // förskingring från samma huvudman ETT sammanhållet brott eller flera separata brott
-    // som ska läggas samman via 26 kap. 2 §?), inte flerfaldighetsexempel i vanlig mening.
-    // HD/hovrätten behandlade i båda fallen den systematiska förskingringen som ETT brott -
-    // strukturellt annorlunda än stöld/bedrägeri/häleri/rån, där upprepade tillfällen
-    // normalt räknas och läggs samman som separata brott. Värt att känna till för den som
-    // matar in flera förskingringstillfällen i den här kalkylatorn.
-    id: "NJA 1992 s. 470",
-    kalla: "lagen.nu",
-    kalla_url: "https://lagen.nu/dom/nja/1992s470",
-    domstol: "Högsta domstolen (mål B 1092-92, 1992-07-10)",
-    brott_sammanfattning:
-      "Grov förskingring, satt i system under perioden september 1986 till 17 december " +
-      "1990 (missbruk av tjänsteställning). HD behandlade de upprepade förskingringarna " +
-      "som ETT sammanhållet brott (brottsenhet), inte som flera separata brott.",
-    straffvarde_text:
-      "Förskingrat belopp: 200 000 kr enligt domstolarna (åklagaren yrkade 231 268 kr). " +
-      "Tingsrätt och hovrätt: fängelse 10 månader. HD: villkorlig dom, med hänsyn till " +
-      "att skadeståndet reglerats.",
-    brottstyper: ["grov_forskingring"],
-    flerfaldighetsexempel: false,
-    verifieringsstatus: "manuell_fulltext",
-    autoUppdateras: true,
-  },
-  {
-    id: "RH 1996:42",
-    kalla: "lagen.nu",
-    kalla_url: "https://lagen.nu/dom/rh/1996:42",
-    domstol: "Hovrätten för Västra Sverige (mål B 1273-95, 1996-04-30)",
-    brott_sammanfattning:
-      "Grov förskingring vid 351 tillfällen under perioden 1989-1994, som kassaförvaltare. " +
-      "Liksom NJA 1992 s. 470 behandlat som ETT sammanhållet, systematiskt grovt brott - " +
-      "inte 351 separata brott som läggs samman via asperationsprincipen.",
-    straffvarde_text:
-      "Åklagaren yrkade 620 856 kr; minst 400 000 kr ansågs styrkt. Tingsrätten: " +
-      "villkorlig dom utan böter. Hovrätten: fängelse 10 månader, med hänsyn till att den " +
-      "tilltalade förlorat sitt arbete.",
-    brottstyper: ["grov_forskingring"],
-    flerfaldighetsexempel: false,
-    verifieringsstatus: "manuell_fulltext",
-    autoUppdateras: true,
-  },
-  {
     id: "NJA 2009 s. 300",
     kalla: "lagen.nu",
     kalla_url: "https://lagen.nu/dom/nja/2009s300",
@@ -444,7 +401,7 @@ export const REFERENSDOMAR = [
       "vapenbrott. Hovrätten tillämpade principen att gärningar som var för sig inte " +
       "nödvändigtvis är grova kan bli det när de \"ingår i en serie av brott som " +
       "genomgående präglas av samma planmässighet och systematik\" - ett genuint " +
-      "flerfaldighetsexempel, till skillnad från förskingringsfallen ovan.",
+      "flerfaldighetsexempel.",
     straffvarde_text:
       "Hovrättens bedömning: fängelse 4 år 6 månader. HD:s slutliga straffvärde för den " +
       "samlade brottsligheten: ca fängelse 6 år 6 månader.",
@@ -473,10 +430,9 @@ export const REFERENSDOMAR = [
     autoUppdateras: true,
   },
   {
-    // Till skillnad från förskingringsfallen ovan (NJA 1992 s. 470, RH 1996:42), som
-    // BÅDA behandlade upprepad förskingring som ETT sammanhållet brott, är detta motsatt
-    // exempel: hovrätten här dömde uttryckligen varje enskild överföring som ETT EGET
-    // fullbordat brott - ett riktigt flerfaldighetsexempel med 19 räknade brott.
+    // Ett av de tydligaste flerfaldighetsexemplen i hela databasen: hovrätten dömde
+    // uttryckligen varje enskild överföring som ETT EGET fullbordat brott, inte som ett
+    // sammanhållet brott - 19 räknade brott, inte ett.
     id: "RH 2019:16",
     kalla: "lagen.nu",
     kalla_url: "https://lagen.nu/dom/rh/2019:16",
@@ -494,49 +450,6 @@ export const REFERENSDOMAR = [
       "månader, kraftigt reducerad med hänsyn till betydande medverkan i utredningen.",
     brottstyper: ["grov_troloshet_mot_huvudman"],
     flerfaldighetsexempel: true,
-    verifieringsstatus: "manuell_fulltext",
-    autoUppdateras: true,
-  },
-  {
-    // Gränsdragningsmål om ringa/normalgrad-gränsen, inte flerfaldighet - ingen
-    // flerfaldighetsdom hittades för denna brottstyp vid research (till skillnad från t.ex.
-    // rån/utpressning/trolöshet mot huvudman ovan, verkar detta brott oftare förekomma
-    // vid ETT tillfälle i kombination med andra brott snarare än upprepat i samma mål).
-    id: "NJA 2021 s. 1102",
-    kalla: "lagen.nu",
-    kalla_url: "https://lagen.nu/dom/nja/2021s1102",
-    domstol: "Högsta domstolen (mål B 4564-21, 2021-12-21) - \"Mopedtillgreppet i Västervik\"",
-    brott_sammanfattning:
-      "Gränsdragningsmål, inte flerfaldighet: en 15-åring tillgrep en olåst moped " +
-      "tillsammans med en kamrat, körde ca 200 meter. HD ändrade tingsrättens och " +
-      "hovrättens bedömning (normalgrad) till RINGA brott. HD fastslog att en " +
-      "helhetsbedömning krävs där brukandets omfattning, skaderisk, fordonets värde och " +
-      "om gärningen var impulsiv eller planerad alla vägs in.",
-    straffvarde_text:
-      "Påföljd: 40 dagsböter à 50 kr (i stället för tingsrättens/hovrättens 30 timmars " +
-      "ungdomstjänst för normalgrad).",
-    brottstyper: ["ringa_tillgrepp_av_fortskaffningsmedel", "tillgrepp_av_fortskaffningsmedel"],
-    flerfaldighetsexempel: false,
-    verifieringsstatus: "manuell_fulltext",
-    autoUppdateras: true,
-  },
-  {
-    id: "NJA 1984 s. 751",
-    kalla: "lagen.nu",
-    kalla_url: "https://lagen.nu/dom/nja/1984s751",
-    domstol: "Högsta domstolen (mål B 851-84, 1984-10-15)",
-    brott_sammanfattning:
-      "Gränsdragningsmål, inte flerfaldighet: tillgrepp av fortskaffningsmedel vid ETT " +
-      "tillfälle (bilen kördes genom ett nätstängsel och skadades), tillsammans med " +
-      "försök till stöld, olovlig körning och rattfylleri. HD underkände hovrättens " +
-      "grova rubricering och fastslog att enbart det faktum att tillgreppet skedde genom " +
-      "inbrott inte gör brottet grovt - minimistraffet för grovt brott förutsätter " +
-      "gärningar med \"betydande straffvärde\".",
-    straffvarde_text:
-      "Gemensam påföljd för samtliga fyra brott: fängelse 6 månader, varav 149 dagar " +
-      "ansågs redan verkställda.",
-    brottstyper: ["tillgrepp_av_fortskaffningsmedel", "grovt_tillgrepp_av_fortskaffningsmedel"],
-    flerfaldighetsexempel: false,
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
@@ -621,8 +534,7 @@ export const REFERENSDOMAR = [
       "Mycket starkt, färskt flerfaldighetsexempel: elva försäljningstillfällen av " +
       "kokain under ca tre veckor hösten 2024. HD fastslog principiellt att \"varje " +
       "försäljning utgjorde en fullbordad och avgränsad gärning\" och dömde för ELVA " +
-      "separata narkotikabrott av normalgraden, inte ett sammanfattat brott - motsatsen " +
-      "till förskingringsfallens brottsenhets-mönster.",
+      "separata narkotikabrott av normalgraden, inte ett sammanfattat brott.",
     straffvarde_text:
       "Straffvärde för varje enskild försäljning: 6 månader eller strax däröver (med " +
       "beaktande av det golv på 6 månader för försäljningsgärningar som infördes " +
@@ -981,22 +893,6 @@ export const FORKLARANDE_KALLOR = [
       "flerfaldiga rånbrott.",
     brottstyper: ["ran", "grovt_ran"],
     granskningsdjup: "fulltext",
-  },
-  {
-    // Hittad via sökmotorutdrag - INTE öppnad och läst i sin helhet, samma
-    // lawline.se/robots.txt-spärr som för övriga Lawline-poster ovan.
-    id: "lawline-vad-ar-straffet-for-forskingring",
-    kalla: "Lawline",
-    titel: "Vad är straffet för förskingring?",
-    kalla_url: "https://lawline.se/answers/vad-ar-straffet-for-forskingring-1",
-    sammanfattning:
-      "Enligt sökmotorutdraget: går igenom alla tre graderna - förskingring (10 kap. 1 §, " +
-      "högst 2 år), ringa förskingring/undandräkt (10 kap. 2 §, böter eller högst 6 " +
-      "månader) och grov förskingring (10 kap. 3 §, dåvarande skala lägst 6 månader " +
-      "högst 6 år). OBS: minimistraffet för grov förskingring har sedan höjts till 1 år " +
-      "av SFS 2026:1318 - artikeln återger den äldre skalan.",
-    brottstyper: ["forskingring", "ringa_forskingring", "grov_forskingring"],
-    granskningsdjup: "snippet",
   },
   {
     id: "prop-2022-23-53-utpressning",
