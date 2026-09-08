@@ -340,8 +340,9 @@ async function laddaReferensdomar() {
   try {
     const data = await hamtaJson('data/referensdomar.json');
     state.referensdomar = data.referensdomar || [];
-    statusEl.textContent = state.referensdomar.length > 0
-      ? `${state.referensdomar.length} referensdom(ar) hittade och sparade i cachen (av upp till 10 eftersökta).`
+    const antalRefs = state.referensdomar.length;
+    statusEl.textContent = antalRefs > 0
+      ? `${antalRefs} ${antalRefs === 1 ? 'referensdom hittad och sparad' : 'referensdomar hittade och sparade'} i cachen.`
       : 'Inga referensdomar har hittats och verifierats ännu. Sök manuellt via länkarna i den förklarande sektionen tills vidare.';
     renderTackning();
     renderReferensdomar();
