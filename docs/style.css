@@ -129,6 +129,7 @@ body {
 }
 .field { display: flex; flex-direction: column; gap: 0.3rem; }
 .field label { font-size: 0.78rem; font-weight: 600; color: var(--ink-soft); }
+.field-label-spacer { visibility: hidden; font-size: 0.78rem; font-weight: 600; }
 .field select, .field input {
   height: 2.375rem;
   padding: 0.5rem 0.6rem;
@@ -154,7 +155,7 @@ body {
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  height: 2.5rem;
+  height: 2.375rem;
 }
 .btn-primary:hover { background: var(--navy-800); }
 
