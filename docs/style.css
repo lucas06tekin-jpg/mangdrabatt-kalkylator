@@ -130,18 +130,20 @@ body {
 .field { display: flex; flex-direction: column; gap: 0.3rem; }
 .field label { font-size: 0.78rem; font-weight: 600; color: var(--ink-soft); }
 .field select, .field input {
+  height: 2.375rem;
   padding: 0.5rem 0.6rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   font-size: 0.9rem;
   font-family: var(--sans);
   background: #fff;
+  box-sizing: border-box;
 }
 .field select:focus, .field input:focus, button:focus-visible {
   outline: 2px solid var(--gold-500);
   outline-offset: 1px;
 }
-.field-hint { font-size: 0.72rem; color: var(--ink-soft); min-height: 1em; }
+.field-hint { display: block; font-size: 0.72rem; line-height: 1.5; color: var(--ink-soft); min-height: 1em; }
 
 .btn-primary {
   background: var(--navy-900);
