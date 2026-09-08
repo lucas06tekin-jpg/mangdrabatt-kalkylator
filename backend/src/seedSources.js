@@ -472,6 +472,31 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    // Till skillnad från förskingringsfallen ovan (NJA 1992 s. 470, RH 1996:42), som
+    // BÅDA behandlade upprepad förskingring som ETT sammanhållet brott, är detta motsatt
+    // exempel: hovrätten här dömde uttryckligen varje enskild överföring som ETT EGET
+    // fullbordat brott - ett riktigt flerfaldighetsexempel med 19 räknade brott.
+    id: "RH 2019:16",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2019:16",
+    domstol: "Svea hovrätt (mål B 9149-17, 2018-11-29)",
+    brott_sammanfattning:
+      "Grov trolöshet mot huvudman genom 19 separata överföringar om sammanlagt ca " +
+      "26 450 000 kr. Hovrätten konstaterade uttryckligen att \"var och en av de ... " +
+      "gjorda 19 överföringarna utgör ett fullbordat brott vilket får till följd att det " +
+      "rör sig om flerfaldig brottslighet\" - varje överföring räknades som ett eget " +
+      "brott, inte som ett sammanhållet brott. OBS: dömt enligt lydelsen av 10 kap. 5 § " +
+      "BrB före 1 juli 2016 - paragrafens nuvarande lydelse är omformulerad men " +
+      "grundstrukturen (böter/2 år normalgraden, 1-6 år grov) är oförändrad.",
+    straffvarde_text:
+      "Hovrättens straffvärde: fängelse 2 år 6 månader. Utdömd påföljd: fängelse 9 " +
+      "månader, kraftigt reducerad med hänsyn till betydande medverkan i utredningen.",
+    brottstyper: ["grov_troloshet_mot_huvudman"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
@@ -719,8 +744,13 @@ export const FORKLARANDE_KALLOR = [
       "krets - straffbart redan vid utskicket, utan att någon faktiskt behöver ha betalat. " +
       "Relevant bakgrund till varför systematik och organiserad brottslighet väger tungt " +
       "vid bedömningen av bedrägeribrottens allvar, vilket i sin tur påverkar det " +
-      "straffvärde som matas in i den här kalkylatorn.",
-    brottstyper: ["bedrageri", "grovt_bedrageri"],
+      "straffvärde som matas in i den här kalkylatorn. Samma proposition (titeln \"...och " +
+      "andra förmögenhetsbrott\") skapade också en helt ny gradindelning för olovligt " +
+      "förfogande (10 kap. 4 § BrB, SFS 2017:442, i kraft 2017-07-01): maxstraffet för " +
+      "normalgraden sänktes från två år till ett år, och ett nytt grovt brott (\"grovt " +
+      "olovligt förfogande\", fängelse lägst 6 månader högst 4 år) infördes samtidigt - " +
+      "en direkt förklaring till varför den straffskalan finns i kalkylatorn.",
+    brottstyper: ["bedrageri", "grovt_bedrageri", "olovligt_forfogande", "grovt_olovligt_forfogande"],
     granskningsdjup: "fulltext",
   },
   {
@@ -826,6 +856,42 @@ export const FORKLARANDE_KALLOR = [
       "sökmotorutdraget återger en äldre skala för normalgraden (\"högst två år\") - " +
       "aktuell skala sedan 2023-07-01 är högst tre år, se Prop. 2022/23:53 ovan.",
     brottstyper: ["ringa_utpressning", "utpressning", "grov_utpressning"],
+    granskningsdjup: "snippet",
+  },
+  {
+    // Hittad via sökmotorutdrag - INTE öppnad och läst i sin helhet. Ingen referensdom
+    // hittades för ocker vid denna sökning: den enda ordentligt belysta moderna NJA-domen
+    // (NJA 2013 s. 1130) slutade i FRIKÄNNANDE (HD fastställde hovrättens frikännande),
+    // med bara ett straffvärde nämnt av de skiljaktiga justitieråden i minoritet - för
+    // missvisande för att tas med som en referensdom här, se README.
+    id: "lawline-vad-ar-ocker",
+    kalla: "Lawline",
+    titel: "Vad innebär brottet \"ocker\"?",
+    kalla_url: "https://lawline.se/answers/vad-innebar-brottet-ocker",
+    sammanfattning:
+      "Enligt sökmotorutdraget: förklarar rekvisiten för ocker (trångmål, oförstånd, " +
+      "lättsinne eller beroendeställning som utnyttjas till en förmån i uppenbart " +
+      "missförhållande till motprestationen) och gradindelningen mot grovt ocker " +
+      "(hävdvunnet, i större omfattning, eller annars avsett betydande värde med särskild " +
+      "hänsynslöshet). OBS: sökmotorutdraget återger en äldre skala för grovt ocker " +
+      "(\"lägst 6 månader\") - minimistraffet höjdes till 1 år av SFS 2026:1318.",
+    brottstyper: ["ocker", "grovt_ocker"],
+    granskningsdjup: "snippet",
+  },
+  {
+    // Hittad via sökmotorutdrag - INTE öppnad och läst i sin helhet.
+    id: "lawline-pafoljd-troloshet-mot-huvudman",
+    kalla: "Lawline",
+    titel: "Vad blir påföljden vid trolöshet mot huvudman?",
+    kalla_url: "https://lawline.se/answers/vad-blir-pafoljden-vid-troloshet-mot-huvudman",
+    sammanfattning:
+      "Enligt sökmotorutdraget: går igenom båda graderna - normalgraden (böter eller " +
+      "högst 2 år) och grovt brott (lägst 6 månader högst 6 år, missbruk av urkund eller " +
+      "vilseledande bokföring, eller betydande/kännbar skada för huvudmannen). OBS: " +
+      "sökmotorutdraget återger en äldre skala för grov trolöshet (\"lägst 6 månader\") - " +
+      "minimistraffet höjdes till 1 år av SFS 2026:1318, se RH 2019:16 ovan för ett " +
+      "flerfaldighetsexempel.",
+    brottstyper: ["troloshet_mot_huvudman", "grov_troloshet_mot_huvudman"],
     granskningsdjup: "snippet",
   },
 ];

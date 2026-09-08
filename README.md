@@ -312,6 +312,45 @@ Två nya referensdomar:
 - **RH 2018:44** - gränsdragningsmål, inte flerfaldighet: försök till utpressning vid ETT
   tillfälle, om en fordran på svart lön är en giltig grund för förmögenhetsöverföring.
 
+### Utökning till ocker, olovligt förfogande och trolöshet mot huvudman
+
+Appen täcker sedan 2026-09-08 även dessa tre brottsfamiljer, alla med normalgrad + grov
+grad (ingen ringa-nivå finns i lagen för någon av dem):
+
+- **Ocker** (9 kap. 5 § BrB, 0-24 mån) och **grovt ocker** (samma paragraf, 12-72 mån -
+  golvet höjt 6 mån → 1 år av SFS 2026:1318, samma reform som grov stöld/grovt
+  bedrägeri/grovt häleri/grov förskingring).
+- **Olovligt förfogande** (10 kap. 4 § första stycket BrB, 0-12 mån) och **grovt olovligt
+  förfogande** (andra stycket, 6-48 mån). Grovgraden är en HELT NY brottsrubricering,
+  införd 2017-07-01 av SFS 2017:442 - samma proposition (2016/17:131) som redan fanns i
+  databasen för grovt bedrägeri ("...och andra förmögenhetsbrott" i titeln syftade
+  bokstavligen på detta). Normalgradens maxstraff SÄNKTES samtidigt från 2 år till 1 år,
+  för att harmonisera med den nya gradindelningen - inte SFS 2026:1318.
+- **Trolöshet mot huvudman** (10 kap. 5 § första stycket BrB, 0-24 mån) och **grov
+  trolöshet mot huvudman** (andra stycket, 12-72 mån - golvet höjt av SFS 2026:1318,
+  samma mönster som ovan).
+
+**RH 2019:16 är det tydligaste flerfaldighetsexemplet i hela databasen**, och ett
+värdefullt MOTEXEMPEL till förskingringsfallens brottsenhets-mönster: en person genomförde
+19 separata överföringar (sammanlagt ca 26,45 miljoner kr) och hovrätten slog uttryckligen
+fast att "var och en av de ... gjorda 19 överföringarna utgör ett fullbordat brott vilket
+får till följd att det rör sig om flerfaldig brottslighet" - alltså 19 räknade brott, inte
+ett sammanhållet. Straffvärde: 2 år 6 månader; utdömd påföljd 9 månader efter kraftig
+reduktion för medverkan i utredningen. Dömt enligt paragrafens lydelse före 1 juli 2016,
+men grundstrukturen är oförändrad.
+
+**Ingen referensdom hittades för ocker.** Den enda ordentligt belysta moderna NJA-domen
+(NJA 2013 s. 1130) slutade i ett FRIKÄNNANDE - HD fastställde hovrättens frikännande, och
+det enda konkreta straffvärdet (motsvarande fängelse ett år) nämndes bara av två
+skiljaktiga justitieråd i minoritet. Att presentera den domen som ett exempel på ockers
+straffvärde hade varit missvisande, så den uteslöts medvetet - ocker täcks i stället av en
+Lawline-doktrinkälla. Motsvarande gäller för olovligt förfogande: inget genomsökt fall gav
+en ren, tydlig referensdom (ett kandidatfall, NJA 1986 s. 350, ledde faktiskt till en dom
+för BEDRÄGERI, inte olovligt förfogande, och hade gett fel bild av vilket brott som
+faktiskt tillämpades - samma typ av "fel mekanism"-misstag som uteslöts för rån och
+utpressning ovan). Båda täcks av Prop. 2016/17:131/SFS 2017:442 som doktrinkälla i
+stället.
+
 ### Källtäckning - hitta luckor i referensdomarna systematiskt
 
 I stället för att upptäcka källuckor av en slump (som när RH 1993:201:s dolda häleribrott

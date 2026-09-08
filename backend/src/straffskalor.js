@@ -1,15 +1,17 @@
 // Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri, rån,
-// förskingring, utpressning) enligt 8, 9 och 10 kap. brottsbalken (BrB), aktuell lydelse.
-// Källa: Brottsbalken (1962:700), verifierad mot Sveriges riksdags författningstext
-// (stöld 2026-09-03, bedrägeri 2026-09-05, häleri 2026-09-06, rån 2026-09-08,
-// förskingring 2026-09-08, utpressning 2026-09-08) samt den promulgerade texten i SFS
-// 2026:1318 för grov stöld, grovt bedrägeri, grovt häleri och grov förskingring (alla
-// fyra fick sitt minimistraff höjt från 6 månader till 1 år av samma reform). Grovt råns
-// minimistraff (5 år) höjdes redan 2017-07-01 av en tidigare reform (prop. 2016/17:108),
-// och grov utpressnings straffskala (2-8 år, upp från en lägre skala) höjdes 2023-07-01
-// av SFS 2023:257 (prop. 2022/23:53, "Skärpta straff för brott i kriminella nätverk") -
-// ingen av dessa två är alltså SFS 2026:1318. Rån korsverifierat mot NJA 2025:12
-// ("Jackan"), som citerar 8 kap. 5 § fjärde stycket ordagrant.
+// förskingring, utpressning, ocker, olovligt förfogande, trolöshet mot huvudman) enligt
+// 8, 9 och 10 kap. brottsbalken (BrB), aktuell lydelse. Källa: Brottsbalken (1962:700),
+// verifierad mot Sveriges riksdags författningstext (stöld 2026-09-03, bedrägeri
+// 2026-09-05, häleri 2026-09-06, rån/förskingring/utpressning 2026-09-08, ocker/olovligt
+// förfogande/trolöshet mot huvudman 2026-09-08) samt den promulgerade texten i SFS
+// 2026:1318 för grov stöld, grovt bedrägeri, grovt häleri, grov förskingring, grovt ocker
+// och grov trolöshet mot huvudman (alla sex fick sitt minimistraff höjt från 6 månader
+// till 1 år av samma reform). Grovt råns minimistraff (5 år) höjdes redan 2017-07-01 av
+// en tidigare reform (prop. 2016/17:108), grov utpressnings straffskala (2-8 år) höjdes
+// 2023-07-01 av SFS 2023:257 (prop. 2022/23:53), och grovt olovligt förfogande som eget
+// gradindelat brott infördes 2017-07-01 av SFS 2017:442 (samma prop. 2016/17:131 som
+// skärpte grovt bedrägeri) - INGEN av dessa tre är SFS 2026:1318. Rån korsverifierat mot
+// NJA 2025:12 ("Jackan"), som citerar 8 kap. 5 § fjärde stycket ordagrant.
 
 export const STRAFFSKALOR = [
   {
@@ -255,6 +257,85 @@ export const STRAFFSKALOR = [
     min_manader: 24,
     max_manader: 96,
     skala_text: "Fängelse i lägst 2 år och högst 8 år",
+  },
+  {
+    id: "ocker",
+    namn: "Ocker",
+    familj: "Ocker",
+    paragraf: "9 kap. 5 § BrB",
+    lagtext:
+      "Den som vid avtal eller någon annan rättshandling utnyttjar någons trångmål, " +
+      "oförstånd, lättsinne eller beroendeställning till att bereda sig förmån, som står " +
+      "i uppenbart missförhållande till motprestationen eller för vilken motprestation " +
+      "inte ska lämnas, döms för ocker till böter eller fängelse i högst två år.",
+    min_manader: 0,
+    max_manader: 24,
+    skala_text: "Böter eller fängelse i högst 2 år",
+  },
+  {
+    id: "grovt_ocker",
+    namn: "Grovt ocker",
+    familj: "Ocker",
+    paragraf: "9 kap. 5 § BrB",
+    lagtext:
+      "Är brottet grovt, döms för grovt ocker till fängelse i lägst ett och högst sex år.",
+    min_manader: 12,
+    max_manader: 72,
+    skala_text: "Fängelse i lägst 1 år och högst 6 år",
+  },
+  {
+    id: "olovligt_forfogande",
+    namn: "Olovligt förfogande",
+    familj: "Olovligt förfogande",
+    paragraf: "10 kap. 4 § första stycket BrB",
+    lagtext:
+      "Den som i annat fall än som anges i 1, 2 eller 3 § vidtar åtgärd med egendom, " +
+      "som han eller hon har i besittning men till vilken ägande- eller säkerhetsrätt är " +
+      "förbehållen eller tillförsäkrad eller annars tillkommer någon annan, varigenom " +
+      "egendomen frånhänds den andre eller denne på annat sätt berövas sin rätt, döms för " +
+      "olovligt förfogande till böter eller fängelse i högst ett år.",
+    min_manader: 0,
+    max_manader: 12,
+    skala_text: "Böter eller fängelse i högst 1 år",
+  },
+  {
+    id: "grovt_olovligt_forfogande",
+    namn: "Grovt olovligt förfogande",
+    familj: "Olovligt förfogande",
+    paragraf: "10 kap. 4 § andra stycket BrB",
+    lagtext:
+      "Är brottet grovt, döms för grovt olovligt förfogande till fängelse i lägst sex " +
+      "månader och högst fyra år.",
+    min_manader: 6,
+    max_manader: 48,
+    skala_text: "Fängelse i lägst 6 månader och högst 4 år",
+  },
+  {
+    id: "troloshet_mot_huvudman",
+    namn: "Trolöshet mot huvudman",
+    familj: "Trolöshet mot huvudman",
+    paragraf: "10 kap. 5 § första stycket BrB",
+    lagtext:
+      "Om någon, som på grund av förtroendeställning fått till uppgift att för någon " +
+      "annan sköta en ekonomisk angelägenhet eller självständigt hantera en kvalificerad " +
+      "teknisk uppgift eller övervaka skötseln av en sådan angelägenhet eller uppgift, " +
+      "missbrukar sin förtroendeställning och därigenom skadar huvudmannen, döms han " +
+      "eller hon för trolöshet mot huvudman till böter eller fängelse i högst två år.",
+    min_manader: 0,
+    max_manader: 24,
+    skala_text: "Böter eller fängelse i högst 2 år",
+  },
+  {
+    id: "grov_troloshet_mot_huvudman",
+    namn: "Grov trolöshet mot huvudman",
+    familj: "Trolöshet mot huvudman",
+    paragraf: "10 kap. 5 § andra stycket BrB",
+    lagtext:
+      "Är brottet grovt, döms för grov trolöshet mot huvudman till fängelse i lägst ett " +
+      "och högst sex år.",
+    min_manader: 12,
+    max_manader: 72,
+    skala_text: "Fängelse i lägst 1 år och högst 6 år",
   },
 ];
 
