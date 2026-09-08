@@ -344,6 +344,7 @@ export const FORKLARANDE_KALLOR = [
       "straffvärde läggs samman med en avtagande andel av de övriga brottens straffvärden " +
       "(t.ex. ungefär hälften av det näst allvarligaste, en fjärdedel av det tredje) – i " +
       "stället för att brottens straffvärden summeras rakt av.",
+    brottstyper: [], // generell mekanik, inte knuten till en viss brottstyp
     granskningsdjup: "fulltext",
   },
   {
@@ -355,6 +356,7 @@ export const FORKLARANDE_KALLOR = [
       "Går igenom hur en domstol resonerar vid straffmätning för flera samtidigt lagförda " +
       "brott av olika slag, med ett räkneexempel som visar hur det gemensamma straffet hålls " +
       "inom taket och golvet i 26 kap. 2 § BrB.",
+    brottstyper: [], // generellt räkneexempel, inte knutet till en viss brottstyp
     granskningsdjup: "fulltext",
   },
   {
@@ -366,6 +368,7 @@ export const FORKLARANDE_KALLOR = [
       "Beskriver att upprepade fall av ringa stöld vid olika tillfällen bedöms som separata " +
       "brott – inte som ett enda sammanslaget värde – och att de därefter straffmäts " +
       "gemensamt enligt reglerna för flerfaldig brottslighet.",
+    brottstyper: ["ringa_stold"],
     granskningsdjup: "fulltext",
   },
   {
@@ -379,6 +382,7 @@ export const FORKLARANDE_KALLOR = [
       "951 återfinns bland referensdomarna ovan (oberoende bekräftat). Den nämner även äldre " +
       "avgöranden (t.ex. NJA 1972 s. 253, RH 2007:49) som INTE har verifierats oberoende och " +
       "därför medvetet inte tagits med som referensdomar i kategori A.",
+    brottstyper: ["ringa_stold", "stold"],
     granskningsdjup: "fulltext",
   },
 
@@ -395,6 +399,7 @@ export const FORKLARANDE_KALLOR = [
       "samtidigt lagförda brott bestäms ett gemensamt straff i stället för att brottens " +
       "straffvärden läggs samman rakt av, med motiveringen att långa strafftider inte anses " +
       "minska återfallsrisken proportionerligt.",
+    brottstyper: [], // generell definition, inte knuten till en viss brottstyp
     granskningsdjup: "snippet",
   },
   {
@@ -405,6 +410,7 @@ export const FORKLARANDE_KALLOR = [
     sammanfattning:
       "Enligt sökmotorutdraget: pekar ut var i lagen mängdreduktionen regleras (26 kap. 2 § " +
       "BrB) - en hänvisningskälla snarare än en fördjupad förklaring.",
+    brottstyper: [], // generell hänvisning, inte knuten till en viss brottstyp
     granskningsdjup: "snippet",
   },
   {
@@ -417,6 +423,7 @@ export const FORKLARANDE_KALLOR = [
       "Enligt sökmotorutdraget: ett konkret räkneexempel med flera fall av ringa stöld som " +
       "tillsammans uppgår till ca 500 kr - ett lågvärdesscenario nära kalkylatorns egna " +
       "typexempel.",
+    brottstyper: ["ringa_stold"],
     granskningsdjup: "snippet",
   },
   {
@@ -428,6 +435,7 @@ export const FORKLARANDE_KALLOR = [
       "Enligt sökmotorutdraget: går igenom vilka omständigheter (t.ex. tillgreppets värde " +
       "eller tillvägagångssätt) som gör att en stöld bedöms som grov - bakgrund till " +
       "klassificeringssteget som föregår mängdrabattberäkningen.",
+    brottstyper: ["grov_stold"],
     granskningsdjup: "snippet",
   },
   {
@@ -439,6 +447,7 @@ export const FORKLARANDE_KALLOR = [
       "Enligt sökmotorutdraget: beskriver straffskalan och de omständigheter som beaktas vid " +
       "straffvärdesbedömning för inbrottsstöld (8 kap. 4 a § BrB) - den enda brottstyp i " +
       "kalkylatorn som tidigare helt saknade en förklarande Lawline-källa.",
+    brottstyper: ["inbrottsstold"],
     granskningsdjup: "snippet",
   },
 
@@ -455,6 +464,7 @@ export const FORKLARANDE_KALLOR = [
       "formalisera mängdrabatten som en exakt matematisk formel och förespråkar i stället en " +
       "normativ, skönsmässig bedömning - en påminnelse om att kalkylatorns halveringsmodell " +
       "är en pedagogisk förenkling, inte en återgivning av domstolarnas faktiska metod.",
+    brottstyper: [], // generell rättspolitisk grund för asperationsprincipen
     granskningsdjup: "fulltext",
   },
   {
@@ -467,6 +477,7 @@ export const FORKLARANDE_KALLOR = [
       "lindrigare stölder historiskt och rättsligt kan behandlas som ett sammanhållet grovt " +
       "brott i stället för att varje tillfälle bedöms för sig - relevant för hur brott bör " +
       "klassificeras innan mängdrabatt över huvud taget blir aktuellt att räkna ut.",
+    brottstyper: ["stold", "grov_stold"],
     granskningsdjup: "fulltext",
   },
 
@@ -483,6 +494,7 @@ export const FORKLARANDE_KALLOR = [
       "avgörande i mål B 712-25 (NJA 2025:67, som redan finns bland referensdomarna). " +
       "Bekräftar även justerade gränser för åtalsunderlåtelse (90 kr för vuxna, 30 kr för " +
       "unga).",
+    brottstyper: ["ringa_stold", "stold"],
     granskningsdjup: "fulltext",
   },
 
@@ -509,6 +521,7 @@ export const FORKLARANDE_KALLOR = [
       "NJA 2014 s. 59 och NJA 2020 s. 344) - relevant vägledning för ringa bedrägeri och " +
       "häleriförseelse, som saknar egna referensdomar. Redogör också för varför ett " +
       "tidigare förslag om ett samlat \"grovt systematiskt häleri/stöld\"-brott avvisades.",
+    brottstyper: ["inbrottsstold", "ringa_bedrageri", "haleriforseelse"],
     granskningsdjup: "fulltext",
   },
   {
@@ -524,6 +537,7 @@ export const FORKLARANDE_KALLOR = [
       "tingsrätter och Åklagarmyndigheten om gränsdragningssvårigheter. Konstaterar att " +
       "riksdagens tillkännagivande om att se upprepade stölder \"i ett sammanhang\" bara " +
       "delvis tillgodosågs genom den nya straffskalan för inbrottsstöld.",
+    brottstyper: ["inbrottsstold"],
     granskningsdjup: "fulltext",
   },
   {
@@ -539,6 +553,70 @@ export const FORKLARANDE_KALLOR = [
       "antalet dagsböter för det grövsta brottet höjs normalt med hälften av det " +
       "sammanlagda antalet dagsböter för de övriga brotten. Häleriförseelse finns inte med " +
       "i tabellerna, men den allmänna flerfaldighetsformeln gäller bötesbrott generellt.",
+    brottstyper: ["ringa_stold", "ringa_bedrageri", "haleriforseelse"],
+    granskningsdjup: "fulltext",
+  },
+
+  // Doktrin/förarbeten för bedrägeri, grovt bedrägeri, häleri och grovt häleri - de fyra
+  // brottstyper som tidigare bara täcktes av den allmänna asperationsprincip-doktrinen ovan
+  // (lawline-asperationsprincipen m.fl.), inte av något brottsspecifikt förarbete. Hittade
+  // vid riktad sökning 2026-09-08 och verifierade genom att läsa riksdagen.se:s egen
+  // dokumenttext (inte bara sökmotorsammanfattningar).
+  {
+    id: "prop-2016-17-131-grovt-bedrageri",
+    kalla: "Regeringen",
+    titel: "Grovt fordringsbedrägeri och andra förmögenhetsbrott (Prop. 2016/17:131)",
+    kalla_url:
+      "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/grovt-fordringsbedrageri-och-andra_h403131/html/",
+    sammanfattning:
+      "Propositionen skärpte gradindelningen av grovt bedrägeri (9 kap. 3 § BrB): vid " +
+      "bedömningen ska särskilt beaktas om gärningsmannen missbrukat allmänt förtroende, " +
+      "använt urkund eller vilseledande bokföring, eller om gärningen annars varit av " +
+      "särskilt farlig art. Samtidigt infördes ett nytt brott, grovt fordringsbedrägeri " +
+      "(9 kap. 3 a § BrB), riktat mot systematiskt utskickade bluffakturor till en vidare " +
+      "krets - straffbart redan vid utskicket, utan att någon faktiskt behöver ha betalat. " +
+      "Relevant bakgrund till varför systematik och organiserad brottslighet väger tungt " +
+      "vid bedömningen av bedrägeribrottens allvar, vilket i sin tur påverkar det " +
+      "straffvärde som matas in i den här kalkylatorn.",
+    brottstyper: ["bedrageri", "grovt_bedrageri"],
+    granskningsdjup: "fulltext",
+  },
+  {
+    id: "prop-1979-80-66-haleri",
+    kalla: "Regeringen",
+    titel: "Med förslag till lag om ändring i brottsbalken (häleri m.m.) (Prop. 1979/80:66)",
+    kalla_url:
+      "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/med-forslag-till-lag-om-andring-i-brottsbalken_g30366/html/",
+    sammanfattning:
+      "Den proposition som moderniserade häleribrottet (9 kap. 6 § BrB) och skärpte " +
+      "straffskalorna. Reformens uttalade syfte var att komma åt \"yrkes- och " +
+      "vanehälare\" - den som vanemässigt eller yrkesmässigt tar befattning med " +
+      "stöldgods - snarare än den som vid ett enstaka tillfälle råkar köpa något " +
+      "frånhänt annan. Historisk bakgrund till varför häleri (till skillnad från t.ex. " +
+      "stöld) ofta bedöms strängare ju mer systematiskt det förekommit, vilket är direkt " +
+      "relevant vid straffvärdesbedömning av flera häleribrott tillsammans. Notera att " +
+      "de exakta straffskalorna propositionen beskriver senare har ändrats (se " +
+      "straffskalor.js för aktuell lydelse) - källan citeras här för sitt resonemang, " +
+      "inte som facit för dagens straffskala.",
+    brottstyper: ["haleri", "grovt_haleri"],
+    granskningsdjup: "fulltext",
+  },
+  {
+    id: "ds-2019-1-haleri-systematik",
+    kalla: "Regeringen",
+    titel: "Straffrättsliga åtgärder mot tillgreppsbrott och vissa andra brott (Ds 2019:1)",
+    kalla_url:
+      "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/departementsserien/straffrattsliga-atgarder-mot-tillgreppsbrott-och_h7b41/html/",
+    sammanfattning:
+      "Departementspromemoria som föreslog att lägga till systematik som ett uttryckligt " +
+      "kvalificerande rekvisit för grovt häleri (9 kap. 6 § BrB), definierat som brott " +
+      "\"identiska eller likartade och föregåtts av planering eller kan betraktas som en " +
+      "avgränsad närmast yrkesmässig eller organiserad verksamhet\". Diskuterar också " +
+      "uttryckligen hur FLERA häleribrott bör läggas samman till ett samlat straffvärde - " +
+      "två alternativa modeller övervägs (en kollektivbrottsmodell och en modell med " +
+      "förebild i grov fridskränkning) - vilket gör den till den mest direkt relevanta " +
+      "doktrinkällan för just mängdrabatt vid häleri i hela kalkylatorn.",
+    brottstyper: ["haleri", "grovt_haleri"],
     granskningsdjup: "fulltext",
   },
 ];

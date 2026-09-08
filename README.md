@@ -235,10 +235,17 @@ togs inte med.
 I stället för att upptäcka källuckor av en slump (som när RH 1993:201:s dolda häleribrott
 hittades av misstag) finns nu `analyseraTackning()` i `docs/calc.js`: den räknar, per
 straffskala, hur många referensdomar som täcker den och hur många av dem som faktiskt är
-flerfaldighetsexempel (inte bara gränsdragningsmål). Två ställen i appen använder den:
+flerfaldighetsexempel (inte bara gränsdragningsmål) - och sedan 2026-09-08 även hur många
+förklarande källor (kategori B: doktrin/förarbeten) som är specifikt knutna till just den
+brottstypen, via ett `brottstyper`-fält på `FORKLARANDE_KALLOR` (samma mönster som
+`REFERENSDOMAR` redan hade). Källor utan brottstyper - t.ex. de som bara förklarar
+asperationsprincipens allmänna mekanik - räknas medvetet INTE som täckning för någon
+enskild brottstyp, annars skulle täckningsanalysen bli meningslös (allt skulle se
+"täckt" ut). Två ställen i appen använder funktionen:
 
 - Ett hopfällt "Källtäckning per brottstyp"-avsnitt i sidfoten, med varje brottstyp och en
-  markering (gul bakgrund) för de som saknar flerfaldighetsexempel helt.
+  markering (gul bakgrund) bara för de som saknar BÅDE flerfaldighetsexempel OCH
+  brottsspecifik doktrin.
 - En notis ovanför referensdomslistan som visas live om de brott du fyllt i inte matchar
   någon referensdom alls.
 
@@ -283,6 +290,30 @@ halveringsmodell - och beskrivs som redan etablerad domstolspraxis (med hänvisn
 verkliga NJA-avgöranden), inte bara ett framtida förslag. I stället för att byta ut
 standardmodellen (störst risk, påverkar alla befintliga uppskattningar) lades den till som
 ett väljarbart andra läge, så en advokat kan jämföra båda - se "Modellen" nedan.
+
+**Alla tio brottstyper har nu förarbeten/doktrin (2026-09-08).** De fyra som tidigare bara
+täcktes av den allmänna asperationsprincip-doktrinen (bedrägeri, grovt bedrägeri, häleri,
+grovt häleri - alla med egna referensdomar, men ingen brottsspecifik doktrinkälla) fick
+varsin riktad källa, verifierad genom att läsa riksdagen.se:s egen dokumenttext:
+
+- **Prop. 2016/17:131** ("Grovt fordringsbedrägeri och andra förmögenhetsbrott") - skärpte
+  gradindelningen av grovt bedrägeri (missbrukat förtroende, urkund, vilseledande
+  bokföring, "särskilt farlig art") och införde det separata brottet grovt
+  fordringsbedrägeri mot systematiska bluffakturor.
+- **Prop. 1979/80:66** - moderniserade häleribrottet med uttalat syfte att träffa "yrkes-
+  och vanehälare"; straffskalorna i propositionens egen text har senare ändrats (se
+  `straffskalor.js` för aktuell lydelse), så källan citeras för sitt resonemang om
+  systematik, inte som facit för dagens straffskala.
+- **Ds 2019:1** ("Straffrättsliga åtgärder mot tillgreppsbrott och vissa andra brott") -
+  föreslog systematik som uttryckligt kvalificerande rekvisit för grovt häleri och
+  diskuterar direkt hur FLERA häleribrott bör läggas samman till ett samlat straffvärde
+  (en kollektivbrottsmodell kontra en modell med förebild i grov fridskränkning) - den mest
+  träffsäkra doktrinkällan för mängdrabatt vid häleri i hela kalkylatorn.
+
+`backend/test/seedSources.test.js` har nu ett test som slår fast detta som en permanent
+garanti, inte bara ett ögonblicksläge: "Varje straffskala har minst en referensdom ELLER
+förklarande källa med matchande brottstyp" - failar automatiskt om någon framtida
+brottstyp läggs till utan att någon knyter minst en källa till den.
 
 ## Modellen (frontend, redigerbar)
 

@@ -94,12 +94,19 @@ export function avrundaMangdrabatt(renKumulation, justeratResultat) {
 
 // Räknar, per straffskala, hur många referensdomar (kategori A) som täcker den - och hur
 // många av dem som faktiskt är flerfaldighetsexempel snarare än gränsdragningsmål/enstaka
-// brott. Används för att synliggöra var det saknas prejudikat, i stället för att bara
-// upptäcka luckor av en slump när någon råkar leta efter en viss brottstyp.
-export function analyseraTackning(referensdomar, straffskalor) {
+// brott - samt hur många förklarande källor (kategori B: doktrin/förarbeten) som är
+// specifikt knutna till brottstypen. Källor utan brottstyper (t.ex. de som bara förklarar
+// asperationsprincipens allmänna mekanik) räknas medvetet INTE hit - annars skulle varje
+// brottstyp trivialt se "täckt" ut även när inget brottsspecifikt skrivits om den. Används
+// för att synliggöra var det saknas prejudikat/doktrin, i stället för att bara upptäcka
+// luckor av en slump när någon råkar leta efter en viss brottstyp.
+export function analyseraTackning(referensdomar, straffskalor, forklarandeKallor = []) {
   const perTyp = new Map();
   for (const s of straffskalor) {
-    perTyp.set(s.id, { id: s.id, namn: s.namn, familj: s.familj, totalt: 0, flerfaldighet: 0, gransdragning: 0 });
+    perTyp.set(s.id, {
+      id: s.id, namn: s.namn, familj: s.familj,
+      totalt: 0, flerfaldighet: 0, gransdragning: 0, doktrin: 0,
+    });
   }
   for (const dom of referensdomar) {
     for (const typId of dom.brottstyper || []) {
@@ -108,6 +115,13 @@ export function analyseraTackning(referensdomar, straffskalor) {
       rad.totalt += 1;
       if (dom.flerfaldighetsexempel) rad.flerfaldighet += 1;
       else rad.gransdragning += 1;
+    }
+  }
+  for (const kalla of forklarandeKallor) {
+    for (const typId of kalla.brottstyper || []) {
+      const rad = perTyp.get(typId);
+      if (!rad) continue;
+      rad.doktrin += 1;
     }
   }
   return [...perTyp.values()];

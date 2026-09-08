@@ -53,3 +53,23 @@ test("FORKLARANDE_KALLOR: varje post har ett giltigt granskningsdjup", () => {
     );
   }
 });
+
+test("FORKLARANDE_KALLOR: varje brottstyper-id refererar en verklig straffskala", () => {
+  const giltigaIds = new Set(STRAFFSKALOR.map((s) => s.id));
+  for (const f of FORKLARANDE_KALLOR) {
+    for (const typId of f.brottstyper || []) {
+      assert.ok(giltigaIds.has(typId), `${f.id} refererar okänd brottstyp "${typId}"`);
+    }
+  }
+});
+
+test("Varje straffskala har minst en referensdom ELLER förklarande källa med matchande brottstyp (ingen brottstyp helt utan förankring)", () => {
+  const referensTyper = new Set(REFERENSDOMAR.flatMap((d) => d.brottstyper));
+  const doktrinTyper = new Set(FORKLARANDE_KALLOR.flatMap((f) => f.brottstyper || []));
+  for (const s of STRAFFSKALOR) {
+    assert.ok(
+      referensTyper.has(s.id) || doktrinTyper.has(s.id),
+      `${s.id} (${s.namn}) saknar både referensdomar och brottsspecifik doktrin/förarbeten`
+    );
+  }
+});

@@ -40,7 +40,10 @@ export function exportStatic() {
     JSON.stringify({ referensdomar, antal: referensdomar.length }, null, 2)
   );
 
-  const forklarandeKallor = fetchAll("forklarande_kallor");
+  const forklarandeKallor = fetchAll("forklarande_kallor").map((f) => ({
+    ...f,
+    brottstyper: JSON.parse(f.brottstyper || "[]"),
+  }));
   fs.writeFileSync(
     path.join(OUT_DIR, "forklarande-kallor.json"),
     JSON.stringify({ forklarande_kallor: forklarandeKallor }, null, 2)

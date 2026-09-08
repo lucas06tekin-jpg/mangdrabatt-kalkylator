@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS forklarande_kallor (
     titel TEXT NOT NULL,
     kalla_url TEXT NOT NULL,
     sammanfattning TEXT NOT NULL,
+    brottstyper TEXT NOT NULL DEFAULT '[]',
     granskningsdjup TEXT NOT NULL DEFAULT 'fulltext',
     senast_kontrollerad TEXT,
     tillganglig INTEGER NOT NULL DEFAULT 1,
@@ -73,11 +74,12 @@ export function upsertForklarandeKalla(row) {
   const db = getDb();
   db.prepare(
     `INSERT INTO forklarande_kallor
-       (id, kalla, titel, kalla_url, sammanfattning, granskningsdjup, senast_kontrollerad, tillganglig, auto_uppdateras)
-     VALUES (@id, @kalla, @titel, @kalla_url, @sammanfattning, @granskningsdjup, @senast_kontrollerad, @tillganglig, @auto_uppdateras)
+       (id, kalla, titel, kalla_url, sammanfattning, brottstyper, granskningsdjup, senast_kontrollerad, tillganglig, auto_uppdateras)
+     VALUES (@id, @kalla, @titel, @kalla_url, @sammanfattning, @brottstyper, @granskningsdjup, @senast_kontrollerad, @tillganglig, @auto_uppdateras)
      ON CONFLICT(id) DO UPDATE SET
        kalla=excluded.kalla, titel=excluded.titel, kalla_url=excluded.kalla_url,
-       sammanfattning=excluded.sammanfattning, granskningsdjup=excluded.granskningsdjup,
+       sammanfattning=excluded.sammanfattning, brottstyper=excluded.brottstyper,
+       granskningsdjup=excluded.granskningsdjup,
        senast_kontrollerad=excluded.senast_kontrollerad,
        tillganglig=excluded.tillganglig, auto_uppdateras=excluded.auto_uppdateras`
   ).run(row);

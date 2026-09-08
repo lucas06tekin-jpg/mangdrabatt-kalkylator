@@ -11,6 +11,7 @@ const state = {
   vikter: [], // procent per rangordning, editerbar (gäller bara modell "halvering")
   modell: 'halvering', // 'halvering' | 'andelsmodell'
   referensdomar: [], // laddas en gång, sorteras om vid varje omräkning
+  forklarandeKallor: [], // doktrin/förarbeten (kategori B), laddas en gång
 };
 
 let nextInstId = 1;
@@ -352,12 +353,17 @@ async function laddaReferensdomar() {
 function renderTackning() {
   const container = document.getElementById('tackning-lista');
   if (!container) return;
-  const rader = analyseraTackning(state.referensdomar, state.straffskalor);
+  const rader = analyseraTackning(state.referensdomar, state.straffskalor, state.forklarandeKallor);
   container.innerHTML = rader.map((r) => {
-    const brist = r.flerfaldighet === 0;
-    const detaljer = r.totalt === 0
-      ? 'inga referensdomar ännu'
-      : `${r.flerfaldighet} flerfaldighetsexempel${r.gransdragning > 0 ? `, ${r.gransdragning} gränsdragningsmål` : ''}`;
+    const brist = r.flerfaldighet === 0 && r.doktrin === 0;
+    const delar = [];
+    if (r.totalt > 0) {
+      delar.push(`${r.flerfaldighet} flerfaldighetsexempel${r.gransdragning > 0 ? `, ${r.gransdragning} gränsdragningsmål` : ''}`);
+    }
+    if (r.doktrin > 0) {
+      delar.push(`${r.doktrin} doktrin-/förarbetskälla${r.doktrin > 1 ? 'or' : ''}`);
+    }
+    const detaljer = delar.length > 0 ? delar.join(' · ') : 'inga referensdomar eller doktrinkällor ännu';
     return `
       <div class="tackning-rad${brist ? ' tackning-brist' : ''}">
         <span class="tackning-namn">${r.namn}</span>
@@ -421,6 +427,8 @@ async function laddaForklaringar() {
   try {
     const data = await hamtaJson('data/forklarande-kallor.json');
     const rader = data.forklarande_kallor || [];
+    state.forklarandeKallor = rader;
+    renderTackning();
     container.innerHTML = '';
     if (rader.length === 0) {
       container.innerHTML = '<p class="tom-lista">Inga förklarande källor cachade ännu.</p>';

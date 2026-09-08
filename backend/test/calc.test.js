@@ -248,6 +248,7 @@ test("analyseraTackning: en straffskala utan någon referensdom visas ändå, me
     assert.equal(rad.totalt, 0);
     assert.equal(rad.flerfaldighet, 0);
     assert.equal(rad.gransdragning, 0);
+    assert.equal(rad.doktrin, 0);
   }
 });
 
@@ -255,4 +256,21 @@ test("analyseraTackning: brottstyper-id:n som saknas i straffskalorna ignoreras 
   const referensdomar = [{ brottstyper: ["okand_typ"], flerfaldighetsexempel: true }];
   const rader = analyseraTackning(referensdomar, STRAFFSKALOR);
   assert.equal(rader.every((r) => r.totalt === 0), true);
+});
+
+test("analyseraTackning: räknar förklarande källor (doktrin/förarbeten) separat per brottstyp", () => {
+  const forklarandeKallor = [
+    { brottstyper: ["stold", "grov_stold"] },
+    { brottstyper: ["stold"] },
+  ];
+  const rader = analyseraTackning([], STRAFFSKALOR, forklarandeKallor);
+  assert.equal(rader.find((r) => r.id === "stold").doktrin, 2);
+  assert.equal(rader.find((r) => r.id === "grov_stold").doktrin, 1);
+  assert.equal(rader.find((r) => r.id === "ringa_stold").doktrin, 0);
+});
+
+test("analyseraTackning: en förklarande källa utan brottstyper (generell doktrin) räknas inte som täckning för någon brottstyp", () => {
+  const forklarandeKallor = [{ brottstyper: [] }, { }];
+  const rader = analyseraTackning([], STRAFFSKALOR, forklarandeKallor);
+  assert.equal(rader.every((r) => r.doktrin === 0), true);
 });

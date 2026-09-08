@@ -143,6 +143,7 @@ export async function uppdateraCache() {
       titel: post.titel,
       kalla_url: post.kalla_url,
       sammanfattning: post.sammanfattning,
+      brottstyper: JSON.stringify(post.brottstyper || []),
       granskningsdjup: post.granskningsdjup || "fulltext",
       senast_kontrollerad: now,
       tillganglig: tillganglig ? 1 : 0,
