@@ -485,4 +485,60 @@ export const FORKLARANDE_KALLOR = [
       "unga).",
     granskningsdjup: "fulltext",
   },
+
+  // Doktrin/förarbeten hittade vid en riktad sökning efter vägledning för de brottstyper
+  // källtäckningsanalysen visade sakna referensdomar (ringa bedrägeri, häleriförseelse,
+  // inbrottsstöld). regeringen.se och aklagare.se tillåter båda allmän hämtning enligt
+  // sina robots.txt-filer.
+  {
+    id: "sou-2023-1-flerfaldig-brottslighet",
+    kalla: "Regeringen",
+    titel: "Skärpta straff för flerfaldig brottslighet (SOU 2023:1)",
+    kalla_url:
+      "https://www.regeringen.se/contentassets/c3577faba7894a7da9d5bcaf94750f7d/skarpta-straff-for-flerfaldig-brottslighet-sou-2023-1.pdf",
+    sammanfattning:
+      "Statlig utredning som dokumenterar hur domstolar tillämpat asperationsprincipen: " +
+      "när det svåraste brottets straffvärde är högst 1 år 6 månader läggs normalt " +
+      "hälften av varje ytterligare brotts straffvärde till, annars en tredjedel (med " +
+      "hänvisning till bl.a. NJA 2008 s. 359, NJA 2018 s. 378 och NJA 2020 s. 703) - en " +
+      "mer nyanserad, straffvärdesberoende andelsmodell än denna kalkylators fasta " +
+      "halveringsmodell. Använder inbrottsstöld som eget räkneexempel: fem inbrottsstölder " +
+      "ger ett samlat straffvärde om tre år, femton krävs för att nå maximistraffet. " +
+      "Beskriver även bötesnivåns flerfaldighetsregel (dagsböter för det grövsta brottet " +
+      "plus hälften av det sammanlagda antalet dagsböter för övriga, med hänvisning till " +
+      "NJA 2014 s. 59 och NJA 2020 s. 344) - relevant vägledning för ringa bedrägeri och " +
+      "häleriförseelse, som saknar egna referensdomar. Redogör också för varför ett " +
+      "tidigare förslag om ett samlat \"grovt systematiskt häleri/stöld\"-brott avvisades.",
+    granskningsdjup: "fulltext",
+  },
+  {
+    id: "prop-2020-21-52-inbrottsstold",
+    kalla: "Regeringen",
+    titel: "Tillträdesförbud till butik och förstärkt straffrättsligt skydd mot tillgreppsbrottslighet (Prop. 2020/21:52)",
+    kalla_url: "https://www.regeringen.se/contentassets/c877a3de75dd4206a78d8f4d2e3a5461/prop-202021-52.pdf",
+    sammanfattning:
+      "Propositionen som införde inbrottsstöld (8 kap. 4 a § BrB) 2021. Övervägde och " +
+      "avvisade uttryckligen ett samlat brott (\"grov systematisk stöld\"/\"grovt " +
+      "systematiskt häleri\") som skulle ha slagit ihop flera tillgreppsbrott - även " +
+      "upprepade fall av ringa stöld - till ett enda grovt brott, efter kritik från bl.a. " +
+      "tingsrätter och Åklagarmyndigheten om gränsdragningssvårigheter. Konstaterar att " +
+      "riksdagens tillkännagivande om att se upprepade stölder \"i ett sammanhang\" bara " +
+      "delvis tillgodosågs genom den nya straffskalan för inbrottsstöld.",
+    granskningsdjup: "fulltext",
+  },
+  {
+    id: "aklagarmyndigheten-normalstraff-botesbrott",
+    kalla: "Åklagarmyndigheten",
+    titel: "Normalstraff för vissa bötesbrott (RäV 2021:21)",
+    kalla_url:
+      "https://www.aklagare.se/globalassets/dokument/rattsliga-vagledningar/rav-202121-normalstraff-for-vissa-botesbrott.pdf",
+    sammanfattning:
+      "Åklagarmyndighetens rättsliga vägledning med normalstraff (antal dagsböter/kronor) " +
+      "per värdeintervall för bl.a. ringa stöld och ringa bedrägeri, uppdaterad 30 oktober " +
+      "2025 efter HD:s höjda värdegräns. Anger samma flerfaldighetsformel som SOU 2023:1: " +
+      "antalet dagsböter för det grövsta brottet höjs normalt med hälften av det " +
+      "sammanlagda antalet dagsböter för de övriga brotten. Häleriförseelse finns inte med " +
+      "i tabellerna, men den allmänna flerfaldighetsformeln gäller bötesbrott generellt.",
+    granskningsdjup: "fulltext",
+  },
 ];

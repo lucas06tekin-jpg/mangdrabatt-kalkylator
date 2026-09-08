@@ -255,6 +255,28 @@ fyra gav:
   överrättspraxis - en riktig gräns för vad öppna källor kan ge, inte ett hål att fylla
   med bättre sökning.
 
+Eftersom rättspraxis genuint saknas för dessa tre brottstyper söktes i stället doktrin/
+förarbeten som ger vägledning ändå. Tre nya kategori B-källor tillkom:
+
+- **SOU 2023:1** ("Skärpta straff för flerfaldig brottslighet") - dokumenterar hur
+  domstolar historiskt tillämpat asperationsprincipen (hälften av varje ytterligare brott
+  om det svåraste straffvärdet är ≤ 1 år 6 månader, annars en tredjedel), med
+  **inbrottsstöld som eget räkneexempel** och en motsvarande formel för bötesnivån
+  (dagsböter för det grövsta brottet + hälften av övrigas sammanlagda antal) - direkt
+  relevant för ringa bedrägeri och häleriförseelse.
+- **Prop. 2020/21:52** - propositionen som införde inbrottsstöld, förklarar varför ett
+  samlat "grovt systematiskt häleri/stöld"-brott avvisades.
+- **Åklagarmyndighetens RäV 2021:21** ("Normalstraff för vissa bötesbrott") - konkreta
+  normalstraff-tabeller för ringa stöld/ringa bedrägeri och samma flerfaldighetsformel
+  som SOU 2023:1, uppdaterad 2025-10-30.
+
+**Öppen fråga att ta ställning till:** SOU 2023:1:s andelsmodell (hälften/tredjedel
+beroende på det svåraste straffvärdet) är mer nyanserad än denna kalkylators fasta
+halveringsmodell (100/50/25/12,5 % oavsett svårighetsgrad) - och beskrivs som redan
+etablerad domstolspraxis (med hänvisning till verkliga NJA-avgöranden), inte bara ett
+framtida förslag. Om kalkylatorns modell ska justeras för att bättre spegla detta är ett
+beslut som inte tagits än - se avsnittet "Modellen" nedan för hur den ser ut i dag.
+
 ## Modellen (frontend, redigerbar)
 
 - **Ren kumulation**: summan av alla inmatade straffvärden.
