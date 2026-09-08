@@ -1,21 +1,26 @@
-// Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri, rån,
-// förskingring, utpressning, ocker, olovligt förfogande, trolöshet mot huvudman,
-// tillgrepp av fortskaffningsmedel) enligt 8, 9 och 10 kap. brottsbalken (BrB), aktuell
-// lydelse. Källa: Brottsbalken (1962:700), verifierad mot Sveriges riksdags
-// författningstext (stöld 2026-09-03, bedrägeri 2026-09-05, häleri 2026-09-06,
-// rån/förskingring/utpressning/ocker/olovligt förfogande/trolöshet mot huvudman
-// 2026-09-08, tillgrepp av fortskaffningsmedel 2026-09-08) samt den promulgerade texten
-// i SFS 2026:1318 för grov stöld, grovt bedrägeri, grovt häleri, grov förskingring, grovt
-// ocker och grov trolöshet mot huvudman (alla sex fick sitt minimistraff höjt från 6
-// månader till 1 år av samma reform). Grovt råns minimistraff (5 år) höjdes redan
-// 2017-07-01 av en tidigare reform (prop. 2016/17:108), grov utpressnings straffskala
-// (2-8 år) höjdes 2023-07-01 av SFS 2023:257 (prop. 2022/23:53), och grovt olovligt
-// förfogande som eget gradindelat brott infördes 2017-07-01 av SFS 2017:442 (samma prop.
-// 2016/17:131 som skärpte grovt bedrägeri) - ingen av dessa tre är SFS 2026:1318. Grovt
-// tillgrepp av fortskaffningsmedels golv (6 månader) är INTE höjt av SFS 2026:1318 -
-// verifierat via sökning att ingen sådan höjning skett, till skillnad från de sex
-// grovt-brotten ovan. Rån korsverifierat mot NJA 2025:12 ("Jackan"), som citerar 8 kap.
-// 5 § fjärde stycket ordagrant.
+// Hårdkodade straffskalor. Ursprungligen bara förmögenhetsbrott (stöld, bedrägeri,
+// häleri, rån, förskingring, utpressning, ocker, olovligt förfogande, trolöshet mot
+// huvudman, tillgrepp av fortskaffningsmedel - 8, 9 och 10 kap. BrB), men utökad
+// 2026-09-08 med tre brottsfamiljer utanför förmögenhetsbrottskategorin (misshandel,
+// olaga hot, narkotikabrott) på uttrycklig begäran - appens NAMN och inramning förblir
+// "förmögenhetsbrottslighet"-fokuserat, men brottstypslistan är inte längre begränsad
+// till den kategorin. Källa: Brottsbalken (1962:700) och, för narkotikabrott,
+// narkotikastrafflagen (1968:64) - båda verifierade mot Sveriges riksdags
+// författningstext.
+//
+// Reformhistorik (viktigt att inte anta att alla "grovt X"-golv kommer från samma
+// reform): SFS 2026:1318 höjde minimistraffet från 6 månader till 1 år för grov stöld,
+// grovt bedrägeri, grovt häleri, grov förskingring, grovt ocker och grov trolöshet mot
+// huvudman (sex brott, samma reform). Grovt råns minimistraff (5 år) höjdes i stället
+// 2017-07-01 (prop. 2016/17:108). Grov utpressning (2-8 år) höjdes 2023-07-01 av SFS
+// 2023:257 (prop. 2022/23:53) - SAMMA reform höjde även grovt olaga hot (4 kap. 5 §
+// andra stycket) och narkotikabrotts försäljningsgolv (6 månader, SFS 2023:258, samma
+// proposition). Grovt olovligt förfogande som eget gradindelat brott infördes
+// 2017-07-01 av SFS 2017:442 (prop. 2016/17:131, samma som skärpte grovt bedrägeri).
+// Grovt tillgrepp av fortskaffningsmedels golv (6 månader) är INTE höjt av SFS
+// 2026:1318 - verifierat via sökning att ingen sådan höjning skett. Rån
+// korsverifierat mot NJA 2025:12 ("Jackan"), som citerar 8 kap. 5 § fjärde stycket
+// ordagrant.
 
 export const STRAFFSKALOR = [
   {
@@ -380,6 +385,140 @@ export const STRAFFSKALOR = [
     min_manader: 6,
     max_manader: 48,
     skala_text: "Fängelse i lägst 6 månader och högst 4 år",
+  },
+  {
+    id: "ringa_misshandel",
+    namn: "Ringa misshandel",
+    familj: "Misshandel",
+    paragraf: "3 kap. 5 § BrB",
+    lagtext:
+      "Den som tillfogar en annan person kroppsskada, sjukdom eller smärta eller " +
+      "försätter honom eller henne i vanmakt eller något annat sådant tillstånd, döms " +
+      "för misshandel till fängelse i högst två år eller, om brottet är ringa, till " +
+      "böter eller fängelse i högst sex månader.",
+    min_manader: 0,
+    max_manader: 6,
+    skala_text: "Böter eller fängelse i högst 6 månader",
+  },
+  {
+    id: "misshandel",
+    namn: "Misshandel",
+    familj: "Misshandel",
+    paragraf: "3 kap. 5 § BrB",
+    lagtext:
+      "Den som tillfogar en annan person kroppsskada, sjukdom eller smärta eller " +
+      "försätter honom eller henne i vanmakt eller något annat sådant tillstånd, döms " +
+      "för misshandel till fängelse i högst två år eller, om brottet är ringa, till " +
+      "böter eller fängelse i högst sex månader.",
+    min_manader: 0,
+    max_manader: 24,
+    skala_text: "Fängelse i högst 2 år",
+  },
+  {
+    id: "grov_misshandel",
+    namn: "Grov misshandel",
+    familj: "Misshandel",
+    paragraf: "3 kap. 6 § första stycket BrB",
+    lagtext:
+      "Är brott som avses i 5 § att anse som grovt, döms för grov misshandel till " +
+      "fängelse i lägst ett år och sex månader och högst sju år.",
+    min_manader: 18,
+    max_manader: 84,
+    skala_text: "Fängelse i lägst 1 år 6 månader och högst 7 år",
+  },
+  {
+    id: "synnerligen_grov_misshandel",
+    namn: "Synnerligen grov misshandel",
+    familj: "Misshandel",
+    paragraf: "3 kap. 6 § andra stycket BrB",
+    lagtext:
+      "Är brottet att anse som synnerligen grovt, döms för synnerligen grov misshandel " +
+      "till fängelse i lägst sex och högst tolv år.",
+    min_manader: 72,
+    max_manader: 144,
+    skala_text: "Fängelse i lägst 6 år och högst 12 år",
+  },
+  {
+    id: "olaga_hot",
+    namn: "Olaga hot",
+    familj: "Olaga hot",
+    paragraf: "4 kap. 5 § första stycket BrB",
+    lagtext:
+      "Den som hotar någon annan med brottslig gärning på ett sätt som är ägnat att hos " +
+      "den hotade framkalla allvarlig rädsla för egen eller annans säkerhet till person, " +
+      "egendom, frihet eller frid, döms för olaga hot till böter eller fängelse i högst " +
+      "två år.",
+    min_manader: 0,
+    max_manader: 24,
+    skala_text: "Böter eller fängelse i högst 2 år",
+  },
+  {
+    id: "grovt_olaga_hot",
+    namn: "Grovt olaga hot",
+    familj: "Olaga hot",
+    paragraf: "4 kap. 5 § andra stycket BrB",
+    lagtext:
+      "Om brottet är grovt döms för grovt olaga hot till fängelse i lägst ett och högst " +
+      "fyra år.",
+    min_manader: 12,
+    max_manader: 48,
+    skala_text: "Fängelse i lägst 1 år och högst 4 år",
+  },
+  {
+    id: "ringa_narkotikabrott",
+    namn: "Ringa narkotikabrott",
+    familj: "Narkotikabrott",
+    paragraf: "2 § narkotikastrafflagen (1968:64)",
+    lagtext:
+      "Är brott som avses i 1 § första stycket med hänsyn till arten och mängden " +
+      "narkotika samt övriga omständigheter att anse som ringa, döms för ringa " +
+      "narkotikabrott till böter eller fängelse i högst sex månader.",
+    min_manader: 0,
+    max_manader: 6,
+    skala_text: "Böter eller fängelse i högst 6 månader",
+  },
+  {
+    id: "narkotikabrott",
+    namn: "Narkotikabrott",
+    familj: "Narkotikabrott",
+    paragraf: "1 § narkotikastrafflagen (1968:64)",
+    lagtext:
+      "Den som olovligen överlåter narkotika, framställer narkotika som är avsedd för " +
+      "missbruk, förvärvar narkotika i överlåtelsesyfte, eller innehar, brukar eller tar " +
+      "annan befattning med narkotika döms för narkotikabrott till fängelse i högst tre " +
+      "år (första stycket). Den som säljer narkotika eller annars befattar sig med " +
+      "narkotika som är avsedd att säljas, eller bjuder ut narkotika till försäljning, " +
+      "döms till fängelse i lägst sex månader och högst tre år (andra och tredje " +
+      "styckena). Denna straffskala använder första styckets vidare intervall (0-3 år) " +
+      "som en förenkling - försäljningsrelaterade gärningar har i praktiken ett golv på " +
+      "6 månader som inte återges separat här.",
+    min_manader: 0,
+    max_manader: 36,
+    skala_text: "Fängelse i högst 3 år (försäljning: lägst 6 månader)",
+  },
+  {
+    id: "grovt_narkotikabrott",
+    namn: "Grovt narkotikabrott",
+    familj: "Narkotikabrott",
+    paragraf: "3 § narkotikastrafflagen (1968:64)",
+    lagtext:
+      "Är brott som avses i 1 § att anse som grovt, döms för grovt narkotikabrott till " +
+      "fängelse i lägst två och högst sju år.",
+    min_manader: 24,
+    max_manader: 84,
+    skala_text: "Fängelse i lägst 2 år och högst 7 år",
+  },
+  {
+    id: "synnerligen_grovt_narkotikabrott",
+    namn: "Synnerligen grovt narkotikabrott",
+    familj: "Narkotikabrott",
+    paragraf: "3 § narkotikastrafflagen (1968:64)",
+    lagtext:
+      "Är brottet att anse som synnerligen grovt, döms för synnerligen grovt " +
+      "narkotikabrott till fängelse i lägst sex och högst tio år.",
+    min_manader: 72,
+    max_manader: 120,
+    skala_text: "Fängelse i lägst 6 år och högst 10 år",
   },
 ];
 

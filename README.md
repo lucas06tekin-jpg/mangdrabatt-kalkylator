@@ -379,6 +379,56 @@ ett för vardera gränsen:
   tillgreppet skedde genom inbrott inte i sig gör brottet grovt - minimistraffets nivå
   (6 månader) förutsätter gärningar med "betydande straffvärde".
 
+### Utökning bortom förmögenhetsbrott: misshandel, olaga hot, narkotikabrott
+
+**Beslut om appens omfattning (2026-09-08):** användaren specialiserar sig mot
+brottmål/försvarsadvokatarbete och bad uttryckligen om brottstyper utanför
+förmögenhetsbrott där flerfaldighet är vanligt i praktiken - men appens NAMN, titel och
+"förmögenhetsbrottslighet"-inramning i `index.html` ska INTE ändras. Lösningen: nya
+brottstyper läggs till i brottstyp-dropdownen och "Fasta juridiska fakta"-panelen
+(som redan räknar upp varje brottstyp med sin egen paragraf, oavsett kategori) utan att
+röra rubrik/titel-texten - den blir bara delvis missvisande om exakt vilka
+brottskategorier som täcks, men det är ett medvetet vägval, inte ett förbiseende.
+
+Tre nya brottsfamiljer, samtliga med genuina flerfaldighetsexempel:
+
+- **Misshandel** (3 kap. 5-6 § BrB): ringa (0-6 mån), normalgrad (0-24 mån), grov
+  (18-84 mån - höjt av SFS 2026:1318, samma reform som de sex "grovt X"-förmögenhetsbrotten)
+  och synnerligen grov (72-144 mån, samma reform).
+- **Olaga hot** (4 kap. 5 § BrB): normalgrad (0-24 mån) och grovt (12-48 mån - höjt
+  2023-07-01 av SFS 2023:257, SAMMA reform som höjde grov utpressning).
+- **Narkotikabrott** (narkotikastrafflagen 1968:64, INTE brottsbalken): ringa (0-6 mån),
+  normalgrad (0-36 mån - notera att försäljningsrelaterade gärningar enligt 1 § andra/
+  tredje styckena har ett eget golv på 6 månader som denna förenklade modell inte särskiljer),
+  grovt (24-84 mån) och synnerligen grovt (72-120 mån). Golvhöjningen för försäljning
+  (SFS 2023:258) kommer från SAMMA lagstiftningspaket som SFS 2023:257 ovan.
+
+**De starkaste flerfaldighetsexemplen i hela databasen hittades i denna omgång:**
+
+- **NJA 2020 s. 564** ("Den utdragna misshandeln") - ett flerfaldighetsexempel som
+  spänner över TRE brottsfamiljer samtidigt: synnerligen grov misshandel (en utdragen
+  gärning), misshandel vid tre separata tillfällen, samt ringa narkotikabrott.
+  Straffvärde: strax under 5 år 6 månader; HD skärpte till fängelse 6 år.
+- **HD B 8157-25** ("Upprepade försäljningar av narkotika II", maj 2026 - mycket färsk,
+  ännu utan fastställd NJA-referatbeteckning) - elva separata försäljningstillfällen av
+  kokain på tre veckor. HD fastslog principiellt att varje försäljning är "en fullbordad
+  och avgränsad gärning" och dömde för ELVA räknade brott - motsatsen till
+  förskingringsfallens brottsenhets-mönster.
+- **Hovrätten över Skåne och Blekinge B 206-22** - 13 räknade fall av grovt olaga hot
+  (9 i tingsrätten, 4 fler i hovrätten). OBS: målets ledande gärning var försök till
+  mord (en skolattack) - inte ett renodlat olaga hot-mål, men de 13 räknade fallen är
+  en genuin flerfaldighet av just den brottstypen.
+- **RH 2003:11** - tre fall av misshandel mot en sammanboende, klassade som
+  normalgraden trots "jämförelsevis begränsad omfattning" av våldet - upprepningen och
+  den nära relationen hindrade en ringa-klassning.
+- **RH 2011:9** - två fall av olaga hot plus häleri i samma mål.
+
+**Ingen renodlad grov misshandel-referensdom hittades** - täcks av en Lawline-doktrinkälla
+i stället. **RH 2005:57** (grovt narkotikabrott) och **Hovrätten för Övre Norrland
+B 379-26** ("Dalen-nätverket", synnerligen grovt narkotikabrott, juli 2026) är båda
+straffvärdesreferenser för sin grad snarare än flerfaldighetsexempel - ett enda tillfälle
+respektive en organisationsbaserad klassificering, inte räknade upprepade brott.
+
 ### Källtäckning - hitta luckor i referensdomarna systematiskt
 
 I stället för att upptäcka källuckor av en slump (som när RH 1993:201:s dolda häleribrott

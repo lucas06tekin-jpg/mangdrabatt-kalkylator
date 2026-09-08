@@ -540,6 +540,135 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "NJA 2020 s. 564",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2020s564",
+    domstol: "Högsta domstolen (mål B 5306-19, 2020-07-02) - \"Den utdragna misshandeln\"",
+    brott_sammanfattning:
+      "Flerfaldighetsexempel över tre brottsfamiljer samtidigt: synnerligen grov " +
+      "misshandel (en utdragen gärning över en niodagarsperiod), misshandel av " +
+      "normalgraden vid TRE separata tillfällen, skadegörelse och ringa narkotikabrott. " +
+      "Allvarligt våld med bestående men för målsäganden.",
+    straffvarde_text:
+      "HD:s straffvärde för den samlade brottsligheten: strax under 5 år 6 månader. " +
+      "Utdömd påföljd: fängelse 6 år (HD skärpte underinstansernas 4 år 6 månader).",
+    brottstyper: ["synnerligen_grov_misshandel", "misshandel", "ringa_narkotikabrott"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 2003:11",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2003:11",
+    domstol: "Hovrätten för Västra Sverige (mål B 3138-02, 2002-08-30)",
+    brott_sammanfattning:
+      "Flerfaldighetsexempel OCH gränsdragningsmål: tre fall av misshandel vid separata " +
+      "tillfällen mot en sammanboende. Hovrätten klassade samtliga tre som normalgraden - " +
+      "varken ringa eller grovt - trots att våldet var av \"jämförelsevis begränsad " +
+      "omfattning\": upprepningen och den nära relationen hindrade en ringa-klassning.",
+    straffvarde_text: "Hovrättens straffvärde/påföljd: fängelse 4 månader.",
+    brottstyper: ["misshandel", "ringa_misshandel"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 2011:9",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2011:9",
+    domstol: "Hovrätten över Skåne och Blekinge (mål B 2551-09, 2010-11-30)",
+    brott_sammanfattning:
+      "Flerfaldighetsexempel: två fall av olaga hot (det allvarligaste - att höja en " +
+      "gaspistol mot tre personer - straffvärde 2 månader), samt häleri (1 månad), " +
+      "egenmäktigt förfarande och vapenbrott.",
+    straffvarde_text:
+      "Samlat straffvärde: fängelse 3 månader. Påföljd: villkorlig dom med samhällstjänst " +
+      "75 timmar plus dagsböter.",
+    brottstyper: ["olaga_hot", "haleri"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "Hovrätten över Skåne och Blekinge B 206-22",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url:
+      "https://www.domstol.se/nyheter/2022/03/hovratten-domer-for-ytterligare-fall-av-grovt-olaga-hot/",
+    domstol: "Hovrätten över Skåne och Blekinge (mål B 206-22, 2022-03-16)",
+    brott_sammanfattning:
+      "Starkt flerfaldighetsexempel: tingsrätten dömde för nio fall av grovt olaga hot, " +
+      "hovrätten lade till ytterligare fyra (totalt 13 räknade fall), i samband med en " +
+      "knivattack mot en lärare på en skola. OBS: den ledande gärningen i målet var " +
+      "försök till mord - detta är alltså inte ett renodlat olaga hot-mål, men de 13 " +
+      "räknade fallen av grovt olaga hot är en genuin och väl dokumenterad flerfaldighet " +
+      "av just den brottstypen.",
+    straffvarde_text: "Påföljd: sluten ungdomsvård 2 år 6 månader (ung gärningsman).",
+    brottstyper: ["grovt_olaga_hot"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
+  {
+    id: "HD B 8157-25",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url:
+      "https://www.domstol.se/nyheter/2026/05/om-antalet-brott-och-om-pafoljd-vid-flera-forsaljningar-av-narkotika/",
+    domstol: "Högsta domstolen (mål B 8157-25, publicerad 2026-05-08) - " +
+      "\"Upprepade försäljningar av narkotika II\"",
+    brott_sammanfattning:
+      "Mycket starkt, färskt flerfaldighetsexempel: elva försäljningstillfällen av " +
+      "kokain under ca tre veckor hösten 2024. HD fastslog principiellt att \"varje " +
+      "försäljning utgjorde en fullbordad och avgränsad gärning\" och dömde för ELVA " +
+      "separata narkotikabrott av normalgraden, inte ett sammanfattat brott - motsatsen " +
+      "till förskingringsfallens brottsenhets-mönster.",
+    straffvarde_text:
+      "Straffvärde för varje enskild försäljning: 6 månader eller strax däröver (med " +
+      "beaktande av det golv på 6 månader för försäljningsgärningar som infördes " +
+      "2023-07-01). Samlat straffvärde: fängelse 1 år 10 månader.",
+    brottstyper: ["narkotikabrott"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 2005:57",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2005:57",
+    domstol: "Hovrätten över Skåne och Blekinge (mål B 2168-05, 2005-10-26)",
+    brott_sammanfattning:
+      "Gränsdragningsmål/straffvärdesreferens, inte flerfaldighet: grovt narkotikabrott " +
+      "vid ETT tillfälle (innehav av ca 1 982 g amfetamin, 93 g kokain och cannabis, " +
+      "samt överlåtelse av 29 g amfetamin), plus grov olovlig körning. Hovrätten " +
+      "tillämpade särskild restriktivitet vid bedömningen av ett tidigare återfall från " +
+      "2003-2004, utan att skärpa straffet utöver brottslighetens eget straffvärde.",
+    straffvarde_text: "Straffvärde och påföljd: fängelse 5 år 6 månader.",
+    brottstyper: ["grovt_narkotikabrott"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "Hovrätten för Övre Norrland B 379-26",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url: "https://www.domstol.se/nyheter/2026/07/dom-i-mal-om-synnerligen-grovt-narkotikabrott-m-m/",
+    domstol: "Hovrätten för Övre Norrland (mål B 379-26, publicerad 2026-07-17) - " +
+      "\"Dalen-nätverket\"",
+    brott_sammanfattning:
+      "Gränsdragningsmål/straffvärdesreferens för den högsta graden: organiserad " +
+      "narkotikaförsäljning kopplad till ett kriminellt nätverk. Hovrätten klassade " +
+      "brottsligheten som synnerligen grovt narkotikabrott med hänvisning till " +
+      "\"verksamhetens organisation och brottslighetens farlighet och hänsynslöshet\" - " +
+      "trots att den hanterade mängden narkotika ensam inte hade räckt för den graden. " +
+      "En av de tre dömdes även för försök till grov utpressning.",
+    straffvarde_text:
+      "Påföljd: fängelse 8 år (en tilltalad) respektive 7 år (två tilltalade).",
+    brottstyper: ["synnerligen_grovt_narkotikabrott", "grov_utpressning"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
@@ -935,6 +1064,26 @@ export const FORKLARANDE_KALLOR = [
       "minimistraffet höjdes till 1 år av SFS 2026:1318, se RH 2019:16 ovan för ett " +
       "flerfaldighetsexempel.",
     brottstyper: ["troloshet_mot_huvudman", "grov_troloshet_mot_huvudman"],
+    granskningsdjup: "snippet",
+  },
+  {
+    // Hittad via sökmotorutdrag - INTE öppnad och läst i sin helhet. Enda källan för
+    // grov_misshandel specifikt - RH 2003:11 och NJA 2020 s. 564 ovan täcker
+    // misshandel/ringa_misshandel respektive synnerligen_grov_misshandel, men ingen
+    // renodlad grov misshandel-referensdom hittades vid denna sökning.
+    id: "lawline-misshandelsbrott-rekvisit-straff",
+    kalla: "Lawline",
+    titel: "Misshandelsbrott - rekvisit, bevisbörda och straff",
+    kalla_url: "https://lawline.se/answers/misshandelsbrott-rekvisit-bevisborda-och-straff",
+    sammanfattning:
+      "Enligt sökmotorutdraget: går igenom gradindelningen (ringa/normalgrad/grov/" +
+      "synnerligen grov) och rekvisiten för respektive grad - vid grov misshandel " +
+      "beaktas särskilt om gärningen varit livsfarlig eller om gärningsmannen tillfogat " +
+      "svår kroppsskada/sjukdom eller visat särskild hänsynslöshet/råhet. OBS: " +
+      "sökmotorutdraget återger en äldre skala (grov: 1 år 6 mån-6 år, synnerligen " +
+      "grov: 5-10 år) - minimistraffen höjdes ytterligare av SFS 2026:1318 till " +
+      "nuvarande 1 år 6 mån-7 år respektive 6-12 år.",
+    brottstyper: ["ringa_misshandel", "misshandel", "grov_misshandel", "synnerligen_grov_misshandel"],
     granskningsdjup: "snippet",
   },
 ];
