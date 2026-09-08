@@ -8,7 +8,8 @@ const state = {
   allmantGolvManader: 1,
   brott: [], // { instId, typId, manader }
   golvProcent: 3,
-  vikter: [], // procent per rangordning, editerbar
+  vikter: [], // procent per rangordning, editerbar (gäller bara modell "halvering")
+  modell: 'halvering', // 'halvering' | 'andelsmodell'
   referensdomar: [], // laddas en gång, sorteras om vid varje omräkning
 };
 
@@ -26,7 +27,10 @@ function sparaState() {
   try {
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify({ brott: state.brott, golvProcent: state.golvProcent, vikter: state.vikter, nextInstId })
+      JSON.stringify({
+        brott: state.brott, golvProcent: state.golvProcent, vikter: state.vikter,
+        modell: state.modell, nextInstId,
+      })
     );
   } catch (e) {
     // localStorage kan vara blockerat (privat läge m.m.) - inte kritiskt, hoppa bara över.
@@ -41,6 +45,7 @@ function laddaSparadState() {
     if (Array.isArray(sparat.brott)) state.brott = sparat.brott;
     if (typeof sparat.golvProcent === 'number') state.golvProcent = sparat.golvProcent;
     if (Array.isArray(sparat.vikter)) state.vikter = sparat.vikter;
+    if (sparat.modell === 'halvering' || sparat.modell === 'andelsmodell') state.modell = sparat.modell;
     if (typeof sparat.nextInstId === 'number') nextInstId = sparat.nextInstId;
   } catch (e) {
     // Korrupt eller otillgänglig sparad data - fortsätt med tomt state.
@@ -65,6 +70,13 @@ async function init() {
   golvInput.value = state.golvProcent;
   golvInput.addEventListener('input', (e) => {
     state.golvProcent = Math.max(0.5, Number(e.target.value) || 0);
+    rakenOmOchRendera();
+  });
+
+  const modellVal = document.getElementById('modell-val');
+  modellVal.value = state.modell;
+  modellVal.addEventListener('change', (e) => {
+    state.modell = e.target.value;
     rakenOmOchRendera();
   });
 
@@ -159,6 +171,7 @@ function rensaAllaBrott() {
 
 function rakenOmOchRendera() {
   sparaState();
+  renderModellVal();
   renderBrottLista();
   renderVikter();
   const res = berakna({
@@ -168,10 +181,23 @@ function rakenOmOchRendera() {
     straffskalor: state.straffskalor,
     takAllmantManader: state.takAllmantManader,
     allmantGolvManader: state.allmantGolvManader,
+    modell: state.modell,
   });
   renderTrappa(res);
   renderResultat(res);
   renderReferensdomar();
+}
+
+function renderModellVal() {
+  const arAndelsmodell = state.modell === 'andelsmodell';
+  document.getElementById('golv-procent-wrap').hidden = arAndelsmodell;
+  document.getElementById('vikt-lista').hidden = arAndelsmodell;
+  document.getElementById('modell-beskrivning').textContent = arAndelsmodell
+    ? 'Enligt SOU 2023:1 (s. 130), som beskriver detta som redan etablerad domstolspraxis: ' +
+      'hälften av varje ytterligare brotts straffvärde läggs till om det svåraste brottets ' +
+      'straffvärde är högst 1 år 6 månader, annars en tredjedel. Vikterna går inte att ' +
+      'justera för hand i detta läge - de följer regeln automatiskt.'
+    : 'Vikterna är en förenklad illustration, inte en lagfäst formel – justera fritt.';
 }
 
 function renderBrottLista() {
@@ -207,6 +233,7 @@ function renderBrottLista() {
 function renderVikter() {
   const container = document.getElementById('vikt-lista');
   container.innerHTML = '';
+  if (state.modell === 'andelsmodell') return; // vikterna styrs automatiskt i detta läge
   const antal = Math.max(state.brott.length, 1);
   const golv = state.golvProcent;
   while (state.vikter.length < antal) {
@@ -275,13 +302,16 @@ function renderResultat(res) {
         för ett enstaka lågt straffvärde – inte en straffskärpning i sig, bara golvets nedre gräns som
         slår igenom.</p>`
     : '';
+  const arAndelsmodell = res.modell === 'andelsmodell';
+  const modellLabel = arAndelsmodell ? 'Andelsmodell (SOU 2023:1)' : 'Halveringsmodell';
+  const modellLabelGenitiv = arAndelsmodell ? 'andelsmodellens' : 'halveringsmodellens';
   container.innerHTML = `
     <div class="resultat-rad">
       <span class="label">a) Ren kumulation (summa av alla straffvärden)</span>
       <span class="varde">${formatManader(res.renKumulation)}</span>
     </div>
     <div class="resultat-rad">
-      <span class="label">b) Halveringsmodell (viktad summa, före tak/golv)</span>
+      <span class="label">b) ${modellLabel} (viktad summa, före tak/golv)</span>
       <span class="varde">${formatManader(res.halveringssumma)}</span>
     </div>
     <div class="resultat-rad warn">
@@ -295,7 +325,7 @@ function renderResultat(res) {
       <span class="varde">${formatManader(mangdrabattManader)} (${mangdrabattProcent.toFixed(1)}%)</span>
     </div>
     ${golvNotis}
-    <p class="resultat-not">Justerat resultat = halveringsmodellens summa, begränsat till intervallet [golv, tak].
+    <p class="resultat-not">Justerat resultat = ${modellLabelGenitiv} summa, begränsat till intervallet [golv, tak].
       Mängdrabatten (d) är a) minus c) räknat på de avrundade talen ovan, så att siffrorna går ihop
       vid kontrollräkning. Förenklad modell — den faktiska straffmätningen görs av domstolen utifrån
       samtliga omständigheter i det enskilda fallet.</p>

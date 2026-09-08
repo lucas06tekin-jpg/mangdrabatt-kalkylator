@@ -133,6 +133,13 @@ riksdagen avslagit förslaget). Detta motbevisades genom att direkt läsa riksda
 ärendesida och betänkandet - en påminnelse om att alltid verifiera mot primärkällan när
 en sekundär sammanfattning gör ett påstående som skulle vara viktigt om det stämde.
 
+**Andelsmodellen (SOU 2023:1) är inte heller lag** - varken idag eller i den kommande
+reformen ovan. Den beskrivs i utredningen som redan etablerad domstolspraxis (inte ett
+lagförslag), men SFS 2026:1318:s ändringar av 26 kap. gäller bara taket och golvet
+(2 § och 1 §) - 29 kap. 1 § om straffvärdesbedömning ändrades inte i den reformen. Den
+finns i kalkylatorn som ett andra, väljarbart alternativ för jämförelse, inte som ersättare
+för halveringsmodellen.
+
 `lagen.nu` och `domstol.se`, som båda är öppna för automatiserad hämtning enligt sina
 robots.txt-filer, kontrolleras om vid varje cacheuppdatering (med 2 sekunders fördröjning
 mellan varje anrop och en tydlig kontakt-UA).
@@ -270,18 +277,26 @@ förarbeten som ger vägledning ändå. Tre nya kategori B-källor tillkom:
   normalstraff-tabeller för ringa stöld/ringa bedrägeri och samma flerfaldighetsformel
   som SOU 2023:1, uppdaterad 2025-10-30.
 
-**Öppen fråga att ta ställning till:** SOU 2023:1:s andelsmodell (hälften/tredjedel
-beroende på det svåraste straffvärdet) är mer nyanserad än denna kalkylators fasta
-halveringsmodell (100/50/25/12,5 % oavsett svårighetsgrad) - och beskrivs som redan
-etablerad domstolspraxis (med hänvisning till verkliga NJA-avgöranden), inte bara ett
-framtida förslag. Om kalkylatorns modell ska justeras för att bättre spegla detta är ett
-beslut som inte tagits än - se avsnittet "Modellen" nedan för hur den ser ut i dag.
+**Beslut: tillagd som valbart alternativ.** SOU 2023:1:s andelsmodell (hälften/tredjedel
+beroende på det svåraste straffvärdet) är mer nyanserad än kalkylatorns fasta
+halveringsmodell - och beskrivs som redan etablerad domstolspraxis (med hänvisning till
+verkliga NJA-avgöranden), inte bara ett framtida förslag. I stället för att byta ut
+standardmodellen (störst risk, påverkar alla befintliga uppskattningar) lades den till som
+ett väljarbart andra läge, så en advokat kan jämföra båda - se "Modellen" nedan.
 
 ## Modellen (frontend, redigerbar)
 
 - **Ren kumulation**: summan av alla inmatade straffvärden.
-- **Halveringsmodell**: brott 1 = 100 %, brott 2 = 50 %, brott 3 = 25 % osv., med ett
-  redigerbart golv per brott (default 3 %). Vikterna kan justeras fritt i appen.
+- **Viktningen - två väljarbara lägen** (väljare i panel 2, `docs/calc.js`s
+  `berakna({ modell })`-parameter):
+  - **Halveringsmodell** (standard): brott 1 = 100 %, brott 2 = 50 %, brott 3 = 25 % osv.,
+    med ett redigerbart golv per brott (default 3 %). Vikterna kan justeras fritt i appen.
+  - **Andelsmodell (SOU 2023:1)**: brott 1 = 100 %, alla ytterligare brott får samma
+    fasta andel - 50 % om det svåraste brottets straffvärde är högst 1 år 6 månader
+    (18 månader), annars en tredjedel. Vikterna går inte att justera för hand i detta
+    läge; golv-per-brott-kontrollen är dold eftersom den bara gäller halveringsmodellen.
+  - Båda lägena delar samma tak/golv-logik och samma avrundningskonsekventa
+    mängdrabatt-uträkning nedan - bara viktningen av "brott 2 och uppåt" skiljer sig åt.
 - **Tak/golv enligt 26 kap. 2 § BrB**, i lydelsen efter SFS 2026:1318 (prop. 2025/26:218),
   i kraft sedan den 1 augusti 2026: taket är det svåraste maximistraffet bland de ingående
   brotten, dubblerat, men aldrig mer än summan av maximistraffen och aldrig mer än 18 år.

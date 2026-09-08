@@ -14,14 +14,35 @@ export function sorteradeBrott(brott) {
   return [...brott].sort((a, b) => b.manader - a.manader);
 }
 
-export function berakna({ brott, vikter, golvProcent, straffskalor, takAllmantManader, allmantGolvManader }) {
-  const sorterade = sorteradeBrott(brott);
-  const golv = golvProcent / 100;
+// SOU 2023:1 (s. 130) dokumenterar detta som redan etablerad domstolspraxis, inte ett
+// framtida förslag: är det svåraste brottets straffvärde högst 1 år 6 månader läggs
+// hälften av varje ytterligare brotts straffvärde till, annars en tredjedel - en fast
+// andel per brott, till skillnad från halveringsmodellens avtagande andel per position.
+export const ANDELSMODELL_TROSKEL_MANADER = 18; // 1 år 6 månader
+export const ANDELSMODELL_ANDEL_UNDER_TROSKEL = 0.5;
+export const ANDELSMODELL_ANDEL_OVER_TROSKEL = 1 / 3;
 
-  const viktade = sorterade.map((b, i) => {
+function viktaBrott(sorterade, { modell, vikter, golvProcent }) {
+  if (modell === "andelsmodell") {
+    const svarasteManader = sorterade.length > 0 ? sorterade[0].manader : 0;
+    const andel = svarasteManader <= ANDELSMODELL_TROSKEL_MANADER
+      ? ANDELSMODELL_ANDEL_UNDER_TROSKEL
+      : ANDELSMODELL_ANDEL_OVER_TROSKEL;
+    return sorterade.map((b, i) => {
+      const vikt = i === 0 ? 1 : andel;
+      return { ...b, vikt, viktatVarde: b.manader * vikt };
+    });
+  }
+  const golv = golvProcent / 100;
+  return sorterade.map((b, i) => {
     const vikt = i < vikter.length ? vikter[i] / 100 : Math.max(golv, Math.pow(0.5, i));
     return { ...b, vikt, viktatVarde: b.manader * vikt };
   });
+}
+
+export function berakna({ brott, vikter, golvProcent, straffskalor, takAllmantManader, allmantGolvManader, modell = "halvering" }) {
+  const sorterade = sorteradeBrott(brott);
+  const viktade = viktaBrott(sorterade, { modell, vikter, golvProcent });
 
   const renKumulation = sorterade.reduce((sum, b) => sum + b.manader, 0);
   const halveringssumma = viktade.reduce((sum, b) => sum + b.viktatVarde, 0);
@@ -51,7 +72,7 @@ export function berakna({ brott, vikter, golvProcent, straffskalor, takAllmantMa
   return {
     sorterade, viktade, renKumulation, halveringssumma,
     golvManader, takManader, svarasteTyp, justeratResultat,
-    mangdrabattManader, mangdrabattProcent,
+    mangdrabattManader, mangdrabattProcent, modell,
   };
 }
 

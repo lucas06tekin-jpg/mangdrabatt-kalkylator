@@ -19,6 +19,11 @@
 
 * { box-sizing: border-box; }
 
+/* Garanterar att [hidden] alltid faktiskt döljer elementet, även när en klass på samma
+   element (t.ex. .model-controls { display: flex }) annars skulle vinna över webbläsarens
+   inbyggda [hidden]-regel vid lika specificitet. */
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   background: var(--paper);

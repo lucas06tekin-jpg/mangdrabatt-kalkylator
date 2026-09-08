@@ -11,6 +11,8 @@ import assert from "node:assert/strict";
 
 import { berakna, avrundaMangdrabatt, relevansPoang, analyseraTackning, sorteradeBrott, skalaFor } from "../../docs/calc.js";
 
+const ANDELSMODELL = "andelsmodell";
+
 const STRAFFSKALOR = [
   { id: "ringa_stold", namn: "Ringa stöld", paragraf: "8 kap. 2 § BrB", min_manader: 0, max_manader: 6 },
   { id: "stold", namn: "Stöld", paragraf: "8 kap. 1 § BrB", min_manader: 0, max_manader: 24 },
@@ -83,6 +85,48 @@ test("berakna: vid lika maxstraff mellan brottsfamiljer avgör högst faktiskt s
     brott: [brott("grovt_bedrageri", 15, 1), brott("grov_stold", 20, 2)],
   });
   assert.equal(res.svarasteTyp.id, "grov_stold");
+});
+
+test("berakna: andelsmodellen (SOU 2023:1) ger hälften per ytterligare brott när svåraste straffvärdet är högst 18 mån", () => {
+  // grov_stold 15 mån (≤18) är svåraste - de två övriga ska då vardera få 50 %, INTE en
+  // avtagande halveringsmodell (50 %, 25 %, ...) som annars vore standardläget.
+  const res = berakning({
+    brott: [brott("grov_stold", 15, 1), brott("stold", 10, 2), brott("stold", 8, 3)],
+    modell: ANDELSMODELL,
+  });
+  assert.equal(res.modell, "andelsmodell");
+  assert.equal(res.viktade[0].vikt, 1);
+  assert.equal(res.viktade[1].vikt, 0.5);
+  assert.equal(res.viktade[2].vikt, 0.5);
+  assert.equal(res.halveringssumma, 15 + 10 * 0.5 + 8 * 0.5); // 24
+});
+
+test("berakna: andelsmodellen ger en tredjedel per ytterligare brott när svåraste straffvärdet överstiger 18 mån", () => {
+  const res = berakning({
+    brott: [brott("grov_stold", 24, 1), brott("stold", 9, 2)],
+    modell: ANDELSMODELL,
+  });
+  assert.equal(res.viktade[0].vikt, 1);
+  assert.ok(Math.abs(res.viktade[1].vikt - 1 / 3) < 1e-9);
+  assert.ok(Math.abs(res.halveringssumma - (24 + 9 / 3)) < 1e-9); // 27
+});
+
+test("berakna: andelsmodellen ignorerar de manuellt satta vikterna helt (de gäller bara halveringsmodellen)", () => {
+  const medVikter = berakning({
+    brott: [brott("stold", 10, 1), brott("stold", 5, 2)],
+    vikter: [100, 100], // skulle ge halveringssumma 15 i halveringsmodellen
+    modell: ANDELSMODELL,
+  });
+  assert.equal(medVikter.halveringssumma, 10 + 5 * 0.5); // fortfarande andelsmodellens 50 %, inte 100 %
+});
+
+test("berakna: taket och golvet enligt 26 kap. 2 § BrB gäller oavsett vilken viktningsmodell som används", () => {
+  const res = berakning({
+    brott: [brott("grov_stold", 15, 1), brott("stold", 10, 2)],
+    modell: ANDELSMODELL,
+  });
+  assert.equal(res.takManader, 96); // min(72+24=96, 2×72=144, 216) - samma takformel som alltid
+  assert.equal(res.golvManader, 1);
 });
 
 test("berakna: taket enligt 26 kap. 2 § BrB (dubblerat maxstraff) klipper resultatet", () => {
