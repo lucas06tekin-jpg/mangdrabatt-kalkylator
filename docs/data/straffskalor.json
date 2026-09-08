@@ -149,6 +149,36 @@
       "min_manader": 12,
       "max_manader": 72,
       "skala_text": "Fängelse i lägst 1 år och högst 6 år"
+    },
+    {
+      "id": "ringa_utpressning",
+      "namn": "Ringa utpressning",
+      "familj": "Utpressning",
+      "paragraf": "9 kap. 4 § första stycket BrB",
+      "lagtext": "Är brott som avses i 9 kap. 4 § första stycket ringa, döms för ringa utpressning till böter eller fängelse i högst sex månader.",
+      "min_manader": 0,
+      "max_manader": 6,
+      "skala_text": "Böter eller fängelse i högst 6 månader"
+    },
+    {
+      "id": "utpressning",
+      "namn": "Utpressning",
+      "familj": "Utpressning",
+      "paragraf": "9 kap. 4 § första stycket BrB",
+      "lagtext": "Den som genom olaga tvång förmår någon till handling eller underlåtenhet som innebär vinning för gärningsmannen och skada för den tvingade eller någon i vars ställe denne är döms, om inte brottet är att anse som rån eller grovt rån, för utpressning till fängelse i högst tre år.",
+      "min_manader": 0,
+      "max_manader": 36,
+      "skala_text": "Fängelse i högst 3 år"
+    },
+    {
+      "id": "grov_utpressning",
+      "namn": "Grov utpressning",
+      "familj": "Utpressning",
+      "paragraf": "9 kap. 4 § andra stycket BrB",
+      "lagtext": "Är brottet grovt, döms för grov utpressning till fängelse i lägst två och högst åtta år. Vid bedömningen av om brottet är grovt ska det särskilt beaktas om gärningen innefattat våld av allvarligt slag eller hot som påtagligt förstärkts med hjälp av vapen, sprängämne eller vapenattrapp eller genom anspelning på ett våldskapital eller som annars varit av allvarligt slag, eller om gärningen annars varit av särskilt hänsynslös eller farlig art.",
+      "min_manader": 24,
+      "max_manader": 96,
+      "skala_text": "Fängelse i lägst 2 år och högst 8 år"
     }
   ],
   "tak_allmant_manader": 216,

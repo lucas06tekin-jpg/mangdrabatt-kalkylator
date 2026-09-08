@@ -1,13 +1,15 @@
 // Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri, rån,
-// förskingring) enligt 8, 9 och 10 kap. brottsbalken (BrB), aktuell lydelse. Källa:
-// Brottsbalken (1962:700), verifierad mot Sveriges riksdags författningstext (stöld
-// 2026-09-03, bedrägeri 2026-09-05, häleri 2026-09-06, rån 2026-09-08, förskingring
-// 2026-09-08) samt den promulgerade texten i SFS 2026:1318 för grov stöld, grovt
-// bedrägeri, grovt häleri och grov förskingring (alla fyra fick sitt minimistraff höjt
-// från 6 månader till 1 år av samma reform). Grovt råns minimistraff (5 år) höjdes redan
-// 2017-07-01 av en tidigare reform (prop. 2016/17:108) - inte av SFS 2026:1318 - och
-// korsverifierat mot NJA 2025:12 ("Jackan"), som citerar 8 kap. 5 § fjärde stycket
-// ordagrant.
+// förskingring, utpressning) enligt 8, 9 och 10 kap. brottsbalken (BrB), aktuell lydelse.
+// Källa: Brottsbalken (1962:700), verifierad mot Sveriges riksdags författningstext
+// (stöld 2026-09-03, bedrägeri 2026-09-05, häleri 2026-09-06, rån 2026-09-08,
+// förskingring 2026-09-08, utpressning 2026-09-08) samt den promulgerade texten i SFS
+// 2026:1318 för grov stöld, grovt bedrägeri, grovt häleri och grov förskingring (alla
+// fyra fick sitt minimistraff höjt från 6 månader till 1 år av samma reform). Grovt råns
+// minimistraff (5 år) höjdes redan 2017-07-01 av en tidigare reform (prop. 2016/17:108),
+// och grov utpressnings straffskala (2-8 år, upp från en lägre skala) höjdes 2023-07-01
+// av SFS 2023:257 (prop. 2022/23:53, "Skärpta straff för brott i kriminella nätverk") -
+// ingen av dessa två är alltså SFS 2026:1318. Rån korsverifierat mot NJA 2025:12
+// ("Jackan"), som citerar 8 kap. 5 § fjärde stycket ordagrant.
 
 export const STRAFFSKALOR = [
   {
@@ -211,6 +213,48 @@ export const STRAFFSKALOR = [
     min_manader: 12,
     max_manader: 72,
     skala_text: "Fängelse i lägst 1 år och högst 6 år",
+  },
+  {
+    id: "ringa_utpressning",
+    namn: "Ringa utpressning",
+    familj: "Utpressning",
+    paragraf: "9 kap. 4 § första stycket BrB",
+    lagtext:
+      "Är brott som avses i 9 kap. 4 § första stycket ringa, döms för ringa utpressning " +
+      "till böter eller fängelse i högst sex månader.",
+    min_manader: 0,
+    max_manader: 6,
+    skala_text: "Böter eller fängelse i högst 6 månader",
+  },
+  {
+    id: "utpressning",
+    namn: "Utpressning",
+    familj: "Utpressning",
+    paragraf: "9 kap. 4 § första stycket BrB",
+    lagtext:
+      "Den som genom olaga tvång förmår någon till handling eller underlåtenhet som " +
+      "innebär vinning för gärningsmannen och skada för den tvingade eller någon i vars " +
+      "ställe denne är döms, om inte brottet är att anse som rån eller grovt rån, för " +
+      "utpressning till fängelse i högst tre år.",
+    min_manader: 0,
+    max_manader: 36,
+    skala_text: "Fängelse i högst 3 år",
+  },
+  {
+    id: "grov_utpressning",
+    namn: "Grov utpressning",
+    familj: "Utpressning",
+    paragraf: "9 kap. 4 § andra stycket BrB",
+    lagtext:
+      "Är brottet grovt, döms för grov utpressning till fängelse i lägst två och högst " +
+      "åtta år. Vid bedömningen av om brottet är grovt ska det särskilt beaktas om " +
+      "gärningen innefattat våld av allvarligt slag eller hot som påtagligt förstärkts " +
+      "med hjälp av vapen, sprängämne eller vapenattrapp eller genom anspelning på ett " +
+      "våldskapital eller som annars varit av allvarligt slag, eller om gärningen annars " +
+      "varit av särskilt hänsynslös eller farlig art.",
+    min_manader: 24,
+    max_manader: 96,
+    skala_text: "Fängelse i lägst 2 år och högst 8 år",
   },
 ];
 

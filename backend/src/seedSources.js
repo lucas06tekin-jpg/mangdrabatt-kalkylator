@@ -433,6 +433,45 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "NJA 2009 s. 300",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2009s300",
+    domstol: "Högsta domstolen (mål B 5416-08, 2009-06-04)",
+    brott_sammanfattning:
+      "Grov utpressning och försök till grov utpressning vid FLERA tillfällen 2003-2007, " +
+      "mot ett stort antal målsägande, samt grovt olaga tvång, olaga hot, misshandel och " +
+      "vapenbrott. Hovrätten tillämpade principen att gärningar som var för sig inte " +
+      "nödvändigtvis är grova kan bli det när de \"ingår i en serie av brott som " +
+      "genomgående präglas av samma planmässighet och systematik\" - ett genuint " +
+      "flerfaldighetsexempel, till skillnad från förskingringsfallen ovan.",
+    straffvarde_text:
+      "Hovrättens bedömning: fängelse 4 år 6 månader. HD:s slutliga straffvärde för den " +
+      "samlade brottsligheten: ca fängelse 6 år 6 månader.",
+    brottstyper: ["grov_utpressning"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 2018:44",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2018:44",
+    domstol: "Svea hovrätt (mål B 3135-17, 2018-05-31)",
+    brott_sammanfattning:
+      "Gränsdragningsmål, INTE flerfaldighet: försök till utpressning vid ETT tillfälle. " +
+      "Huvudfrågan var om en fordran på svart lön (odeklarerad arbetsinkomst) är av sådan " +
+      "beskaffenhet att den är \"oerkänd\" av rättsordningen vid bedömning av " +
+      "förmögenhetsöverföring - hovrätten fann att den inte var det, men att kravet ändå " +
+      "riktades mot personen och därför utgjorde utpressning.",
+    straffvarde_text:
+      "F.T. och E.A.: straffvärde 6 månader vardera (fängelse). Medhjälparen S.D.: " +
+      "straffvärde 3 månader, villkorlig dom med 100 timmars samhällstjänst.",
+    brottstyper: ["utpressning"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
@@ -755,6 +794,38 @@ export const FORKLARANDE_KALLOR = [
       "högst 6 år). OBS: minimistraffet för grov förskingring har sedan höjts till 1 år " +
       "av SFS 2026:1318 - artikeln återger den äldre skalan.",
     brottstyper: ["forskingring", "ringa_forskingring", "grov_forskingring"],
+    granskningsdjup: "snippet",
+  },
+  {
+    id: "prop-2022-23-53-utpressning",
+    kalla: "Regeringen",
+    titel: "Skärpta straff för brott i kriminella nätverk (Prop. 2022/23:53)",
+    kalla_url:
+      "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/skarpta-straff-for-brott-i-kriminella-natverk_ha0353/html/",
+    sammanfattning:
+      "Propositionen höjde straffskalan för utpressning (9 kap. 4 § BrB) från högst 2 år " +
+      "till högst 3 år, och för grov utpressning från lägst 1 år/högst 6 år till lägst 2 " +
+      "år/högst 8 år - i kraft sedan 2023-07-01 (SFS 2023:257). Motiveringen: utpressning " +
+      "är \"kännetecknande för, framför allt, sådana lokala kriminella nätverk som driver " +
+      "brottsutvecklingen\" och \"har utvecklats till en viktig inkomstkälla\" för många " +
+      "kriminella grupper, riktat både mot näringsidkare i utsatta områden och inom den " +
+      "kriminella miljön. Förklarar direkt varför NJA 2009 s. 300:s straffvärden (från " +
+      "2009, innan denna höjning) ligger lägre än vad samma gärningar skulle bedömas till " +
+      "idag.",
+    brottstyper: ["utpressning", "grov_utpressning"],
+    granskningsdjup: "fulltext",
+  },
+  {
+    // Hittad via sökmotorutdrag - INTE öppnad och läst i sin helhet.
+    id: "lawline-pafoljd-utpressning-grov-utpressning",
+    kalla: "Lawline",
+    titel: "Påföljd för utpressning alternativt grov utpressning",
+    kalla_url: "https://www.lawline.se/answers/pafoljd-for-utpressning-alternativt-grov-utpressning",
+    sammanfattning:
+      "Enligt sökmotorutdraget: går igenom alla tre graderna av utpressning. OBS: " +
+      "sökmotorutdraget återger en äldre skala för normalgraden (\"högst två år\") - " +
+      "aktuell skala sedan 2023-07-01 är högst tre år, se Prop. 2022/23:53 ovan.",
+    brottstyper: ["ringa_utpressning", "utpressning", "grov_utpressning"],
     granskningsdjup: "snippet",
   },
 ];

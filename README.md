@@ -289,6 +289,29 @@ separata brott alls. Förskingring och ringa förskingring saknar egna referensd
 täcks av en Lawline-artikel (sökmotorutdrag, ej fulltextläst) som går igenom alla tre
 graderna.
 
+### Utökning till utpressning
+
+Appen täcker sedan 2026-09-08 även utpressning, tre nivåer: **ringa utpressning**
+(9 kap. 4 § första stycket BrB, 0-6 mån), **utpressning** (samma paragraf, 0-36 mån) och
+**grov utpressning** (9 kap. 4 § andra stycket BrB, 24-96 mån). Straffskalorna höjdes
+2023-07-01 av SFS 2023:257 (prop. 2022/23:53, "Skärpta straff för brott i kriminella
+nätverk") - utpressning från högst 2 till högst 3 år, grov utpressning från 1-6 år till
+2-8 år. Notera att detta INTE är samma reform som SFS 2026:1318 (som höjde golven för
+grov stöld/grovt bedrägeri/grovt häleri/grov förskingring) - ännu en påminnelse om att
+varje brottstyps ändringshistorik måste verifieras för sig, inte antas följa samma mönster.
+
+Två nya referensdomar:
+
+- **NJA 2009 s. 300** - ett genuint flerfaldighetsexempel: grov utpressning och försök
+  till grov utpressning vid FLERA tillfällen 2003-2007 mot ett stort antal målsägande.
+  Hovrätten tillämpade principen att annars icke-grova gärningar kan bli grova när de
+  "ingår i en serie av brott som genomgående präglas av samma planmässighet och
+  systematik". Straffvärde: hovrätten 4 år 6 månader, HD ca 6 år 6 månader för den samlade
+  brottsligheten. OBS: dömt 2009, före 2023 års straffskärpning - straffvärdet skulle
+  sannolikt bedömas högre idag.
+- **RH 2018:44** - gränsdragningsmål, inte flerfaldighet: försök till utpressning vid ETT
+  tillfälle, om en fordran på svart lön är en giltig grund för förmögenhetsöverföring.
+
 ### Källtäckning - hitta luckor i referensdomarna systematiskt
 
 I stället för att upptäcka källuckor av en slump (som när RH 1993:201:s dolda häleribrott
