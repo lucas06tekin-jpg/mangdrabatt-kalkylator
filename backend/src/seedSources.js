@@ -497,6 +497,49 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    // Gränsdragningsmål om ringa/normalgrad-gränsen, inte flerfaldighet - ingen
+    // flerfaldighetsdom hittades för denna brottstyp vid research (till skillnad från t.ex.
+    // rån/utpressning/trolöshet mot huvudman ovan, verkar detta brott oftare förekomma
+    // vid ETT tillfälle i kombination med andra brott snarare än upprepat i samma mål).
+    id: "NJA 2021 s. 1102",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2021s1102",
+    domstol: "Högsta domstolen (mål B 4564-21, 2021-12-21) - \"Mopedtillgreppet i Västervik\"",
+    brott_sammanfattning:
+      "Gränsdragningsmål, inte flerfaldighet: en 15-åring tillgrep en olåst moped " +
+      "tillsammans med en kamrat, körde ca 200 meter. HD ändrade tingsrättens och " +
+      "hovrättens bedömning (normalgrad) till RINGA brott. HD fastslog att en " +
+      "helhetsbedömning krävs där brukandets omfattning, skaderisk, fordonets värde och " +
+      "om gärningen var impulsiv eller planerad alla vägs in.",
+    straffvarde_text:
+      "Påföljd: 40 dagsböter à 50 kr (i stället för tingsrättens/hovrättens 30 timmars " +
+      "ungdomstjänst för normalgrad).",
+    brottstyper: ["ringa_tillgrepp_av_fortskaffningsmedel", "tillgrepp_av_fortskaffningsmedel"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 1984 s. 751",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/1984s751",
+    domstol: "Högsta domstolen (mål B 851-84, 1984-10-15)",
+    brott_sammanfattning:
+      "Gränsdragningsmål, inte flerfaldighet: tillgrepp av fortskaffningsmedel vid ETT " +
+      "tillfälle (bilen kördes genom ett nätstängsel och skadades), tillsammans med " +
+      "försök till stöld, olovlig körning och rattfylleri. HD underkände hovrättens " +
+      "grova rubricering och fastslog att enbart det faktum att tillgreppet skedde genom " +
+      "inbrott inte gör brottet grovt - minimistraffet för grovt brott förutsätter " +
+      "gärningar med \"betydande straffvärde\".",
+    straffvarde_text:
+      "Gemensam påföljd för samtliga fyra brott: fängelse 6 månader, varav 149 dagar " +
+      "ansågs redan verkställda.",
+    brottstyper: ["tillgrepp_av_fortskaffningsmedel", "grovt_tillgrepp_av_fortskaffningsmedel"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [

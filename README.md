@@ -351,6 +351,34 @@ faktiskt tillämpades - samma typ av "fel mekanism"-misstag som uteslöts för r
 utpressning ovan). Båda täcks av Prop. 2016/17:131/SFS 2017:442 som doktrinkälla i
 stället.
 
+### Utökning till tillgrepp av fortskaffningsmedel
+
+Appen täcker sedan 2026-09-08 även tillgrepp av fortskaffningsmedel ("biltillgrepp utan
+tillägnelseuppsåt", dvs. att olovligen låna någon annans motorfordon utan avsikt att
+behålla det - skiljer sig från stöld just genom avsaknaden av tillägnelseuppsåt). Ovanligt
+strukturellt: alla tre graderna sitter i SAMMA paragraf (8 kap. 7 § BrB, olika stycken) i
+stället för separata paragrafer som i övriga brottsfamiljer: **ringa** (andra stycket,
+0-6 mån), **normalgrad** (första stycket, 0-24 mån) och **grovt** (tredje stycket,
+6-48 mån). Grovgradens golv är INTE höjt av SFS 2026:1318 - verifierat genom riktad
+sökning att ingen sådan höjning skett, till skillnad från de sex "grovt X"-brotten som
+fick sitt golv höjt 6 månader → 1 år av den reformen.
+
+Ingen flerfaldighetsdom hittades vid denna sökning - brottet verkar oftare förekomma vid
+ETT tillfälle i kombination med andra brott (rattfylleri, olovlig körning, stöldförsök)
+snarare än upprepat i samma mål, till skillnad från t.ex. rån eller trolöshet mot
+huvudman. I stället gav sökningen två högkvalitativa HD-avgöranden om gradindelningen,
+ett för vardera gränsen:
+
+- **NJA 2021 s. 1102** ("Mopedtillgreppet i Västervik") - gränsdragningsmål mellan ringa
+  och normalgrad. En 15-åring lånade en olåst moped och körde ca 200 meter. HD ändrade
+  tingsrättens och hovrättens bedömning (normalgrad) till RINGA brott, och slog fast att
+  en helhetsbedömning krävs där brukandets omfattning, skaderisk, fordonets värde och om
+  gärningen var impulsiv eller planerad alla vägs in.
+- **NJA 1984 s. 751** - gränsdragningsmål mellan normalgrad och grovt brott. HD
+  underkände hovrättens grova rubricering och fastslog att enbart det faktum att
+  tillgreppet skedde genom inbrott inte i sig gör brottet grovt - minimistraffets nivå
+  (6 månader) förutsätter gärningar med "betydande straffvärde".
+
 ### Källtäckning - hitta luckor i referensdomarna systematiskt
 
 I stället för att upptäcka källuckor av en slump (som när RH 1993:201:s dolda häleribrott

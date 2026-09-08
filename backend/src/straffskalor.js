@@ -1,17 +1,21 @@
 // Hårdkodade straffskalor för förmögenhetsbrott (stöld, bedrägeri, häleri, rån,
-// förskingring, utpressning, ocker, olovligt förfogande, trolöshet mot huvudman) enligt
-// 8, 9 och 10 kap. brottsbalken (BrB), aktuell lydelse. Källa: Brottsbalken (1962:700),
-// verifierad mot Sveriges riksdags författningstext (stöld 2026-09-03, bedrägeri
-// 2026-09-05, häleri 2026-09-06, rån/förskingring/utpressning 2026-09-08, ocker/olovligt
-// förfogande/trolöshet mot huvudman 2026-09-08) samt den promulgerade texten i SFS
-// 2026:1318 för grov stöld, grovt bedrägeri, grovt häleri, grov förskingring, grovt ocker
-// och grov trolöshet mot huvudman (alla sex fick sitt minimistraff höjt från 6 månader
-// till 1 år av samma reform). Grovt råns minimistraff (5 år) höjdes redan 2017-07-01 av
-// en tidigare reform (prop. 2016/17:108), grov utpressnings straffskala (2-8 år) höjdes
-// 2023-07-01 av SFS 2023:257 (prop. 2022/23:53), och grovt olovligt förfogande som eget
-// gradindelat brott infördes 2017-07-01 av SFS 2017:442 (samma prop. 2016/17:131 som
-// skärpte grovt bedrägeri) - INGEN av dessa tre är SFS 2026:1318. Rån korsverifierat mot
-// NJA 2025:12 ("Jackan"), som citerar 8 kap. 5 § fjärde stycket ordagrant.
+// förskingring, utpressning, ocker, olovligt förfogande, trolöshet mot huvudman,
+// tillgrepp av fortskaffningsmedel) enligt 8, 9 och 10 kap. brottsbalken (BrB), aktuell
+// lydelse. Källa: Brottsbalken (1962:700), verifierad mot Sveriges riksdags
+// författningstext (stöld 2026-09-03, bedrägeri 2026-09-05, häleri 2026-09-06,
+// rån/förskingring/utpressning/ocker/olovligt förfogande/trolöshet mot huvudman
+// 2026-09-08, tillgrepp av fortskaffningsmedel 2026-09-08) samt den promulgerade texten
+// i SFS 2026:1318 för grov stöld, grovt bedrägeri, grovt häleri, grov förskingring, grovt
+// ocker och grov trolöshet mot huvudman (alla sex fick sitt minimistraff höjt från 6
+// månader till 1 år av samma reform). Grovt råns minimistraff (5 år) höjdes redan
+// 2017-07-01 av en tidigare reform (prop. 2016/17:108), grov utpressnings straffskala
+// (2-8 år) höjdes 2023-07-01 av SFS 2023:257 (prop. 2022/23:53), och grovt olovligt
+// förfogande som eget gradindelat brott infördes 2017-07-01 av SFS 2017:442 (samma prop.
+// 2016/17:131 som skärpte grovt bedrägeri) - ingen av dessa tre är SFS 2026:1318. Grovt
+// tillgrepp av fortskaffningsmedels golv (6 månader) är INTE höjt av SFS 2026:1318 -
+// verifierat via sökning att ingen sådan höjning skett, till skillnad från de sex
+// grovt-brotten ovan. Rån korsverifierat mot NJA 2025:12 ("Jackan"), som citerar 8 kap.
+// 5 § fjärde stycket ordagrant.
 
 export const STRAFFSKALOR = [
   {
@@ -336,6 +340,46 @@ export const STRAFFSKALOR = [
     min_manader: 12,
     max_manader: 72,
     skala_text: "Fängelse i lägst 1 år och högst 6 år",
+  },
+  {
+    id: "ringa_tillgrepp_av_fortskaffningsmedel",
+    namn: "Ringa tillgrepp av fortskaffningsmedel",
+    familj: "Tillgrepp av fortskaffningsmedel",
+    paragraf: "8 kap. 7 § andra stycket BrB",
+    lagtext:
+      "Om brottet är ringa, döms till böter eller fängelse i högst sex månader.",
+    min_manader: 0,
+    max_manader: 6,
+    skala_text: "Böter eller fängelse i högst 6 månader",
+  },
+  {
+    id: "tillgrepp_av_fortskaffningsmedel",
+    namn: "Tillgrepp av fortskaffningsmedel",
+    familj: "Tillgrepp av fortskaffningsmedel",
+    paragraf: "8 kap. 7 § första stycket BrB",
+    lagtext:
+      "Den som olovligen tar och brukar ett motorfordon eller annat motordrivet " +
+      "fortskaffningsmedel som tillhör någon annan döms, om gärningen inte är belagd med " +
+      "straff enligt 1, 2 eller 4-6 §§, för tillgrepp av fortskaffningsmedel till " +
+      "fängelse i högst två år.",
+    min_manader: 0,
+    max_manader: 24,
+    skala_text: "Fängelse i högst 2 år",
+  },
+  {
+    id: "grovt_tillgrepp_av_fortskaffningsmedel",
+    namn: "Grovt tillgrepp av fortskaffningsmedel",
+    familj: "Tillgrepp av fortskaffningsmedel",
+    paragraf: "8 kap. 7 § tredje stycket BrB",
+    lagtext:
+      "Är brottet grovt, döms för grovt tillgrepp av fortskaffningsmedel till fängelse i " +
+      "lägst sex månader och högst fyra år. Vid bedömningen av om brottet är grovt ska " +
+      "det särskilt beaktas om gärningen har innefattat våld eller hot om brottslig " +
+      "gärning eller annars varit av särskilt farlig eller hänsynslös art, avsett " +
+      "betydande värde eller inneburit synnerligen kännbar skada.",
+    min_manader: 6,
+    max_manader: 48,
+    skala_text: "Fängelse i lägst 6 månader och högst 4 år",
   },
 ];
 
