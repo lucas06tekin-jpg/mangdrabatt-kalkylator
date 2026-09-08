@@ -361,7 +361,7 @@ function renderTackning() {
       delar.push(`${r.flerfaldighet} flerfaldighetsexempel${r.gransdragning > 0 ? `, ${r.gransdragning} gränsdragningsmål` : ''}`);
     }
     if (r.doktrin > 0) {
-      delar.push(`${r.doktrin} doktrin-/förarbetskälla${r.doktrin > 1 ? 'or' : ''}`);
+      delar.push(`${r.doktrin} doktrin-/förarbets${r.doktrin > 1 ? 'källor' : 'källa'}`);
     }
     const detaljer = delar.length > 0 ? delar.join(' · ') : 'inga referensdomar eller doktrinkällor ännu';
     return `
