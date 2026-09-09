@@ -539,7 +539,21 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   just de tillagda brotten (`.ref-ej-relevant`-klassen döljer resten). Länkarna till
   referensdomarna skrivs ut med sin URL i klartext (`.ref-link::after`) eftersom en
   utskrift inte kan klickas. Disclaimern finns kvar - det enda som aldrig får saknas i
-  något som lämnar appen.
+  något som lämnar appen. Formaterad som ett neutralt PM (svartvitt, dokumenthuvud med
+  datum och tomma fält för klient/ärende och upprättad av) snarare än en webbsideskärmdump
+  - se `.skriv-ut-rubrik` i `index.html` och `@media print` i `style.css`.
+- **Svenska valideringsmeddelanden** (2026-09-09): webbläsarens inbyggda
+  valideringspopup för straffvärde-fältet visades tidigare på webbläsarens språk
+  (t.ex. engelska: "Value must be less than or equal to 6") mitt i en annars helt
+  svensk sida. `setCustomValidity()` i `bindForm()` byter ut den mot en svensk text
+  anpassad efter felet (för högt, för lågt, tomt, eller ogiltigt tal).
+- **Fokus hoppar tillbaka till brottstyp-sökningen efter varje tillagt brott**
+  (2026-09-09): eftersom hela appen handlar om att mata in FLERA brott i rad krävde
+  det tidigare ett extra klick per brottstyp - fokus stannade kvar i det (nu tomma)
+  straffvärde-fältet. `bindForm()` flyttar nu fokus till `#brottstyp-sok` direkt efter
+  att ett brott lagts till, vilket även öppnar listan igen (samma `focus`-hantering
+  som combobox-sökningen redan hade) och markerar texten så nästa sökning kan skrivas
+  direkt.
 
 ## Testa
 

@@ -275,6 +275,30 @@ function uppdateraSkalaHint() {
 }
 
 function bindForm() {
+  // Webbläsarens inbyggda valideringspopup ("Value must be less than or equal to 6")
+  // visas på användarens webbläsarspråk, inte appens - blev engelska mitt i en annars
+  // helt svensk sida. Constraint Validation API:ets setCustomValidity() låter oss byta
+  // ut texten mot en svensk motsvarighet utan att bygga om hela felhanteringen.
+  const straffvardeInput = document.getElementById('straffvarde');
+  straffvardeInput.addEventListener('invalid', () => {
+    const v = straffvardeInput.validity;
+    if (v.rangeOverflow) {
+      straffvardeInput.setCustomValidity(`Värdet får vara högst ${straffvardeInput.max} månader för den valda brottstypen.`);
+    } else if (v.rangeUnderflow) {
+      straffvardeInput.setCustomValidity(`Värdet måste vara minst ${straffvardeInput.min} månader för den valda brottstypen.`);
+    } else if (v.valueMissing) {
+      straffvardeInput.setCustomValidity('Ange ett straffvärde i månader.');
+    } else if (v.stepMismatch || v.badInput) {
+      straffvardeInput.setCustomValidity('Ange ett giltigt tal, t.ex. 4,5.');
+    } else {
+      straffvardeInput.setCustomValidity('Ogiltigt värde.');
+    }
+  });
+  // setCustomValidity() består mellan valideringsförsök tills den nollställs manuellt -
+  // annars förblir fältet "ogiltigt" med gammalt felmeddelande även efter att
+  // användaren rättat värdet.
+  straffvardeInput.addEventListener('input', () => straffvardeInput.setCustomValidity(''));
+
   document.getElementById('brott-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const typId = document.getElementById('brottstyp').value;
@@ -286,6 +310,10 @@ function bindForm() {
     state.brott.push({ instId: nextInstId++, typId, manader });
     input.value = '';
     rakenOmOchRendera();
+    // Flytta fokus tillbaka till brottstyp-sökningen, redo för nästa brott - annars
+    // krävs ett extra klick per tillagt brott, vilket är onödigt friktion i just det
+    // arbetsflöde (mata in FLERA brott i rad) som hela appen är byggd för.
+    document.getElementById('brottstyp-sok').focus();
   });
 }
 
