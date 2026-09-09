@@ -58,6 +58,11 @@ function laddaSparadState() {
 async function init() {
   laddaSparadState();
 
+  // Datumet i PM-huvudet som bara syns vid utskrift - se .skriv-ut-rubrik i index.html.
+  document.getElementById('skriv-ut-datum').textContent = new Date().toLocaleDateString('sv-SE', {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+
   const skalorResp = await hamtaJson('data/straffskalor.json');
   state.straffskalor = skalorResp.straffskalor;
   state.takAllmantManader = skalorResp.tak_allmant_manader;
