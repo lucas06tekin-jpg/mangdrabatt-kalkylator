@@ -542,12 +542,48 @@ function renderTackning() {
   }).join('');
 }
 
+function byggReferensdomLi(r, poang) {
+  const li = document.createElement('li');
+  if (!r.tillganglig) li.classList.add('otillganglig');
+  // Används av @media print för att bara ta med relevanta referensdomar i utskriften -
+  // se "Skriv ut resultat"-knappen.
+  if (poang === 0) li.classList.add('ref-ej-relevant');
+  const verifText = {
+    manuell_fulltext: 'Manuellt verifierad (fulltext läst)',
+    manuell_pressmeddelande: 'Manuellt verifierad (pressmeddelande)',
+  }[r.verifieringsstatus] || 'Maskinellt tolkad';
+  const verifClass = r.verifieringsstatus.startsWith('manuell') ? 'verif-manuell' : 'verif-maskin';
+  const flerfaldighetTagg = r.flerfaldighetsexempel
+    ? '<span class="verif-badge tagg-flerfaldighet">Flerfaldighetsexempel</span>'
+    : '<span class="verif-badge tagg-gransdragning">Gränsdragning/enstaka brott</span>';
+  li.innerHTML = `
+    <div class="ref-id">${r.id}
+      <span class="verif-badge ${verifClass}">${verifText}</span>
+      ${flerfaldighetTagg}
+      ${poang > 0 ? '<span class="verif-badge verif-relevant">Relevant för dina brott</span>' : ''}
+      ${!r.tillganglig ? '<span class="otillganglig-tagg"> · källan ej nåbar just nu</span>' : ''}
+    </div>
+    <div class="ref-meta">${r.domstol || ''} · Källa: ${r.kalla}</div>
+    <p class="ref-sammanfattning">${r.brott_sammanfattning}${r.straffvarde_text ? ' — ' + r.straffvarde_text : ''}</p>
+    <a class="ref-link" href="${r.kalla_url}" target="_blank" rel="noopener">Läs originalkällan ↗</a>
+  `;
+  return li;
+}
+
 function renderReferensdomar() {
   const ul = document.getElementById('refs-lista');
+  const ulOvriga = document.getElementById('refs-lista-ovriga');
+  const detaljerOvriga = document.getElementById('refs-ovriga-details');
+  const summaryOvriga = document.getElementById('refs-ovriga-summary');
   const bristNotis = document.getElementById('refs-brist-notis');
+  const tomNotis = document.getElementById('refs-tom-notis');
   ul.innerHTML = '';
+  ulOvriga.innerHTML = '';
+
   if (state.referensdomar.length === 0) {
     bristNotis.hidden = true;
+    tomNotis.hidden = true;
+    detaljerOvriga.hidden = true;
     return;
   }
 
@@ -556,41 +592,34 @@ function renderReferensdomar() {
     .map((r, ursprungsindex) => ({ r, ursprungsindex, poang: relevansPoang(r, valdaTyper) }))
     .sort((a, b) => b.poang - a.poang || a.ursprungsindex - b.ursprungsindex);
 
-  const maxPoang = rader.reduce((max, rad) => Math.max(max, rad.poang), 0);
-  if (valdaTyper.size > 0 && maxPoang === 0) {
+  // Bara de faktiskt relevanta domarna visas direkt - resten (eller allihop, om inget
+  // brott är tillagt ännu) hamnar i en utfällbar lista i stället för att alla ~30
+  // referensdomar alltid skulle behöva skrollas igenom.
+  const relevanta = rader.filter((rad) => rad.poang > 0);
+  const ovriga = rader.filter((rad) => rad.poang === 0);
+  const ingaBrottAnnu = valdaTyper.size === 0;
+
+  if (ingaBrottAnnu) {
+    tomNotis.hidden = false;
+    bristNotis.hidden = true;
+  } else if (relevanta.length === 0) {
+    tomNotis.hidden = true;
     bristNotis.hidden = false;
     bristNotis.innerHTML = '<strong>Inga referensdomar täcker dina tillagda brottstyper ännu.</strong> ' +
-      'Listan nedan visar samtliga referensdomar i ursprunglig ordning som jämförelsematerial.';
+      'Fäll ut listan nedan för att se samtliga referensdomar som jämförelsematerial.';
   } else {
+    tomNotis.hidden = true;
     bristNotis.hidden = true;
   }
 
-  for (const { r, poang } of rader) {
-    const li = document.createElement('li');
-    if (!r.tillganglig) li.classList.add('otillganglig');
-    // Används av @media print för att bara ta med relevanta referensdomar i utskriften -
-    // se "Skriv ut resultat"-knappen.
-    if (poang === 0) li.classList.add('ref-ej-relevant');
-    const verifText = {
-      manuell_fulltext: 'Manuellt verifierad (fulltext läst)',
-      manuell_pressmeddelande: 'Manuellt verifierad (pressmeddelande)',
-    }[r.verifieringsstatus] || 'Maskinellt tolkad';
-    const verifClass = r.verifieringsstatus.startsWith('manuell') ? 'verif-manuell' : 'verif-maskin';
-    const flerfaldighetTagg = r.flerfaldighetsexempel
-      ? '<span class="verif-badge tagg-flerfaldighet">Flerfaldighetsexempel</span>'
-      : '<span class="verif-badge tagg-gransdragning">Gränsdragning/enstaka brott</span>';
-    li.innerHTML = `
-      <div class="ref-id">${r.id}
-        <span class="verif-badge ${verifClass}">${verifText}</span>
-        ${flerfaldighetTagg}
-        ${poang > 0 ? '<span class="verif-badge verif-relevant">Relevant för dina brott</span>' : ''}
-        ${!r.tillganglig ? '<span class="otillganglig-tagg"> · källan ej nåbar just nu</span>' : ''}
-      </div>
-      <div class="ref-meta">${r.domstol || ''} · Källa: ${r.kalla}</div>
-      <p class="ref-sammanfattning">${r.brott_sammanfattning}${r.straffvarde_text ? ' — ' + r.straffvarde_text : ''}</p>
-      <a class="ref-link" href="${r.kalla_url}" target="_blank" rel="noopener">Läs originalkällan ↗</a>
-    `;
-    ul.appendChild(li);
+  for (const { r, poang } of relevanta) ul.appendChild(byggReferensdomLi(r, poang));
+  for (const { r, poang } of ovriga) ulOvriga.appendChild(byggReferensdomLi(r, poang));
+
+  detaljerOvriga.hidden = ovriga.length === 0;
+  if (ovriga.length > 0) {
+    summaryOvriga.textContent = relevanta.length > 0
+      ? `Visa ${ovriga.length} ytterligare referensdomar (mindre relevanta för dina brott)`
+      : `Visa alla ${ovriga.length} referensdomar`;
   }
 }
 

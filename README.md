@@ -554,6 +554,16 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   att ett brott lagts till, vilket även öppnar listan igen (samma `focus`-hantering
   som combobox-sökningen redan hade) och markerar texten så nästa sökning kan skrivas
   direkt.
+- **Referensdomarna döljs bakom en utfällbar lista om de inte matchar** (2026-09-09):
+  med ~30 referensdomar krävde sidan mycket skrollande även innan man hunnit lägga
+  till ett enda brott, eftersom alla domar alltid visades i sin helhet. `renderReferensdomar()`
+  i `app.js` delar nu upp listan i två: matchande domar (`poang > 0`) i `#refs-lista`
+  som vanligt, och resten i en `<details id="refs-ovriga-details">` som är hopfälld
+  som standard (`Visa X ytterligare referensdomar (mindre relevanta för dina brott)`).
+  Innan något brott är tillagt hamnar samtliga i den hopfällda listan och en kort notis
+  ("Lägg till minst ett brott ovan...") visas i stället för en tom lista. Testat med
+  grov stöld tillagd: 5 matchande domar visas direkt, 24 döljs bakom klicket - mot
+  tidigare alla 29 alltid utskrivna i sin helhet.
 
 ## Testa
 
