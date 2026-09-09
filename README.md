@@ -528,6 +528,18 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   En dold `<input id="brottstyp">` håller det faktiska valda id:t så att resten av appen
   (straffvärdeshinten, formuläret) inte behövde ändras - samma kontrakt som den gamla
   `<select>`ens `.value`.
+- **Doktrinkällor länkas direkt från källtäckningspanelen** (2026-09-09): panelen visade
+  tidigare bara ett antal ("3 doktrinkällor") - nu länkar den direkt till varje källa
+  (`[1] [2] [3]` vid flera, källnamnet vid en enda), med `title`-attribut som visar
+  källa + titel vid hovring. Slipper leta upp samma källa i "Bakgrundskällor"-panelen.
+- **"Skriv ut resultat"** (2026-09-09, `#skriv-ut-btn` i panel 2): en `@media print`-vy
+  som döljer allt interaktivt (formulär, knappar, sökfält, viktreglage,
+  diagnostikpanelerna i sidfoten) och bara skriver ut det som faktiskt behövs för en akt:
+  tillagda brott, det beräknade resultatet (a-d) och de referensdomar som är relevanta för
+  just de tillagda brotten (`.ref-ej-relevant`-klassen döljer resten). Länkarna till
+  referensdomarna skrivs ut med sin URL i klartext (`.ref-link::after`) eftersom en
+  utskrift inte kan klickas. Disclaimern finns kvar - det enda som aldrig får saknas i
+  något som lämnar appen.
 
 ## Testa
 

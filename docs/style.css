@@ -199,6 +199,8 @@ body {
   cursor: pointer;
 }
 .btn-secondary:hover { border-color: var(--danger); color: var(--danger); }
+.btn-skriv-ut { margin-top: 0.75rem; }
+.btn-skriv-ut:hover { border-color: var(--gold-600); color: var(--gold-600); }
 
 .brott-lista { list-style: none; margin: 0 0 1.25rem; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
 .brott-lista li {
@@ -399,10 +401,32 @@ body {
 .tackning-siffror { color: var(--ink-soft); text-align: right; }
 .tackning-brist { background: #fbf3df; }
 .tackning-brist .tackning-siffror { color: #6b5416; font-weight: 600; }
+.tackning-doktrinlank { color: var(--gold-600); text-decoration: underline; white-space: nowrap; }
+.tackning-doktrinlank:hover { color: var(--navy-900); }
 
 .tom-lista { color: var(--ink-soft); font-size: 0.85rem; font-style: italic; }
 
 @media (max-width: 560px) {
   .brott-form { grid-template-columns: 1fr; }
   .btn-primary { height: auto; padding: 0.7rem 1.1rem; }
+}
+
+/* "Skriv ut resultat" - en ren, klientfärdig utskrift av det som faktiskt matar in ett
+   ärende: tillagda brott, det beräknade resultatet (a-d) och de referensdomar som är
+   relevanta för just de tillagda brotten. Döljer allt interaktivt (formulär, knappar,
+   sökfält, viktreglage) och diagnostikpanelerna i sidfoten - de hör hemma på skärmen,
+   inte i en akt. Behåller disclaimern, som är det enda som ALDRIG får saknas i något
+   som lämnar appen. */
+@media print {
+  body { background: #fff; }
+  .topbar { background: #fff; color: var(--ink); border-bottom: 2px solid var(--ink); }
+  .topbar-sub { color: var(--ink-soft); }
+  .layout { display: block; max-width: none; margin: 0.5rem 0; padding: 0; }
+  .panel { border: none; box-shadow: none; padding: 0; margin-bottom: 1.5rem; }
+  button, .brott-form, .fasta-fakta, .model-controls, #vikt-lista, #trappa,
+  #trappa-rubrik, #refs-status, .footer, .ref-ej-relevant {
+    display: none !important;
+  }
+  .resultat-rad, .refs-lista li { page-break-inside: avoid; }
+  .ref-link::after { content: " (" attr(href) ")"; font-weight: normal; }
 }

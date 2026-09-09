@@ -82,6 +82,7 @@ async function init() {
   });
 
   document.getElementById('rensa-brott').addEventListener('click', rensaAllaBrott);
+  document.getElementById('skriv-ut-btn').addEventListener('click', () => window.print());
 
   laddaReferensdomar();
   laddaForklaringar();
@@ -415,6 +416,7 @@ function renderTrappa(res) {
 
 function renderResultat(res) {
   const container = document.getElementById('resultat');
+  document.getElementById('skriv-ut-btn').hidden = res.sorterade.length === 0;
   if (res.sorterade.length === 0) {
     container.innerHTML = '<p class="tom-lista">Lägg till minst ett brott för att se resultat.</p>';
     return;
@@ -487,8 +489,15 @@ function renderTackning() {
     if (r.totalt > 0) {
       delar.push(`${r.flerfaldighet} flerfaldighetsexempel${r.gransdragning > 0 ? `, ${r.gransdragning} gränsdragningsmål` : ''}`);
     }
-    if (r.doktrin > 0) {
-      delar.push(`${r.doktrin} doktrin-/förarbets${r.doktrin > 1 ? 'källor' : 'källa'}`);
+    // Länkar direkt till doktrinkällorna här, i stället för att bara visa ett antal och
+    // låta läsaren leta upp dem själv i "Bakgrundskällor"-panelen längre ner.
+    const doktrinKallor = state.forklarandeKallor.filter((f) => (f.brottstyper || []).includes(r.id));
+    if (doktrinKallor.length > 0) {
+      const lankar = doktrinKallor.map((f, i) => {
+        const text = doktrinKallor.length > 1 ? `[${i + 1}]` : f.kalla;
+        return `<a href="${f.kalla_url}" target="_blank" rel="noopener" class="tackning-doktrinlank" title="${f.kalla}: ${f.titel}">${text}</a>`;
+      }).join(' ');
+      delar.push(`${r.doktrin} doktrin-/förarbets${r.doktrin > 1 ? 'källor' : 'källa'} (${lankar})`);
     }
     const detaljer = delar.length > 0 ? delar.join(' · ') : 'inga referensdomar eller doktrinkällor ännu';
     return `
@@ -526,6 +535,9 @@ function renderReferensdomar() {
   for (const { r, poang } of rader) {
     const li = document.createElement('li');
     if (!r.tillganglig) li.classList.add('otillganglig');
+    // Används av @media print för att bara ta med relevanta referensdomar i utskriften -
+    // se "Skriv ut resultat"-knappen.
+    if (poang === 0) li.classList.add('ref-ej-relevant');
     const verifText = {
       manuell_fulltext: 'Manuellt verifierad (fulltext läst)',
       manuell_pressmeddelande: 'Manuellt verifierad (pressmeddelande)',
