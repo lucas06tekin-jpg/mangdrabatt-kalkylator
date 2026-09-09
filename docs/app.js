@@ -108,25 +108,151 @@ function renderStraffskalorFakta() {
   }
 }
 
+// ---- Sökbar brottstyp-combobox ----
+// Ersätter en vanlig <select> (som blev otymplig med 30+ brottstyper i nio grupper) med
+// ett textfält som filtrerar en egen listbox live. #brottstyp (hidden input) håller det
+// faktiska valda id:t och är vad uppdateraSkalaHint()/bindForm() läser - samma kontrakt
+// som den gamla <select>s .value, så resten av appen behövde inte ändras.
+let brottstypAktivIndex = -1;
+
 function fyllBrottstypDropdown() {
-  const sel = document.getElementById('brottstyp');
-  sel.innerHTML = '';
-  const grupper = new Map(); // brottsfamilj -> <optgroup>, i den ordning familjerna först syns
-  for (const s of state.straffskalor) {
-    const familj = s.familj || 'Övrigt';
-    if (!grupper.has(familj)) {
-      const group = document.createElement('optgroup');
-      group.label = familj;
-      grupper.set(familj, group);
-      sel.appendChild(group);
-    }
-    const opt = document.createElement('option');
-    opt.value = s.id;
-    opt.textContent = s.namn;
-    grupper.get(familj).appendChild(opt);
+  renderBrottstypLista('');
+  if (state.straffskalor.length > 0) {
+    valjBrottstyp(state.straffskalor[0].id);
   }
-  sel.addEventListener('change', uppdateraSkalaHint);
+
+  const sokInput = document.getElementById('brottstyp-sok');
+  const lista = document.getElementById('brottstyp-lista');
+
+  sokInput.addEventListener('focus', () => {
+    sokInput.select();
+    renderBrottstypLista('');
+    oppnaBrottstypLista();
+  });
+  sokInput.addEventListener('input', () => {
+    renderBrottstypLista(sokInput.value);
+    oppnaBrottstypLista();
+  });
+  sokInput.addEventListener('keydown', hanteraBrottstypTangent);
+  sokInput.addEventListener('blur', () => {
+    stangBrottstypLista();
+    const vald = skalaFor(state.straffskalor, document.getElementById('brottstyp').value);
+    sokInput.value = vald ? vald.namn : '';
+  });
+  // mousedown (inte click) på listan förhindras från att blur:a sökfältet, så att
+  // klicket hinner registreras av click-lyssnaren nedan innan fältet stängs/återställs.
+  lista.addEventListener('mousedown', (e) => e.preventDefault());
+  lista.addEventListener('click', (e) => {
+    const li = e.target.closest('[role="option"]');
+    if (!li) return;
+    valjBrottstyp(li.dataset.id);
+    sokInput.blur();
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.brottstyp-combo')) stangBrottstypLista();
+  });
+}
+
+function renderBrottstypLista(filterText) {
+  const lista = document.getElementById('brottstyp-lista');
+  const sok = filterText.trim().toLowerCase();
+  const traffar = state.straffskalor.filter((s) => s.namn.toLowerCase().includes(sok));
+
+  lista.innerHTML = '';
+  brottstypAktivIndex = -1;
+
+  if (traffar.length === 0) {
+    lista.innerHTML = '<li class="brottstyp-tom">Inga brottstyper matchar sökningen.</li>';
+    return;
+  }
+
+  const valtId = document.getElementById('brottstyp').value;
+  const grupper = new Map(); // brottsfamilj -> brottstyper, i den ordning familjerna först syns
+  for (const s of traffar) {
+    const familj = s.familj || 'Övrigt';
+    if (!grupper.has(familj)) grupper.set(familj, []);
+    grupper.get(familj).push(s);
+  }
+
+  for (const [familj, poster] of grupper) {
+    const header = document.createElement('li');
+    header.className = 'brottstyp-grupp-header';
+    header.setAttribute('role', 'presentation');
+    header.textContent = familj;
+    lista.appendChild(header);
+    for (const s of poster) {
+      const li = document.createElement('li');
+      li.className = 'brottstyp-option';
+      li.id = `brottstyp-opt-${s.id}`;
+      li.dataset.id = s.id;
+      li.setAttribute('role', 'option');
+      li.setAttribute('aria-selected', String(s.id === valtId));
+      li.textContent = s.namn;
+      lista.appendChild(li);
+    }
+  }
+}
+
+function oppnaBrottstypLista() {
+  document.getElementById('brottstyp-lista').hidden = false;
+  document.getElementById('brottstyp-sok').setAttribute('aria-expanded', 'true');
+}
+
+function stangBrottstypLista() {
+  document.getElementById('brottstyp-lista').hidden = true;
+  document.getElementById('brottstyp-sok').setAttribute('aria-expanded', 'false');
+  document.getElementById('brottstyp-sok').removeAttribute('aria-activedescendant');
+  brottstypAktivIndex = -1;
+}
+
+function valjBrottstyp(id) {
+  document.getElementById('brottstyp').value = id;
+  const skala = skalaFor(state.straffskalor, id);
+  document.getElementById('brottstyp-sok').value = skala ? skala.namn : '';
   uppdateraSkalaHint();
+}
+
+function hanteraBrottstypTangent(e) {
+  const lista = document.getElementById('brottstyp-lista');
+  const alternativ = [...lista.querySelectorAll('[role="option"]')];
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (lista.hidden) {
+      renderBrottstypLista(document.getElementById('brottstyp-sok').value);
+      oppnaBrottstypLista();
+      return;
+    }
+    brottstypAktivIndex = Math.min(brottstypAktivIndex + 1, alternativ.length - 1);
+    markeraAktivtBrottstypAlternativ(alternativ);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    brottstypAktivIndex = Math.max(brottstypAktivIndex - 1, 0);
+    markeraAktivtBrottstypAlternativ(alternativ);
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    if (brottstypAktivIndex >= 0 && alternativ[brottstypAktivIndex]) {
+      valjBrottstyp(alternativ[brottstypAktivIndex].dataset.id);
+      document.getElementById('brottstyp-sok').blur();
+    } else if (alternativ.length === 1) {
+      valjBrottstyp(alternativ[0].dataset.id);
+      document.getElementById('brottstyp-sok').blur();
+    }
+  } else if (e.key === 'Escape') {
+    document.getElementById('brottstyp-sok').blur();
+  }
+}
+
+function markeraAktivtBrottstypAlternativ(alternativ) {
+  const sokInput = document.getElementById('brottstyp-sok');
+  for (const el of alternativ) el.classList.remove('aktiv');
+  const aktiv = alternativ[brottstypAktivIndex];
+  if (aktiv) {
+    aktiv.classList.add('aktiv');
+    aktiv.scrollIntoView({ block: 'nearest' });
+    sokInput.setAttribute('aria-activedescendant', aktiv.id);
+  } else {
+    sokInput.removeAttribute('aria-activedescendant');
+  }
 }
 
 function uppdateraSkalaHint() {

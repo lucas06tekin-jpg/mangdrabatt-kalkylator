@@ -146,6 +146,36 @@ body {
 }
 .field-hint { display: block; font-size: 0.72rem; line-height: 1.5; color: var(--ink-soft); min-height: 1em; }
 
+.brottstyp-combo { position: relative; }
+.brottstyp-lista {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-height: 16rem;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.25rem 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(15, 27, 45, 0.16);
+}
+.brottstyp-grupp-header {
+  padding: 0.4rem 0.75rem 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.brottstyp-option { padding: 0.45rem 0.75rem; font-size: 0.9rem; cursor: pointer; }
+.brottstyp-option:hover, .brottstyp-option.aktiv { background: rgba(176, 141, 63, 0.14); }
+.brottstyp-option[aria-selected="true"] { font-weight: 600; color: var(--navy-900); }
+.brottstyp-tom { padding: 0.5rem 0.75rem; font-size: 0.85rem; font-style: italic; color: var(--ink-soft); }
+
 .btn-primary {
   background: var(--navy-900);
   color: #fff;

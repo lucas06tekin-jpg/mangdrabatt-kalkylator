@@ -28,8 +28,14 @@
 
     <form id="brott-form" class="brott-form">
       <div class="field">
-        <label for="brottstyp">Brottstyp</label>
-        <select id="brottstyp" required></select>
+        <label for="brottstyp-sok">Brottstyp</label>
+        <div class="brottstyp-combo">
+          <input type="text" id="brottstyp-sok" autocomplete="off" role="combobox"
+            aria-expanded="false" aria-controls="brottstyp-lista" aria-autocomplete="list"
+            placeholder="Sök brottstyp...">
+          <input type="hidden" id="brottstyp" required>
+          <ul id="brottstyp-lista" class="brottstyp-lista" role="listbox" hidden></ul>
+        </div>
         <span class="field-hint" aria-hidden="true">&nbsp;</span>
       </div>
       <div class="field">

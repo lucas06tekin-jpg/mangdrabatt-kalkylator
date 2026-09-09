@@ -521,6 +521,13 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   "Rensa alla brott"-knappen nollställer både vyn och det sparade läget.
 - **Lagtext** för varje straffskala kan fällas ut ("Visa lagtext") under "Fasta juridiska
   fakta", för den som vill se den fullständiga paragraftexten utan att lämna sidan.
+- **Sökbar brottstyp-väljare** (2026-09-09): med 31 brottstyper i nio grupper blev en vanlig
+  `<select>` otymplig, så den ersattes med en egenbyggd combobox (`#brottstyp-sok` +
+  `#brottstyp-lista` i `docs/index.html`/`docs/app.js`) som filtrerar listan live medan man
+  skriver, med pil upp/ned för navigering, Enter för att välja och Escape för att stänga.
+  En dold `<input id="brottstyp">` håller det faktiska valda id:t så att resten av appen
+  (straffvärdeshinten, formuläret) inte behövde ändras - samma kontrakt som den gamla
+  `<select>`ens `.value`.
 
 ## Testa
 
