@@ -107,6 +107,8 @@ async function init() {
 function renderStraffskalorFakta() {
   const dl = document.getElementById('straffskalor-lista');
   dl.innerHTML = '';
+  document.getElementById('straffskalor-summary').textContent =
+    `Fasta juridiska fakta – straffskalor (${state.straffskalor.length} brottstyper)`;
   for (const s of state.straffskalor) {
     const dt = document.createElement('dt');
     dt.textContent = `${s.namn} (${s.paragraf})`;

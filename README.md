@@ -581,6 +581,15 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   fältet är ifyllt med en ålder under 21; tomt fält (standard) ger ingen reduktion alls.
   Skalan är uttryckligen inte lagfäst - notisen under fältet och resultatraden säger båda
   att det enskilda fallet kan motivera avvikelse.
+- **Straffskalelistan är hopfälld som standard** (2026-09-11): den fullständiga listan
+  över alla 31 brottstypers straffskalor (med "Visa lagtext" per typ) låg alltid synlig
+  under "Fasta juridiska fakta" i panel 1, vilket krävde mycket skrollande för att komma
+  förbi - särskilt eftersom brottstyp-sökningen ovanför redan gör listan sökbar och visar
+  det tillåtna intervallet för den valda typen. De två korta, alltid relevanta notiserna
+  (tak/golv-regeln och kommande reform) ligger kvar synliga direkt; den 31-radiga listan
+  ligger nu bakom en `<details id="straffskalor-details">` ("Fasta juridiska fakta –
+  straffskalor (31 brottstyper)"), samma hopfällbara mönster som referensdomarnas och
+  viktlistans motsvarande sektioner.
 
 ## Testa
 

@@ -396,8 +396,8 @@ body {
    centrerad/smal - används för de mindre relevanta referensdomarna (renderReferensdomar())
    och den manuella viktlistan, som annars växer med en rad per tillagt brott och nästan
    aldrig behöver justeras (golvet räcker i praktiken). */
-#refs-ovriga-details, #vikt-lista-details { max-width: none; margin: 0.5rem 0 0; }
-#refs-ovriga-summary, #vikt-lista-summary { font-size: 0.9rem; }
+#refs-ovriga-details, #vikt-lista-details, #straffskalor-details { max-width: none; margin: 0.5rem 0 0; }
+#refs-ovriga-summary, #vikt-lista-summary, #straffskalor-summary { font-size: 0.9rem; }
 
 .tackning-lista { display: flex; flex-direction: column; gap: 0.35rem; }
 .tackning-rad {
