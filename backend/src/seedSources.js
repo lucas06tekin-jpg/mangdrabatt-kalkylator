@@ -644,6 +644,70 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "RH 2011:64",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2011:64",
+    domstol: "Hovrätten för Nedre Norrland (mål B 798-11, 2011-12-06)",
+    brott_sammanfattning:
+      "Straffvärdesreferens, INTE ett flerfaldighetsexempel (ett enda, mycket allvarligt " +
+      "tillfälle): en man tilldelade ett tvåårigt barn flera slag i ansiktet och kastade " +
+      "henne i golvet flera gånger, vilket orsakade skallbensbrott och hjärnblödning. Det " +
+      "enda verifierade avgörandet i denna kalkylator för grov misshandel, som annars helt " +
+      "saknar referensdomar.",
+    straffvarde_text:
+      "OBS, kraftigt nedsatt av två billighetsskäl - representerar INTE ett typiskt " +
+      "straffvärde för grov misshandel: hovrätten satte straffvärdet till \"något under tre " +
+      "års fängelse\", men satte påföljden till fängelse 2 år efter att ha beaktat dels att " +
+      "gärningsmannen haft starkt nedsatt förmåga att kontrollera sitt handlande (29 kap. " +
+      "3 § 1 st. 2 p. BrB), dels att han frivilligt angett sig själv till sin terapeut och " +
+      "sedan polisen (29 kap. 5 § 1 st. 3 p. BrB).",
+    brottstyper: ["grov_misshandel"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 2018 s. 767",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2018s767",
+    domstol: "Högsta domstolen (mål B 2678-18, 2018-10-10) - \"Rånet i guldsmedsbutiken\"",
+    brott_sammanfattning:
+      "Gränsdragningsmål mellan rån och grovt rån, INTE ett flerfaldighetsexempel: två " +
+      "gärningsmän hotade en butiksinnehavare med att döda hans dotter om han inte öppnade " +
+      "kassaskåpet, misshandlade honom (slag, sparkar, kvävningsgrepp) och hotade med en " +
+      "(oladdad) startpistol.",
+    straffvarde_text:
+      "Trots det mycket allvarliga våldet och hotet fann HD att gärningen INTE nådde upp " +
+      "till grovt rån (kräver livsfarligt våld/hot eller synnerlig råhet) - hovrättens dom " +
+      "för grovt rån (5 år) ändrades till rån av normalgraden, med straffvärde/påföljd " +
+      "fängelse 4 år 8 månader. Visar att ribban för grovt rån ligger högt även vid " +
+      "flermannaöverfall med dödshot.",
+    brottstyper: ["ran", "grovt_ran"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 1995 s. 430",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/1995s430",
+    domstol: "Högsta domstolen (mål B 2585-92, 1995-07-10)",
+    brott_sammanfattning:
+      "En kreditgivares företrädare dömd för ocker efter att i näringsverksamhet ha " +
+      "beviljat tre separata, räntemässigt ockerartade smålån till tre olika låntagare " +
+      "(fallande årsränta 45-49 %, klart över vad som var brukligt hos kreditinstitut " +
+      "1987). Det enda verifierade avgörandet i denna kalkylator för ocker av normalgraden, " +
+      "som annars helt saknar referensdomar.",
+    straffvarde_text:
+      "HD fastställde hovrättens dom: 50 dagsböter å 145 kr. Domen slår fast att den " +
+      "effektiva räntan ensam inte avgör om ett \"uppenbart missförhållande\" föreligger - " +
+      "en samlad bedömning av ränta och övriga lånevillkor krävs.",
+    brottstyper: ["ocker"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [

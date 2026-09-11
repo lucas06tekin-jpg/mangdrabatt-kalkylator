@@ -619,6 +619,28 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   egentligen handlar om en teoretisk besittningsfråga för förskingring), eller för att
   ingen publicerad överrättsdom hittades alls. De luckorna kvarstår därför genuint.
 
+- **Ytterligare tre referensdomar (2026-09-11, samma dag)**: en andra sökrunda samma dag,
+  fortfarande via lagen.nu:s begreppsindex, löste tre av de fyra luckor som just
+  bekräftats ovan:
+  - **RH 2011:64** - fyllde grov misshandel-luckan. Ett tvåårigt barn misshandlades
+    svårt (skallbensbrott, hjärnblödning). VIKTIG BRASKLAPP i denna post: straffvärdet
+    ("något under tre års fängelse") sattes ned kraftigt till 2 år av två billighetsskäl
+    (starkt nedsatt förmåga att kontrollera sitt handlande + frivillig angivelse) - inte
+    representativt för ett "typiskt" straffvärde, men det enda verifierade avgörandet för
+    denna brottstyp.
+  - **NJA 2018 s. 767** ("Rånet i guldsmedsbutiken") - fyllde grovt rån-luckan med ett
+    gränsdragningsmål: HD nedgraderade ett tvåmannaöverfall med dödshot och en (oladdad)
+    startpistol från grovt rån till rån av normalgraden (straffvärde 4 år 8 månader) -
+    visar att ribban för grovt rån är förvånansvärt hög.
+  - **NJA 1995 s. 430** - fyllde ocker-luckan (normalgraden): en kreditgivares
+    företrädare dömd för tre separata ockerlån till olika låntagare, påföljd 50
+    dagsböter.
+  Ett kandidatfall för olovligt förfogande förkastades medvetet av samma anledning som
+  tidigare (RH 2005:67 - "fyndautomat"-fallet - ledde faktiskt till en dom för
+  FYNDFÖRSEELSE, inte olovligt förfogande). Ringa utpressning, olovligt förfogande/grovt
+  olovligt förfogande och trolöshet mot huvudman (normalgraden) saknar fortfarande
+  referensdomar helt.
+
 ## Testa
 
 ```bash
