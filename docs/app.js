@@ -1,4 +1,4 @@
-import { formatManader, skalaFor, sorteradeBrott, berakna, avrundaMangdrabatt, relevansPoang, analyseraTackning } from './calc.js';
+import { formatManader, skalaFor, sorteradeBrott, berakna, avrundaMangdrabatt, relevansPoang, analyseraTackning, ungdomsfraktion } from './calc.js';
 
 const STORAGE_KEY = 'mangdrabatt-kalkylator:v1';
 
@@ -10,6 +10,7 @@ const state = {
   golvProcent: 3,
   vikter: [], // procent per rangordning, editerbar (gäller bara modell "halvering")
   modell: 'halvering', // 'halvering' | 'andelsmodell'
+  alderVidBrott: null, // år vid gärningstillfället - 29 kap. 7 § BrB, null = ingen ungdomsreduktion
   referensdomar: [], // laddas en gång, sorteras om vid varje omräkning
   forklarandeKallor: [], // doktrin/förarbeten (kategori B), laddas en gång
 };
@@ -30,7 +31,7 @@ function sparaState() {
       STORAGE_KEY,
       JSON.stringify({
         brott: state.brott, golvProcent: state.golvProcent, vikter: state.vikter,
-        modell: state.modell, nextInstId,
+        modell: state.modell, alderVidBrott: state.alderVidBrott, nextInstId,
       })
     );
   } catch (e) {
@@ -47,6 +48,7 @@ function laddaSparadState() {
     if (typeof sparat.golvProcent === 'number') state.golvProcent = sparat.golvProcent;
     if (Array.isArray(sparat.vikter)) state.vikter = sparat.vikter;
     if (sparat.modell === 'halvering' || sparat.modell === 'andelsmodell') state.modell = sparat.modell;
+    if (typeof sparat.alderVidBrott === 'number') state.alderVidBrott = sparat.alderVidBrott;
     if (typeof sparat.nextInstId === 'number') nextInstId = sparat.nextInstId;
   } catch (e) {
     // Korrupt eller otillgänglig sparad data - fortsätt med tomt state.
@@ -83,6 +85,13 @@ async function init() {
   modellVal.value = state.modell;
   modellVal.addEventListener('change', (e) => {
     state.modell = e.target.value;
+    rakenOmOchRendera();
+  });
+
+  const alderInput = document.getElementById('alder-brott');
+  alderInput.value = state.alderVidBrott ?? '';
+  alderInput.addEventListener('input', (e) => {
+    state.alderVidBrott = e.target.value === '' ? null : Number(e.target.value);
     rakenOmOchRendera();
   });
 
@@ -343,6 +352,7 @@ function rakenOmOchRendera() {
     takAllmantManader: state.takAllmantManader,
     allmantGolvManader: state.allmantGolvManader,
     modell: state.modell,
+    alderVidBrott: state.alderVidBrott,
   });
   renderTrappa(res);
   renderResultat(res);
@@ -469,6 +479,15 @@ function renderResultat(res) {
   const arAndelsmodell = res.modell === 'andelsmodell';
   const modellLabel = arAndelsmodell ? 'Andelsmodell (SOU 2023:1)' : 'Halveringsmodell';
   const modellLabelGenitiv = arAndelsmodell ? 'andelsmodellens' : 'halveringsmodellens';
+  // Ungdomsreduktionen (29 kap. 7 § BrB) visas bara som en extra rad när den faktiskt slår
+  // till (ålder ifylld och under 21) - annars är faktorn 1 och raden vore bara brus.
+  const ungdomsRad = res.ungdomsfraktion !== 1
+    ? `<div class="resultat-rad highlight ungdom">
+        <span class="label">e) Straffmätningsvärde efter ungdomsreduktion (29 kap. 7 § BrB,
+          ${res.alderVidBrott} år vid gärningstillfället — faktor ${Math.round(res.ungdomsfraktion * 100)}%)</span>
+        <span class="varde">${formatManader(res.straffmatningsvarde)}</span>
+      </div>`
+    : '';
   container.innerHTML = `
     <div class="resultat-rad">
       <span class="label">a) Ren kumulation (summa av alla straffvärden)</span>
@@ -488,11 +507,14 @@ function renderResultat(res) {
       <span class="label">d) Mängdrabatt (ren kumulation → justerat resultat)</span>
       <span class="varde">${formatManader(mangdrabattManader)} (${mangdrabattProcent.toFixed(1)}%)</span>
     </div>
+    ${ungdomsRad}
     ${golvNotis}
     <p class="resultat-not">Justerat resultat = ${modellLabelGenitiv} summa, begränsat till intervallet [golv, tak].
       Mängdrabatten (d) är a) minus c) räknat på de avrundade talen ovan, så att siffrorna går ihop
       vid kontrollräkning. Förenklad modell — den faktiska straffmätningen görs av domstolen utifrån
-      samtliga omständigheter i det enskilda fallet.</p>
+      samtliga omständigheter i det enskilda fallet.${res.ungdomsfraktion !== 1
+        ? ' Ungdomsreduktionen (e) är en vägledande praxis-skala, inte en lagfäst tabell — det enskilda fallet kan motivera avvikelse.'
+        : ''}</p>
   `;
 }
 

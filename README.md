@@ -571,6 +571,16 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   — X brott"), hopfälld tills man aktivt klickar sig in. Samma full bredd-stil som
   referensdomarnas utfällbara lista ovan. Fortsatt helt dold i andelsmodell-läget, där
   vikterna styrs automatiskt och inte går att justera för hand.
+- **Ungdomsreduktion enligt 29 kap. 7 § BrB** (2026-09-11): den som begått brottet innan
+  hen fyllt 21 år ska få ett lägre straff än brottets straffvärde annars motiverar. Ett
+  nytt frivilligt fält ("Ålder vid brottstillfället") i modellpanelen tar emot ålder
+  15–20 och tillämpar en vägledande praxis-skala (`UNGDOMSREDUKTION_TABELL`/
+  `ungdomsfraktion()` i `calc.js`, etablerad sedan NJA 2000 s. 421) som en faktor på det
+  redan tak/golv-justerade resultatet - inte på de enskilda brottens straffvärden var för
+  sig. Visas bara som en extra rad ("e) Straffmätningsvärde efter ungdomsreduktion") när
+  fältet är ifyllt med en ålder under 21; tomt fält (standard) ger ingen reduktion alls.
+  Skalan är uttryckligen inte lagfäst - notisen under fältet och resultatraden säger båda
+  att det enskilda fallet kan motivera avvikelse.
 
 ## Testa
 

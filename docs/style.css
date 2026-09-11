@@ -308,6 +308,7 @@ body {
 .resultat-rad.highlight { background: var(--navy-950); border-color: var(--navy-950); }
 .resultat-rad.highlight .label, .resultat-rad.highlight .varde { color: #f7f5f0; }
 .resultat-rad.warn { border-color: var(--gold-500); background: #fbf3df; }
+.resultat-rad.ungdom { border-top: 3px solid var(--gold-500); }
 .resultat-not { font-size: 0.75rem; color: var(--ink-soft); }
 .resultat-notis-golv {
   margin: 0.5rem 0 0;
@@ -476,6 +477,7 @@ body {
     font-weight: 700; margin-top: 0.3rem; padding-top: 0.5rem;
   }
   .resultat-rad.highlight .label, .resultat-rad.highlight .varde { color: #000; }
+  .resultat-rad.ungdom { border-top: 3px double #000; }
   .resultat-not { color: #000; font-size: 9pt; }
   .resultat-notis-golv { background: none; border: 1px solid #000; color: #000; }
   .resultat-notis-golv strong { color: #000; }

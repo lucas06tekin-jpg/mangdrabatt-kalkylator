@@ -40,7 +40,27 @@ function viktaBrott(sorterade, { modell, vikter, golvProcent }) {
   });
 }
 
-export function berakna({ brott, vikter, golvProcent, straffskalor, takAllmantManader, allmantGolvManader, modell = "halvering" }) {
+// 29 kap. 7 § BrB: den som begått brottet innan hen fyllt 21 år ska få ett lägre straff än
+// vad brottets straffvärde annars skulle motivera. Reduktionen är inte lagfäst i en exakt
+// tabell, men skalan nedan är den vägledande utgångspunkt domstolar i praktiken utgår från
+// (etablerad sedan NJA 2000 s. 421, se t.ex. Borgeke/Sterzel "Studier rörande påföljdspraxis")
+// - det enskilda fallets omständigheter kan alltid motivera avvikelse uppåt eller nedåt.
+export const UNGDOMSREDUKTION_TABELL = [
+  { alder: 15, fraktion: 1 / 5 },
+  { alder: 16, fraktion: 1 / 4 },
+  { alder: 17, fraktion: 1 / 3 },
+  { alder: 18, fraktion: 1 / 2 },
+  { alder: 19, fraktion: 2 / 3 },
+  { alder: 20, fraktion: 3 / 4 },
+];
+
+export function ungdomsfraktion(alderVidBrott) {
+  if (alderVidBrott == null || alderVidBrott >= 21) return 1;
+  const rad = UNGDOMSREDUKTION_TABELL.find((r) => r.alder === Math.floor(alderVidBrott));
+  return rad ? rad.fraktion : 1;
+}
+
+export function berakna({ brott, vikter, golvProcent, straffskalor, takAllmantManader, allmantGolvManader, modell = "halvering", alderVidBrott = null }) {
   const sorterade = sorteradeBrott(brott);
   const viktade = viktaBrott(sorterade, { modell, vikter, golvProcent });
 
@@ -69,10 +89,16 @@ export function berakna({ brott, vikter, golvProcent, straffskalor, takAllmantMa
   const mangdrabattManader = renKumulation - justeratResultat;
   const mangdrabattProcent = renKumulation > 0 ? (mangdrabattManader / renKumulation) * 100 : 0;
 
+  // Ungdomsreduktionen (29 kap. 7 § BrB) tillämpas i ett sista steg, på det redan
+  // tak/golv-justerade resultatet - inte på de enskilda brottens straffvärden var för sig.
+  const ungdomsfraktionVarde = ungdomsfraktion(alderVidBrott);
+  const straffmatningsvarde = justeratResultat * ungdomsfraktionVarde;
+
   return {
     sorterade, viktade, renKumulation, halveringssumma,
     golvManader, takManader, svarasteTyp, justeratResultat,
     mangdrabattManader, mangdrabattProcent, modell,
+    alderVidBrott, ungdomsfraktion: ungdomsfraktionVarde, straffmatningsvarde,
   };
 }
 

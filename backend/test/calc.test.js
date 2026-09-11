@@ -9,7 +9,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { berakna, avrundaMangdrabatt, relevansPoang, analyseraTackning, sorteradeBrott, skalaFor } from "../../docs/calc.js";
+import { berakna, avrundaMangdrabatt, relevansPoang, analyseraTackning, sorteradeBrott, skalaFor, ungdomsfraktion } from "../../docs/calc.js";
 
 const ANDELSMODELL = "andelsmodell";
 
@@ -155,6 +155,40 @@ test("berakna: inga brott ger nollresultat", () => {
   assert.equal(res.renKumulation, 0);
   assert.equal(res.justeratResultat, 0);
   assert.equal(res.svarasteTyp, null);
+});
+
+test("ungdomsfraktion: ingen ålder angiven ger ingen reduktion", () => {
+  assert.equal(ungdomsfraktion(null), 1);
+});
+
+test("ungdomsfraktion: 21 år eller äldre ger ingen reduktion", () => {
+  assert.equal(ungdomsfraktion(21), 1);
+  assert.equal(ungdomsfraktion(35), 1);
+});
+
+test("ungdomsfraktion: 15-20 år följer den vägledande praxis-skalan (29 kap. 7 § BrB)", () => {
+  assert.equal(ungdomsfraktion(15), 1 / 5);
+  assert.equal(ungdomsfraktion(16), 1 / 4);
+  assert.equal(ungdomsfraktion(17), 1 / 3);
+  assert.equal(ungdomsfraktion(18), 1 / 2);
+  assert.equal(ungdomsfraktion(19), 2 / 3);
+  assert.equal(ungdomsfraktion(20), 3 / 4);
+});
+
+test("berakna: ungdomsreduktionen tillämpas på det tak/golv-justerade resultatet, inte på ren kumulation", () => {
+  const res = berakning({
+    brott: [brott("grov_stold", 36, 1), brott("stold", 10, 2), brott("ringa_stold", 3, 3)],
+    alderVidBrott: 18,
+  });
+  assert.equal(res.justeratResultat, 41.75); // samma som utan ungdomsreduktion
+  assert.equal(res.ungdomsfraktion, 0.5);
+  assert.equal(res.straffmatningsvarde, 41.75 * 0.5);
+});
+
+test("berakna: utan angiven ålder är straffmätningsvärdet samma som det justerade resultatet", () => {
+  const res = berakning({ brott: [brott("stold", 10)] });
+  assert.equal(res.ungdomsfraktion, 1);
+  assert.equal(res.straffmatningsvarde, res.justeratResultat);
 });
 
 test("avrundaMangdrabatt: mängdrabatten stämmer med a) minus c) räknat på de avrundade talen", () => {
