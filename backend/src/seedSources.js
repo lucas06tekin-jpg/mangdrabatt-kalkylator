@@ -581,6 +581,69 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_pressmeddelande",
     autoUppdateras: true,
   },
+  {
+    id: "HD B 8157-25 (2026-05-08)",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/hd/B8157-25/2026-05-08",
+    domstol: "Högsta domstolen (mål B 8157-25, 2026-05-08) - \"Upprepade försäljningar av " +
+      "narkotika II\"",
+    brott_sammanfattning:
+      "En man dömd för narkotikabrott (försäljning av kokain enligt 1 § andra stycket " +
+      "narkotikastrafflagen) vid elva tillfällen under ca tre veckor till olika köpare på " +
+      "skilda platser i och kring Göteborg. HD ändrade hovrättens brottsrubricering - varje " +
+      "försäljning är en egen brottsenhet, inte \"ett och samma brott\" som hovrätten ansett " +
+      "- men kom ändå fram till exakt samma samlade straffvärde.",
+    straffvarde_text:
+      "Pedagogiskt tydligt exempel på asperationsprincipens mekanik: en sedvanlig " +
+      "tillämpning av asperationsprincipen på de elva brotten (vart och ett med ett " +
+      "straffvärde på strax över 6 månader, pga. det förhöjda minimistraffet för " +
+      "försäljningsbrott) gav exakt samma samlade straffvärde, 1 år 10 månader, som " +
+      "hovrättens ursprungliga bedömning av gärningarna som ett enda brott. Påföljd: " +
+      "fängelse 1 år 9 månader (nedsatt något pga. lång häktningstid med restriktioner).",
+    brottstyper: ["narkotikabrott"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "RH 2005:6",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/rh/2005:6",
+    domstol: "Hovrätten för Övre Norrland (mål B 1018-03, 2004-09-22)",
+    brott_sammanfattning:
+      "Straffvärdesreferens, INTE ett flerfaldighetsexempel (åtalat och dömt som ett " +
+      "sammanhängande brott, inte flera separata brott): två makar utnyttjade under " +
+      "1997-2000 en 76-årig änkas oförstånd, beroendeställning och tilltagande åldersdemens " +
+      "till att via en rad rättshandlingar (fullmakter, testamente, gåvobrev, skenköp) " +
+      "tillägna sig hennes samlade tillgångar om ca 3,3 miljoner kr.",
+    straffvarde_text:
+      "Hovrätten dömde för ocker, grovt brott, till fängelse 2 år respektive 1 år - det " +
+      "enda verifierade avgörandet i denna kalkylator för grovt ocker, som annars helt " +
+      "saknar referensdomar.",
+    brottstyper: ["grovt_ocker"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 1986 s. 374",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/1986s374",
+    domstol: "Högsta domstolen (mål B 1083-83, 1986-07-01) - \"De stulna silverföremålen\"",
+    brott_sammanfattning:
+      "Gränsdragningsmål mellan häleri och häleriförseelse, INTE ett flerfaldighetsexempel: " +
+      "en inköpare på en metallhandel köpte ett parti stulna antika silverföremål (museigods) " +
+      "för 1 300 kr - klart under det verkliga värdet - utan att närmare undersöka säljarens " +
+      "åtkomst.",
+    straffvarde_text:
+      "HD fann att köparen haft \"skälig anledning antaga\" att godset var stulet (jfr det " +
+      "uppsåtskrav som gäller för häleri), men inte styrkt faktisk vetskap - gärningen " +
+      "bedömdes därför som häleriförseelse, inte häleri. Påföljd: 60 dagsböter.",
+    brottstyper: ["haleriforseelse"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [

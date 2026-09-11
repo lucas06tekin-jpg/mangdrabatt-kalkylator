@@ -330,17 +330,18 @@ ett sammanhållet. Straffvärde: 2 år 6 månader; utdömd påföljd 9 månader 
 reduktion för medverkan i utredningen. Dömt enligt paragrafens lydelse före 1 juli 2016,
 men grundstrukturen är oförändrad.
 
-**Ingen referensdom hittades för ocker.** Den enda ordentligt belysta moderna NJA-domen
-(NJA 2013 s. 1130) slutade i ett FRIKÄNNANDE - HD fastställde hovrättens frikännande, och
-det enda konkreta straffvärdet (motsvarande fängelse ett år) nämndes bara av två
-skiljaktiga justitieråd i minoritet. Att presentera den domen som ett exempel på ockers
-straffvärde hade varit missvisande, så den uteslöts medvetet - ocker täcks i stället av en
-Lawline-doktrinkälla. Motsvarande gäller för olovligt förfogande: inget genomsökt fall gav
-en ren, tydlig referensdom (ett kandidatfall, NJA 1986 s. 350, ledde faktiskt till en dom
-för BEDRÄGERI, inte olovligt förfogande, och hade gett fel bild av vilket brott som
-faktiskt tillämpades - samma typ av "fel mekanism"-misstag som uteslöts för rån och
-utpressning ovan). Båda täcks av Prop. 2016/17:131/SFS 2017:442 som doktrinkälla i
-stället.
+**Ingen referensdom hittades för ocker vid det här tillfället.** Den enda ordentligt
+belysta moderna NJA-domen (NJA 2013 s. 1130) slutade i ett FRIKÄNNANDE - HD fastställde
+hovrättens frikännande, och det enda konkreta straffvärdet (motsvarande fängelse ett år)
+nämndes bara av två skiljaktiga justitieråd i minoritet. Att presentera den domen som ett
+exempel på ockers straffvärde hade varit missvisande, så den uteslöts medvetet - ocker
+täcktes i stället bara av en Lawline-doktrinkälla (se nedan för RH 2005:6, som senare
+fyllde luckan för grovt ocker). Motsvarande gäller för olovligt förfogande: inget
+genomsökt fall gav en ren, tydlig referensdom (ett kandidatfall, NJA 1986 s. 350, ledde
+faktiskt till en dom för BEDRÄGERI, inte olovligt förfogande, och hade gett fel bild av
+vilket brott som faktiskt tillämpades - samma typ av "fel mekanism"-misstag som uteslöts
+för rån och utpressning ovan). Båda täcks av Prop. 2016/17:131/SFS 2017:442 som
+doktrinkälla i stället; olovligt förfogande saknar fortfarande en referensdom.
 
 ### Tillgrepp av fortskaffningsmedel - tillagd och sedan borttagen (2026-09-08)
 
@@ -590,6 +591,33 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   ligger nu bakom en `<details id="straffskalor-details">` ("Fasta juridiska fakta –
   straffskalor (31 brottstyper)"), samma hopfällbara mönster som referensdomarnas och
   viktlistans motsvarande sektioner.
+- **Tre nya referensdomar, alla lästa i fulltext på lagen.nu** (2026-09-11): en ny
+  sökrunda via lagen.nu:s begreppsindex (`/begrepp/Flerfaldig_brottslighet`,
+  `/begrepp/Ocker`, `/begrepp/Häleriförseelse` m.fl. - en mycket precisare ingång än
+  fritextsökningen, eftersom lagen.nu taggar varje rättsfall med sina juridiska
+  ämnesord) gav tre nya, verifierade poster i `REFERENSDOMAR`:
+  - **HD B 8157-25 (2026-05-08)**, "Upprepade försäljningar av narkotika II" - ett
+    pedagogiskt skolboksexempel på asperationsprincipen: HD omrubricerade elva
+    narkotikaförsäljningar från "ett brott" (hovrättens bedömning) till elva separata
+    brott, men landade ändå i exakt samma samlade straffvärde (1 år 10 månader) när
+    asperationsprincipen tillämpades på de elva - visar att metoden ger samma resultat
+    oavsett brottsenhetsindelning. Nytt andra flerfaldighetsexempel för narkotikabrott.
+  - **RH 2005:6** - fyllde den tidigare bekräftade luckan för grovt ocker (se
+    "Utökning till ocker..." ovan): två makar dömda till fängelse 2 respektive 1 år för
+    att systematiskt ha tömt en dements 76-åriga kvinna på 3,3 miljoner kr. Taggad som
+    straffvärdesreferens, inte flerfaldighetsexempel, eftersom åtalet omfattade
+    gärningarna som ETT sammanhållet ockerbrott, inte flera räknade brott.
+  - **NJA 1986 s. 374**, "De stulna silverföremålen" - fyllde häleriförseelse-luckan
+    (se "Källtäckning" ovan, där en tidigare uttömmande sökning specifikt efter
+    flerfaldighets-/blandfall inte gav träff) med ett gränsdragningsmål i stället: HD
+    fann att en inköpare som köpt stulet antikt silver för en bråkdel av värdet haft
+    "skälig anledning antaga" att godset var stulet men inte styrkt faktisk vetskap -
+    därför häleriförseelse, inte häleri.
+  Flera andra sökta luckor (grov misshandel, olovligt förfogande, grovt rån, ringa
+  utpressning) gav inga användbara träffar den här omgången - antingen för att sökträffar
+  visade sig gälla helt andra brott vid närmare läsning (t.ex. NJA 2011 s. 524, som
+  egentligen handlar om en teoretisk besittningsfråga för förskingring), eller för att
+  ingen publicerad överrättsdom hittades alls. De luckorna kvarstår därför genuint.
 
 ## Testa
 
