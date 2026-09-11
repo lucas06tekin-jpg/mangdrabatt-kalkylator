@@ -564,6 +564,13 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   ("Lägg till minst ett brott ovan...") visas i stället för en tom lista. Testat med
   grov stöld tillagd: 5 matchande domar visas direkt, 24 döljs bakom klicket - mot
   tidigare alla 29 alltid utskrivna i sin helhet.
+- **Viktlistan är hopfälld som standard** (2026-09-11): halveringsmodellens manuella
+  vikter fick en egen rad per tillagt brott, som nästan aldrig behöver justeras (golvet
+  räcker i praktiken) men ändå alltid låg synlig och växte med varje nytt brott. Ligger
+  nu bakom en `<details id="vikt-lista-details">` ("Justera vikter manuellt (avancerat)
+  — X brott"), hopfälld tills man aktivt klickar sig in. Samma full bredd-stil som
+  referensdomarnas utfällbara lista ovan. Fortsatt helt dold i andelsmodell-läget, där
+  vikterna styrs automatiskt och inte går att justera för hand.
 
 ## Testa
 

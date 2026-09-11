@@ -392,9 +392,11 @@ body {
 .bakgrund-details .panel-note { margin: 0.4rem 0; }
 
 /* Samma utfällbara stil som .bakgrund-details i sidfoten, men full bredd i stället för
-   centrerad/smal - används för de mindre relevanta referensdomarna, se renderReferensdomar(). */
-#refs-ovriga-details { max-width: none; margin: 0.5rem 0 0; }
-#refs-ovriga-summary { font-size: 0.9rem; }
+   centrerad/smal - används för de mindre relevanta referensdomarna (renderReferensdomar())
+   och den manuella viktlistan, som annars växer med en rad per tillagt brott och nästan
+   aldrig behöver justeras (golvet räcker i praktiken). */
+#refs-ovriga-details, #vikt-lista-details { max-width: none; margin: 0.5rem 0 0; }
+#refs-ovriga-summary, #vikt-lista-summary { font-size: 0.9rem; }
 
 .tackning-lista { display: flex; flex-direction: column; gap: 0.35rem; }
 .tackning-rad {

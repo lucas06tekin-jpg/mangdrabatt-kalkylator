@@ -352,7 +352,7 @@ function rakenOmOchRendera() {
 function renderModellVal() {
   const arAndelsmodell = state.modell === 'andelsmodell';
   document.getElementById('golv-procent-wrap').hidden = arAndelsmodell;
-  document.getElementById('vikt-lista').hidden = arAndelsmodell;
+  document.getElementById('vikt-lista-details').hidden = arAndelsmodell;
   document.getElementById('modell-beskrivning').textContent = arAndelsmodell
     ? 'Enligt SOU 2023:1 (s. 130), som beskriver detta som redan etablerad domstolspraxis: ' +
       'hälften av varje ytterligare brotts straffvärde läggs till om det svåraste brottets ' +
@@ -396,6 +396,8 @@ function renderVikter() {
   container.innerHTML = '';
   if (state.modell === 'andelsmodell') return; // vikterna styrs automatiskt i detta läge
   const antal = Math.max(state.brott.length, 1);
+  document.getElementById('vikt-lista-summary').textContent =
+    `Justera vikter manuellt (avancerat) — ${antal} brott`;
   const golv = state.golvProcent;
   while (state.vikter.length < antal) {
     const i = state.vikter.length;
