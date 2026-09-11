@@ -388,7 +388,16 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  list-style: none;
 }
+.bakgrund-details summary::-webkit-details-marker { display: none; }
+.bakgrund-details summary::after {
+  content: '▾';
+  margin-left: auto;
+  color: var(--ink-soft);
+  transition: transform 0.15s ease;
+}
+.bakgrund-details[open] summary::after { transform: rotate(180deg); }
 .bakgrund-details[open] summary { margin-bottom: 0.6rem; }
 .bakgrund-details .panel-note { margin: 0.4rem 0; }
 
