@@ -708,6 +708,27 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "NJA 1994 s. 480",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/1994s480",
+    domstol: "Högsta domstolen (mål B 1156-92, 1994-07-12)",
+    brott_sammanfattning:
+      "Straffvärdesreferens, INTE ett flerfaldighetsexempel (ett enda tillfälle): en man tog " +
+      "ut 46 000 kr som av misstag hade satts in på hans vilande bolags postgirokonto, och " +
+      "behöll pengarna i två månader trots vetskap om felet. Det enda verifierade " +
+      "avgörandet i denna kalkylator för olovligt förfogande, som annars helt saknar " +
+      "referensdomar.",
+    straffvarde_text:
+      "HD fastställde hovrättens dom: villkorlig dom (utan bötesstraff, med hänsyn till " +
+      "svarandens ekonomiska situation). Domen är främst känd för sitt principiella " +
+      "uttalande om att pengar på ett bankkonto kan vara i \"besittning\" i brottsbalkens " +
+      "mening - avgörande för att olovligt förfogande överhuvudtaget var tillämpligt.",
+    brottstyper: ["olovligt_forfogande"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [

@@ -641,6 +641,26 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   olovligt förfogande och trolöshet mot huvudman (normalgraden) saknar fortfarande
   referensdomar helt.
 
+- **En referensdom till, och en bekräftad strukturell lucka (2026-09-11, tredje
+  sökrundan samma dag)**:
+  - **NJA 1994 s. 480** - fyllde till slut olovligt förfogande-luckan: en man som av
+    misstag fått 46 000 kr insatta på sitt bolags postgirokonto tog ut och behöll
+    pengarna i två månader trots vetskap om felet. Påföljd: villkorlig dom. Domen är
+    dessutom den principiella källan till att pengar på ett bankkonto överhuvudtaget kan
+    vara i någons "besittning" i brottsbalkens mening - se NJA 2011 s. 524 ovan, som
+    byggde vidare på just detta avgörande (men som själv förkastades här pga. sin
+    komplexa, dissens-tyngda argumentation om förskingring snarare än en tydlig
+    olovligt förfogande-illustration).
+  - **Ringa utpressning bekräftat en genuint tom lucka, inte en sökmiss.** En riktad
+    sökning efter exakt frastexten `"utpressning, ringa brott"` gav noll rättsfallsträffar
+    alls (bara tre förarbeten som konstaterar att brottstypen existerar) - samma mönster
+    som redan gäller ringa bedrägeri. Sannolikt för lindrig för att någonsin ha
+    överklagats till en publicerad instans.
+  Flera kandidater för trolöshet mot huvudman (normalgraden) förkastades eftersom de
+  visade sig gälla den grova graden trots lovande sökträffar - starka belopp tycks
+  konsekvent leda till att brottet rubriceras som grovt i praktiken. Trolöshet mot
+  huvudman (normalgraden) och grovt olovligt förfogande kvarstår som genuina luckor.
+
 ## Testa
 
 ```bash
