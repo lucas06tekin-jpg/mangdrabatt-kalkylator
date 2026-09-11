@@ -141,9 +141,16 @@ function fyllBrottstypDropdown() {
   const sokInput = document.getElementById('brottstyp-sok');
   const lista = document.getElementById('brottstyp-lista');
 
+  // OBS: listan öppnas INTE här på 'focus' - bara markering av texten. Annars skulle
+  // den programmatiska .focus() som bindForm() gör efter varje tillagt brott (för att
+  // slippa ett extra klick innan nästa sökning) oönskat slänga upp hela listan mitt i
+  // arbetsflödet. Listan öppnas i stället bara av faktiska användarinitierade handlingar:
+  // klick (nedan), inskrivning eller piltangent.
   sokInput.addEventListener('focus', () => {
     sokInput.select();
-    renderBrottstypLista('');
+  });
+  sokInput.addEventListener('click', () => {
+    renderBrottstypLista(sokInput.value);
     oppnaBrottstypLista();
   });
   sokInput.addEventListener('input', () => {

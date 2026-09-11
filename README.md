@@ -660,6 +660,16 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   visade sig gälla den grova graden trots lovande sökträffar - starka belopp tycks
   konsekvent leda till att brottet rubriceras som grovt i praktiken. Trolöshet mot
   huvudman (normalgraden) och grovt olovligt förfogande kvarstår som genuina luckor.
+- **Brottstyp-listan öppnas inte längre automatiskt efter "Lägg till brott"**
+  (2026-09-11): fokus-återgången till `#brottstyp-sok` efter varje tillagt brott (se
+  "Fokus hoppar tillbaka..." ovan) återanvände samma `focus`-lyssnare som ett riktigt
+  klick i fältet, vilket slängde upp hela den grupperade brottstypslistan direkt efter
+  varje tillägg - upplevdes som en oönskad popup mitt i arbetsflödet. `focus`-lyssnaren
+  gör nu bara `select()` (markerar texten); listan öppnas i stället bara av faktiska
+  användarinitierade handlingar - ett nytt `click`-lyssnare, inskrivning, eller
+  piltangent om listan råkar vara stängd. En programmatisk `.focus()`-anrop (efter
+  submit) utlöser aldrig `click`, så skillnaden mellan "fick fokus" och "blev klickad"
+  är precis vad som behövdes.
 
 ## Testa
 
