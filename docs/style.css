@@ -430,6 +430,11 @@ body {
 @media (max-width: 560px) {
   .brott-form { grid-template-columns: 1fr; }
   .btn-primary { height: auto; padding: 0.7rem 1.1rem; }
+  /* Sida vid sida (label/värde) trängs ihop på smala skärmar när en lång rad (t.ex.
+     ungdomsreduktionens rad e, med både paragrafhänvisning och ålder/faktor i etiketten)
+     radbryts till 3 rader - värdets egen radbrytning hamnade då tätt inpå etikettens sista
+     rad. Staplade i stället, samma mönster som redan gäller brott-formuläret ovan. */
+  .resultat-rad { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
 }
 
 /* "Skriv ut resultat" - formaterad som ett PM en jurist faktiskt skulle kunna bifoga en
