@@ -811,6 +811,36 @@ de paragrafer appen bygger på (26 kap. 1-2 §§, 29 kap. 1-7 §§).
   uttömda så långt fria källor räcker - den enda kvarstående konkreta ledtråden är
   fortfarande Range Rover-fallet bakom Dagens Juridiks betalvägg.
 
+### Ännu en sökrunda, nu även mot tingsrättsdomar (2026-09-14, samma dag)
+
+Användaren godkände uttryckligen att även renodlade tingsrättsavgöranden (inte bara
+hovrätt/HD) får läggas till, så länge de går att verifiera - vilket gav två nya fynd
+via domstol.se:s egna pressmeddelanden (samma tillförlitlighetsnivå som databasens
+övriga `manuell_pressmeddelande`-poster, till skillnad från gårdagens
+lokaltidningsfynd):
+
+- **Malmö tingsrätt B 1595-24** - en av elva män dömda i en stor dom om våldsamt
+  upplopp (Fridhemsplan) dömdes i en helt separat händelse för rån, grov misshandel
+  OCH olovligt förfogande (två värmepumpar) - tre olika brottstyper kombinerade,
+  fängelse 2 år. Ett bra tillskott till samlingen av "blandade brottstyper"-exempel.
+- **Stockholms tingsrätt B 2798-23** - fyller luckan för flerfaldighet inom
+  utpressning av normalgraden (fanns tidigare bara ett gränsdragningsmål): en
+  kvinna dömd för både fullbordad utpressning och försök till utpressning mot en
+  riksdagsledamot (hot om att avslöja sexköp). Åklagaren yrkade grovt, tingsrätten
+  sa nej. Påföljd: skyddstillsyn med samhällstjänst.
+
+**Viktig läxa under research**: en AI-sammanfattning av sökträffar blandade
+oavsiktligt ihop Malmö-domen med en helt orelaterad friande dom om en "vaccinbuss"
+(Företagare som bedrivit vårdverksamhet, dom 2026-07). Det gick bara att reda ut
+genom att läsa själva domstol.se-sidorna direkt - ett skäl till varför alla
+sammanfattade sökträffar i den här kalkylatorn alltid läses i original innan de
+läggs till.
+
+Ringa utpressning och grovt olovligt förfogande gav fortsatt inget nytt trots
+riktade domstol.se-sökningar (bl.a. en fulltext-genomläst tingsrättsdom om grov
+utpressning/mordbrand som visade sig sakna den ringa graden helt). Bedöms nu vara
+väl uttömda med webbaserade metoder.
+
 ## Testa
 
 ```bash

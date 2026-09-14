@@ -862,6 +862,51 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_nyhetsartikel",
     autoUppdateras: true,
   },
+  {
+    // Hittad via bredare websökning efter att en AI-sammanfattning av sökträffar (felaktigt)
+    // blandade ihop denna dom med en helt annan, orelaterad friande dom om en "vaccinbuss" -
+    // tvingade fram en direktläsning av själva domstol.se-pressmeddelandet för att reda ut
+    // vad som faktiskt hänt. God påminnelse om att aldrig lita på en sammanfattning utan att
+    // läsa primärkällan.
+    id: "Malmö tingsrätt B 1595-24",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url:
+      "https://www.domstol.se/nyheter/2024/07/elva-man-doms-for-valdsamt-upplopp-vid-fridhemsplan-i-stockholm-i-september-2023/",
+    domstol: "Malmö tingsrätt (mål B 1595-24, publicerad 2024-07-05)",
+    brott_sammanfattning:
+      "En av elva män som dömdes i en större dom om våldsamt upplopp (Fridhemsplan, " +
+      "Malmö/Djurgården-supportrar) dömdes därutöver, i en helt separat händelse " +
+      "(MFF:s guldmatch mot Elfsborg i november 2023), för rån och grov misshandel - " +
+      "han och medgärningsmän rånade maskerade kioskpersonal på en fotbollsarena på " +
+      "ett flak folköl och misshandlade sedan två anställda som hämnd. Han dömdes " +
+      "också för olovligt förfogande avseende två värmepumpar - ett konkret exempel " +
+      "på flerfaldighet med tre helt olika brottstyper kombinerade.",
+    straffvarde_text: "Påföljd för mannens samlade brottslighet: fängelse 2 år.",
+    brottstyper: ["ran", "grov_misshandel", "olovligt_forfogande"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
+  {
+    id: "Stockholms tingsrätt B 2798-23",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url: "https://www.domstol.se/nyheter/2023/04/kvinna-doms-for-utpressning-mot-riksdagsledamot/",
+    domstol: "Stockholms tingsrätt (mål B 2798-23, 2023-04-04)",
+    brott_sammanfattning:
+      "Fyller luckan för flerfaldighet inom utpressning av NORMALGRADEN (fanns tidigare " +
+      "bara ett gränsdragningsmål, RH 2018:44 ovan): en kvinna dömd för både fullbordad " +
+      "utpressning och försök till utpressning - två separata brott - mot en " +
+      "riksdagsledamot, genom hot om att polisanmäla denne för köp av sexuell tjänst och " +
+      "hot om att publicera en bild av sexuell natur. Åklagaren yrkade grov utpressning, " +
+      "men tingsrätten fann att brotten inte skulle bedömas som grova.",
+    straffvarde_text:
+      "Påföljd: skyddstillsyn med samhällstjänst, samt skyldighet att betala tillbaka " +
+      "utbytet av brottsligheten.",
+    brottstyper: ["utpressning"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
