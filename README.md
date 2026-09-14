@@ -709,6 +709,17 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   bedrägeri, ringa utpressning, grovt olovligt förfogande, trolöshet mot huvudman
   normalgraden) - samtliga nu bekräftade genom riktad, uttömmande sökning som genuina
   strukturella luckor i den publicerade svenska rättspraxisen, inte sökmissar.
+  Samma sökrunda gav också **NJA 2011 s. 466** ("Det grova överfallsrånet") - ett
+  ovanligt rikt fynd som fyller flera behov samtidigt: en tydlig grovt rån-fällande
+  motpol till NJA 2018 s. 767 (gaturån som eskalerade till frihetsberövande i offrets
+  eget hem över en timme), OCH ett genuint flerfaldighetsexempel med fyra olika
+  brottstyper (grovt rån + rån + misshandel + ringa narkotikabrott, samlat
+  straffvärde 6 år för en vuxen) OCH en verklig tillämpning av just den
+  ungdomsreduktion appen implementerar (16-åring, sluten ungdomsvård 1 år - en kvot
+  som matchar kalkylatorns egen 16-års-faktor på ungefär en fjärdedel).
+  Slutligen tillkom **NJA 2000 s. 652** - en andra häleriförseelse-referens (köp av en
+  stulen fritidsbåt värd ca 350 000 kr), som visar att gränsdragningen mot häleri
+  gäller lika mycket vid högt värde som vid NJA 1986 s. 374:s lågvärdesexempel.
 
 ## Testa
 

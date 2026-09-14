@@ -751,6 +751,53 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "NJA 2011 s. 466",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2011s466",
+    domstol: "Högsta domstolen (mål B 2175-11, 2011-06-30) - \"Det grova överfallsrånet\"",
+    brott_sammanfattning:
+      "Tre gärningsmän rånade en man på gatan och förde honom sedan till hans egen bostad, " +
+      "där han under hotfulla och förnedrande former hölls frihetsberövad i närmare en " +
+      "timme innan han bands, fick ögon och mun täckta och låstes in i en garderob. HD " +
+      "fastställde att gärningen (metodisk, flera gärningsmän, förlängt händelseförlopp i " +
+      "offrets eget hem) utgjorde grovt rån - ett tydligt motexempel till NJA 2018 s. 767 " +
+      "ovan, som visar var gränsen faktiskt går uppåt. En av gärningsmännen (16 år vid " +
+      "brottet) dömdes dessutom för rån i två fall, misshandel och ringa narkotikabrott.",
+    straffvarde_text:
+      "Den samlade brottslighetens straffvärde (grovt rån + rån i två fall + misshandel + " +
+      "ringa narkotikabrott + olovligt knivinnehav) bedömdes motsvara fängelse 6 år för en " +
+      "vuxen person. Eftersom gärningsmannen var 16 år vid brotten satte tingsrätten " +
+      "(fastställt av HD) i stället tiden för sluten ungdomsvård till 1 år - en kvot på " +
+      "ungefär en fjärdedel som stämmer väl med denna kalkylators egen ungdomsreduktions-" +
+      "tabell för just 16 år (29 kap. 7 § BrB).",
+    brottstyper: ["grovt_ran", "ran", "misshandel", "ringa_narkotikabrott"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
+  {
+    id: "NJA 2000 s. 652",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2000s652",
+    domstol: "Högsta domstolen (mål B 5030-99, 2000-12-08)",
+    brott_sammanfattning:
+      "Gränsdragningsmål, INTE ett flerfaldighetsexempel (ett enda tillfälle): en man " +
+      "köpte en stulen fritidsbåt med två utombordsmotorer (verkligt värde ca 350 000 kr) " +
+      "för 100 000 kr av en okänd säljare, utan att skaffa några ägarhandlingar eller " +
+      "kunna nå säljaren i efterhand. En andra referensdom för häleriförseelse, med ett " +
+      "betydligt högre värde än NJA 1986 s. 374 ovan - visar att häleriförseelse inte är " +
+      "begränsat till lågvärdesgods.",
+    straffvarde_text:
+      "HD fann att omständigheterna gav skälig anledning att anta att båten var stulen, " +
+      "men att det inte var styrkt att köparen faktiskt insett detta - därför " +
+      "häleriförseelse, inte häleri. Påföljd: 80 dagsböter. En skiljaktig justitieråd " +
+      "ville döma för häleri.",
+    brottstyper: ["haleriforseelse"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
