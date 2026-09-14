@@ -791,6 +791,26 @@ av en slump under ett websökningsuppdrag - inte genom systematisk bevakning. De
 vore klokt att regelbundet kontrollera lagen.nu:s brottsbalken-sida för ändringar i
 de paragrafer appen bygger på (26 kap. 1-2 §§, 29 kap. 1-7 §§).
 
+### Ytterligare en sökrunda mot de tre sista luckorna (2026-09-14, samma dag)
+
+- **Inbrottsstöld-flerfaldighet - äntligen ett fynd, men med reservationer.**
+  **Västmanlands tingsrätt (Magazin24, 2026-03-31)**: en 31-åring dömd för
+  inbrottsstöld (Hallstahammar, mars 2023) och stöld (byggarbetsplats i Arboga,
+  april 2024). Detta är ett genuint avsteg från databasens annars strikta krav på
+  primärkälla (lagen.nu-domtext eller domstol.se-pressmeddelande): artikeln anger
+  inget målnummer, är bara tingsrättsnivå, och den rapporterade "sex månaders
+  fängelse" är efter en 34 kap.-justering (nyupptäckt brottslighet i förhållande
+  till en tidigare, orelaterad dom) - inte det renodlade asperationsresultatet
+  ("drygt ett år" enligt artikeln). En ny verifieringsstatus,
+  `manuell_nyhetsartikel`, infördes för att tydligt skilja denna typ av post från
+  de annars primärkälleverifierade posterna - se kommentaren högst upp i
+  `seedSources.js`.
+- **Ringa utpressning och grovt olovligt förfogande kvarstår.** Ytterligare
+  sökningar (lokaltidningsarkiv, generella sökfraser, "verkligabrott.se" som
+  visade sig sakna den sökta artikeln) gav inget nytt. Dessa två bedöms nu vara
+  uttömda så långt fria källor räcker - den enda kvarstående konkreta ledtråden är
+  fortfarande Range Rover-fallet bakom Dagens Juridiks betalvägg.
+
 ## Testa
 
 ```bash

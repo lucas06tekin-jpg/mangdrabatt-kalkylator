@@ -5,6 +5,10 @@
 // till här. Sammanfattningarna är egenformulerade - inga citat ur domarna.
 // autoUppdateras=true innebär att scraper.js periodiskt kontrollerar att URL:en fortfarande
 // svarar (lagen.nu och domstol.se tillåter detta enligt deras robots.txt).
+// Ett enda undantag: verifieringsstatus "manuell_nyhetsartikel" markerar en post där varken
+// domstexten eller ett domstolspressmeddelande gick att hitta/läsa - bara en lokaltidnings
+// referat, utan målnummer. Används bara för brottstyper där ingen bättre källa hittats
+// trots upprepade riktade sökningar (se README för sökhistoriken).
 //
 // Kategori B (FÖRKLARANDE KÄLLOR): Lawline-artiklar. VIKTIGT: lawline.se/robots.txt nekar
 // uttryckligen "ClaudeBot" (även om User-agent: * tillåter allt). Dessa poster är därför
@@ -828,6 +832,34 @@ export const REFERENSDOMAR = [
     brottstyper: ["troloshet_mot_huvudman"],
     flerfaldighetsexempel: true,
     verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
+  {
+    // Hittad via bredare websökning (lokaltidning, inte lagen.nu/domstol.se) efter att
+    // inbrottsstöld-flerfaldighet konstaterats sakna prejudikat i flera tidigare
+    // sökrundor. VIKTIGA BEGRÄNSNINGAR jämfört med databasens övriga poster: artikeln
+    // anger inget målnummer (kunde därför inte slås upp och läsas i sin helhet), det är
+    // bara tingsrättens dom (inte överklagad/fastställd i högre instans veterligen), och
+    // straffvärdet ("drygt ett år") är journalistens sammanfattning, inte ett exakt tal.
+    id: "Västmanlands tingsrätt (Magazin24, 2026-03-31)",
+    kalla: "Magazin24 (lokaltidning)",
+    kalla_url:
+      "https://magazin24.se/vastmanland/vastra-malardalen/arboga/tjuv-doms-efter-inbrott-i-lagenhet-och-byggstold/",
+    domstol: "Västmanlands tingsrätt (målnummer okänt - ej angivet i artikeln)",
+    brott_sammanfattning:
+      "Det enda hittade exemplet i denna kalkylator på flerfaldighet inom inbrottsstöld: " +
+      "en 31-årig man dömdes för inbrottsstöld (inbrott i en lägenhet i Hallstahammar " +
+      "mars 2023, klädstöld) och stöld (byggarbetsplats i Arboga april 2024, kapmaskin " +
+      "och lasermätare) - två separata tillfällen, olika brottstyper.",
+    straffvarde_text:
+      "Straffvärdet för den samlade brottsligheten bedömdes enligt artikeln till \"fängelse " +
+      "i drygt ett år\". Den slutliga påföljden justerades dock ned till 6 månader enligt " +
+      "34 kap. BrB, eftersom brotten upptäckts i efterhand i förhållande till en tidigare, " +
+      "orelaterad dom (samma \"nyupptäckt brottslighet\"-mekanik som NJA 2009 s. 485 ovan) " +
+      "- de 6 månaderna representerar alltså INTE det renodlade 26 kap. 2 §-resultatet.",
+    brottstyper: ["inbrottsstold", "stold"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_nyhetsartikel",
     autoUppdateras: true,
   },
 ];

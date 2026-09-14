@@ -585,6 +585,7 @@ function byggReferensdomLi(r, poang) {
   const verifText = {
     manuell_fulltext: 'Manuellt verifierad (fulltext läst)',
     manuell_pressmeddelande: 'Manuellt verifierad (pressmeddelande)',
+    manuell_nyhetsartikel: 'Manuellt verifierad (nyhetsartikel, ej primärkälla)',
   }[r.verifieringsstatus] || 'Maskinellt tolkad';
   const verifClass = r.verifieringsstatus.startsWith('manuell') ? 'verif-manuell' : 'verif-maskin';
   const flerfaldighetTagg = r.flerfaldighetsexempel
