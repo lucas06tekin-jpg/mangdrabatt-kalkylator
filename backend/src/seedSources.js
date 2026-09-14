@@ -907,6 +907,31 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_pressmeddelande",
     autoUppdateras: true,
   },
+  {
+    id: "HD B 4262-12 (2013-12-20)",
+    kalla: "domstol.se",
+    kalla_url: "https://www.domstol.se/globalassets/filer/domstol/hogstadomstolen/avgoranden/2013/b-4262-12.pdf",
+    domstol: "Högsta domstolen (mål B 4262-12, 2013-12-20)",
+    brott_sammanfattning:
+      "Gränsdragningsmål/straffvärdesreferens, INTE ett flerfaldighetsexempel (åtalat och " +
+      "bedömt som ett sammanhållet ockerbrott, inte flera räknade brott): en kvinna " +
+      "utnyttjade sin äldre systers psykiska sjukdom/nedsatta omdömesförmåga till att " +
+      "under tre veckor 2009 förmå henne att skänka bort värdepapper, kontanter och en " +
+      "fastighet, sammanlagt ca 2 082 000 kr, fördelat på tre transaktioner. Tingsrätten " +
+      "dömde för GROVT ocker; hovrätten friade helt (bevisfråga om systerns oförstånd); " +
+      "HD återställde en fällande dom men för ocker av NORMALGRADEN. En skiljaktig " +
+      "justitieråd ansåg att brottet - med hänsyn särskilt till beloppets storlek - borde " +
+      "bedömts som grovt, med ett straffvärde motsvarande fängelse ett år.",
+    straffvarde_text:
+      "Påföljd enligt majoriteten: villkorlig dom med ett högt bötesstraff - trots ett " +
+      "straffvärde som annars talat för fängelse - eftersom det vid domstillfället gått " +
+      "mer än fyra år sedan brottet begicks (29 kap. 5 § första stycket 7 och 30 kap. 4 § " +
+      "första stycket BrB).",
+    brottstyper: ["ocker", "grovt_ocker"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
@@ -1362,6 +1387,41 @@ export const FORKLARANDE_KALLOR = [
       "hotets innebörd, hur akut det framstår, om det riktas mot någon i särskilt " +
       "skyddslös ställning, och uttryckligen om det rör sig om UPPREPADE allvarliga hot.",
     brottstyper: ["olaga_hot", "grovt_olaga_hot"],
+    granskningsdjup: "fulltext",
+  },
+  {
+    // Fyller den tidigare tomma doktrin-luckan för grovt narkotikabrott (0 förklarande
+    // källor trots två referensdomar).
+    id: "lawline-grans-grovt-narkotikabrott-heroin",
+    kalla: "Lawline",
+    titel: "Vart går gränsen för grovt narkotikabrott för heroin?",
+    kalla_url: "https://lawline.se/answers/vart-gar-gransen-for-grovt-narkotikabrott-for-heroin-",
+    sammanfattning:
+      "Förklarar att gradindelningen (3 § narkotikastrafflagen) inte bara avgörs av " +
+      "mängd, utan en samlad bedömning av om brottet skett i större omfattning, avsett " +
+      "en särskilt stor mängd eller varit av särskilt farlig/hänsynslös art - kravet på " +
+      "mängd är lägre ju farligare preparatet är. Anger ungefärliga mängdriktmärken " +
+      "(med hänvisning till SvJT 2013 s. 53 och NJA 1997 s. 193): cannabis ca 5 kg, " +
+      "amfetamin/mefedron ca 500 g, ecstasy ca 5 000 tabletter, kokain ca 100 g, " +
+      "heroin - som farligast - redan vid ca 50 g.",
+    brottstyper: ["grovt_narkotikabrott"],
+    granskningsdjup: "fulltext",
+  },
+  {
+    // Fyller den tidigare tomma doktrin-luckan för synnerligen grovt narkotikabrott (0
+    // förklarande källor). Tunnare innehåll än föregående post - handlar mest om
+    // häktningsavdrag - men bekräftar straffskalan (6-10 år) och att den gäller oavsett
+    // frigivning i väntan på dom.
+    id: "lawline-straff-synnerligt-grovt-narkotikabrott",
+    kalla: "Lawline",
+    titel: "Straff vid synnerligt grovt narkotikabrott",
+    kalla_url: "https://lawline.se/answers/straff-vid-synnerligt-grovt-narkotikabrott",
+    sammanfattning:
+      "Bekräftar straffskalan för synnerligen grovt narkotikabrott (6-10 år, 3 § " +
+      "narkotikastrafflagen) och klargör att den tillämpas fullt ut även om den " +
+      "misstänkte släppts ur häkte i väntan på dom - häktningstiden räknas i så fall av " +
+      "från det slutliga straffet, men straffskalan i sig påverkas inte.",
+    brottstyper: ["synnerligen_grovt_narkotikabrott"],
     granskningsdjup: "fulltext",
   },
 ];

@@ -841,6 +841,41 @@ riktade domstol.se-sökningar (bl.a. en fulltext-genomläst tingsrättsdom om gr
 utpressning/mordbrand som visade sig sakna den ringa graden helt). Bedöms nu vara
 väl uttömda med webbaserade metoder.
 
+Range Rover-fallets målnummer gick inte att hitta trots Wayback Machine (samma
+betalvägg redan från publiceringsdagen), lokaltidningsarkiv och Eskilstuna
+tingsrätts egen sida för publicerade avgöranden (som bekräftar att vanliga
+tingsrättsdomar måste beställas med målnummer - moment 22 utan det). Väntar på att
+användaren hittar numret via en egen Dagens Juridik-prenumeration eller genom att
+beställa avgörandet direkt från tingsrätten.
+
+### Doktrinluckor för narkotikabrott stängda, samt en riktig HD-dom för ocker
+(2026-09-14, samma dag)
+
+- **Två nya Lawline-källor** stänger de sista doktrin-luckorna för
+  grovt/synnerligen grovt narkotikabrott (båda hade tidigare noll förklarande
+  källor): "Vart går gränsen för grovt narkotikabrott för heroin?" (mängdriktmärken
+  per preparat, med hänvisning till SvJT 2013 s. 53 och NJA 1997 s. 193) och "Straff
+  vid synnerligt grovt narkotikabrott" (bekräftar straffskalan 6-10 år).
+- **HD B 4262-12 (2013-12-20)** - en riktig HD-fulltext, inte bara ett
+  pressmeddelande: en kvinna utnyttjade sin äldre, psykiskt sjuka systers
+  oförstånd till att under tre veckor 2009 lura henne på värdepapper, kontanter
+  och en fastighet - sammanlagt ca 2 082 000 kr fördelat på tre transaktioner.
+  Tingsrätten dömde grovt ocker, hovrätten friade helt, HD återställde en fällande
+  dom men bara för ocker av normalgraden (en skiljaktig justitieråd ville döma
+  grovt). Ett rikt, verkligt HD-fall för `ocker`/`grovt_ocker` - som tidigare bara
+  hade ett enda, tunnare exempel vardera.
+
+**Bugg hittad och fixad under research**: `kontrolleraUrl()` i `scraper.js`
+försökte HEAD före GET för att spara bandbredd, men om HEAD-anropet kastade ett
+nätverksfel (i stället för att bara returnera en icke-2xx-status) fångades felet
+direkt och GET-fallbacken kördes aldrig - en fullt fungerande källa flaggades då
+felaktigt som otillgänglig. Upptäckt när HD B 4262-12:s PDF (som ligger under
+domstol.se:s `/globalassets/`-sökväg) konsekvent gav "kunde inte nås: fetch
+failed" trots att en vanlig GET fungerade perfekt. `domstol.se` svarar tydligen
+inte alls på HEAD-förfrågningar för PDF:er under den sökvägen. Fixat genom att
+fånga ett eventuellt HEAD-fel separat och ändå försöka GET efteråt, i stället för
+att låta ett kastat HEAD-fel avbryta hela kontrollen.
+
 ## Testa
 
 ```bash

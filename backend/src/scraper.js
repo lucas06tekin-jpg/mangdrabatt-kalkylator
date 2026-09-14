@@ -79,14 +79,24 @@ async function kontrolleraUrl(url) {
   if (!tillaten) {
     return { tillganglig: false, meddelande: "robots.txt tillåter inte automatiserad hämtning av denna sida" };
   }
+  // Vissa servrar (t.ex. domstol.se:s PDF-CDN under /globalassets/) svarar inte alls på
+  // HEAD - fetch kastar då ett nätverksfel i stället för att ge en icke-2xx status. Ett
+  // sådant kastat fel får INTE tolkas som att sidan är otillgänglig utan att GET har
+  // provats också, annars flaggas fullt fungerande källor felaktigt som trasiga.
+  let headFel = null;
   try {
-    let resp = await fetchMedTimeout(url, { method: "HEAD" });
-    if (!resp.ok) resp = await fetchMedTimeout(url, { method: "GET" });
+    const resp = await fetchMedTimeout(url, { method: "HEAD" });
+    if (resp.ok) return { tillganglig: true, meddelande: "ok" };
+  } catch (err) {
+    headFel = err;
+  }
+  try {
+    const resp = await fetchMedTimeout(url, { method: "GET" });
     return resp.ok
       ? { tillganglig: true, meddelande: "ok" }
       : { tillganglig: false, meddelande: `HTTP ${resp.status}` };
   } catch (err) {
-    return { tillganglig: false, meddelande: `kunde inte nås: ${err.message}` };
+    return { tillganglig: false, meddelande: `kunde inte nås: ${(headFel || err).message}` };
   }
 }
 
