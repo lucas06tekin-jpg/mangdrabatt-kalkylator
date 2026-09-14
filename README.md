@@ -721,6 +721,31 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   stulen fritidsbåt värd ca 350 000 kr), som visar att gränsdragningen mot häleri
   gäller lika mycket vid högt värde som vid NJA 1986 s. 374:s lågvärdesexempel.
 
+- **Bredare websökning löste en av de fyra kvarvarande luckorna** (2026-09-14): på
+  användarens begäran vidgades sökningen bortom lagen.nu till allmän websökning
+  (domstol.se:s pressmeddelandearkiv, Brottsoffermyndighetens referatsamling m.fl.).
+  - **Trolöshet mot huvudman (normalgraden) - äntligen löst.** **Göta hovrätt B 3698-22**
+    (pressmeddelande på domstol.se): en före detta VD dömdes ursprungligen av
+    tingsrätten för trolöshet mot huvudman i TIO fall (privata inköp för bolagets
+    räkning, ca 100 000 kr), men hovrätten friade honom från åtta av dessa och dömde
+    honom slutligt för endast två fall (en hotellövernattning och en elinstallation,
+    ca 23 000 kr) - flerfaldighet i mindre skala, men den enda referensdomen i hela
+    databasen för just normalgraden av detta brott. Påföljd: villkorlig dom utan
+    böter, med hänsyn till att han redan förlorat sin anställning.
+  - **Straffbart.se förkastades medvetet som källa**, trots relevant innehåll om
+    ringa bedrägeri (Brå-statistik, resonemang om upprepning/mönster): sajtens egen
+    om-sida avslöjar att innehållet är "AI-assisterad textproduktion" från en
+    enmansdriven sajt utan juridisk expertis bakom - för osäker grund jämfört med
+    Lawlines juristbesvarade frågor eller primärkällor. Samma slutsats gäller
+    Brottsoffermyndighetens referatsamling för utpressning: innehållet saknar
+    domstolsnamn, målnummer och straffvärdesuppgifter (fokuserar bara på
+    kränkningsersättning) och går därför inte att verifiera mot en primärkälla.
+  - **Ringa utpressning, grovt olovligt förfogande och inbrottsstöld-flerfaldighet
+    kvarstår, nu bekräftat även bortom lagen.nu.** Flera sökningar mot domstol.se:s
+    pressmeddelanden och allmän web gav bara träffar på grov utpressning respektive
+    grov stöld/inbrott i andra sammanhang. Dessa tre bedöms nu som väl uttömda med
+    de metoder som finns tillgängliga.
+
 ## Testa
 
 ```bash

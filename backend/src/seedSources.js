@@ -798,6 +798,38 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    // Hittad via bredare websökning (bortom lagen.nu) efter att lagen.nu:s begreppsindex
+    // och riktade frastextsökningar inte gav någon träff alls för trolöshet mot huvudman
+    // av NORMALGRADEN - den brottstyp av alla i databasen som var svårast att hitta en
+    // referensdom för, eftersom stora belopp nästan alltid klassas som grovt i praxis
+    // (se övriga trolöshet-poster ovan). Detta är det första fyndet.
+    id: "Göta hovrätt B 3698-22",
+    kalla: "domstol.se (pressmeddelande)",
+    kalla_url:
+      "https://www.domstol.se/nyheter/2023/06/hovratten-meddelar-dom-gallande-atalet-om-troloshet-mot-huvudman-mot-fore-detta-vdn-for-science-park-i-skovde/",
+    domstol: "Göta hovrätt (mål B 3698-22, 2023-06)",
+    brott_sammanfattning:
+      "Det enda verifierade avgörandet i denna kalkylator för trolöshet mot huvudman av " +
+      "NORMALGRADEN (ej grov) - de flesta publicerade avgöranden för brottstypen rör den " +
+      "grova graden. En före detta VD för ett Science Park-bolag åtalades för att under " +
+      "flera år ha låtit bolaget betala privata inköp för drygt 900 000 kr. Tingsrätten " +
+      "dömde honom för trolöshet mot huvudman i TIO fall (ca 100 000 kr); hovrätten " +
+      "friade honom från åtta av dessa och dömde honom slutligt för endast två fall " +
+      "(en hotellövernattning och en elinstallation i bostadshuset, tillsammans " +
+      "ca 23 000 kr) - flerfaldighet, om än i mindre skala än vad åklagaren gjorde " +
+      "gällande.",
+    straffvarde_text:
+      "Påföljd: villkorlig dom utan bötesstraff - hovrätten avstod medvetet från " +
+      "bötesstraffet (annars normalt vid villkorlig dom) med hänsyn till att VD:n redan " +
+      "förlorat sin anställning utan ekonomisk kompensation till följd av åtalet. OBS: " +
+      "endast domstol.se:s pressmeddelande har lästs här, inte hela hovrättsdomens " +
+      "fulltext.",
+    brottstyper: ["troloshet_mot_huvudman"],
+    flerfaldighetsexempel: true,
+    verifieringsstatus: "manuell_pressmeddelande",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [
