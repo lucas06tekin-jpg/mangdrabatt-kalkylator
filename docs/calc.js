@@ -40,22 +40,27 @@ function viktaBrott(sorterade, { modell, vikter, golvProcent }) {
   });
 }
 
-// 29 kap. 7 § BrB: den som begått brottet innan hen fyllt 21 år ska få ett lägre straff än
-// vad brottets straffvärde annars skulle motivera. Reduktionen är inte lagfäst i en exakt
-// tabell, men skalan nedan är den vägledande utgångspunkt domstolar i praktiken utgår från
-// (etablerad sedan NJA 2000 s. 421, se t.ex. Borgeke/Sterzel "Studier rörande påföljdspraxis")
-// - det enskilda fallets omständigheter kan alltid motivera avvikelse uppåt eller nedåt.
+// 29 kap. 7 § BrB, lydelse efter SFS 2026:1528 (i kraft 10 sep 2026 - se prop. 2025/26:293):
+// ungdomsreduktionen gäller numera bara den som begått brottet innan hen fyllt 18 år, INTE
+// längre upp till 21 år som tidigare. Ungdomsreduktionen för myndiga (18-20 år) är helt
+// avskaffad - Lagrådet hade ingen invändning mot just den delen av reformen.
+//
+// Före reformen löd paragrafen "ska ... beaktas SÄRSKILT"; nu lyder den "ska ... beaktas i
+// SKÄLIG OMFATTNING" - en språklig ändring som enligt författningskommentaren till
+// lagrådsremissen är avsedd att ge en AVSEVÄRT MINDRE reduktion än den gamla, väletablerade
+// skalan (som byggde på NJA 2000 s. 421 och users omkring en femtedel/fjärdedel/tredjedel
+// för 15-17-åringar). Skalan nedan följer författningskommentarens egna angivna kvotdelar
+// för 15-17 år - men eftersom lagen bara varit i kraft i några dagar (10 sep 2026) finns
+// ÄNNU INGEN fastställd domstolspraxis som bekräftar dessa exakta tal; det enskilda fallets
+// omständigheter kan alltid motivera avvikelse uppåt eller nedåt, mer än tidigare.
 export const UNGDOMSREDUKTION_TABELL = [
-  { alder: 15, fraktion: 1 / 5 },
-  { alder: 16, fraktion: 1 / 4 },
-  { alder: 17, fraktion: 1 / 3 },
-  { alder: 18, fraktion: 1 / 2 },
-  { alder: 19, fraktion: 2 / 3 },
-  { alder: 20, fraktion: 3 / 4 },
+  { alder: 15, fraktion: 2 / 5 },
+  { alder: 16, fraktion: 3 / 5 },
+  { alder: 17, fraktion: 4 / 5 },
 ];
 
 export function ungdomsfraktion(alderVidBrott) {
-  if (alderVidBrott == null || alderVidBrott >= 21) return 1;
+  if (alderVidBrott == null || alderVidBrott >= 18) return 1;
   const rad = UNGDOMSREDUKTION_TABELL.find((r) => r.alder === Math.floor(alderVidBrott));
   return rad ? rad.fraktion : 1;
 }

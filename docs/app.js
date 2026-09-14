@@ -489,7 +489,8 @@ function renderResultat(res) {
   const modellLabel = arAndelsmodell ? 'Andelsmodell (SOU 2023:1)' : 'Halveringsmodell';
   const modellLabelGenitiv = arAndelsmodell ? 'andelsmodellens' : 'halveringsmodellens';
   // Ungdomsreduktionen (29 kap. 7 § BrB) visas bara som en extra rad när den faktiskt slår
-  // till (ålder ifylld och under 21) - annars är faktorn 1 och raden vore bara brus.
+  // till (ålder ifylld och under 18, sedan SFS 2026:1528) - annars är faktorn 1 och raden
+  // vore bara brus.
   const ungdomsRad = res.ungdomsfraktion !== 1
     ? `<div class="resultat-rad highlight ungdom">
         <span class="label">e) Straffmätningsvärde efter ungdomsreduktion (29 kap. 7 § BrB,

@@ -744,7 +744,52 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
     kvarstår, nu bekräftat även bortom lagen.nu.** Flera sökningar mot domstol.se:s
     pressmeddelanden och allmän web gav bara träffar på grov utpressning respektive
     grov stöld/inbrott i andra sammanhang. Dessa tre bedöms nu som väl uttömda med
-    de metoder som finns tillgängliga.
+    de metoder som finns tillgängliga. Ett konkret men obekräftat fynd för grovt
+    olovligt förfogande (Dagens Juridik, Eskilstuna, en bilverkstad som behöll en
+    Range Rover i 1,5 år, fälld i både tingsrätt och hovrätt) ligger bakom en
+    betalvägg utan synligt målnummer - kan läggas till om målnumret hittas.
+- **En doktrinkälla till för olaga hot/grovt olaga hot** (2026-09-14): brottsfamiljen
+  hade tidigare noll förklarande källor trots egna referensdomar. **Lawline: "Påföljd
+  vid olaga hot"** går igenom gradindelningsfaktorerna, inklusive att UPPREPADE
+  allvarliga hot uttryckligen kan vara en faktor som gör hotet grovt.
+
+### VIKTIG RÄTTELSE: ungdomsreduktionen byggdes på en lag som hann bli inaktuell
+(2026-09-14)
+
+Under research för föregående punkt (en Lawline-artikel om grovt narkotikabrott och
+20-åringar) upptäcktes att 29 kap. 7 § BrB - paragrafen bakom appens
+ungdomsreduktion, implementerad 2026-09-11 - hade ändrats **fyra dagar innan
+upptäckten**, utan att det uppmärksammats:
+
+- **SFS 2026:1528** (utfärdad 14 aug 2026, prop. 2025/26:293) **trädde i kraft den
+  10 september 2026** - verifierat direkt mot den officiella författningstexten
+  (svenskforfattningssamling.se), inte bara sekundära källor.
+- Ungdomsreduktionen gäller nu bara den som begått brottet **innan hen fyllt 18 år**
+  - inte upp till 21 år som tidigare. Reduktionen för 18-20-åringar ("myndiga
+  lagöverträdare") är **helt avskaffad**. Lagrådet hade ingen invändning mot just
+  den delen.
+- Paragrafens lydelse ändrades samtidigt från "ska beaktas SÄRSKILT" till "ska
+  beaktas i SKÄLIG OMFATTNING" för 15-17-åringar - enligt författningskommentaren
+  till lagrådsremissen (verifierad via Lagrådets eget yttrande 2026-03-12) avsett
+  att ge en AVSEVÄRT MINDRE reduktion än den gamla skalan (baserad på NJA 2000 s.
+  421). De nya vägledande kvotdelarna: 15 år ≈ 2/5, 16 år ≈ 3/5, 17 år ≈ 4/5 (av
+  vad en vuxen skulle få) - upp från tidigare 1/5, 1/4, 1/3.
+
+**Åtgärdat**: `UNGDOMSREDUKTION_TABELL` och `ungdomsfraktion()` i `calc.js`
+uppdaterade till de nya kvotdelarna för 15-17 år; `ungdomsfraktion()` returnerar nu
+1 (ingen reduktion) från och med 18 år. UI-texten i `index.html` uppdaterad från
+"Under 21 år..." till "Under 18 år...", med en tydlig brasklapp om att lagen är så
+ny (fyra dagar vid upptäckten) att ingen domstolspraxis ännu bekräftat de exakta
+kvottalen - författningskommentarens siffror är vägledande, inte lagfästa. Alla
+kalc.test.js-tester uppdaterade och verifierade (51/51 gröna).
+
+**Lärdom**: en straffrättslig kalkylator som denna kan inte bara byggas en gång -
+lagstiftningen förändras löpande (precis som appen redan bevakar den ännu icke
+ikraftträdda asperationsprincip-reformen SFS 2026:1318), och en redan
+IMPLEMENTERAD funktion kan hinna bli inaktuell inom loppet av dagar. Detta hittades
+av en slump under ett websökningsuppdrag - inte genom systematisk bevakning. Det
+vore klokt att regelbundet kontrollera lagen.nu:s brottsbalken-sida för ändringar i
+de paragrafer appen bygger på (26 kap. 1-2 §§, 29 kap. 1-7 §§).
 
 ## Testa
 

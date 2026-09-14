@@ -1271,4 +1271,20 @@ export const FORKLARANDE_KALLOR = [
     brottstyper: ["ringa_narkotikabrott", "narkotikabrott"],
     granskningsdjup: "fulltext",
   },
+  {
+    // Fyller den tidigare tomma doktrin-luckan för olaga hot/grovt olaga hot (0
+    // förklarande källor trots att brottstypen redan hade referensdomar).
+    id: "lawline-pafoljd-vid-olaga-hot",
+    kalla: "Lawline",
+    titel: "Påföljd vid olaga hot",
+    kalla_url: "https://lawline.se/answers/pafoljd-vid-olaga-hot",
+    sammanfattning:
+      "Går igenom gradindelningen mellan olaga hot och grovt olaga hot (4 kap. 5 § BrB): " +
+      "lagtexten anger ingen exakt gräns, men förarbetena pekar på att brottet i " +
+      "betydande grad måste skilja sig från normalfallet - faktorer som vägs in är " +
+      "hotets innebörd, hur akut det framstår, om det riktas mot någon i särskilt " +
+      "skyddslös ställning, och uttryckligen om det rör sig om UPPREPADE allvarliga hot.",
+    brottstyper: ["olaga_hot", "grovt_olaga_hot"],
+    granskningsdjup: "fulltext",
+  },
 ];
