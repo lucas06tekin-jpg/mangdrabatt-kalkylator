@@ -1130,4 +1130,44 @@ export const FORKLARANDE_KALLOR = [
     brottstyper: ["ringa_misshandel", "misshandel", "grov_misshandel", "synnerligen_grov_misshandel"],
     granskningsdjup: "snippet",
   },
+  {
+    // Svarar direkt på frågan "spelar det någon roll att brotten är av OLIKA slag?" -
+    // frågeställaren är misstänkt för både bedrägeri och penningtvättsbrott (olika
+    // brottsbalks-/specialstraffrättsliga brott) i sju separata ärenden. Svaret bekräftar
+    // uttryckligen att mängdrabatt/asperationsprincipen tillämpas på precis samma sätt
+    // oavsett om de sammanräknade brotten är av samma eller olika slag - ett gemensamt
+    // straff bestäms för samtliga sju ärenden tillsammans.
+    id: "lawline-penningtvatt-och-bedrageri",
+    kalla: "Lawline",
+    titel: "Vad är straffet för penningtvättsbrott och bedrägeri?",
+    kalla_url: "https://lawline.se/answers/vad-ar-straffet-for-penningtvattsbrott-och-bedrageri-",
+    sammanfattning:
+      "Frågeställaren misstänks för sju olika ärenden, en blandning av bedrägeri och " +
+      "penningtvättsbrott. Svaret bekräftar att svensk rätt i regel utdömer ETT gemensamt " +
+      "straff när flera brott handläggs samtidigt (mängdrabatt/asperationsprincipen, 30 " +
+      "kap. 3 § BrB) - domstolen bestämmer straffvärdet för respektive brott och drar " +
+      "sedan av en viss andel för de övriga, oavsett att brotten är av olika slag och " +
+      "regleras i olika lagar (BrB respektive penningtvättsbrottslagen).",
+    brottstyper: ["bedrageri", "grovt_bedrageri", "ringa_bedrageri"],
+    granskningsdjup: "fulltext",
+  },
+  {
+    // Ett konkret, verklighetstroget exempel på en blandning som INTE är förmögenhetsbrott:
+    // narkotikainnehav upptäckt efter en singelolycka, kombinerat med drograttfylleri och
+    // vårdslöshet i trafik (de senare två är trafikbrott, inte brottstyper i denna
+    // kalkylator, men visar mekaniken tydligt).
+    id: "lawline-narkotika-rattfylleri-vardsloshet",
+    kalla: "Lawline",
+    titel: "Påföljdsbestämning vid flera brott",
+    kalla_url: "https://lawline.se/answers/pafoljdsbestamning-vid-flera-brott",
+    sammanfattning:
+      "Frågeställaren misstänks för narkotikainnehav (flera olika preparat), " +
+      "drograttfylleri och vårdslöshet i trafik efter en singelolycka. Svaret förklarar " +
+      "att domstolen tillämpar asperationsprincipen oavsett brottstypernas art: det " +
+      "brott som har högst straffvärde läggs till grund för påföljdsbestämningen, och en " +
+      "reducerad del av de övriga brottens straffvärden läggs sedan till - ett enda " +
+      "gemensamt straff, inte separata straff per brottstyp (30 kap. 3 § BrB).",
+    brottstyper: ["ringa_narkotikabrott", "narkotikabrott"],
+    granskningsdjup: "fulltext",
+  },
 ];

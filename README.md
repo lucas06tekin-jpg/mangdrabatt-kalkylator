@@ -670,6 +670,21 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   piltangent om listan råkar vara stängd. En programmatisk `.focus()`-anrop (efter
   submit) utlöser aldrig `click`, så skillnaden mellan "fick fokus" och "blev klickad"
   är precis vad som behövdes.
+- **Två nya doktrinkällor om blandade brottstyper** (2026-09-14): en användare frågade
+  specifikt hur mängdrabatten fungerar när de kombinerade brotten är av OLIKA slag (inte
+  bara flera likadana). Appens modell bryr sig redan bara om straffvärde och
+  rangordning, aldrig om brottstyp (se `viktaBrott()` i `calc.js`) - och databasen hade
+  redan åtta referensdomar med genuint blandade brottstyper (t.ex. NJA 2016 s. 1143:
+  stöld + bedrägeri) samt två generella Lawline-källor om asperationsprincipens
+  mekanik. Två nya Lawline-svar tillkom som konkret bekräftar att mekaniken är identisk
+  oavsett brottstypernas art:
+  - **"Vad är straffet för penningtvättsbrott och bedrägeri?"** - sju blandade ärenden
+    av bedrägeri och penningtvättsbrott, ett gemensamt straff.
+  - **"Påföljdsbestämning vid flera brott"** - narkotikainnehav + drograttfylleri +
+    vårdslöshet i trafik efter en singelolycka.
+  Ett tredje kandidatsvar (`16376`, om fem stölder) förkastades - det är samma
+  brottstyp upprepad, inte en blandning, och överlappar redan SOU 2023:1:s eget
+  inbrottsstöld-exempel.
 
 ## Testa
 
