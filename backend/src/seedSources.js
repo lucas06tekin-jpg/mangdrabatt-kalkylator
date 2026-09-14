@@ -729,6 +729,28 @@ export const REFERENSDOMAR = [
     verifieringsstatus: "manuell_fulltext",
     autoUppdateras: true,
   },
+  {
+    id: "NJA 2011 s. 675",
+    kalla: "lagen.nu",
+    kalla_url: "https://lagen.nu/dom/nja/2011s675",
+    domstol: "Högsta domstolen (mål B 2613-11, 2011-10-21)",
+    brott_sammanfattning:
+      "Gränsdragningsmål, INTE ett flerfaldighetsexempel: hovrätten dömde en kvinna för " +
+      "grovt narkotikabrott/grov narkotikasmuggling i åtta fall (sammanlagt 347,7 gram " +
+      "MDPV, beställt från Kina i åtta leveranser) till fängelse 7 år, med ett rent " +
+      "mängdresonemang. HD fann att den etablerade mängdtabellen för denna syntetiska " +
+      "drog byggde på en överskattning av dess farlighet och nedgraderade samtliga åtta " +
+      "fall till narkotikabrott/narkotikasmuggling av NORMALGRADEN i stället.",
+    straffvarde_text:
+      "Straffvärdet/påföljden för den samlade brottsligheten (de åtta fallen plus " +
+      "ytterligare sex mindre poster) sänktes dramatiskt, från hovrättens 7 år till " +
+      "fängelse 1 år. En tydlig påminnelse om att ribban för \"grovt\" narkotikabrott " +
+      "inte är en ren mängdfråga - preparatets faktiska farlighet väger tyngre.",
+    brottstyper: ["narkotikabrott", "grovt_narkotikabrott"],
+    flerfaldighetsexempel: false,
+    verifieringsstatus: "manuell_fulltext",
+    autoUppdateras: true,
+  },
 ];
 
 export const FORKLARANDE_KALLOR = [

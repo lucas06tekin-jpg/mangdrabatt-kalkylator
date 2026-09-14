@@ -686,6 +686,30 @@ tvingade fram en doktrinkälla för grovt rån innan den kunde committas.
   brottstyp upprepad, inte en blandning, och överlappar redan SOU 2023:1:s eget
   inbrottsstöld-exempel.
 
+- **Ytterligare en sökrunda mot kvarstående luckor, plus två strukturella luckor
+  slutgiltigt bekräftade** (2026-09-14): en användare bad specifikt om prejudikat för
+  ALLA brottstyper. Detta gav:
+  - **NJA 2011 s. 675** ny referensdom för grovt narkotikabrott - ett gränsdragningsmål
+    där HD nedgraderade åtta fall av (av hovrätten bedömt) grovt narkotikabrott/grov
+    narkotikasmuggling till normalgraden, med hänvisning till att den etablerade
+    mängdtabellen för den aktuella syntetiska drogen (MDPV) övervärderade dess
+    farlighet. Straffvärdet föll från hovrättens 7 år till HD:s 1 år.
+  - **Grovt olovligt förfogande bekräftat en genuint tom lucka**: lagen.nu:s eget
+    begreppsindex för termen innehåller exakt noll rättsfall - bara lagtextens egen
+    definition. Rimligt, eftersom gradindelningen är ny (SFS 2017:442) och sällan
+    torde bli föremål för överklagande som egen fråga.
+  - **Trolöshet mot huvudman (normalgraden) bekräftat en genuint tom lucka**: en
+    riktad sökning gav noll rättsfallsträffar. Mönstret som redan noterats ovan
+    (starka belopp klassas nästan alltid som grovt i praxis) förklarar sannolikt
+    varför normalgraden aldrig blir föremål för publicerad överrätts-prövning.
+  - **Inbrottsstöld-flerfaldighet bekräftat igen**: lagen.nu:s begreppsindex för
+    "Inbrottsstöld" innehåller fortfarande bara RH 2021:17 (redan i databasen) - samma
+    slutsats som tidigare sessioners uttömmande sökning.
+  Efter denna omgång kvarstår fyra brottstyper helt utan referensdomar (ringa
+  bedrägeri, ringa utpressning, grovt olovligt förfogande, trolöshet mot huvudman
+  normalgraden) - samtliga nu bekräftade genom riktad, uttömmande sökning som genuina
+  strukturella luckor i den publicerade svenska rättspraxisen, inte sökmissar.
+
 ## Testa
 
 ```bash
